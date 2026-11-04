@@ -1,0 +1,12 @@
+*.img
+*.img.gz
+*.iso
+*.raw
+*.dtb
+*.dts
+*.squashfs
+*.log
+*.tmp
+build/
+out/
+.cache/
