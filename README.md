@@ -1,56 +1,75 @@
 # DualOS
 
-**A unified, dual-screen gaming operating system for handhelds.**
+**An Android-based, dual-screen gaming operating system for the Retroid Pocket Duo Lite.**
 
-DualOS is a Duo Lite-first project to create a polished, purpose-built gaming environment that makes dual-screen handheld gaming feel intentional rather than fragmented. The initial engineering priority is an excellent Nintendo 3DS experience, followed by a unified local and streamed game library, multiplayer, and a complete dual-screen interface.
+DualOS is designed to boot from a removable microSD card through our Generic Bootloader (GBL), while preserving the device's original stock Android installation on internal storage.
 
-## Product principles
+The goal is to give the Duo Lite a purpose-built gaming experience without sacrificing its original operating system.
 
-- Dual-screen-first interface and interaction model.
-- Preserve the device's original operating system on internal storage.
-- Self-contained, reversible installation rooted on removable storage.
-- Curated gaming experience rather than a collection of unrelated launchers and configuration tools.
-- Local games and streamed PC games presented through one Play experience.
-- Hardware-aware performance, thermal, and power management.
-- Reproducible builds, evidence-based device support, and recoverability.
+## Core concept
 
-## Initial hardware target
+- **DualOS lives on microSD.** Its Android-based system installation and supporting data reside on removable storage.
+- **Stock Android stays untouched.** The internal eMMC installation remains the recovery and everyday fallback.
+- **GBL handles boot.** Our GBL-based bootloader provides the path to boot the microSD-based Android system.
+- **OpenABL selects the system.** Users can choose which operating system to boot through OpenABL.
+- **Android is the foundation.** DualOS builds on Android's application compatibility, drivers, and hardware support rather than creating a separate Linux distribution.
 
-Retroid Pocket Duo Lite (Qualcomm SM6125 / Adreno 610).
+## Product priorities
 
-The architecture should avoid unnecessary coupling to this device so that other dual-screen handhelds, potentially including the AYN Thor, can be evaluated later.
+1. A purpose-built dual-screen gaming interface.
+2. Excellent Nintendo 3DS emulation, with reliable 2x rendering as a key performance goal.
+3. A unified library for installed games and streamed PC games.
+4. Local multiplayer between Duo Lite devices.
+5. Optional on-device native recompilation where supported, with emulation retained as a fallback.
+6. Offline shader and pipeline cache management to reduce stutter.
+7. A consistent, curated experience with minimal user configuration.
 
-## Current project status
+## Interface direction
 
-- ROCKNIX ABL is installed on the Duo Lite.
-- ROCKNIX has successfully booted from microSD on the target hardware.
-- The project has moved beyond basic removable-media boot feasibility into platform integration and product engineering.
-- A complete DualOS system, polished shell, and supported installation/update process have not yet been delivered.
-- The next major engineering task is a source-level audit of DuoLinux and ROCKNIX to map reusable components, required changes, and Duo Lite-specific gaps.
+The planned first-party home environment uses four top-level sections:
 
-## Initial product priorities
+- Play
+- Watch
+- Stream
+- Settings
 
-1. Establish a reliable SD-rooted Linux platform while preserving stock Android on internal storage.
-2. Audit and integrate Duo Lite hardware support: both displays, controls, touch, audio, GPU, Wi-Fi, Bluetooth, thermals, and power.
-3. Benchmark 3DS performance against the best available stock Android experience before committing to a custom gaming stack.
-4. Build a curated 3DS environment with validated per-game configuration and reliable shader/pipeline cache handling.
-5. Evaluate optional per-title static recompilation with normal emulation retained as fallback.
-6. Add local multiplayer between nearby DualOS devices.
-7. Deliver the unified Play experience, streaming integration, and dual-screen shell.
+The Play experience will include the game library and integrated streaming. Additional companion pages are planned for Game Spotlight, Friends, and Multiplayer.
+
+## Current engineering status
+
+Completed or demonstrated:
+
+- ROCKNIX has successfully booted from microSD on the Duo Lite.
+- A custom GBL EFI diagnostic application has booted from microSD.
+- The diagnostic application successfully identified its loaded-image device, accessed that device's filesystem, and wrote a report to the card.
+- The original stock Android installation remains on internal storage.
+
+Not yet demonstrated:
+
+- Booting a complete Android-based DualOS installation from microSD through GBL.
+- OpenABL operating-system selection for the completed DualOS installation.
+- The complete DualOS Android system and first-party interface.
+
+Linux and ROCKNIX work remains useful as hardware research and boot-chain validation. It is no longer the planned operating-system foundation.
+
+Detailed engineering evidence and historical investigation reports are maintained in the private [duo-lite-reports](https://github.com/hawktocomet/duo-lite-reports) repository.
+
+## Initial target
+
+Retroid Pocket Duo Lite. Other dual-screen handhelds, including the AYN Thor, may be considered later.
+
+## Project principles
+
+- Preserve the original internal Android installation.
+- Keep DualOS removable and independently maintainable.
+- Prefer proven hardware support over unnecessary reinvention.
+- Make dual-screen behavior central to the experience.
+- Prioritize measurable gaming performance and reliability.
+- Keep the system reproducible and maintainable.
 
 ## Documentation
 
 - [Vision](docs/VISION.md)
 - [Architecture](docs/ARCHITECTURE.md)
-- [Hardware](docs/HARDWARE.md)
 - [Roadmap](docs/ROADMAP.md)
-
-Detailed engineering evidence and historical investigation reports are maintained in the private [duo-lite-reports](https://github.com/hawktocomet/duo-lite-reports) repository.
-
-## Safety and installation goals
-
-The product target is an alternative operating system rooted on removable storage, with the stock Android installation on internal storage left intact. Removing the microSD card must leave the device able to boot its original operating system.
-
-ROCKNIX has already demonstrated microSD boot on the Duo Lite using ROCKNIX ABL. That milestone does not, by itself, establish a complete DualOS installation or a supported consumer installation process.
-
-No internal-storage modification, destructive installation, or supported-release claim is acceptable without explicit engineering justification, device-specific validation, and a recovery plan.
+- [Hardware notes](docs/HARDWARE.md)

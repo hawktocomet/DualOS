@@ -1,77 +1,75 @@
 # DualOS Roadmap
 
-This roadmap distinguishes completed feasibility milestones from work still required to deliver a complete DualOS product.
+This roadmap reflects the current decision to build DualOS on Android, booted from microSD through GBL, with OpenABL providing operating-system selection.
 
-## Phase 1 — Platform feasibility and source audit
+Items are goals until verified on the device.
 
-- [x] Obtain and inspect a ROCKNIX SM6115 image.
-- [x] Identify the Duo Lite device tree.
-- [x] Identify Adreno 610 GPU devfreq configuration.
-- [x] Trace ROCKNIX GPU profile loading and helper behavior.
-- [x] Install ROCKNIX ABL on the Duo Lite.
-- [x] Demonstrate ROCKNIX booting from microSD on the actual Duo Lite.
-- [ ] Audit DuoLinux and ROCKNIX source trees and identify reusable components, patches, build tooling, and Duo Lite-specific changes.
-- [ ] Define the complete DualOS SD-rooted deployment and recovery architecture.
-- [ ] Reconfirm and document stock Android boot behavior with the removable card absent as part of a formal acceptance test.
+## Phase 1 — Boot-chain foundation
 
-## Phase 2 — Minimal, maintainable SD-rooted platform
+- [x] Boot ROCKNIX from microSD on the Duo Lite.
+- [x] Build and boot a custom GBL EFI diagnostic application from microSD.
+- [x] Verify GBL can identify the loaded-image device and access its filesystem.
+- [x] Write and read back a diagnostic report on the microSD card.
+- [ ] Establish the complete Android boot requirements for the Duo Lite.
+- [ ] Determine the required microSD Android storage and partition layout.
+- [ ] Boot a minimal Android-based system from microSD through GBL.
+- [ ] Validate the OpenABL selection and handoff flow.
+- [ ] Verify stock Android fallback with the microSD removed.
+- [ ] Document recovery and rollback procedures.
 
-- Establish a reproducible kernel, device-tree, initramfs, and root-filesystem build.
-- Bring up storage, both displays, touch, physical controls, audio, and networking.
-- Confirm stock Android remains intact and boots when the microSD card is absent.
-- Separate persistent user data from replaceable system files.
-- Establish logs, recovery, update/rollback, and repeatable image builds.
-- Avoid internal eMMC modification as a product requirement.
+## Phase 2 — Android platform
 
-## Phase 3 — Hardware services and performance foundation
+- [ ] Establish a reproducible Android build or porting workflow.
+- [ ] Identify required device-specific kernel, vendor, and hardware components.
+- [ ] Validate both displays, touch input, audio, GPU, and physical controls.
+- [ ] Validate Wi-Fi, Bluetooth, battery reporting, charging, and power management.
+- [ ] Validate suspend, resume, reboot, and shutdown.
+- [ ] Confirm the internal stock Android installation remains untouched.
 
-- Display management and dual-screen composition.
-- GPU/CPU frequency discovery and conservative performance policy.
-- Thermal and fan integration that preserves kernel safeguards.
-- Controller and input abstraction.
-- Audio, battery, charging, suspend/resume, and power management.
-- Wi-Fi and Bluetooth services.
-- Measure frame pacing and synchronization independently on both displays.
+## Phase 3 — Dual-screen system behavior
 
-## Phase 4 — 3DS-first Nano gaming environment
+- [ ] Implement reliable display coordination.
+- [ ] Establish screen-role and screen-swap behavior.
+- [ ] Implement physical-control focus and companion-menu behavior.
+- [ ] Validate touch and physical input across both displays.
+- [ ] Measure frame pacing and synchronization under simultaneous display activity.
 
-- Establish repeatable stock Android Citra MMJ performance and compatibility baselines.
-- Evaluate Linux emulator options and graphics-driver behavior on the Duo Lite.
-- Compare frame times, shader compilation, cache persistence, audio, thermals, and battery behavior.
-- Implement curated per-game configuration with minimal user tuning.
-- Implement local/offline shader and pipeline cache management.
-- Evaluate per-title static recompilation (including 3dsrecomp and Zakuro research) with correctness and performance validation.
-- Preserve normal emulation as fallback.
-- Do not claim a performance advantage until repeatable measurements demonstrate it.
+## Phase 4 — 3DS-first gaming
 
-## Phase 5 — Gaming platform and multiplayer
+- [ ] Evaluate Android 3DS emulator options on the Duo Lite.
+- [ ] Establish a repeatable performance and compatibility test suite.
+- [ ] Prioritize reliable 2x rendering where feasible.
+- [ ] Investigate shader and pipeline compilation stutter.
+- [ ] Implement offline cache management.
+- [ ] Evaluate optional native recompilation for supported games.
+- [ ] Preserve emulator fallback for every applicable title.
 
-- Unified local-game library and launch orchestration.
-- Game metadata, save data, and controller profiles.
-- Local Wi-Fi discovery and multiplayer between two Duo Lite devices.
-- Minimal-setup joining and session handling.
-- Later: friends, presence, invitations, remote rendezvous, and additional devices.
+## Phase 5 — Game library and streaming
 
-## Phase 6 — Product experience
+- [ ] Build the unified Play library.
+- [ ] Integrate local Android games and supported emulators.
+- [ ] Integrate supported native-recompiled games.
+- [ ] Integrate PC streaming through Moonlight or an equivalent solution.
+- [ ] Add game artwork and metadata management.
 
-- Fixed first-party dual-screen shell.
-- Top-level Play, Watch, Stream, and Settings navigation.
-- Lower-screen Game Spotlight, Friends, and Multiplayer pages.
-- Stream integration through Moonlight or equivalent in the unified Play experience.
-- Companion menu, screen-swap, and physical-control focus behavior.
-- Curated interface sounds, music, wallpapers, and icon art.
-- Settings, per-game profiles, installation/update workflow, and user documentation.
+## Phase 6 — Multiplayer and social features
 
-## Phase 7 — Additional device support
+- [ ] Establish local multiplayer between two Duo Lite devices.
+- [ ] Build device discovery and connection management.
+- [ ] Design the Friends experience.
+- [ ] Investigate future remote play and Nano Link services.
 
-- Evaluate other dual-screen handhelds only after the Duo Lite experience is stable.
-- Keep device-specific support behind hardware abstractions.
-- AYN Thor is a possible next target, not a current release commitment.
+## Phase 7 — First-party DualOS experience
 
-## Current status
+- [ ] Implement the fixed DualOS home environment.
+- [ ] Implement Play, Watch, Stream, and Settings.
+- [ ] Implement Game Spotlight, Friends, and Multiplayer companion pages.
+- [ ] Add curated wallpaper, artwork, music, and interface sounds.
+- [ ] Validate the complete experience with physical controls and touch.
 
-DualOS has passed the basic alternative-OS removable-storage boot milestone: ROCKNIX ABL is installed and ROCKNIX has successfully booted from microSD on the Retroid Pocket Duo Lite.
+## Phase 8 — Stability and expansion
 
-The project is now in source audit, platform integration, and product feasibility. The next engineering milestone is the DuoLinux/ROCKNIX source-level audit, followed by a measured 3DS performance comparison against the best stock Android baseline.
-
-A complete DualOS distribution, polished shell, supported installer, update system, and recovery process do not yet exist.
+- [ ] Establish system update and rollback procedures.
+- [ ] Establish compatibility and regression testing.
+- [ ] Publish reproducible build and installation documentation.
+- [ ] Evaluate support for additional devices, including the AYN Thor.

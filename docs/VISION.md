@@ -2,86 +2,93 @@
 
 ## Purpose
 
-DualOS is a cohesive gaming platform for dual-screen handhelds. It should eliminate the need to assemble a usable experience from unrelated launchers, emulators, streaming clients, configuration utilities, and device-specific workarounds.
+DualOS is an Android-based gaming operating system designed around the Retroid Pocket Duo Lite's dual-screen hardware.
 
-The first target is the Retroid Pocket Duo Lite. The product should feel like a modern, evolved successor to the Nintendo 3DS: two displays with complementary roles, a curated game-first interface, frictionless local multiplayer, and a consistent experience across supported hardware.
+It is intended to provide a cohesive, purpose-built gaming experience while keeping the device's original stock Android installation intact.
 
-## First product objective: excellent 3DS gaming
+DualOS will reside on microSD and boot through our GBL bootloader. OpenABL will provide the operating-system selection interface. Removing the microSD card will leave the original internal Android installation available as the fallback.
 
-The first major gaming objective is to make Nintendo 3DS titles run exceptionally well on the Duo Lite.
+## Why Android
 
-The best current stock Android experience identified by the project is Citra MMJ. Linux is not automatically faster or better. Before investing in a custom emulator stack, DualOS must establish repeatable comparisons for frame pacing, shader compilation, compatibility, audio, thermals, and battery behavior.
+The project initially explored a Linux-based system using ROCKNIX and related work. That investigation established useful boot and hardware knowledge, but Android is now the chosen foundation.
 
-The intended experience includes:
-- Curated, validated per-game emulator profiles; users should not need to tune dozens of settings.
-- Local shader and pipeline cache management that works offline.
-- Reliable warm-start behavior and transparent handling of shader compilation.
-- Optional per-title static recompilation where technically viable and validated.
-- Ordinary emulation as a compatibility fallback whenever a recompilation build is unavailable or unsuitable.
+Android offers a more direct path to application compatibility and existing device support. It also provides a foundation for integrating emulators, native recompilation tools, streaming clients, and the broader Android gaming ecosystem.
 
-Static recompilation is an optimization path, not a promise of universal native ports or broad title coverage.
+The objective is not simply to install another Android build. It is to create a distinct operating-system experience tailored to this hardware.
 
-## The dual-screen experience
+## Primary goals
 
-The two displays have complementary roles:
-- **Top screen:** home, navigation, library, settings, and contextual information.
-- **Bottom screen:** active game or content surface, plus companion pages and controls when appropriate.
+### 1. Dual-screen-first experience
 
-The interface should use both displays intentionally without requiring every application to do so. Single-screen applications must remain usable.
+The two displays should work together as a single gaming environment. Screen roles, focus, touch, physical controls, and display synchronization must be treated as core platform behavior.
 
-## Navigation and home experience
+### 2. 3DS-first gaming
 
-The top-level tabs are:
-- **Play**
-- **Watch**
-- **Stream**
-- **Settings**
+Nintendo 3DS is the initial performance priority. The goal is reliable 2x rendering wherever the hardware and software permit it, with smooth frame pacing and reduced shader-compilation stutter.
 
-The Play experience is the primary library for local games and streamed PC games. Stream should also be integrated into the Play library through Moonlight or an equivalent backend; streaming is a launch method, not a separate game ecosystem.
+### 3. Unified game experience
 
-Initial lower-screen swipe pages:
+The Play library should bring together locally installed games, supported native-recompiled titles, emulated games, and streamed PC games.
+
+Streaming should be integrated into the Play experience rather than treated as an unrelated launcher.
+
+### 4. Minimal configuration
+
+DualOS should make sensible hardware-aware decisions automatically. Users should not need to understand emulator internals, graphics settings, or complicated performance tuning to get a good experience.
+
+### 5. Local multiplayer and connectivity
+
+Local multiplayer between two Duo Lite devices is an initial long-term goal. A broader friend and remote-play system may follow.
+
+## Home experience
+
+The planned first-party home environment is a fixed DualOS interface, not a replaceable collection of third-party front ends.
+
+Top-level navigation:
+
+- Play
+- Watch
+- Stream
+- Settings
+
+Additional swipe-accessible companion pages:
+
 - Game Spotlight
 - Friends
 - Multiplayer
 
-Do not add a Discover page to the initial design.
+Customization should remain curated: wallpapers, game artwork, interface sounds, and music.
 
-Interaction concepts:
-- Back tap opens the companion menu.
-- Back hold swaps screens.
-- Home returns to the home experience.
-- The companion interface receives physical-control focus while touch remains available.
+## Controls
 
-These input mappings are product design targets and must be validated against the device's actual input stack.
+Planned physical-control behavior:
 
-## One Play experience
+- Home tap: return to the DualOS home experience.
+- Back tap: open the companion menu and move control focus to it.
+- Back hold: swap the physical display arrangement.
+- Touch input remains available while the companion interface has physical-control focus.
 
-Local games and streamed PC games belong in the same library.
+These mappings require device-level validation before implementation is considered complete.
 
-A PC game should be discoverable and launchable through the same flow as a locally installed game. Moonlight or an equivalent streaming client should operate underneath the DualOS shell.
+## Game technology
 
-## Multiplayer
+DualOS should support multiple ways to run games:
 
-Local Wi-Fi multiplayer between two nearby Duo Lite devices is the first multiplayer target. Discovery and joining should require minimal setup.
+- Android emulation.
+- Native Android games and applications.
+- Optional on-device static recompilation for supported titles.
+- PC game streaming.
 
-Friend presence, invitations, remote rendezvous, and internet-based multiplayer coordination are later capabilities. Core local play should not depend on a cloud service.
+Native recompilation must not eliminate the emulator fallback. Compatibility and user choice are more important than forcing every title through one execution method.
 
-## Curated system experience
+An offline shader and pipeline cache manager is an early priority. Network-assisted cache sharing may be considered later.
 
-DualOS should provide a fixed, first-party front end rather than alternate launcher or front-end choices. The visual system should include curated sounds, interface music, wallpapers, and icon art.
+## Platform strategy
 
-The intended home experience is modern, balanced, and recognizably designed for two screens. Interface music and sounds are enabled by default, with user controls in Settings.
+Android is the operating-system foundation. GBL and OpenABL provide the boot and selection path. The microSD installation must remain independent of the stock Android system on internal storage.
 
-## Product principles
+Linux and ROCKNIX are retained as sources of hardware research and validated boot-chain experience, not as the intended DualOS operating system.
 
-1. Dual-screen behavior is a platform feature, not an afterthought.
-2. The default experience is curated and straightforward.
-3. Performance, compatibility, thermals, and battery life are balanced deliberately.
-4. Device-specific functionality belongs behind hardware abstractions.
-5. Local/offline operation is preferred for core features.
-6. The system should be maintainable by a small development effort.
-7. The original device OS should remain intact and recoverable.
+## Scope
 
-## Initial target and future portability
-
-Retroid Pocket Duo Lite is the first target. The architecture should avoid unnecessarily coupling the platform to this one device. Additional dual-screen handhelds, potentially including the AYN Thor, can be considered after the Duo Lite experience is established.
+The Retroid Pocket Duo Lite is the first target. Expansion to other dual-screen handhelds may be considered after the Duo Lite platform is stable.

@@ -1,116 +1,130 @@
 # DualOS Architecture
 
-This document describes the proposed architecture. It is a target design, not a claim that all components are implemented.
+## Overview
 
-## Proposed layers
+DualOS is planned as an Android-based operating system installed on removable microSD storage.
 
-### Boot, storage, and platform
+The intended boot arrangement is:
 
-Responsible for boot flow, kernel, device tree, initramfs, SD-rooted root filesystem, storage discovery, updates, and recovery.
+1. Device firmware starts the bootloader.
+2. GBL provides the boot path for the removable-storage system.
+3. OpenABL provides the operating-system selection interface.
+4. Selecting DualOS boots the Android-based system from microSD.
+5. Selecting stock Android boots the original internal installation.
+6. With the microSD removed, the original stock Android installation remains the fallback.
 
-Requirements:
-- Keep the stock Android installation on internal storage untouched.
-- Boot the alternative system from removable storage.
-- Preserve the stock Android boot path when the removable card is absent.
-- Keep user data separate from replaceable system files.
-- Provide repeatable image builds, logs, and recovery procedures.
+The internal eMMC installation is not a target for DualOS installation or modification.
 
-ROCKNIX ABL and ROCKNIX microSD boot have been demonstrated on the Duo Lite. A complete DualOS deployment and update/recovery design remain to be implemented and validated.
+This is the target architecture. A complete Android boot from microSD through GBL has not yet been demonstrated.
 
-### Hardware services
+## Platform layers
 
-Responsible for discovering and controlling:
-- Both displays, touch panels, and display timing.
-- GPU and CPU frequency interfaces.
-- Thermal sensors, cooling devices, and fan policy.
-- Buttons, analog controls, and other input devices.
-- Audio input/output.
-- Battery, charging, suspend/resume, and power states.
-- Wi-Fi and Bluetooth.
-
-Hardware-specific behavior should be encapsulated behind services or interfaces. Discover capabilities at runtime where practical rather than assuming fixed paths or values.
-
-Thermal protection must remain under kernel/platform control. Userspace performance profiles must never disable or bypass thermal safeguards.
-
-### Display system
-
-Responsible for both physical displays, output orientation, refresh behavior, composition, window placement, application display assignment, and focus.
-
-Do not assume both displays share identical timing behavior. Validate composition, synchronization, touch mapping, frame pacing, and application compatibility on the actual hardware.
-
-### DualOS shell
-
-Responsible for:
-- Top-level Play, Watch, Stream, and Settings navigation.
-- Home experience and library.
-- Lower-screen companion pages: Game Spotlight, Friends, and Multiplayer.
-- System overlays and companion menu.
-- Physical-control focus and screen-swap behavior.
-
-The shell is a fixed first-party experience, not a generic desktop or launcher marketplace.
-
-### Game services
-
-Responsible for:
-- Unified game metadata and library.
-- Game launch orchestration.
-- Emulator integration and per-game profiles.
-- Save data and controller mapping.
-- Per-title compatibility and performance information.
-- Local and streamed game entries in one Play experience.
-
-### Nano 3DS environment
-
-A curated 3DS-focused subsystem is the first major gaming priority.
+### 1. Boot and selection
 
 Responsibilities:
-- Emulator integration and validated per-game configuration.
-- Local shader and pipeline cache storage, inspection, and management.
-- Reliable cache persistence and warm-start behavior.
-- Optional per-title static recompilation builds where validated.
-- Emulation fallback for titles without a suitable recompilation path.
 
-A network shader-cache service is explicitly deferred. Core cache functionality should work offline.
+- GBL-based boot support.
+- Detection and use of the removable-storage boot device.
+- OpenABL operating-system selection.
+- Selection of the stock Android fallback.
+- Safe behavior when the microSD card is absent or unusable.
 
-Static recompilation must be treated as an optional per-title backend. It requires correctness and performance validation and must not be assumed to work for arbitrary games.
+The bootloader must not depend on modifying the stock Android installation to provide the alternative boot path.
 
-### Multiplayer services
+### 2. Android system
 
-First target: local Wi-Fi discovery and multiplayer between two nearby Duo Lite devices with minimal setup.
+The DualOS system image and its required supporting partitions or files will reside on microSD.
 
-Later capabilities may include friends, presence, invitations, remote rendezvous, and additional supported devices. Cloud services must not be prerequisites for local multiplayer.
+The implementation must establish which Android boot images, partition layout, device configuration, and vendor components are required for the Duo Lite.
 
-### Streaming
+The exact storage layout and Android image construction method remain engineering decisions until validated.
 
-Responsible for PC discovery, pairing, streaming sessions, and integration with the unified game library.
+### 3. Hardware integration
 
-Moonlight or an equivalent client should operate as a backend. A streamed PC game should appear in the same Play experience as a local game.
+The platform must support:
 
-### Applications
+- Both displays and their independent characteristics.
+- Touch input on both displays.
+- Physical controls and button mapping.
+- GPU acceleration.
+- Audio.
+- Wi-Fi and Bluetooth.
+- Power management, battery reporting, and charging.
+- Thermal monitoring and fan control where supported.
+- Suspend, resume, and shutdown behavior.
 
-Emulators, game engines, media applications, streaming clients, and other user-facing software.
+Existing Android and Linux observations should guide testing, but behavior must be verified on the actual DualOS Android build.
 
-Applications should integrate with the platform's display, input, audio, library, and lifecycle services where appropriate.
+### 4. DualOS system services
 
-## Design constraints
+Planned services include:
 
-- Keep hardware-specific paths out of the shell.
-- Discover capabilities at runtime where possible.
-- Keep thermal protection under kernel/platform control.
-- Avoid assuming both displays share identical timing behavior.
-- Treat streaming as a game-launch backend.
-- Keep user data separate from replaceable system files.
-- Prefer local/offline functionality for core gaming features.
-- Preserve normal emulation as fallback for optional recompilation.
-- Preserve stock Android on internal storage.
+- Display coordination and screen-role management.
+- Physical-control routing.
+- Game library and metadata management.
+- Performance profiles and hardware-aware configuration.
+- Shader and pipeline cache management.
+- Local multiplayer discovery and connectivity.
+- Streaming integration.
 
-## Initial implementation strategy
+### 5. First-party home environment
 
-1. Audit DuoLinux and ROCKNIX source trees and identify reusable platform components, patches, build tooling, and Duo Lite-specific support.
-2. Define the SD-rooted deployment, update, and recovery model.
-3. Validate hardware services independently: displays, input, audio, GPU, networking, thermals, and power.
-4. Establish repeatable 3DS performance and compatibility baselines against stock Android.
-5. Prototype the smallest set of Linux/Nano changes likely to produce measurable improvements.
-6. Integrate game services and the fixed dual-screen shell after the platform foundation is understood.
+The DualOS home experience is a first-party interface designed around the Duo Lite.
 
-Do not build the full shell on top of unverified hardware assumptions.
+Top-level sections:
+
+- Play
+- Watch
+- Stream
+- Settings
+
+Companion pages:
+
+- Game Spotlight
+- Friends
+- Multiplayer
+
+The interface should remain curated and consistent rather than exposing a general-purpose launcher replacement system.
+
+### 6. Game execution
+
+The Play experience should integrate:
+
+- Android games.
+- Supported emulators.
+- Supported native-recompiled titles.
+- Streamed PC games.
+
+For compatible 3DS titles, optional static recompilation may provide an alternative to emulation. Emulator compatibility remains necessary as a fallback.
+
+## Storage and preservation requirements
+
+- DualOS system files reside on microSD.
+- The original stock Android installation remains on internal eMMC.
+- DualOS development must not require flashing or repartitioning internal eMMC.
+- Removing the card must preserve the ability to boot stock Android.
+- Recovery and rollback procedures must be documented before distributing system images.
+
+## Engineering status and validation boundaries
+
+Demonstrated:
+
+- ROCKNIX boot from microSD.
+- GBL EFI application boot from microSD.
+- GBL diagnostic access to the loaded-image device's filesystem.
+- Successful diagnostic report write to the microSD filesystem.
+
+Not yet demonstrated:
+
+- Complete Android system boot from microSD through GBL.
+- OpenABL selection and handoff for the finished DualOS installation.
+- Full hardware support under the proposed Android build.
+- The integrated DualOS home environment.
+
+## Build and validation principles
+
+- Keep bootloader work separate from Android system work.
+- Preserve reproducible source revisions and build instructions.
+- Validate each boot-chain transition independently.
+- Keep internal eMMC untouched.
+- Record successful device tests separately from assumptions and planned behavior.
