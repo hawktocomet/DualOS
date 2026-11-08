@@ -97,3 +97,20 @@ Important: this build uses a temporary diagnostic entry point that intentionally
 ## Storage safety
 
 Internal eMMC must remain untouched. Development and testing use microSD unless a future change is explicitly reviewed and approved.
+
+## Preserved diagnostic source patch
+
+The initial GBL diagnostic implementation is preserved in `patches/gbl/duo-lite-diagnostic.patch`.
+
+- Base GBL revision: `2392920e8324`
+- Patch includes five source files, including the new `diagnostic_fs.rs`.
+- SHA-256: `a5a8f2ebb7bef458e9e495d3b61efec51d82670116f8891531e760c0e0a8ca16`
+
+To apply it to a clean checkout of the matching GBL revision:
+
+```bash
+git apply --check patches/gbl/duo-lite-diagnostic.patch
+git apply patches/gbl/duo-lite-diagnostic.patch
+```
+
+This patch is a development diagnostic checkpoint, not a production DualOS bootloader. Its entry point halts before operating-system boot.

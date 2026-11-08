@@ -1,0 +1,391 @@
+diff --git a/gbl/efi/src/efi_blocks.rs b/gbl/efi/src/efi_blocks.rs
+index 3f21da57..86ac7f49 100644
+--- a/gbl/efi/src/efi_blocks.rs
++++ b/gbl/efi/src/efi_blocks.rs
+@@ -129,6 +129,10 @@ pub fn find_block_devices(efi_entry: &EfiEntry) -> Result<Vec<EfiGblDisk<'_>>, E
+     // TODO(b/452455989) Buffer size and capacity can be configurable using vendor path.
+     let gpt_buffer_size = gpt_buffer_size(GPT_MAX_NUM_ENTRIES)?;
+     for (idx, handle) in block_dev_handles.handles().iter().enumerate() {
++        match crate::utils::get_device_path(efi_entry, *handle) {
++            Ok(path) => efi_println!(efi_entry, "Block #{idx} path: {path}"),
++            Err(e) => efi_println!(efi_entry, "Block #{idx} path unavailable: {e:?}"),
++        }
+         let block_io = bs.open_protocol::<BlockIoProtocol>(*handle).unwrap();
+         // SAFETY: this code always executes at `EFI_TPL_APPLICATION`.
+         let media = unsafe {
+diff --git a/gbl/efi/src/lib.rs b/gbl/efi/src/lib.rs
+index 1652aa05..c30c2ab4 100644
+--- a/gbl/efi/src/lib.rs
++++ b/gbl/efi/src/lib.rs
+@@ -1,3 +1,4 @@
++#![allow(dead_code)]
+ // Copyright 2023, The Android Open Source Project
+ //
+ // Licensed under the Apache License, Version 2.0 (the "License");
+@@ -24,6 +25,8 @@
+ extern crate alloc;
+ 
+ mod efi_blocks;
++#[cfg(not(test))]
++mod diagnostic_fs;
+ #[cfg(feature = "fuchsia")]
+ mod fuchsia_boot;
+ mod net;
+@@ -51,14 +54,13 @@ pub(crate) use efi_mocks as efi;
+ #[cfg(not(test))]
+ use {
+     crate::{
+-        efi_blocks::{find_block_devices, EfiGblDisk},
+-        ops::Ops,
++        efi_blocks::EfiGblDisk,
+     },
+     cfg_if::cfg_if,
+     core::convert::Infallible,
+-    efi::{efi_println, report_error_and_reset, EfiEntry},
++    efi::{efi_println, EfiEntry},
+     libbuild_number::{format_build_fingerprint, format_build_vcs_info},
+-    libgbl::{Os, Result},
++    libgbl::Result,
+     utils::loaded_image_path,
+ };
+ 
+@@ -101,8 +103,8 @@ fn get_target_os(_entry: &EfiEntry, _disks: &[EfiGblDisk]) -> TargetOs {
+ 
+ /// GBL EFI application logic entry point.
+ #[cfg(not(test))]
++#[allow(unreachable_code, unused_variables)]
+ pub fn app_main(entry: EfiEntry) -> Result<Infallible> {
+-    use libutils::get_sp;
+     efi_println!(entry, "**** Generic Bootloader (GBL) ****");
+     efi_println!(entry, "Fingerprint: {}", format_build_fingerprint!());
+     efi_println!(entry, "VCS info: {}", format_build_vcs_info!());
+@@ -110,26 +112,48 @@ pub fn app_main(entry: EfiEntry) -> Result<Infallible> {
+         efi_println!(entry, "Image path: {v}");
+     }
+ 
+-    let disks = find_block_devices(&entry).inspect_err(|e| {
+-        report_error_and_reset(&entry, e, efi_types::GBL_EFI_DEBUG_ERROR_TAG_PARTITION)
+-    })?;
+-    match get_target_os(&entry, &disks) {
+-        #[cfg(feature = "fuchsia")]
+-        TargetOs::Fuchsia => {
+-            let mut load: libgbl::android_boot::BootBuffer =
+-                utils::get_boot_buffer(&entry, 128 * 1024 * 1024)?.into();
+-            let mut ops = Ops::new(&entry, &disks[..], Some(Os::Fuchsia), get_sp());
+-            let images = fuchsia_boot::efi_fuchsia_load(&mut ops, load.scratch())?;
+-            drop(disks);
+-            fuchsia_boot::efi_fuchsia_boot(entry, images)
+-        }
+-        TargetOs::Android => {
+-            let load = utils::get_boot_buffer(&entry, 256 * 1024 * 1024)?;
+-            let mut ops = Ops::new(&entry, &disks[..], Some(Os::Android), get_sp());
+-            let (ramdisk, fdt, kernel, remains) =
+-                android_boot::efi_android_load(&mut ops, load.into())?;
+-            drop(disks);
+-            android_boot::efi_android_boot(entry, kernel, ramdisk, fdt, remains)
++    // Read-only console mode diagnostic.
++    match entry.system_table().con_out() {
++        Ok(console) => {
++            let mode_info = console.interface().mode;
++            if mode_info.is_null() {
++                efi_println!(entry, "Console mode information unavailable.");
++            } else {
++                // SAFETY: UEFI provides this pointer as part of the live
++                // Simple Text Output Protocol.
++                let (max_mode, current_mode) = unsafe {
++                    ((*mode_info).max_mode, (*mode_info).mode)
++                };
++                efi_println!(
++                    entry,
++                    "Console current mode: {current_mode}; available modes: {max_mode}"
++                );
++
++                for mode in 0..max_mode.max(0) as usize {
++                    match console.query_mode(mode) {
++                        Ok((cols, rows)) => {
++                            efi_println!(
++                                entry,
++                                "Console mode {mode}: {cols} columns x {rows} rows"
++                            );
++                        }
++                        Err(e) => {
++                            efi_println!(
++                                entry,
++                                "Console mode {mode}: query failed: {e:?}"
++                            );
++                        }
++                    }
++                }
++            }
+         }
++        Err(e) => efi_println!(entry, "Console protocol unavailable: {e:?}"),
++    }
++
++    let report_status = diagnostic_fs::write_report(&entry);
++    efi_println!(entry, "Filesystem report: {report_status}");
++    efi_println!(entry, "Diagnostic complete. Halting before OS boot.");
++    loop {
++        core::hint::spin_loop();
+     }
+ }
+diff --git a/gbl/libefi/src/lib.rs b/gbl/libefi/src/lib.rs
+index c13ec475..6247ece4 100644
+--- a/gbl/libefi/src/lib.rs
++++ b/gbl/libefi/src/lib.rs
+@@ -836,6 +836,30 @@ impl<'a> BootServices<'a> {
+         }
+     }
+ 
++    /// Looks up a protocol by GUID without requiring a ProtocolInfo implementation.
++    ///
++    /// # Safety
++    /// The caller must interpret the returned interface using the ABI for `guid`.
++    pub unsafe fn handle_protocol_raw(
++        &self,
++        handle: DeviceHandle,
++        guid: &efi_types::EfiGuid,
++    ) -> Result<core::ptr::NonNull<core::ffi::c_void>> {
++        let mut interface: *mut core::ffi::c_void = core::ptr::null_mut();
++
++        // SAFETY: The output pointer is valid for this call.
++        unsafe {
++            efi_call!(
++                self.boot_services.handle_protocol,
++                handle.0,
++                guid,
++                &mut interface as *mut _ as *mut _
++            )?;
++        }
++
++        core::ptr::NonNull::new(interface).ok_or(Error::NotFound)
++    }
++
+     /// Wrapper of `EFI_BOOT_SERVICE.HandleProtocol()`.
+     pub fn handle_protocol<T: ProtocolInfo>(
+         &self,
+diff --git a/gbl/libefi/src/protocol/simple_text_output.rs b/gbl/libefi/src/protocol/simple_text_output.rs
+index aeda8e75..3dffc959 100644
+--- a/gbl/libefi/src/protocol/simple_text_output.rs
++++ b/gbl/libefi/src/protocol/simple_text_output.rs
+@@ -46,6 +46,33 @@ impl Protocol<'_, SimpleTextOutputProtocol> {
+         unsafe { efi_call!(self.interface().reset, self.interface_ptr(), extended) }
+     }
+ 
++    /// Query the dimensions supported by a console text mode.
++    pub fn query_mode(&self, mode: usize) -> Result<(usize, usize)> {
++        let mut cols = 0usize;
++        let mut rows = 0usize;
++        // SAFETY:
++        // The protocol interface is valid, and the output pointers refer to
++        // live local variables for the duration of the firmware call.
++        unsafe {
++            efi_call!(
++                self.interface().query_mode,
++                self.interface_ptr(),
++                mode,
++                &mut cols,
++                &mut rows
++            )?;
++        }
++        Ok((cols, rows))
++    }
++
++    /// Select a console text mode.
++    pub fn set_mode(&self, mode: usize) -> Result<()> {
++        // SAFETY:
++        // The protocol interface is valid and the mode number is passed only
++        // for the duration of the firmware call.
++        unsafe { efi_call!(self.interface().set_mode, self.interface_ptr(), mode) }
++    }
++
+     /// Wrapper of `EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL.OutputString()`
+     pub fn output_string(&self, msg: &mut [u16]) -> Result<()> {
+         if !msg.contains(&0) {
+diff --git a/gbl/efi/src/diagnostic_fs.rs b/gbl/efi/src/diagnostic_fs.rs
+new file mode 100644
+index 00000000..e1b314f7
+--- /dev/null
++++ b/gbl/efi/src/diagnostic_fs.rs
+@@ -0,0 +1,182 @@
++// DualOS EFI diagnostic filesystem writer.
++// Uses only the device handle reported by EFI_LOADED_IMAGE_PROTOCOL.
++
++use core::ffi::c_void;
++use core::ptr::null_mut;
++
++use efi::protocol::loaded_image::LoadedImageProtocol;
++use efi::{efi_call, EfiEntry};
++use efi_types::EfiGuid;
++
++#[repr(C)]
++struct EfiSimpleFileSystemInterface {
++    revision: u64,
++    open_volume: Option<
++        unsafe extern "efiapi" fn(
++            this: *mut EfiSimpleFileSystemInterface,
++            root: *mut *mut EfiFileProtocol,
++        ) -> efi_types::EfiStatus,
++    >,
++}
++
++#[repr(C)]
++struct EfiFileProtocol {
++    revision: u64,
++    open: Option<
++        unsafe extern "efiapi" fn(
++            this: *mut EfiFileProtocol,
++            new_handle: *mut *mut EfiFileProtocol,
++            file_name: *const u16,
++            open_mode: u64,
++            attributes: u64,
++        ) -> efi_types::EfiStatus,
++    >,
++    close: Option<
++        unsafe extern "efiapi" fn(this: *mut EfiFileProtocol) -> efi_types::EfiStatus,
++    >,
++    delete: Option<
++        unsafe extern "efiapi" fn(this: *mut EfiFileProtocol) -> efi_types::EfiStatus,
++    >,
++    read: Option<
++        unsafe extern "efiapi" fn(
++            this: *mut EfiFileProtocol,
++            buffer_size: *mut usize,
++            buffer: *mut c_void,
++        ) -> efi_types::EfiStatus,
++    >,
++    write: Option<
++        unsafe extern "efiapi" fn(
++            this: *mut EfiFileProtocol,
++            buffer_size: *mut usize,
++            buffer: *const c_void,
++        ) -> efi_types::EfiStatus,
++    >,
++    get_position: Option<
++        unsafe extern "efiapi" fn(
++            this: *mut EfiFileProtocol,
++            position: *mut u64,
++        ) -> efi_types::EfiStatus,
++    >,
++    set_position: Option<
++        unsafe extern "efiapi" fn(
++            this: *mut EfiFileProtocol,
++            position: u64,
++        ) -> efi_types::EfiStatus,
++    >,
++    get_info: Option<
++        unsafe extern "efiapi" fn(
++            this: *mut EfiFileProtocol,
++            information_type: *const EfiGuid,
++            buffer_size: *mut usize,
++            buffer: *mut c_void,
++        ) -> efi_types::EfiStatus,
++    >,
++    set_info: Option<
++        unsafe extern "efiapi" fn(
++            this: *mut EfiFileProtocol,
++            information_type: *const EfiGuid,
++            buffer_size: usize,
++            buffer: *const c_void,
++        ) -> efi_types::EfiStatus,
++    >,
++    flush: Option<
++        unsafe extern "efiapi" fn(this: *mut EfiFileProtocol) -> efi_types::EfiStatus,
++    >,
++}
++
++const SIMPLE_FILE_SYSTEM_GUID: EfiGuid =
++    EfiGuid::from_u64s(0x964e5b22645911d2, 0x8e3900a0c969723b);
++
++const FILE_NAME: [u16; 16] = [
++    68, 85, 65, 76, 79, 83, 45, 68, 73, 65, 71, 46, 84, 88, 84, 0,
++];
++
++const REPORT: &[u8] = b"DualOS EFI diagnostic\r\n\
++Filesystem: loaded-image device only\r\n\
++Protocol: EFI_SIMPLE_FILE_SYSTEM_PROTOCOL\r\n\
++Report: write completed\r\n";
++
++pub fn write_report(entry: &EfiEntry) -> &'static str {
++    let boot_services = entry.system_table().boot_services();
++
++    let loaded_image = match boot_services
++        .open_protocol::<LoadedImageProtocol>(entry.image_handle())
++    {
++        Ok(protocol) => protocol,
++        Err(_) => return "FAILED: loaded-image protocol",
++    };
++
++    // Restrict filesystem discovery to the device that loaded this EFI image.
++    let source_device = loaded_image.device_handle();
++
++    // SAFETY: The GUID identifies EFI_SIMPLE_FILE_SYSTEM_PROTOCOL. The returned
++    // interface is interpreted using the matching UEFI protocol ABI below.
++    let filesystem_ptr = match unsafe {
++        boot_services.handle_protocol_raw(source_device, &SIMPLE_FILE_SYSTEM_GUID)
++    } {
++        Ok(pointer) => pointer.as_ptr() as *mut EfiSimpleFileSystemInterface,
++        Err(_) => return "FAILED: no filesystem on loaded-image device",
++    };
++
++    let mut root: *mut EfiFileProtocol = null_mut();
++    // SAFETY: filesystem_ptr is the firmware-provided protocol interface; root is a valid output pointer.
++    let open_volume_result = unsafe {
++        efi_call!(
++            (*filesystem_ptr).open_volume,
++            filesystem_ptr,
++            &mut root
++        )
++    };
++
++    if open_volume_result.is_err() || root.is_null() {
++        return "FAILED: opening source filesystem";
++    }
++
++    let mut file: *mut EfiFileProtocol = null_mut();
++    // SAFETY: root is the valid handle returned by OpenVolume; file is a valid output pointer and FILE_NAME is NUL-terminated UTF-16.
++    let open_file_result = unsafe {
++        efi_call!(
++            (*root).open,
++            root,
++            &mut file,
++            FILE_NAME.as_ptr(),
++            0x1 | 0x2 | 0x8000_0000_0000_0000,
++            0
++        )
++    };
++
++    if open_file_result.is_err() || file.is_null() {
++        // SAFETY: root is the valid file-protocol handle returned by OpenVolume.
++        let _ = unsafe { efi_call!((*root).close, root) };
++        return "FAILED: creating diagnostic report";
++    }
++
++    let mut written = REPORT.len();
++    // SAFETY: file is the valid handle returned by Open; REPORT is readable and written is a valid size pointer.
++    let write_result = unsafe {
++        efi_call!(
++            (*file).write,
++            file,
++            &mut written,
++            REPORT.as_ptr() as *const c_void
++        )
++    };
++
++    let flush_ok = if write_result.is_ok() && written == REPORT.len() {
++        // SAFETY: file is the valid file-protocol handle returned by Open.
++        unsafe { efi_call!((*file).flush, file) }.is_ok()
++    } else {
++        false
++    };
++
++    // SAFETY: file is the valid file-protocol handle returned by Open.
++    let _ = unsafe { efi_call!((*file).close, file) };
++    // SAFETY: root is the valid file-protocol handle returned by OpenVolume.
++    let _ = unsafe { efi_call!((*root).close, root) };
++
++    if write_result.is_err() || written != REPORT.len() || !flush_ok {
++        return "FAILED: writing or flushing report";
++    }
++
++    "OK: DUALOS-DIAG.TXT written"
++}
