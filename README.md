@@ -73,3 +73,4 @@ Retroid Pocket Duo Lite. Other dual-screen handhelds, including the AYN Thor, ma
 - [Architecture](docs/ARCHITECTURE.md)
 - [Roadmap](docs/ROADMAP.md)
 - [Hardware notes](docs/HARDWARE.md)
+- [GBL bootloader development](docs/BOOTLOADER-GBL.md)
