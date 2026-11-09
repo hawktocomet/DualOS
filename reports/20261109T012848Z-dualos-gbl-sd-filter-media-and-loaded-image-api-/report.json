@@ -1,0 +1,13 @@
+{
+  "id": "20261109T012848Z-dualos-gbl-sd-filter-media-and-loaded-image-api-",
+  "title": "DualOS GBL SD filter media and loaded-image API check",
+  "created_utc": "2026-11-09T01:28:48.593968+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd \"$HOME/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader\" || exit 2\n\necho \"===== BLOCK IO MEDIA TYPE =====\"\nrg -n -C 12 \"EfiBlockIoMedia|logical_partition\" gbl/libefi_types/src gbl/libefi_types/include\n\necho\necho \"===== LOADED IMAGE PROTOCOL USES =====\"\nrg -n -C 8 \"LoadedImageProtocol|image_handle\\\\(\" gbl/libefi/src gbl/efi/src\n\necho\necho \"===== DEVICE HANDLE DEFINITION AND TRAITS =====\"\nrg -n -C 5 \"pub struct DeviceHandle|struct DeviceHandle|impl.*DeviceHandle\" gbl/libefi/src\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.016
+}

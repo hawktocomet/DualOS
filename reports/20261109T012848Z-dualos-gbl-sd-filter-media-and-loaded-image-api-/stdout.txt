@@ -1,0 +1,509 @@
+===== BLOCK IO MEDIA TYPE =====
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-25-
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-26-#ifndef __BLOCK_IO2_PROTOCOL_H__
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-27-#define __BLOCK_IO2_PROTOCOL_H__
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-28-
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-29-#include <uefi/gbl_protocol_utils.h>
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-30-#include <uefi/types.h>
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-31-
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-32-#include "block_io_protocol.h"
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-33-
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-34-EFI_GUID(EFI_BLOCK_IO2_PROTOCOL_GUID, 0xa77b2472, 0xe282, 0x4e9f, 0xa2, 0x45,
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-35-         0xc2, 0xc0, 0xe2, 0x7b, 0xbc, 0xc1);
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-36-
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h:37:typedef struct EfiBlockIoMedia EfiBlockIoMedia;
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-38-typedef struct EfiBlockIo2Protocol EfiBlockIo2Protocol;
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-39-
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-40-typedef struct {
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-41-  EfiEvent event;
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-42-  EfiStatus transaction_status;
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-43-} EfiBlockIo2Token;
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-44-
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-45-struct EfiBlockIo2Protocol {
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h:46:  EfiBlockIoMedia* media;
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-47-  EfiStatus (*reset)(EfiBlockIo2Protocol* self, bool extended_verification);
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-48-  EfiStatus (*read_blocks_ex)(EfiBlockIo2Protocol* self, uint32_t media_id,
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-49-                              uint64_t lba, EfiBlockIo2Token* token,
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-50-                              size_t buffer_size, void* buffer);
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-51-  EfiStatus (*write_blocks_ex)(EfiBlockIo2Protocol* self, uint32_t media_id,
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-52-                               uint64_t lba, EfiBlockIo2Token* token,
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-53-                               size_t buffer_size, const void* buffer);
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-54-  EfiStatus (*flush_blocks_ex)(EfiBlockIo2Protocol* self,
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-55-                               EfiBlockIo2Token* token);
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-56-};
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-57-
+gbl/libefi_types/include/uefi/protocols/block_io2_protocol.h-58-#endif  //__BLOCK_IO2_PROTOCOL_H__
+--
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-20- *  (b) the BSD 2-Clause Patent license.
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-21- *
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-22- * Unless you expressly elect the BSD-2-Clause-Patent terms, the Apache-2.0
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-23- * terms apply by default.
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-24- */
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-25-
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-26-#ifndef __BLOCK_IO_PROTOCOL_H__
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-27-#define __BLOCK_IO_PROTOCOL_H__
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-28-
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-29-#include <uefi/gbl_protocol_utils.h>
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-30-#include <uefi/types.h>
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-31-
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h:32:typedef struct EfiBlockIoMedia EfiBlockIoMedia;
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-33-typedef struct EfiBlockIoProtocol EfiBlockIoProtocol;
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-34-
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-35-static const uint64_t EFI_BLOCK_IO_PROTOCOL_REVISION =
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-36-    GBL_PROTOCOL_REVISION(2, 31);
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-37-
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-38-EFI_GUID(EFI_BLOCK_IO_PROTOCOL_GUID, 0x964e5b21, 0x6459, 0x11d2, 0x8e, 0x39,
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-39-         0x00, 0xa0, 0xc9, 0x69, 0x72, 0x3b);
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-40-
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-41-struct EfiBlockIoProtocol {
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-42-  uint64_t revision;
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h:43:  EfiBlockIoMedia* media;
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-44-  EfiStatus (*reset)(EfiBlockIoProtocol* self, bool extended_verification);
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-45-  EfiStatus (*read_blocks)(EfiBlockIoProtocol* self, uint32_t media_id,
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-46-                           uint64_t lba, size_t buffer_size, void* buffer);
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-47-  EfiStatus (*write_blocks)(EfiBlockIoProtocol* self, uint32_t media_id,
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-48-                            uint64_t lba, size_t buffer_size, void* buffer);
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-49-  EfiStatus (*flush_blocks)(EfiBlockIoProtocol* self);
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-50-};
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-51-
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h:52:struct EfiBlockIoMedia {
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-53-  // present in rev1
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-54-  uint32_t media_id;
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-55-  bool removable_media;
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-56-  bool media_present;
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h:57:  bool logical_partition;
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-58-  bool read_only;
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-59-  bool write_caching;
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-60-  uint32_t block_size;
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-61-  uint32_t io_align;
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-62-  uint64_t last_block;
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-63-
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-64-  // present in rev2
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-65-  uint64_t lowest_aligned_lba;
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-66-  uint32_t logical_blocks_per_physical_block;
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-67-
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-68-  // present in rev3
+gbl/libefi_types/include/uefi/protocols/block_io_protocol.h-69-  uint32_t optimal_transfer_length_granularity;
+--
+gbl/libefi_types/src/protocol/block_io.rs-7-//     http://www.apache.org/licenses/LICENSE-2.0
+gbl/libefi_types/src/protocol/block_io.rs-8-//
+gbl/libefi_types/src/protocol/block_io.rs-9-// Unless required by applicable law or agreed to in writing, software
+gbl/libefi_types/src/protocol/block_io.rs-10-// distributed under the License is distributed on an "AS IS" BASIS,
+gbl/libefi_types/src/protocol/block_io.rs-11-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+gbl/libefi_types/src/protocol/block_io.rs-12-// See the License for the specific language governing permissions and
+gbl/libefi_types/src/protocol/block_io.rs-13-// limitations under the License.
+gbl/libefi_types/src/protocol/block_io.rs-14-
+gbl/libefi_types/src/protocol/block_io.rs-15-//! Rust trait for
+gbl/libefi_types/src/protocol/block_io.rs-16-//! [`EFI_BLOCK_IO_PROTOCOL`](https://uefi.org/specs/UEFI/2.10/13_Protocols_Media_Access.html#block-i-o-protocol).
+gbl/libefi_types/src/protocol/block_io.rs-17-
+gbl/libefi_types/src/protocol/block_io.rs-18-use crate::{
+gbl/libefi_types/src/protocol/block_io.rs:19:    defs::{EfiBlockIoMedia, EfiBlockIoProtocol, EfiGuid, EfiStatus, EfiTpl, EFI_TPL_CALLBACK},
+gbl/libefi_types/src/protocol/block_io.rs-20-    protocol::{slice_from_raw_parts, slice_from_raw_parts_mut, BridgeToRust, Client, Provider},
+gbl/libefi_types/src/protocol/block_io.rs-21-    status::{EfiError, EfiResult},
+gbl/libefi_types/src/protocol/block_io.rs-22-    tpl::TplLocked,
+gbl/libefi_types/src/protocol/block_io.rs-23-    Identified,
+gbl/libefi_types/src/protocol/block_io.rs-24-};
+gbl/libefi_types/src/protocol/block_io.rs-25-use core::mem::MaybeUninit;
+gbl/libefi_types/src/protocol/block_io.rs-26-
+gbl/libefi_types/src/protocol/block_io.rs-27-impl Identified for EfiBlockIoProtocol {
+gbl/libefi_types/src/protocol/block_io.rs-28-    const GUID: EfiGuid = EfiGuid::from_u64s(
+gbl/libefi_types/src/protocol/block_io.rs-29-        crate::defs::EFI_BLOCK_IO_PROTOCOL_GUID_U64_0,
+gbl/libefi_types/src/protocol/block_io.rs-30-        crate::defs::EFI_BLOCK_IO_PROTOCOL_GUID_U64_1,
+gbl/libefi_types/src/protocol/block_io.rs-31-    );
+--
+gbl/libefi_types/src/protocol/block_io.rs-63-    fn revision(&self) -> u64;
+gbl/libefi_types/src/protocol/block_io.rs-64-
+gbl/libefi_types/src/protocol/block_io.rs-65-    /// Returns the current media information.
+gbl/libefi_types/src/protocol/block_io.rs-66-    ///
+gbl/libefi_types/src/protocol/block_io.rs-67-    /// # Safety
+gbl/libefi_types/src/protocol/block_io.rs-68-    ///
+gbl/libefi_types/src/protocol/block_io.rs-69-    /// The protocol spec indicates this data may be modified during calls into
+gbl/libefi_types/src/protocol/block_io.rs-70-    /// this protocol. To prevent data races with other clients making calls
+gbl/libefi_types/src/protocol/block_io.rs-71-    /// that might modify this data, the caller must enter a critical section
+gbl/libefi_types/src/protocol/block_io.rs-72-    /// to lock this data during any access.
+gbl/libefi_types/src/protocol/block_io.rs-73-    ///
+gbl/libefi_types/src/protocol/block_io.rs-74-    /// For UEFI environments: raise the TPL to `TPL_CALLBACK` or above.
+gbl/libefi_types/src/protocol/block_io.rs:75:    unsafe fn media<'a>(&'a self) -> EfiResult<&'a EfiBlockIoMedia>;
+gbl/libefi_types/src/protocol/block_io.rs-76-
+gbl/libefi_types/src/protocol/block_io.rs-77-    /// Resets the block device.
+gbl/libefi_types/src/protocol/block_io.rs-78-    fn reset(&self, extended_verification: bool) -> EfiResult<()>;
+gbl/libefi_types/src/protocol/block_io.rs-79-
+gbl/libefi_types/src/protocol/block_io.rs-80-    /// Reads blocks from the device.
+gbl/libefi_types/src/protocol/block_io.rs-81-    ///
+gbl/libefi_types/src/protocol/block_io.rs-82-    /// We use [MaybeUninit] here because UEFI does not guarantee that the
+gbl/libefi_types/src/protocol/block_io.rs-83-    /// caller has initialized this buffer, and there are cases where GBL
+gbl/libefi_types/src/protocol/block_io.rs-84-    /// does provide uninitialized data here for efficiency.
+gbl/libefi_types/src/protocol/block_io.rs-85-    ///
+gbl/libefi_types/src/protocol/block_io.rs-86-    /// For the client, if this function returns successfully, the buffer has
+gbl/libefi_types/src/protocol/block_io.rs-87-    /// been initialized.
+--
+gbl/libefi_types/src/protocol/block_io.rs-108-/// Client-side implementation.
+gbl/libefi_types/src/protocol/block_io.rs-109-///
+gbl/libefi_types/src/protocol/block_io.rs-110-/// SAFETY:
+gbl/libefi_types/src/protocol/block_io.rs-111-/// * we adhere to the spec since we're just forwarding calls into the
+gbl/libefi_types/src/protocol/block_io.rs-112-///   protocol struct which itself adheres to the spec
+gbl/libefi_types/src/protocol/block_io.rs-113-/// * the [media] returned reference is never invalidated since we never modify
+gbl/libefi_types/src/protocol/block_io.rs-114-///   the pointer and the protocol guarantees it will stay valid
+gbl/libefi_types/src/protocol/block_io.rs-115-unsafe impl BlockIo for Client<EfiBlockIoProtocol> {
+gbl/libefi_types/src/protocol/block_io.rs-116-    fn revision(&self) -> u64 {
+gbl/libefi_types/src/protocol/block_io.rs-117-        self.0.revision
+gbl/libefi_types/src/protocol/block_io.rs-118-    }
+gbl/libefi_types/src/protocol/block_io.rs-119-
+gbl/libefi_types/src/protocol/block_io.rs:120:    unsafe fn media(&self) -> EfiResult<&EfiBlockIoMedia> {
+gbl/libefi_types/src/protocol/block_io.rs-121-        // SAFETY:
+gbl/libefi_types/src/protocol/block_io.rs-122-        // * protocol spec guarantees `media` pointer is valid
+gbl/libefi_types/src/protocol/block_io.rs-123-        // * function safety requires the caller lock the protocol so it
+gbl/libefi_types/src/protocol/block_io.rs-124-        //   cannot be modified
+gbl/libefi_types/src/protocol/block_io.rs-125-        let media = unsafe { self.0.media.as_ref() }.ok_or(EfiError::NotFound)?;
+gbl/libefi_types/src/protocol/block_io.rs-126-        Ok(media)
+gbl/libefi_types/src/protocol/block_io.rs-127-    }
+gbl/libefi_types/src/protocol/block_io.rs-128-
+gbl/libefi_types/src/protocol/block_io.rs-129-    fn reset(&self, extended_verification: bool) -> EfiResult<()> {
+gbl/libefi_types/src/protocol/block_io.rs-130-        let func = self.0.reset.ok_or(EfiError::NotFound)?;
+gbl/libefi_types/src/protocol/block_io.rs-131-        // SAFETY:
+gbl/libefi_types/src/protocol/block_io.rs-132-        // * `self.0` is only borrowed for the duration of the call
+--
+gbl/libefi_types/src/protocol/block_io.rs-183-}
+gbl/libefi_types/src/protocol/block_io.rs-184-
+gbl/libefi_types/src/protocol/block_io.rs-185-// SAFETY:
+gbl/libefi_types/src/protocol/block_io.rs-186-// * our wrapper functions adhere to the protocol spec
+gbl/libefi_types/src/protocol/block_io.rs-187-// * [BlockIo] safety guarantees the [BlockIo::media] pointer stays valid
+gbl/libefi_types/src/protocol/block_io.rs-188-unsafe impl<R: BlockIo> BridgeToRust<R> for EfiBlockIoProtocol {
+gbl/libefi_types/src/protocol/block_io.rs-189-    unsafe fn create_bridge(rust_impl: &R) -> Self {
+gbl/libefi_types/src/protocol/block_io.rs-190-        Self {
+gbl/libefi_types/src/protocol/block_io.rs-191-            revision: rust_impl.revision(),
+gbl/libefi_types/src/protocol/block_io.rs-192-            // SAFETY: we are only accessing the pointer here which is
+gbl/libefi_types/src/protocol/block_io.rs-193-            // required by [BlockIo] safety to remain valid and unchanged, so
+gbl/libefi_types/src/protocol/block_io.rs-194-            // we don't need a critical section.
+gbl/libefi_types/src/protocol/block_io.rs:195:            media: unsafe { rust_impl.media() }.unwrap() as *const _ as *mut EfiBlockIoMedia,
+gbl/libefi_types/src/protocol/block_io.rs-196-            reset: Some(Provider::<_, R>::reset_wrapper),
+gbl/libefi_types/src/protocol/block_io.rs-197-            read_blocks: Some(Provider::<_, R>::read_blocks_wrapper),
+gbl/libefi_types/src/protocol/block_io.rs-198-            write_blocks: Some(Provider::<_, R>::write_blocks_wrapper),
+gbl/libefi_types/src/protocol/block_io.rs-199-            flush_blocks: Some(Provider::<_, R>::flush_blocks_wrapper),
+gbl/libefi_types/src/protocol/block_io.rs-200-        }
+gbl/libefi_types/src/protocol/block_io.rs-201-    }
+gbl/libefi_types/src/protocol/block_io.rs-202-}
+gbl/libefi_types/src/protocol/block_io.rs-203-
+gbl/libefi_types/src/protocol/block_io.rs-204-impl<R: BlockIo> Provider<'_, EfiBlockIoProtocol, R> {
+gbl/libefi_types/src/protocol/block_io.rs-205-    unsafe extern "efiapi" fn reset_wrapper(
+gbl/libefi_types/src/protocol/block_io.rs-206-        this: *mut EfiBlockIoProtocol,
+gbl/libefi_types/src/protocol/block_io.rs-207-        extended_verification: bool,
+--
+gbl/libefi_types/src/protocol/block_io.rs-255-        rust_impl.flush_blocks().into()
+gbl/libefi_types/src/protocol/block_io.rs-256-    }
+gbl/libefi_types/src/protocol/block_io.rs-257-}
+gbl/libefi_types/src/protocol/block_io.rs-258-
+gbl/libefi_types/src/protocol/block_io.rs-259-#[cfg(test)]
+gbl/libefi_types/src/protocol/block_io.rs-260-mod test {
+gbl/libefi_types/src/protocol/block_io.rs-261-    use super::*;
+gbl/libefi_types/src/protocol/block_io.rs-262-    use crate::protocol::test::{buffer_range, TestProtocolTunnel};
+gbl/libefi_types/src/protocol/block_io.rs-263-    use std::iter::zip;
+gbl/libefi_types/src/protocol/block_io.rs-264-
+gbl/libefi_types/src/protocol/block_io.rs-265-    const TEST_REVISION: u64 = 0x1234;
+gbl/libefi_types/src/protocol/block_io.rs-266-
+gbl/libefi_types/src/protocol/block_io.rs:267:    const TEST_MEDIA: EfiBlockIoMedia = EfiBlockIoMedia {
+gbl/libefi_types/src/protocol/block_io.rs-268-        media_id: 1,
+gbl/libefi_types/src/protocol/block_io.rs-269-        removable_media: false,
+gbl/libefi_types/src/protocol/block_io.rs-270-        media_present: true,
+gbl/libefi_types/src/protocol/block_io.rs:271:        logical_partition: true,
+gbl/libefi_types/src/protocol/block_io.rs-272-        read_only: false,
+gbl/libefi_types/src/protocol/block_io.rs-273-        write_caching: false,
+gbl/libefi_types/src/protocol/block_io.rs-274-        block_size: 1024,
+gbl/libefi_types/src/protocol/block_io.rs-275-        io_align: 0,
+gbl/libefi_types/src/protocol/block_io.rs-276-        last_block: 4096,
+gbl/libefi_types/src/protocol/block_io.rs-277-        lowest_aligned_lba: 0,
+gbl/libefi_types/src/protocol/block_io.rs-278-        logical_blocks_per_physical_block: 0,
+gbl/libefi_types/src/protocol/block_io.rs-279-        optimal_transfer_length_granularity: 0,
+gbl/libefi_types/src/protocol/block_io.rs-280-    };
+gbl/libefi_types/src/protocol/block_io.rs-281-
+gbl/libefi_types/src/protocol/block_io.rs-282-    /// Creates a [MockBlockIo] with default expectations set up so that it can
+gbl/libefi_types/src/protocol/block_io.rs-283-    /// be used as a [Provider].
+
+===== LOADED IMAGE PROTOCOL USES =====
+gbl/efi/src/diagnostic_fs.rs-2-// Uses only the device handle reported by EFI_LOADED_IMAGE_PROTOCOL.
+gbl/efi/src/diagnostic_fs.rs-3-
+gbl/efi/src/diagnostic_fs.rs-4-use alloc::format;
+gbl/efi/src/diagnostic_fs.rs-5-use alloc::string::String;
+gbl/efi/src/diagnostic_fs.rs-6-use core::ffi::c_void;
+gbl/efi/src/diagnostic_fs.rs-7-use core::ptr::null_mut;
+gbl/efi/src/diagnostic_fs.rs-8-
+gbl/efi/src/diagnostic_fs.rs-9-use efi::protocol::block_io::BlockIoProtocol;
+gbl/efi/src/diagnostic_fs.rs:10:use efi::protocol::loaded_image::LoadedImageProtocol;
+gbl/efi/src/diagnostic_fs.rs-11-use efi::{efi_call, EfiEntry};
+gbl/efi/src/diagnostic_fs.rs-12-use efi_types::EfiGuid;
+gbl/efi/src/diagnostic_fs.rs-13-
+gbl/efi/src/diagnostic_fs.rs-14-#[repr(C)]
+gbl/efi/src/diagnostic_fs.rs-15-struct EfiSimpleFileSystemInterface {
+gbl/efi/src/diagnostic_fs.rs-16-    revision: u64,
+gbl/efi/src/diagnostic_fs.rs-17-    open_volume: Option<
+gbl/efi/src/diagnostic_fs.rs-18-        unsafe extern "efiapi" fn(
+--
+gbl/efi/src/diagnostic_fs.rs-93-const FILE_NAME: [u16; 16] = [
+gbl/efi/src/diagnostic_fs.rs-94-    68, 85, 65, 76, 79, 83, 45, 68, 73, 65, 71, 46, 84, 88, 84, 0,
+gbl/efi/src/diagnostic_fs.rs-95-];
+gbl/efi/src/diagnostic_fs.rs-96-
+gbl/efi/src/diagnostic_fs.rs-97-fn build_report(entry: &EfiEntry, source_device: efi::DeviceHandle) -> String {
+gbl/efi/src/diagnostic_fs.rs-98-    let mut report = String::from(
+gbl/efi/src/diagnostic_fs.rs-99-        "DualOS EFI device-path diagnostic
+gbl/efi/src/diagnostic_fs.rs-100-\
+gbl/efi/src/diagnostic_fs.rs:101:         Source: LoadedImageProtocol.DeviceHandle
+gbl/efi/src/diagnostic_fs.rs-102-
+gbl/efi/src/diagnostic_fs.rs-103-"
+gbl/efi/src/diagnostic_fs.rs-104-    );
+gbl/efi/src/diagnostic_fs.rs-105-
+gbl/efi/src/diagnostic_fs.rs-106-    match crate::utils::get_device_path(entry, source_device) {
+gbl/efi/src/diagnostic_fs.rs-107-        Ok(path) => report.push_str(&format!("LOADED_IMAGE_DEVICE: {path}
+gbl/efi/src/diagnostic_fs.rs-108-")),
+gbl/efi/src/diagnostic_fs.rs-109-        Err(error) => report.push_str(&format!("LOADED_IMAGE_DEVICE_ERROR: {error:?}
+--
+gbl/efi/src/diagnostic_fs.rs-145-");
+gbl/efi/src/diagnostic_fs.rs-146-    report
+gbl/efi/src/diagnostic_fs.rs-147-}
+gbl/efi/src/diagnostic_fs.rs-148-
+gbl/efi/src/diagnostic_fs.rs-149-pub fn write_report(entry: &EfiEntry) -> &'static str {
+gbl/efi/src/diagnostic_fs.rs-150-    let boot_services = entry.system_table().boot_services();
+gbl/efi/src/diagnostic_fs.rs-151-
+gbl/efi/src/diagnostic_fs.rs-152-    let loaded_image = match boot_services
+gbl/efi/src/diagnostic_fs.rs:153:        .open_protocol::<LoadedImageProtocol>(entry.image_handle())
+gbl/efi/src/diagnostic_fs.rs-154-    {
+gbl/efi/src/diagnostic_fs.rs-155-        Ok(protocol) => protocol,
+gbl/efi/src/diagnostic_fs.rs-156-        Err(_) => return "FAILED: loaded-image protocol",
+gbl/efi/src/diagnostic_fs.rs-157-    };
+gbl/efi/src/diagnostic_fs.rs-158-
+gbl/efi/src/diagnostic_fs.rs-159-    // Restrict filesystem discovery to the device that loaded this EFI image.
+gbl/efi/src/diagnostic_fs.rs-160-    let source_device = loaded_image.device_handle();
+gbl/efi/src/diagnostic_fs.rs-161-    let report = build_report(entry, source_device);
+--
+gbl/efi/src/utils.rs-19-use core::marker::PhantomData;
+gbl/efi/src/utils.rs-20-use core::time::Duration;
+gbl/efi/src/utils.rs-21-use efi::{
+gbl/efi/src/utils.rs-22-    protocol::{
+gbl/efi/src/utils.rs-23-        device_path::{DevicePathProtocol, DevicePathText, DevicePathToTextProtocol},
+gbl/efi/src/utils.rs-24-        gbl_efi_boot_memory::{
+gbl/efi/src/utils.rs-25-            gbl_clear_boot_buffer, gbl_get_boot_buffer, GblVendorReservedMemory,
+gbl/efi/src/utils.rs-26-        },
+gbl/efi/src/utils.rs:27:        loaded_image::LoadedImageProtocol,
+gbl/efi/src/utils.rs-28-        simple_text_input::SimpleTextInputProtocol,
+gbl/efi/src/utils.rs-29-        timestamp::TimestampProtocol,
+gbl/efi/src/utils.rs-30-        Protocol,
+gbl/efi/src/utils.rs-31-    },
+gbl/efi/src/utils.rs-32-    utils::Timeout,
+gbl/efi/src/utils.rs-33-    DeviceHandle, EfiEntry,
+gbl/efi/src/utils.rs-34-};
+gbl/efi/src/utils.rs-35-#[cfg(any(target_arch = "x86_64", feature = "fuchsia"))]
+--
+gbl/efi/src/utils.rs-54-    let path_to_text = bs.find_first_and_open::<DevicePathToTextProtocol>()?;
+gbl/efi/src/utils.rs-55-    path_to_text.convert_device_path_to_text(&path, false, false)
+gbl/efi/src/utils.rs-56-}
+gbl/efi/src/utils.rs-57-
+gbl/efi/src/utils.rs-58-/// Helper function to get the loaded image path.
+gbl/efi/src/utils.rs-59-pub fn loaded_image_path(entry: &EfiEntry) -> Result<DevicePathText<'_>> {
+gbl/efi/src/utils.rs-60-    let bs = entry.system_table().boot_services();
+gbl/efi/src/utils.rs-61-    let path_to_text = bs.find_first_and_open::<DevicePathToTextProtocol>()?;
+gbl/efi/src/utils.rs:62:    let loaded_image = bs.open_protocol::<LoadedImageProtocol>(entry.image_handle())?;
+gbl/efi/src/utils.rs-63-    if let Ok(file_path) = loaded_image.file_path() {
+gbl/efi/src/utils.rs-64-        path_to_text.convert_device_path_to_text(&file_path, false, false)
+gbl/efi/src/utils.rs-65-    } else {
+gbl/efi/src/utils.rs-66-        let device_path = bs.open_protocol::<DevicePathProtocol>(loaded_image.device_handle())?;
+gbl/efi/src/utils.rs-67-        path_to_text.convert_device_path_to_text(&device_path, false, false)
+gbl/efi/src/utils.rs-68-    }
+gbl/efi/src/utils.rs-69-}
+gbl/efi/src/utils.rs-70-
+gbl/efi/src/utils.rs-71-/// Helper function to get the loaded image base address.
+gbl/efi/src/utils.rs-72-pub fn image_base(entry: &EfiEntry) -> Result<usize> {
+gbl/efi/src/utils.rs-73-    Ok(entry
+gbl/efi/src/utils.rs-74-        .system_table()
+gbl/efi/src/utils.rs-75-        .boot_services()
+gbl/efi/src/utils.rs:76:        .open_protocol::<LoadedImageProtocol>(entry.image_handle())
+gbl/efi/src/utils.rs:77:        .inspect_err(|e| efi_println!(entry, "Failed to open LoadedImageProtocol: {e}"))?
+gbl/efi/src/utils.rs-78-        .image_base())
+gbl/efi/src/utils.rs-79-}
+gbl/efi/src/utils.rs-80-
+gbl/efi/src/utils.rs-81-#[cfg(all(target_arch = "x86_64", not(feature = "efi_boot_stub")))]
+gbl/efi/src/utils.rs-82-pub(crate) fn efi_to_e820_mem_type(efi_mem_type: EfiMemoryType) -> u32 {
+gbl/efi/src/utils.rs-83-    match efi_mem_type {
+gbl/efi/src/utils.rs-84-        efi_types::EFI_MEMORY_TYPE_LOADER_CODE
+gbl/efi/src/utils.rs-85-        | efi_types::EFI_MEMORY_TYPE_LOADER_DATA
+--
+gbl/libefi/src/protocol/loaded_image.rs-17-use crate::DeviceHandle;
+gbl/libefi/src/protocol/loaded_image.rs-18-use crate::{
+gbl/libefi/src/protocol/loaded_image.rs-19-    protocol::{device_path::DevicePathProtocol, Protocol, ProtocolInfo, Requirement},
+gbl/libefi/src/protocol/loaded_image.rs-20-    versioned_protocol,
+gbl/libefi/src/protocol/loaded_image.rs-21-};
+gbl/libefi/src/protocol/loaded_image.rs-22-use core::ffi::c_void;
+gbl/libefi/src/protocol/loaded_image.rs-23-use core::ptr::{null_mut, NonNull};
+gbl/libefi/src/protocol/loaded_image.rs-24-use efi_types::{
+gbl/libefi/src/protocol/loaded_image.rs:25:    EfiGuid, EfiLoadedImageProtocol, EFI_LOADED_IMAGE_PROTOCOL_GUID_U64_0,
+gbl/libefi/src/protocol/loaded_image.rs-26-    EFI_LOADED_IMAGE_PROTOCOL_GUID_U64_1, EFI_LOADED_IMAGE_PROTOCOL_REVISION,
+gbl/libefi/src/protocol/loaded_image.rs-27-};
+gbl/libefi/src/protocol/loaded_image.rs-28-use liberror::{Error, Result};
+gbl/libefi/src/protocol/loaded_image.rs-29-
+gbl/libefi/src/protocol/loaded_image.rs-30-/// EFI_LOADED_IMAGE_PROTOCOL
+gbl/libefi/src/protocol/loaded_image.rs:31:pub struct LoadedImageProtocol;
+gbl/libefi/src/protocol/loaded_image.rs-32-
+gbl/libefi/src/protocol/loaded_image.rs:33:versioned_protocol!(LoadedImageProtocol, EFI_LOADED_IMAGE_PROTOCOL_REVISION);
+gbl/libefi/src/protocol/loaded_image.rs-34-
+gbl/libefi/src/protocol/loaded_image.rs:35:impl ProtocolInfo for LoadedImageProtocol {
+gbl/libefi/src/protocol/loaded_image.rs:36:    type InterfaceType = EfiLoadedImageProtocol;
+gbl/libefi/src/protocol/loaded_image.rs-37-
+gbl/libefi/src/protocol/loaded_image.rs-38-    const GUID: EfiGuid = EfiGuid::from_u64s(
+gbl/libefi/src/protocol/loaded_image.rs-39-        EFI_LOADED_IMAGE_PROTOCOL_GUID_U64_0,
+gbl/libefi/src/protocol/loaded_image.rs-40-        EFI_LOADED_IMAGE_PROTOCOL_GUID_U64_1,
+gbl/libefi/src/protocol/loaded_image.rs-41-    );
+gbl/libefi/src/protocol/loaded_image.rs-42-
+gbl/libefi/src/protocol/loaded_image.rs-43-    const REQUIREMENT: Requirement = Requirement::Optional;
+gbl/libefi/src/protocol/loaded_image.rs-44-}
+gbl/libefi/src/protocol/loaded_image.rs-45-
+gbl/libefi/src/protocol/loaded_image.rs:46:impl<'a> Protocol<'a, LoadedImageProtocol> {
+gbl/libefi/src/protocol/loaded_image.rs-47-    /// Wraps `EFI_LOADED_IMAGE_PROTOCOL.DeviceHandle`.
+gbl/libefi/src/protocol/loaded_image.rs-48-    pub fn device_handle(&self) -> DeviceHandle {
+gbl/libefi/src/protocol/loaded_image.rs-49-        DeviceHandle(self.interface().device_handle)
+gbl/libefi/src/protocol/loaded_image.rs-50-    }
+gbl/libefi/src/protocol/loaded_image.rs-51-
+gbl/libefi/src/protocol/loaded_image.rs-52-    /// Wraps `EFI_LOADED_IMAGE_PROTOCOL.FilePath`.
+gbl/libefi/src/protocol/loaded_image.rs-53-    pub fn file_path(&self) -> Result<Protocol<'_, DevicePathProtocol>> {
+gbl/libefi/src/protocol/loaded_image.rs-54-        // SAFETY: `EFI_LOADED_IMAGE_PROTOCOL.FilePath` (if non-null) points to a
+--
+gbl/libefi/src/lib.rs-144-        GBL_EFI_DEBUG_ERROR_TAG_BOOT_ERROR,
+gbl/libefi/src/lib.rs-145-    },
+gbl/libefi/src/lib.rs-146-    tpl::TplControl,
+gbl/libefi/src/lib.rs-147-};
+gbl/libefi/src/lib.rs-148-use liberror::{Error, Result};
+gbl/libefi/src/lib.rs-149-use libgblutils::aligned_subslice;
+gbl/libefi/src/lib.rs-150-use libutils::base_type_name;
+gbl/libefi/src/lib.rs-151-use protocol::{
+gbl/libefi/src/lib.rs:152:    loaded_image::LoadedImageProtocol, simple_text_output::SimpleTextOutputProtocol, Protocol,
+gbl/libefi/src/lib.rs-153-    ProtocolImpl, ProtocolInfo, Revision,
+gbl/libefi/src/lib.rs-154-};
+gbl/libefi/src/lib.rs-155-use zerocopy::{FromBytes, Ref};
+gbl/libefi/src/lib.rs-156-
+gbl/libefi/src/lib.rs-157-/// Container for EFI metrics.
+gbl/libefi/src/lib.rs-158-pub struct EfiMetrics {
+gbl/libefi/src/lib.rs-159-    /// List of opened protocols.
+gbl/libefi/src/lib.rs-160-    pub opened_protocols: ArrayVec<(&'static str, Revision), 32>,
+--
+gbl/libefi/src/lib.rs-215-        Ok(SystemTable {
+gbl/libefi/src/lib.rs-216-            efi_entry: self,
+gbl/libefi/src/lib.rs-217-            // SAFETY: Pointers to UEFI data structures.
+gbl/libefi/src/lib.rs-218-            table: unsafe { self.systab_ptr.as_ref() }.ok_or(Error::Unsupported)?,
+gbl/libefi/src/lib.rs-219-        })
+gbl/libefi/src/lib.rs-220-    }
+gbl/libefi/src/lib.rs-221-
+gbl/libefi/src/lib.rs-222-    /// Gets the image handle.
+gbl/libefi/src/lib.rs:223:    pub fn image_handle(&self) -> DeviceHandle {
+gbl/libefi/src/lib.rs-224-        DeviceHandle(self.image_handle)
+gbl/libefi/src/lib.rs-225-    }
+gbl/libefi/src/lib.rs-226-
+gbl/libefi/src/lib.rs-227-    /// Implementation of [efi_println!]: prints `args` to `ConOut` with a timestamp prefix and the
+gbl/libefi/src/lib.rs-228-    /// UEFI newline sequence. Kept out of line so that call sites stay small.
+gbl/libefi/src/lib.rs-229-    #[doc(hidden)]
+gbl/libefi/src/lib.rs-230-    #[inline(never)]
+gbl/libefi/src/lib.rs-231-    pub fn println_fmt(&self, args: core::fmt::Arguments) {
+--
+gbl/libefi/src/lib.rs-513-        let mut out_handle: EfiHandle = null();
+gbl/libefi/src/lib.rs-514-        // SAFETY: EFI_BOOT_SERVICES method call.
+gbl/libefi/src/lib.rs-515-        unsafe {
+gbl/libefi/src/lib.rs-516-            efi_call!(
+gbl/libefi/src/lib.rs-517-                self.boot_services.open_protocol,
+gbl/libefi/src/lib.rs-518-                handle.0,
+gbl/libefi/src/lib.rs-519-                &T::GUID,
+gbl/libefi/src/lib.rs-520-                &mut out_handle,
+gbl/libefi/src/lib.rs:521:                self.efi_entry.image_handle().0,
+gbl/libefi/src/lib.rs-522-                null_mut(),
+gbl/libefi/src/lib.rs-523-                // Cannot open exclusively because firmware may require the protocol as well.
+gbl/libefi/src/lib.rs-524-                EFI_OPEN_PROTOCOL_ATTRIBUTE_BY_HANDLE_PROTOCOL
+gbl/libefi/src/lib.rs-525-            )?;
+gbl/libefi/src/lib.rs-526-        }
+gbl/libefi/src/lib.rs-527-        // SAFETY:
+gbl/libefi/src/lib.rs-528-        // * `EFI_SYSTEM_TABLE.OpenProtocol` returns a valid pointer to
+gbl/libefi/src/lib.rs-529-        //   `T::InterfaceType` on success.
+--
+gbl/libefi/src/lib.rs-681-    }
+gbl/libefi/src/lib.rs-682-
+gbl/libefi/src/lib.rs-683-    /// Wrapper of `EFI_BOOT_SERVICE.ExitBootServices()`.
+gbl/libefi/src/lib.rs-684-    fn exit_boot_services<'b>(&self, mmap: &'b EfiMemoryMap<'b>) -> Result<()> {
+gbl/libefi/src/lib.rs-685-        // SAFETY: EFI_BOOT_SERVICES method call.
+gbl/libefi/src/lib.rs-686-        unsafe {
+gbl/libefi/src/lib.rs-687-            efi_call!(
+gbl/libefi/src/lib.rs-688-                self.boot_services.exit_boot_services,
+gbl/libefi/src/lib.rs:689:                self.efi_entry.image_handle().0,
+gbl/libefi/src/lib.rs-690-                mmap.map_key()
+gbl/libefi/src/lib.rs-691-            )
+gbl/libefi/src/lib.rs-692-        }
+gbl/libefi/src/lib.rs-693-    }
+gbl/libefi/src/lib.rs-694-
+gbl/libefi/src/lib.rs-695-    /// Wrapper of `EFI_BOOT_SERVICE.Stall()`.
+gbl/libefi/src/lib.rs-696-    pub fn stall(&self, micro: usize) -> Result<()> {
+gbl/libefi/src/lib.rs-697-        // SAFETY: EFI_BOOT_SERVICES method call.
+--
+gbl/libefi/src/lib.rs-972-        // SAFETY:
+gbl/libefi/src/lib.rs-973-        // * `image_handle` is an output parameter. It is not retained and outlives the call.
+gbl/libefi/src/lib.rs-974-        // * `src` is a valid slice and outlives the call.
+gbl/libefi/src/lib.rs-975-        // * `parent_image_handle` is a valid handle for output and outlives the call.
+gbl/libefi/src/lib.rs-976-        unsafe {
+gbl/libefi/src/lib.rs-977-            efi_call!(
+gbl/libefi/src/lib.rs-978-                self.boot_services.load_image,
+gbl/libefi/src/lib.rs-979-                true, // Ignored since we use source buffer.
+gbl/libefi/src/lib.rs:980:                self.efi_entry.image_handle().0,
+gbl/libefi/src/lib.rs-981-                null_mut(),
+gbl/libefi/src/lib.rs-982-                src.as_ptr() as _,
+gbl/libefi/src/lib.rs-983-                src.len(),
+gbl/libefi/src/lib.rs-984-                &mut image_handle
+gbl/libefi/src/lib.rs-985-            )?;
+gbl/libefi/src/lib.rs-986-        }
+gbl/libefi/src/lib.rs-987-
+gbl/libefi/src/lib.rs-988-        let protocol = self
+gbl/libefi/src/lib.rs:989:            .open_protocol::<LoadedImageProtocol>(DeviceHandle::new(image_handle))
+gbl/libefi/src/lib.rs-990-            .inspect_err(|e| {
+gbl/libefi/src/lib.rs-991-            efi_println!(
+gbl/libefi/src/lib.rs-992-                self.efi_entry,
+gbl/libefi/src/lib.rs:993:                "Failed to open LoadedImageProtocol on image handle: {e:?}",
+gbl/libefi/src/lib.rs-994-            )
+gbl/libefi/src/lib.rs-995-        })?;
+gbl/libefi/src/lib.rs-996-
+gbl/libefi/src/lib.rs-997-        Ok(LoadedEfiImage { efi_entry: self.efi_entry, image_handle, protocol })
+gbl/libefi/src/lib.rs-998-    }
+gbl/libefi/src/lib.rs-999-}
+gbl/libefi/src/lib.rs-1000-
+gbl/libefi/src/lib.rs-1001-/// A loaded EFI image.
+gbl/libefi/src/lib.rs-1002-pub struct LoadedEfiImage<'a> {
+gbl/libefi/src/lib.rs-1003-    efi_entry: &'a EfiEntry,
+gbl/libefi/src/lib.rs-1004-    /// Handle of the loaded EFI image.
+gbl/libefi/src/lib.rs-1005-    pub image_handle: EfiHandle,
+gbl/libefi/src/lib.rs:1006:    /// `LoadedImageProtocol` for the loaded image.
+gbl/libefi/src/lib.rs:1007:    pub protocol: Protocol<'a, LoadedImageProtocol>,
+gbl/libefi/src/lib.rs-1008-}
+gbl/libefi/src/lib.rs-1009-
+gbl/libefi/src/lib.rs-1010-impl LoadedEfiImage<'_> {
+gbl/libefi/src/lib.rs-1011-    /// Starts the loaded EFI application.
+gbl/libefi/src/lib.rs-1012-    pub fn start(self) -> Result<()> {
+gbl/libefi/src/lib.rs-1013-        let mut exit_data_size: usize = 0;
+gbl/libefi/src/lib.rs-1014-        let bs = self.efi_entry.system_table().boot_services().boot_services;
+gbl/libefi/src/lib.rs-1015-        // SAFETY:
+
+===== DEVICE HANDLE DEFINITION AND TRAITS =====
+gbl/libefi/src/lib.rs-1385-}
+gbl/libefi/src/lib.rs-1386-
+gbl/libefi/src/lib.rs-1387-/// A type representing a UEFI handle to a UEFI device.
+gbl/libefi/src/lib.rs-1388-#[repr(transparent)]
+gbl/libefi/src/lib.rs-1389-#[derive(Copy, Clone, Debug, PartialEq)]
+gbl/libefi/src/lib.rs:1390:pub struct DeviceHandle(EfiHandle);
+gbl/libefi/src/lib.rs-1391-
+gbl/libefi/src/lib.rs:1392:impl DeviceHandle {
+gbl/libefi/src/lib.rs-1393-    /// Public constructor
+gbl/libefi/src/lib.rs-1394-    pub fn new(handle: EfiHandle) -> Self {
+gbl/libefi/src/lib.rs-1395-        Self(handle)
+gbl/libefi/src/lib.rs-1396-    }
+gbl/libefi/src/lib.rs-1397-}
+--
+gbl/libefi/src/lib.rs-1677-    // Need to use thread local storage because rust unit test is multi-threaded.
+gbl/libefi/src/lib.rs-1678-    thread_local! {
+gbl/libefi/src/lib.rs-1679-        static EFI_CALL_TRACES: RefCell<EfiCallTraces> = RefCell::new(Default::default());
+gbl/libefi/src/lib.rs-1680-    }
+gbl/libefi/src/lib.rs-1681-
+gbl/libefi/src/lib.rs:1682:    impl From<usize> for DeviceHandle {
+gbl/libefi/src/lib.rs-1683-        fn from(h: usize) -> Self {
+gbl/libefi/src/lib.rs-1684-            Self(h as *mut _)
+gbl/libefi/src/lib.rs-1685-        }
+gbl/libefi/src/lib.rs-1686-    }
+gbl/libefi/src/lib.rs-1687-
