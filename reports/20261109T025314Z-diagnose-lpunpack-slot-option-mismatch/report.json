@@ -1,0 +1,19 @@
+{
+  "id": "20261109T025314Z-diagnose-lpunpack-slot-option-mismatch",
+  "title": "Diagnose lpunpack slot option mismatch",
+  "created_utc": "2026-11-09T02:53:14.611529+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-lc",
+    "\necho \"========== BINARY IDENTITY ==========\"\ncommand -v lpunpack\nreadlink -f \"$(command -v lpunpack)\"\npacman -Qo \"$(command -v lpunpack)\" 2>&1\npacman -Qi android-tools 2>&1 | head -n 45\n\necho\necho \"========== OPTION PARSER SOURCE / STRINGS ==========\"\nstrings \"$(command -v lpunpack)\" |\n  grep -iE -C 2 \"slot|partition|unrecognized|Usage:|image=\" |\n  head -n 100\n\necho\necho \"========== PACKAGE FILES ==========\"\npacman -Ql android-tools 2>/dev/null |\n  grep -E \"lpunpack|lpmetadata|partition_tools\" |\n  head -n 100\n\necho\necho \"DIAGNOSTIC ONLY: no extraction attempted\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.287,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? edl_config.json\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}

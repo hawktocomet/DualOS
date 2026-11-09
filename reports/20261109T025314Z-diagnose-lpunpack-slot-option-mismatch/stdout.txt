@@ -1,0 +1,112 @@
+========== BINARY IDENTITY ==========
+/usr/bin/lpunpack
+/usr/bin/lpunpack
+/usr/bin/lpunpack is owned by android-tools 37.0.0.p1-1
+Name            : android-tools
+Version         : 37.0.0.p1-1
+Description     : Android platform tools
+Architecture    : x86_64
+URL             : https://developer.android.com/tools
+Licenses        : Apache-2.0 AND BSD-3-Clause AND GPL-2.0-or-later AND LGPL-2.1-or-later AND MIT AND libselinux-1.0
+Groups          : None
+Provides        : None
+Depends On      : abseil-cpp  brotli  fmt  glibc  libgcc  libstdc++  libusb  lz4  pcre2  protobuf  zlib  zstd
+Optional Deps   : python: {mk,unpack_,repack_}bootimg and mkdtboimg support [installed]
+                  android-udev: optional additional device udev rules
+Required By     : None
+Optional For    : None
+Conflicts With  : None
+Replaces        : None
+Installed Size  : 8.72 MiB
+Packager        : Lukas Fleischer <lfleischer@archlinux.org>
+Build Date      : Fri 16 Oct 2026 06:06:23 PM EDT
+Install Date    : Thu 29 Oct 2026 02:06:08 PM EDT
+Install Reason  : Explicitly installed
+Install Script  : No
+Validated By    : Signature
+
+
+========== OPTION PARSER SOURCE / STRINGS ==========
+constexpr std::vector<_Tp, _Alloc>::reference std::vector<_Tp, _Alloc>::operator[](size_type) [with _Tp = android::base::unique_fd_impl<android::base::DefaultCloser>; _Alloc = std::allocator<android::base::unique_fd_impl<android::base::DefaultCloser> >; reference = android::base::unique_fd_impl<android::base::DefaultCloser>&; size_type = long unsigned int]
+%s %5d %5lu %c %-8s: %s:%u %s
+/usr/src/debug/android-tools/android-tools-37.0.0p1/vendor/fs_mgr/liblp/partition_opener.cpp
+virtual android::base::unique_fd android::fs_mgr::PartitionOpener::Open(const std::string&, int) const
+bool android::fs_mgr::{anonymous}::GetBlockDeviceInfo(const std::string&, android::fs_mgr::BlockDeviceInfo*)
+/usr/src/debug/android-tools/android-tools-37.0.0p1/vendor/fs_mgr/liblp/utility.cpp
+bool android::fs_mgr::GetDescriptorSize(int, uint64_t*)
+/usr/src/debug/android-tools/android-tools-37.0.0p1/vendor/fs_mgr/liblp/reader.cpp
+Logical partition metadata has invalid geometry magic signature.
+Logical partition metadata has unrecognized fields.
+Logical partition metadata has invalid geometry checksum.
+Logical partition metadata has invalid struct size.
+Logical partition metadata has invalid slot count.
+Metadata max size is not sector-aligned.
+std::unique_ptr<android::fs_mgr::LpMetadata> android::fs_mgr::ReadMetadata(const IPartitionOpener&, const std::string&, uint32_t)
+bool android::fs_mgr::ReadPrimaryGeometry(int, LpMetadataGeometry*)
+bool android::fs_mgr::ReadBackupGeometry(int, LpMetadataGeometry*)
+bool android::fs_mgr::ReadMetadataHeader(Reader*, LpMetadata*)
+Logical partition metadata has invalid magic value.
+Logical partition metadata has incompatible version.
+Invalid partition metadata header struct size.
+Logical partition metadata has invalid checksum.
+Logical partition metadata has invalid table bounds.
+Logical partition metadata has invalid partition table entry size.
+Logical partition metadata has invalid extent table entry size.
+Logical partition metadata has invalid group table entry size.
+Invalid partition metadata header table size.
+Out of memory reading logical partition tables.
+std::unique_ptr<android::fs_mgr::LpMetadata> android::fs_mgr::ParseMetadata(const LpMetadataGeometry&, Reader*)
+Logical partition metadata has invalid table checksum.
+Logical partition has invalid attribute set.
+Logical partition first_extent_index + num_extents overflowed.
+Logical partition has invalid extent list.
+Logical partition has invalid group index.
+Logical partition extent has invalid block device.
+Metadata does not specify a super device.
+Logical partition metadata overlaps with logical partition contents.
+%s - command-line tool for extracting partition images from super
+Usage:
+  %s [options...] SUPER_IMAGE [OUTPUT_DIR]
+The SUPER_IMAGE argument is mandatory and expected to contain
+the metadata. Additional super images are referenced with '-i' as needed to extract
+the desired partition[s].
+Default OUTPUT_DIR is '.'.
+Options:
+  -i, --image=IMAGE        Use the given file as an additional super image.
+                           This can be specified multiple times.
+  -p, --partition=NAME     Extract the named partition. This can
+                           be specified multiple times.
+  -S, --slot=NUM           Slot number (default is 0).
+Slot must be a valid unsigned number.
+constexpr std::vector<_Tp, _Alloc>::reference std::vector<_Tp, _Alloc>::back() [with _Tp = std::__cxx11::basic_string<char>; _Alloc = std::allocator<std::__cxx11::basic_string<char> >; reference = std::__cxx11::basic_string<char>&]
+Missing super image argument.
+--
+Could not read metadata from the super image file '
+constexpr std::vector<_Tp, _Alloc>::reference std::vector<_Tp, _Alloc>::back() [with _Tp = android::base::unique_fd_impl<android::base::DefaultCloser>; _Alloc = std::allocator<android::base::unique_fd_impl<android::base::DefaultCloser> >; reference = android::base::unique_fd_impl<android::base::DefaultCloser>&]
+Attempting to extract partition '
+__n < this->size()
+  Dealing with extent 
+--
+ bytes failed
+ backup read 
+ invalid metadata slot number
+ lseek failed, offset 
+ read failed
+vector::_M_realloc_append
+image
+partition
+slot
+Unrecognized argument.
+!this->empty()
++p:sh
+--
+unknown block %04X at %ld
+The image file '
+Could not find partition: 
+'...
+XXVDIWEF
+
+========== PACKAGE FILES ==========
+android-tools /usr/bin/lpunpack
+
+DIAGNOSTIC ONLY: no extraction attempted
