@@ -1,0 +1,19 @@
+{
+  "id": "20261109T025432Z-extract-duo-lite-android-virtual-a-b-super-slots",
+  "title": "Extract Duo Lite Android Virtual A/B super slots",
+  "created_utc": "2026-11-09T02:54:32.115388+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-lc",
+    "\nIMG=\"/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super.img\"\nROOT=\"/home/hawk/duo_forensics/android_boot_chain_20261102_094334\"\nOUT=\"$ROOT/super-unpacked-longopt\"\nA=\"$OUT/slot0\"\nB=\"$OUT/slot1\"\n\necho \"========== PRE-FLIGHT ==========\"\nif [ ! -f \"$IMG\" ]; then echo \"ERROR: super.img missing\"; exit 20; fi\nif [ -e \"$OUT\" ]; then echo \"ERROR: output path already exists; refusing overwrite\"; exit 21; fi\nif [ \"$(stat -c%s \"$IMG\")\" -ne 12884901888 ]; then echo \"ERROR: unexpected super.img size\"; exit 22; fi\ndf -h \"$ROOT\"\n\nmkdir -p \"$A\" \"$B\"\n\necho\necho \"========== EXTRACT SLOT 0 ==========\"\nlpunpack --slot=0 \"$IMG\" \"$A\"\nRC=$?\necho \"Slot 0 exit code: $RC\"\nif [ \"$RC\" -ne 0 ]; then echo \"ERROR: slot 0 extraction failed; preserving output\"; exit \"$RC\"; fi\n\necho\necho \"========== EXTRACT SLOT 1 ==========\"\nlpunpack --slot=1 \"$IMG\" \"$B\"\nRC=$?\necho \"Slot 1 exit code: $RC\"\nif [ \"$RC\" -ne 0 ]; then echo \"ERROR: slot 1 extraction failed; preserving output\"; exit \"$RC\"; fi\n\necho\necho \"========== EXTRACTED FILES ==========\"\nfind \"$OUT\" -maxdepth 2 -type f -printf \"%P %s bytes\\n\" | sort\n\necho\necho \"========== DIRECTORY SIZES ==========\"\ndu -sh \"$A\" \"$B\"\n\necho\necho \"========== ORIGINAL IMAGE ==========\"\nstat -c \"%n %s bytes\" \"$IMG\"\nsha256sum \"$IMG\"\n\necho\necho \"========== RESULT ==========\"\necho \"SUPER_SLOT_EXTRACTION_COMPLETE\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 63.94,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? edl_config.json\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}
