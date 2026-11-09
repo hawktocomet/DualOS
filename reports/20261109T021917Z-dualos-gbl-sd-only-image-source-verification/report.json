@@ -1,0 +1,19 @@
+{
+  "id": "20261109T021917Z-dualos-gbl-sd-only-image-source-verification",
+  "title": "DualOS GBL SD-only image source verification",
+  "created_utc": "2026-11-09T02:19:17.181588+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-c",
+    "\necho \"=== ANDROID MAIN FUNCTION LOCATION ===\"\nrg -n \"android_main\" gbl/libgbl/src\n\necho\necho \"=== PARTITION READ IMPLEMENTATIONS ===\"\nrg -n \"impl.*GblDisk|read_unique_partition|read_partition|fn read\" \\\n  gbl/efi/src/efi_blocks.rs gbl/libgbl/src/partition.rs\n\necho\necho \"=== EFI PARTITION BUFFER PROTOCOL CALL ===\"\nrg -n -C 12 \"fn get_partition_buffer|gbl_get_partition_buffer|fn sync_partition_buffer|gbl_sync_partition_buffer\" \\\n  gbl/efi/src/ops.rs gbl/libefi/src/protocol/gbl_efi_boot_memory.rs\n\necho\necho \"=== BOOT IMAGE LOAD REQUESTS ===\"\nrg -n -C 5 \"LoadPartition::|get_partition_buffer\\\\(\" \\\n  gbl/libgbl/src/android_boot gbl/libgbl/src\n\necho\necho \"=== DISK CONSTRUCTION ===\"\nsed -n \"1,280p\" gbl/efi/src/efi_blocks.rs\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.022,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}

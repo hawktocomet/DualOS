@@ -1,0 +1,1178 @@
+=== ANDROID MAIN FUNCTION LOCATION ===
+gbl/libgbl/src/android_boot/mod.rs:778:pub fn android_main<'a, 'b, G: GblOps<'a>>(
+gbl/libgbl/src/android_boot/mod.rs:2568:    fn test_android_main_bcb_normal_mode() {
+gbl/libgbl/src/android_boot/mod.rs:2577:        let (ramdisk, _, kernel, _) = android_main(&mut ops, load_buffer, |_| {}).unwrap();
+gbl/libgbl/src/android_boot/mod.rs:2582:    fn test_android_main_bcb_recovery_mode() {
+gbl/libgbl/src/android_boot/mod.rs:2592:        let (ramdisk, _, kernel, _) = android_main(&mut ops, load_buffer, |_| {}).unwrap();
+gbl/libgbl/src/android_boot/mod.rs:2642:    fn test_android_main_slotted_gbl_slot_a() {
+gbl/libgbl/src/android_boot/mod.rs:2651:        let (ramdisk, _, kernel, _) = android_main(&mut ops, load_buffer, |_| {}).unwrap();
+gbl/libgbl/src/android_boot/mod.rs:2656:    fn test_android_main_slotted_gbl_slot_b() {
+gbl/libgbl/src/android_boot/mod.rs:2667:        let (ramdisk, _, kernel, _) = android_main(&mut ops, load_buffer, |_| {}).unwrap();
+gbl/libgbl/src/android_boot/mod.rs:2673:    fn test_android_main_unsupported_slot_default_to_a() {
+gbl/libgbl/src/android_boot/mod.rs:2683:        let (ramdisk, _, kernel, _) = android_main(&mut ops, load_buffer, |_| {}).unwrap();
+gbl/libgbl/src/android_boot/mod.rs:2692:        let (ramdisk, _, kernel, _) = android_main(ops, load_buffer, |fb| {
+gbl/libgbl/src/android_boot/mod.rs:2710:    fn test_android_main_bootonce_bootloader_bcb_command_is_cleared() {
+gbl/libgbl/src/android_boot/mod.rs:2728:    fn test_android_main_enter_fastboot_via_bcb() {
+gbl/libgbl/src/android_boot/mod.rs:2739:    fn test_android_main_enter_fastboot_via_get_one_shot_boot_mode() {
+gbl/libgbl/src/android_boot/mod.rs:2751:    fn test_android_main_enter_fastboot_via_get_one_shot_boot_mode_recovery_via_bcb() {
+gbl/libgbl/src/android_boot/mod.rs:2762:        let (ramdisk, _, kernel, _) = android_main(&mut ops, (&mut load_buffer[..]).into(), |fb| {
+gbl/libgbl/src/android_boot/mod.rs:2781:    fn test_android_main_enter_recovery_mode_via_get_one_shot_boot_mode() {
+gbl/libgbl/src/android_boot/mod.rs:2792:            android_main(&mut ops, (&mut load_buffer[..]).into(), |_| {}).unwrap();
+gbl/libgbl/src/android_boot/mod.rs:2800:    fn test_android_main_fastboot_boot() {
+gbl/libgbl/src/android_boot/mod.rs:2811:        let (ramdisk, _, kernel, _) = android_main(&mut ops, load_buffer, |fb| {
+gbl/libgbl/src/android_boot/mod.rs:2837:    fn test_android_main_fastboot_boot_designated_buffers() {
+gbl/libgbl/src/android_boot/mod.rs:2855:        let (ramdisk, fdt, kernel, _) = android_main(&mut ops, buffers, |fb| {
+gbl/libgbl/src/android_boot/mod.rs:2883:    fn test_android_main_reboot_if_set_active_to_different_slot() {
+gbl/libgbl/src/android_boot/mod.rs:2894:            android_main(&mut ops, load_buffer, |fb| {
+gbl/libgbl/src/android_boot/mod.rs:2912:    fn test_android_main_enter_fastboot_trigger_sync_preloaded_partition() {
+gbl/libgbl/src/android_boot/mod.rs:2943:        let (ramdisk, _, kernel, _) = android_main(&mut ops, load_buffer, |fb| {
+gbl/libgbl/src/android_boot/mod.rs:2970:    fn test_android_main_fastboot_boot_always_sync_preloaded_partition() {
+gbl/libgbl/src/android_boot/mod.rs:3001:        let (ramdisk, _, kernel, _) = android_main(&mut ops, load_buffer, |fb| {
+gbl/libgbl/src/android_boot/mod.rs:3037:    fn test_android_main_fastboot_boot_items() {
+gbl/libgbl/src/android_boot/mod.rs:3049:        let (ramdisk, fdt, kernel, _) = android_main(&mut ops, load_buffer, |fb| {
+gbl/libgbl/src/android_boot/mod.rs:3093:    fn test_android_main_fastboot_boot_items_ignored_when_locked() {
+gbl/libgbl/src/android_boot/mod.rs:3105:        let (ramdisk, fdt, kernel, _) = android_main(&mut ops, load_buffer, |fb| {
+gbl/libgbl/src/android_boot/mod.rs:3130:    fn test_android_main_with_no_rng() {
+gbl/libgbl/src/android_boot/mod.rs:3140:        let r = android_main(&mut ops, load_buffer, |_| {});
+gbl/libgbl/src/android_boot/mod.rs:3152:    fn test_android_main_post_load_fastboot() {
+gbl/libgbl/src/android_boot/mod.rs:3164:        let res = android_main(&mut ops, load_buffer, |fb| {
+gbl/libgbl/src/android_boot/mod.rs:3222:    fn test_android_main_post_load_fastboot_load_failed() {
+gbl/libgbl/src/android_boot/mod.rs:3236:        let res = android_main(&mut ops, load_buffer, |fb| {
+gbl/libgbl/src/android_boot/mod.rs:3269:    fn test_android_main_fastboot_boot_handle_loaded_os() {
+gbl/libgbl/src/android_boot/mod.rs:3293:        let res = android_main(&mut ops, (&mut load_buffer[..]).into(), |fb| {
+gbl/libgbl/src/android_boot/mod.rs:3302:    fn test_android_main_fastboot_boot_post_load_fastboot() {
+gbl/libgbl/src/android_boot/mod.rs:3322:        let res = android_main(&mut ops, (&mut load_buffer[..]).into(), |fb| {
+gbl/libgbl/src/android_boot/mod.rs:3347:    fn test_android_main_set_active_then_fastboot_boot() {
+gbl/libgbl/src/android_boot/mod.rs:3364:        let (ramdisk, _, kernel, _) = android_main(&mut ops, (&mut load_buffer[..]).into(), |fb| {
+gbl/libgbl/src/android_boot/mod.rs:3385:        let r = android_main(&mut ops, load_buffer, |_| {});
+
+=== PARTITION READ IMPLEMENTATIONS ===
+gbl/efi/src/efi_blocks.rs:62:    async fn read_blocks<'a>(
+gbl/efi/src/efi_blocks.rs:93:    fn read_blocks_sync<'a>(
+gbl/libgbl/src/partition.rs:176:impl<B, P, T> GblDisk<Disk<B, P>, Gpt<T>>
+gbl/libgbl/src/partition.rs:411:    pub async fn read<'b>(
+gbl/libgbl/src/partition.rs:570:pub async fn read_unique_partition<'a>(
+gbl/libgbl/src/partition.rs:579:/// Same as `read_unique_partition` but IO is blocking.
+gbl/libgbl/src/partition.rs:580:pub fn read_unique_partition_sync<'a>(
+gbl/libgbl/src/partition.rs:636:    impl<B, P, T> GblDisk<Disk<B, P>, Gpt<T>>
+gbl/libgbl/src/partition.rs:682:    fn gpt_disk(data: impl AsRef<[u8]>) -> TestGblDisk {
+gbl/libgbl/src/partition.rs:689:    fn raw_disk(name: &CStr, data: impl AsRef<[u8]>) -> TestGblDisk {
+gbl/libgbl/src/partition.rs:772:    fn test_read_partition_gpt() {
+gbl/libgbl/src/partition.rs:786:    fn test_read_partition_raw() {
+gbl/libgbl/src/partition.rs:847:        check_read_partition(&devs, "boot_a", &expect, 1024, sz);
+gbl/libgbl/src/partition.rs:848:        check_read_partition(&devs, "vendor_boot_a", &expect, 1024, sz);
+gbl/libgbl/src/partition.rs:849:        check_read_partition(&devs, "raw_0", &expect, 1024, sz);
+gbl/libgbl/src/partition.rs:850:        check_read_partition(&devs, "raw_1", &expect, 1024, sz);
+gbl/libgbl/src/partition.rs:1004:    /// A test helper for `read_unique_partition`
+gbl/libgbl/src/partition.rs:1007:    fn check_read_partition(
+gbl/libgbl/src/partition.rs:1015:        block_on(read_unique_partition(devs, part, off, &mut out[..])).unwrap();
+gbl/libgbl/src/partition.rs:1019:        read_unique_partition_sync(devs, part, off, &mut out[..]).unwrap();
+gbl/libgbl/src/partition.rs:1024:    fn test_read_unique_partition() {
+gbl/libgbl/src/partition.rs:1036:        check_read_partition(&devs, "boot_a", boot_a, off, sz);
+gbl/libgbl/src/partition.rs:1037:        check_read_partition(&devs, "boot_b", boot_b, off, sz);
+gbl/libgbl/src/partition.rs:1042:        check_read_partition(&devs, "vendor_boot_a", vendor_boot_a, off, sz);
+gbl/libgbl/src/partition.rs:1043:        check_read_partition(&devs, "vendor_boot_b", vendor_boot_b, off, sz);
+gbl/libgbl/src/partition.rs:1045:        check_read_partition(&devs, "raw_0", &[0xaau8; 4 * 1024][..], off, sz);
+gbl/libgbl/src/partition.rs:1046:        check_read_partition(&devs, "raw_1", &[0x55u8; 4 * 1024][..], off, sz);
+gbl/libgbl/src/partition.rs:1054:        block_on(read_unique_partition(devs, part, 0, &mut part_content[..])).unwrap();
+gbl/libgbl/src/partition.rs:1060:        check_read_partition(devs, part, &part_content, off, sz);
+gbl/libgbl/src/partition.rs:1089:        assert!(block_on(read_unique_partition(&devs, "boot_a", 0, &mut [] as &mut [u8],)).is_err());
+gbl/libgbl/src/partition.rs:1091:        assert!(block_on(read_unique_partition(&devs, "raw", 0, &mut [] as &mut [u8],)).is_err());
+
+=== EFI PARTITION BUFFER PROTOCOL CALL ===
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-293-            //   valid object established by `Protocol::new()`.
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-294-            // * All existing references in PARTITION_BUFFER_POOL are dropped by
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-295-            //   `PARTITION_BUFFER_POOL.clear_all()?;` above.
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-296-            unsafe {
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-297-                efi_call!(protocol.interface().sync_partition_buffer, protocol.interface_ptr(), v)?
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-298-            };
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-299-            Ok(None)
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-300-        }
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-301-    }
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-302-}
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-303-
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-304-/// Gets GBL partition buffer for the given partition name
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs:305:pub fn gbl_get_partition_buffer(entry: &EfiEntry, part: &str) -> Result<GblVendorReservedMemory> {
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-306-    partition_buffer_op(entry, PartitionBufferOps::Get(part)).map(|v| v.unwrap())
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-307-}
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-308-
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-309-/// Syncs GBL partition buffer.
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs:310:pub fn gbl_sync_partition_buffer(entry: &EfiEntry, sync_preloaded: bool) -> Result<()> {
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-311-    partition_buffer_op(entry, PartitionBufferOps::Sync(sync_preloaded)).map(|_| ())
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-312-}
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-313-
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-314-/// Number of boot buffer type. Needs to be kept in sync with number of types for
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-315-/// `GblEfiBootBufferType`
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-316-const BUFFER_TYPE_NUM: usize = 6;
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-317-
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-318-/// Helper that returns a unique name and the alignment for a GblEfiBootBufferType.
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-319-fn boot_buf_info(buf_type: GblEfiBootBufferType) -> (&'static str, usize) {
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-320-    match buf_type {
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-321-        GBL_EFI_BOOT_BUFFER_TYPE_GENERAL_LOAD => ("general_load", 1),
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs-322-        GBL_EFI_BOOT_BUFFER_TYPE_KERNEL => ("kernel", 2 * 1024 * 1024),
+--
+gbl/efi/src/ops.rs-16-
+gbl/efi/src/ops.rs-17-use crate::{efi, efi_blocks::EfiGblDisk, utils::EfiTime};
+gbl/efi/src/ops.rs-18-use arrayvec::ArrayVec;
+gbl/efi/src/ops.rs-19-use core::{convert::Infallible, ffi::CStr, fmt::Write, ops::DerefMut, ptr::null};
+gbl/efi/src/ops.rs-20-use efi::{
+gbl/efi/src/ops.rs-21-    efi_print, efi_println,
+gbl/efi/src/ops.rs-22-    profiling::EfiProfileBackend,
+gbl/efi/src/ops.rs-23-    protocol::{
+gbl/efi/src/ops.rs-24-        dt_fixup::DtFixupProtocol,
+gbl/efi/src/ops.rs-25-        gbl_efi_avb::GblAvbProtocol,
+gbl/efi/src/ops.rs-26-        gbl_efi_avf::GblAvfProtocol,
+gbl/efi/src/ops.rs-27-        gbl_efi_boot_control::GblBootControlProtocol,
+gbl/efi/src/ops.rs:28:        gbl_efi_boot_memory::{gbl_get_partition_buffer, gbl_sync_partition_buffer},
+gbl/efi/src/ops.rs-29-        gbl_efi_fastboot::GblFastbootProtocol,
+gbl/efi/src/ops.rs-30-        gbl_efi_os_configuration::GblOsConfigurationProtocol,
+gbl/efi/src/ops.rs-31-        random_number_generator::{RandomNumberGeneratorProtocol, RngAlgorithm as EfiRngAlgorithm},
+gbl/efi/src/ops.rs-32-        timestamp::TimestampProtocol,
+gbl/efi/src/ops.rs-33-        Protocol, Versioned,
+gbl/efi/src/ops.rs-34-    },
+gbl/efi/src/ops.rs-35-    utils::{find_fdt_configuration_table, parse_fw_api_level},
+gbl/efi/src/ops.rs-36-    EfiEntry, GBL_EFI_FW_API_LEVEL, GBL_EFI_VENDOR_GUID,
+gbl/efi/src/ops.rs-37-};
+gbl/efi/src/ops.rs-38-use efi_types::{
+gbl/efi/src/ops.rs-39-    GblEfiAvbDeviceStatus, GblEfiAvbKeyValidationStatus, GblEfiAvbLoadedPartition,
+gbl/efi/src/ops.rs-40-    GblEfiAvbProperty, GblEfiAvbVerificationResult, GblEfiDeviceTreeMetadata,
+--
+gbl/efi/src/ops.rs-742-            // https://cs.android.com/android/platform/superproject/main/+/main:packages/modules/Virtualization/docs/updatable_vm.md
+gbl/efi/src/ops.rs-743-            Err(Error::Unsupported) => {
+gbl/efi/src/ops.rs-744-                efi_println!(
+gbl/efi/src/ops.rs-745-                    self.efi_entry,
+gbl/efi/src/ops.rs-746-                    "Warning: secret keeper public key isn't provided. PVM may not work properly.",
+gbl/efi/src/ops.rs-747-                );
+gbl/efi/src/ops.rs-748-                Ok(None)
+gbl/efi/src/ops.rs-749-            }
+gbl/efi/src/ops.rs-750-            Err(e) => Err(e),
+gbl/efi/src/ops.rs-751-        }
+gbl/efi/src/ops.rs-752-    }
+gbl/efi/src/ops.rs-753-
+gbl/efi/src/ops.rs:754:    fn get_partition_buffer(
+gbl/efi/src/ops.rs-755-        &self,
+gbl/efi/src/ops.rs-756-        part: LoadPartition,
+gbl/efi/src/ops.rs-757-    ) -> Result<PartitionBuffer<impl DerefMut<Target = [u8]> + 'b>> {
+gbl/efi/src/ops.rs:758:        Ok(match gbl_get_partition_buffer(self.efi_entry, part.name())? {
+gbl/efi/src/ops.rs-759-            v if v.is_preloaded() => PartitionBuffer::Preloaded(v),
+gbl/efi/src/ops.rs-760-            v => PartitionBuffer::Designated(v),
+gbl/efi/src/ops.rs-761-        })
+gbl/efi/src/ops.rs-762-    }
+gbl/efi/src/ops.rs-763-
+gbl/efi/src/ops.rs:764:    fn sync_partition_buffer(&mut self, sync_preloaded: bool) -> Result<()> {
+gbl/efi/src/ops.rs:765:        match gbl_sync_partition_buffer(self.efi_entry, sync_preloaded) {
+gbl/efi/src/ops.rs-766-            Err(Error::NotFound) => Ok(()),
+gbl/efi/src/ops.rs-767-            v => v,
+gbl/efi/src/ops.rs-768-        }
+gbl/efi/src/ops.rs-769-    }
+gbl/efi/src/ops.rs-770-
+gbl/efi/src/ops.rs-771-    fn fixup_bootconfig<'c>(
+gbl/efi/src/ops.rs-772-        &mut self,
+gbl/efi/src/ops.rs-773-        bootconfig: &[u8],
+gbl/efi/src/ops.rs-774-        fixup_buffer: &'c mut [u8],
+gbl/efi/src/ops.rs-775-    ) -> Result<Option<&'c [u8]>> {
+gbl/efi/src/ops.rs-776-        match self.open_os_configuration_protocol() {
+gbl/efi/src/ops.rs-777-            Ok(protocol) => match protocol.fixup_bootconfig(bootconfig, fixup_buffer) {
+
+=== BOOT IMAGE LOAD REQUESTS ===
+gbl/libgbl/src/android_boot/vboot.rs-456-            verification: Some(Verification::Required),
+gbl/libgbl/src/android_boot/vboot.rs-457-            fdr: Fdr::No,
+gbl/libgbl/src/android_boot/vboot.rs-458-            critical: Critical::No,
+gbl/libgbl/src/android_boot/vboot.rs-459-        };
+gbl/libgbl/src/android_boot/vboot.rs-460-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:461:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:462:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:463:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:464:        partitions_to_verify.try_push(LoadPartition::PlatformSpecific(&fw)).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-465-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-466-            (c"boot_a", "android/boot_no_ramdisk_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-467-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-468-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-469-            (c"fw_a", "android/fw_a.img"),
+--
+gbl/libgbl/src/android_boot/vboot.rs-506-            verification: Some(Verification::Required),
+gbl/libgbl/src/android_boot/vboot.rs-507-            fdr: Fdr::No,
+gbl/libgbl/src/android_boot/vboot.rs-508-            critical: Critical::No,
+gbl/libgbl/src/android_boot/vboot.rs-509-        };
+gbl/libgbl/src/android_boot/vboot.rs-510-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:511:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:512:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:513:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:514:        partitions_to_verify.try_push(LoadPartition::PlatformSpecific(&not_presented)).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-515-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-516-            (c"boot_a", "android/boot_no_ramdisk_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-517-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-518-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-519-            (c"vbmeta_a", "android/vbmeta_v4_v4_init_boot_a.img"),
+--
+gbl/libgbl/src/android_boot/vboot.rs-554-            verification: Some(Verification::IfExists),
+gbl/libgbl/src/android_boot/vboot.rs-555-            fdr: Fdr::No,
+gbl/libgbl/src/android_boot/vboot.rs-556-            critical: Critical::No,
+gbl/libgbl/src/android_boot/vboot.rs-557-        };
+gbl/libgbl/src/android_boot/vboot.rs-558-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:559:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:560:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:561:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:562:        partitions_to_verify.try_push(LoadPartition::PlatformSpecific(&not_presented)).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-563-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-564-            (c"boot_a", "android/boot_no_ramdisk_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-565-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-566-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-567-            (c"vbmeta_a", "android/vbmeta_v4_v4_init_boot_a.img"),
+--
+gbl/libgbl/src/android_boot/vboot.rs-596-    }
+gbl/libgbl/src/android_boot/vboot.rs-597-
+gbl/libgbl/src/android_boot/vboot.rs-598-    #[test]
+gbl/libgbl/src/android_boot/vboot.rs-599-    fn test_avb_verify_slot_success_custom_key() {
+gbl/libgbl/src/android_boot/vboot.rs-600-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:601:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:602:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:603:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-604-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-605-            (c"boot_a", "android/boot_no_ramdisk_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-606-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-607-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-608-            (c"vbmeta_a", "android/vbmeta_v4_v4_init_boot_a.img"),
+--
+gbl/libgbl/src/android_boot/vboot.rs-642-        let mut boot = read_test_data("android/boot_no_ramdisk_v4_a.img");
+gbl/libgbl/src/android_boot/vboot.rs-643-        let mut init_boot = read_test_data("android/init_boot_a.img");
+gbl/libgbl/src/android_boot/vboot.rs-644-        let mut vendor_boot = read_test_data("android/vendor_boot_v4_a.img");
+gbl/libgbl/src/android_boot/vboot.rs-645-
+gbl/libgbl/src/android_boot/vboot.rs-646-        let mut preloaded = [
+gbl/libgbl/src/android_boot/vboot.rs:647:            (LoadPartition::Boot, PartitionBuffer::Preloaded(&mut boot[..])),
+gbl/libgbl/src/android_boot/vboot.rs:648:            (LoadPartition::InitBoot, PartitionBuffer::Preloaded(&mut init_boot[..])),
+gbl/libgbl/src/android_boot/vboot.rs:649:            (LoadPartition::VendorBoot, PartitionBuffer::Preloaded(&mut vendor_boot[..])),
+gbl/libgbl/src/android_boot/vboot.rs-650-        ];
+gbl/libgbl/src/android_boot/vboot.rs-651-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs-652-        for (p, v) in &mut preloaded {
+gbl/libgbl/src/android_boot/vboot.rs-653-            partitions_to_verify.try_push_preloaded(*p, v).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-654-        }
+--
+gbl/libgbl/src/android_boot/vboot.rs-691-            verification: Some(Verification::Required),
+gbl/libgbl/src/android_boot/vboot.rs-692-            fdr: Fdr::No,
+gbl/libgbl/src/android_boot/vboot.rs-693-            critical: Critical::No,
+gbl/libgbl/src/android_boot/vboot.rs-694-        };
+gbl/libgbl/src/android_boot/vboot.rs-695-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:696:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:697:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:698:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:699:        partitions_to_verify.try_push(LoadPartition::PlatformSpecific(&fw)).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-700-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-701-            (c"boot_a", "android/boot_no_ramdisk_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-702-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-703-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-704-            (c"fw_a", "android/fw_a.img"),
+--
+gbl/libgbl/src/android_boot/vboot.rs-745-            verification: Some(Verification::Required),
+gbl/libgbl/src/android_boot/vboot.rs-746-            fdr: Fdr::No,
+gbl/libgbl/src/android_boot/vboot.rs-747-            critical: Critical::No,
+gbl/libgbl/src/android_boot/vboot.rs-748-        };
+gbl/libgbl/src/android_boot/vboot.rs-749-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:750:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:751:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:752:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:753:        partitions_to_verify.try_push(LoadPartition::PlatformSpecific(&fw)).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:754:        partitions_to_verify.try_push(LoadPartition::PlatformSpecific(&not_presented)).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-755-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-756-            (c"boot_a", "android/boot_no_ramdisk_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-757-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-758-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-759-            (c"fw_a", "android/fw_a.img"),
+--
+gbl/libgbl/src/android_boot/vboot.rs-788-    }
+gbl/libgbl/src/android_boot/vboot.rs-789-
+gbl/libgbl/src/android_boot/vboot.rs-790-    #[test]
+gbl/libgbl/src/android_boot/vboot.rs-791-    fn test_avb_verify_slot_verification_failed_unlocked() {
+gbl/libgbl/src/android_boot/vboot.rs-792-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:793:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:794:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:795:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-796-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-797-            // Wrong boot image, expect verification to fail.
+gbl/libgbl/src/android_boot/vboot.rs-798-            (c"boot_a", "android/boot_v0_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-799-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-800-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+--
+gbl/libgbl/src/android_boot/vboot.rs-830-    }
+gbl/libgbl/src/android_boot/vboot.rs-831-
+gbl/libgbl/src/android_boot/vboot.rs-832-    #[test]
+gbl/libgbl/src/android_boot/vboot.rs-833-    fn test_avb_verify_slot_verification_fatal_failed_unlocked() {
+gbl/libgbl/src/android_boot/vboot.rs-834-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:835:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:836:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:837:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-838-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-839-            (c"boot_a", "android/boot_no_ramdisk_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-840-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-841-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-842-            (c"vbmeta_a", "android/vbmeta_v4_v4_init_boot_a.img"),
+--
+gbl/libgbl/src/android_boot/vboot.rs-870-    }
+gbl/libgbl/src/android_boot/vboot.rs-871-
+gbl/libgbl/src/android_boot/vboot.rs-872-    #[test]
+gbl/libgbl/src/android_boot/vboot.rs-873-    fn test_avb_verify_slot_verification_failed_locked() {
+gbl/libgbl/src/android_boot/vboot.rs-874-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:875:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:876:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:877:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-878-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-879-            // Wrong boot image, expect verification to fail.
+gbl/libgbl/src/android_boot/vboot.rs-880-            (c"boot_a", "android/boot_v0_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-881-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-882-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+--
+gbl/libgbl/src/android_boot/vboot.rs-913-    }
+gbl/libgbl/src/android_boot/vboot.rs-914-
+gbl/libgbl/src/android_boot/vboot.rs-915-    #[test]
+gbl/libgbl/src/android_boot/vboot.rs-916-    fn test_avb_verify_slot_success_eio_mode() {
+gbl/libgbl/src/android_boot/vboot.rs-917-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:918:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:919:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:920:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-921-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-922-            (c"boot_a", "android/boot_no_ramdisk_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-923-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-924-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-925-            (c"vbmeta_a", "android/vbmeta_v4_v4_init_boot_a.img"),
+--
+gbl/libgbl/src/android_boot/vboot.rs-983-
+gbl/libgbl/src/android_boot/vboot.rs-984-    #[cfg(feature = "gbl_dev")]
+gbl/libgbl/src/android_boot/vboot.rs-985-    #[test]
+gbl/libgbl/src/android_boot/vboot.rs-986-    fn test_avb_verify_slot_avb_not_implemented_dev_gbl() {
+gbl/libgbl/src/android_boot/vboot.rs-987-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:988:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:989:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:990:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-991-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-992-            (c"boot_a", "android/boot_no_ramdisk_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-993-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-994-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-995-            (c"vbmeta_a", "android/vbmeta_v4_v4_init_boot_a.img"),
+--
+gbl/libgbl/src/ops.rs-76-    Bootloader,
+gbl/libgbl/src/ops.rs-77-    /// Recovery.
+gbl/libgbl/src/ops.rs-78-    Recovery,
+gbl/libgbl/src/ops.rs-79-}
+gbl/libgbl/src/ops.rs-80-
+gbl/libgbl/src/ops.rs:81:/// Represents a partition buffer for return by `GblOps::get_partition_buffer()`.
+gbl/libgbl/src/ops.rs-82-pub enum PartitionBuffer<T> {
+gbl/libgbl/src/ops.rs-83-    /// Buffer with preloaded partition image.
+gbl/libgbl/src/ops.rs-84-    Preloaded(T),
+gbl/libgbl/src/ops.rs-85-    /// Designated buffer for loading the partition image.
+gbl/libgbl/src/ops.rs-86-    Designated(T),
+--
+gbl/libgbl/src/ops.rs-417-    /// Returns `Err(Error::NotReady)`, if a previous returned instance is still in scope.
+gbl/libgbl/src/ops.rs-418-    /// Returns `Err(Error::NotFound)`, if buffer is not found.
+gbl/libgbl/src/ops.rs-419-    /// Returns `Ok(PartitionBuffer::Designated(..))`, if buffer is found.
+gbl/libgbl/src/ops.rs-420-    /// Returns `Ok(PartitionBuffer::Preloaded(..))`, if buffer is found and contains preloaded
+gbl/libgbl/src/ops.rs-421-    /// data.
+gbl/libgbl/src/ops.rs:422:    fn get_partition_buffer(
+gbl/libgbl/src/ops.rs-423-        &self,
+gbl/libgbl/src/ops.rs-424-        img: LoadPartition,
+gbl/libgbl/src/ops.rs-425-    ) -> Result<PartitionBuffer<impl DerefMut<Target = [u8]> + 'a>, Error>;
+gbl/libgbl/src/ops.rs-426-
+gbl/libgbl/src/ops.rs:427:    /// Notifies the firmware to inspect or update buffer for return by `get_partition_buffer()`.
+gbl/libgbl/src/ops.rs-428-    ///
+gbl/libgbl/src/ops.rs-429-    /// # Args
+gbl/libgbl/src/ops.rs-430-    ///
+gbl/libgbl/src/ops.rs-431-    /// * `sync_preloaded`: Set to true to request backend to re-sync preloaded partition buffer.
+gbl/libgbl/src/ops.rs-432-    ///
+--
+gbl/libgbl/src/ops.rs-808-
+gbl/libgbl/src/ops.rs-809-    fn avb_cert_read_permanent_attributes_hash(&mut self) -> AvbIoResult<[u8; SHA256_DIGEST_SIZE]> {
+gbl/libgbl/src/ops.rs-810-        self.ops.avb_cert_read_permanent_attributes_hash()
+gbl/libgbl/src/ops.rs-811-    }
+gbl/libgbl/src/ops.rs-812-
+gbl/libgbl/src/ops.rs:813:    fn get_partition_buffer(
+gbl/libgbl/src/ops.rs-814-        &self,
+gbl/libgbl/src/ops.rs-815-        img: LoadPartition,
+gbl/libgbl/src/ops.rs-816-    ) -> Result<PartitionBuffer<impl DerefMut<Target = [u8]> + 'a>, Error> {
+gbl/libgbl/src/ops.rs:817:        self.ops.get_partition_buffer(img)
+gbl/libgbl/src/ops.rs-818-    }
+gbl/libgbl/src/ops.rs-819-
+gbl/libgbl/src/ops.rs-820-    fn sync_partition_buffer(&mut self, sync_preloaded: bool) -> Result<(), Error> {
+gbl/libgbl/src/ops.rs-821-        self.ops.sync_partition_buffer(sync_preloaded)
+gbl/libgbl/src/ops.rs-822-    }
+--
+gbl/libgbl/src/ops.rs-1690-            let (out, _) = buffer.split_at_mut(Self::GBL_TEST_AVF_SECRET_KEEPER_PUBLIC_KEY.len());
+gbl/libgbl/src/ops.rs-1691-            out.copy_from_slice(Self::GBL_TEST_AVF_SECRET_KEEPER_PUBLIC_KEY);
+gbl/libgbl/src/ops.rs-1692-            Ok(Some(out))
+gbl/libgbl/src/ops.rs-1693-        }
+gbl/libgbl/src/ops.rs-1694-
+gbl/libgbl/src/ops.rs:1695:        fn get_partition_buffer(
+gbl/libgbl/src/ops.rs-1696-            &self,
+gbl/libgbl/src/ops.rs-1697-            img: LoadPartition,
+gbl/libgbl/src/ops.rs-1698-        ) -> Result<PartitionBuffer<impl DerefMut<Target = [u8]> + 'a>, Error> {
+gbl/libgbl/src/ops.rs-1699-            self.get_partition_buffer_handler.as_ref().ok_or(Error::NotFound)?(img)
+gbl/libgbl/src/ops.rs-1700-        }
+--
+gbl/libgbl/src/ops.rs-2097-            &mut self,
+gbl/libgbl/src/ops.rs-2098-        ) -> AvbIoResult<[u8; SHA256_DIGEST_SIZE]> {
+gbl/libgbl/src/ops.rs-2099-            Err(AvbIoError::NotImplemented)
+gbl/libgbl/src/ops.rs-2100-        }
+gbl/libgbl/src/ops.rs-2101-
+gbl/libgbl/src/ops.rs:2102:        fn get_partition_buffer(
+gbl/libgbl/src/ops.rs-2103-            &self,
+gbl/libgbl/src/ops.rs-2104-            _: LoadPartition,
+gbl/libgbl/src/ops.rs-2105-        ) -> Result<PartitionBuffer<impl DerefMut<Target = [u8]> + 'a>, Error> {
+gbl/libgbl/src/ops.rs-2106-            Err::<PartitionBuffer<&mut [u8]>, _>(Error::Unsupported)
+gbl/libgbl/src/ops.rs-2107-        }
+--
+gbl/libgbl/src/android_boot/load.rs-340-    verify_data: &'b SlotVerifyData,
+gbl/libgbl/src/android_boot/load.rs-341-) -> Result<LoadedImages<'b>, Error> {
+gbl/libgbl/src/android_boot/load.rs-342-    let mut images = LoadedImages {
+gbl/libgbl/src/android_boot/load.rs-343-        dtb_part: get_verified_partition(
+gbl/libgbl/src/android_boot/load.rs-344-            ops,
+gbl/libgbl/src/android_boot/load.rs:345:            LoadPartition::Dtb,
+gbl/libgbl/src/android_boot/load.rs-346-            slot,
+gbl/libgbl/src/android_boot/load.rs-347-            unlocked,
+gbl/libgbl/src/android_boot/load.rs-348-            true,
+gbl/libgbl/src/android_boot/load.rs-349-            verify_data,
+gbl/libgbl/src/android_boot/load.rs-350-        )?,
+gbl/libgbl/src/android_boot/load.rs:351:        dtbo: get_verified_partition(ops, LoadPartition::Dtbo, slot, unlocked, true, verify_data)?,
+gbl/libgbl/src/android_boot/load.rs-352-        ..Default::default()
+gbl/libgbl/src/android_boot/load.rs-353-    };
+gbl/libgbl/src/android_boot/load.rs-354-    if ops.avf_is_supported()? {
+gbl/libgbl/src/android_boot/load.rs-355-        images.pvmfw =
+gbl/libgbl/src/android_boot/load.rs:356:            get_verified_partition(ops, LoadPartition::Pvmfw, slot, unlocked, true, verify_data)?;
+gbl/libgbl/src/android_boot/load.rs-357-    }
+gbl/libgbl/src/android_boot/load.rs-358-    let boot =
+gbl/libgbl/src/android_boot/load.rs:359:        get_verified_partition(ops, LoadPartition::Boot, slot, unlocked, false, verify_data)?;
+gbl/libgbl/src/android_boot/load.rs-360-    match log_and_parse_bootimg(ops, boot)? {
+gbl/libgbl/src/android_boot/load.rs-361-        BootImage::V3(_) | BootImage::V4(_) => load_v3_and_v4_verified(
+gbl/libgbl/src/android_boot/load.rs-362-            ops,
+gbl/libgbl/src/android_boot/load.rs-363-            boot,
+gbl/libgbl/src/android_boot/load.rs-364-            slot,
+--
+gbl/libgbl/src/android_boot/load.rs-474-    let boot_info = BootImageV3Info::new(boot).unwrap();
+gbl/libgbl/src/android_boot/load.rs-475-    images.boot_cmdline = BootImageV3Info::cmdline(boot)?;
+gbl/libgbl/src/android_boot/load.rs-476-
+gbl/libgbl/src/android_boot/load.rs-477-    // Loads vendor_boot partition, including ramdisk, dtb, commandline etc.
+gbl/libgbl/src/android_boot/load.rs-478-    let vendor_boot =
+gbl/libgbl/src/android_boot/load.rs:479:        get_verified_partition(ops, LoadPartition::VendorBoot, slot, unlocked, false, verify_data)?;
+gbl/libgbl/src/android_boot/load.rs-480-    let vendor_boot_info = VendorBootImageInfo::new(vendor_boot)?;
+gbl/libgbl/src/android_boot/load.rs-481-    images.vendor_cmdline = VendorBootImageInfo::cmdline(vendor_boot)?;
+gbl/libgbl/src/android_boot/load.rs-482-    images.dtb = get_range(vendor_boot, &vendor_boot_info.dtb_range)?;
+gbl/libgbl/src/android_boot/load.rs-483-    images.dtb_source = Some(DtComponentSource::VendorBoot);
+gbl/libgbl/src/android_boot/load.rs-484-    images.vendor_bootconfig = get_range(vendor_boot, &vendor_boot_info.bootconfig_range)?;
+--
+gbl/libgbl/src/android_boot/load.rs-486-    parse_vendor_ramdisks(vendor_boot, &vendor_boot_info, is_recovery, &mut images.ramdisks)?;
+gbl/libgbl/src/android_boot/load.rs-487-
+gbl/libgbl/src/android_boot/load.rs-488-    // Finds and loads vendor_kernel_boot partition if provided.
+gbl/libgbl/src/android_boot/load.rs-489-    let vendor_kernel_boot = get_verified_partition(
+gbl/libgbl/src/android_boot/load.rs-490-        ops,
+gbl/libgbl/src/android_boot/load.rs:491:        LoadPartition::VendorKernelBoot,
+gbl/libgbl/src/android_boot/load.rs-492-        slot,
+gbl/libgbl/src/android_boot/load.rs-493-        unlocked,
+gbl/libgbl/src/android_boot/load.rs-494-        true,
+gbl/libgbl/src/android_boot/load.rs-495-        verify_data,
+gbl/libgbl/src/android_boot/load.rs-496-    )?;
+--
+gbl/libgbl/src/android_boot/load.rs-503-
+gbl/libgbl/src/android_boot/load.rs-504-    // Loads generic ramdisk, which may come from either boot or init_boot.
+gbl/libgbl/src/android_boot/load.rs-505-    let generic_ramdisk = match boot_info.ramdisk_range.is_empty() {
+gbl/libgbl/src/android_boot/load.rs-506-        true => get_verified_partition(
+gbl/libgbl/src/android_boot/load.rs-507-            ops,
+gbl/libgbl/src/android_boot/load.rs:508:            LoadPartition::InitBoot,
+gbl/libgbl/src/android_boot/load.rs-509-            slot,
+gbl/libgbl/src/android_boot/load.rs-510-            unlocked,
+gbl/libgbl/src/android_boot/load.rs-511-            false,
+gbl/libgbl/src/android_boot/load.rs-512-            verify_data,
+gbl/libgbl/src/android_boot/load.rs-513-        )?,
+--
+gbl/libgbl/src/android_boot/mod.rs-68-}
+gbl/libgbl/src/android_boot/mod.rs-69-
+gbl/libgbl/src/android_boot/mod.rs-70-/// The set of partitions we always verify with libavb for Android boot.
+gbl/libgbl/src/android_boot/mod.rs-71-pub const STANDARD_PARTITIONS: &[LoadPartition] = &[
+gbl/libgbl/src/android_boot/mod.rs-72-    // LINT.IfChange(always_verify_partitions)
+gbl/libgbl/src/android_boot/mod.rs:73:    LoadPartition::Boot,
+gbl/libgbl/src/android_boot/mod.rs:74:    LoadPartition::VendorBoot,
+gbl/libgbl/src/android_boot/mod.rs:75:    LoadPartition::VendorKernelBoot,
+gbl/libgbl/src/android_boot/mod.rs:76:    LoadPartition::InitBoot,
+gbl/libgbl/src/android_boot/mod.rs:77:    LoadPartition::Dtb,
+gbl/libgbl/src/android_boot/mod.rs:78:    LoadPartition::Dtbo,
+gbl/libgbl/src/android_boot/mod.rs:79:    LoadPartition::Pvmfw,
+gbl/libgbl/src/android_boot/mod.rs-80-    // LINT.ThenChange(/gbl/docs/gbl_efi_avb_protocol.md:always_verify_partitions)
+gbl/libgbl/src/android_boot/mod.rs-81-];
+gbl/libgbl/src/android_boot/mod.rs-82-
+gbl/libgbl/src/android_boot/mod.rs-83-/// Loads Android images from the given slot on disk and fixes up bootconfig, commandline, and FDT.
+gbl/libgbl/src/android_boot/mod.rs-84-///
+--
+gbl/libgbl/src/android_boot/mod.rs-106-    // We need to first store all buffers and then create slices from them. Because they are
+gbl/libgbl/src/android_boot/mod.rs-107-    // opaque objects that need to be dereferenced to yield slices.
+gbl/libgbl/src/android_boot/mod.rs-108-    for partition in STANDARD_PARTITIONS
+gbl/libgbl/src/android_boot/mod.rs-109-        .iter()
+gbl/libgbl/src/android_boot/mod.rs-110-        .copied()
+gbl/libgbl/src/android_boot/mod.rs:111:        .chain(requested_partitions.iter().map(LoadPartition::PlatformSpecific))
+gbl/libgbl/src/android_boot/mod.rs-112-    {
+gbl/libgbl/src/android_boot/mod.rs:113:        let b = match ops.get_partition_buffer(partition) {
+gbl/libgbl/src/android_boot/mod.rs-114-            Ok(b) => {
+gbl/libgbl/src/android_boot/mod.rs-115-                let info = match b {
+gbl/libgbl/src/android_boot/mod.rs-116-                    PartitionBuffer::Preloaded(_) => "preloaded",
+gbl/libgbl/src/android_boot/mod.rs-117-                    PartitionBuffer::Designated(_) => "designated load",
+gbl/libgbl/src/android_boot/mod.rs-118-                };
+--
+gbl/libgbl/src/android_boot/mod.rs-2272-        storage.add_raw_device(c"init_boot_a", read_test_data("android/init_boot_a.img"));
+gbl/libgbl/src/android_boot/mod.rs-2273-        storage.add_raw_device(c"vbmeta_a", read_test_data("android/vbmeta_v4_v4_init_boot_a.img"));
+gbl/libgbl/src/android_boot/mod.rs-2274-
+gbl/libgbl/src/android_boot/mod.rs-2275-        let image_buffers: Vec<(LoadPartition, RefCell<Vec<u8>>, bool)> = vec![
+gbl/libgbl/src/android_boot/mod.rs-2276-            // Preloaded.
+gbl/libgbl/src/android_boot/mod.rs:2277:            (LoadPartition::Boot, read_test_data("android/boot_no_ramdisk_v4_a.img").into(), true),
+gbl/libgbl/src/android_boot/mod.rs-2278-            (
+gbl/libgbl/src/android_boot/mod.rs:2279:                LoadPartition::VendorKernelBoot,
+gbl/libgbl/src/android_boot/mod.rs-2280-                read_test_data("android/vendor_kernel_boot_a.img").into(),
+gbl/libgbl/src/android_boot/mod.rs-2281-                true,
+gbl/libgbl/src/android_boot/mod.rs-2282-            ),
+gbl/libgbl/src/android_boot/mod.rs-2283-            // Designated load
+gbl/libgbl/src/android_boot/mod.rs-2284-            (
+gbl/libgbl/src/android_boot/mod.rs:2285:                LoadPartition::VendorBoot,
+gbl/libgbl/src/android_boot/mod.rs-2286-                vec![0u8; read_test_data("android/vendor_boot_v4_a.img").len()].into(),
+gbl/libgbl/src/android_boot/mod.rs-2287-                false,
+gbl/libgbl/src/android_boot/mod.rs-2288-            ),
+gbl/libgbl/src/android_boot/mod.rs-2289-            (
+gbl/libgbl/src/android_boot/mod.rs:2290:                LoadPartition::InitBoot,
+gbl/libgbl/src/android_boot/mod.rs-2291-                vec![0u8; read_test_data("android/init_boot_a.img").len()].into(),
+gbl/libgbl/src/android_boot/mod.rs-2292-                false,
+gbl/libgbl/src/android_boot/mod.rs-2293-            ),
+gbl/libgbl/src/android_boot/mod.rs-2294-        ];
+gbl/libgbl/src/android_boot/mod.rs-2295-        let vendor_boot_addr = image_buffers[2].1.borrow_mut().as_ptr_range();
+--
+gbl/libgbl/src/android_boot/mod.rs-2917-
+gbl/libgbl/src/android_boot/mod.rs-2918-        // Set up designated load buffer for boot_a image
+gbl/libgbl/src/android_boot/mod.rs-2919-        let img_len = read_test_data("android/boot_v2_a.img").len();
+gbl/libgbl/src/android_boot/mod.rs-2920-        let buf = RefCell::new(vec![0u8; img_len]);
+gbl/libgbl/src/android_boot/mod.rs-2921-        let get_partition_buffer_handler = |img: LoadPartition| match img {
+gbl/libgbl/src/android_boot/mod.rs:2922:            LoadPartition::Boot => {
+gbl/libgbl/src/android_boot/mod.rs-2923-                Ok(PartitionBuffer::Designated(into_refmut_bytes(buf.borrow_mut())))
+gbl/libgbl/src/android_boot/mod.rs-2924-            }
+gbl/libgbl/src/android_boot/mod.rs-2925-            _ => Err(Error::NotFound),
+gbl/libgbl/src/android_boot/mod.rs-2926-        };
+gbl/libgbl/src/android_boot/mod.rs-2927-
+--
+gbl/libgbl/src/android_boot/mod.rs-2974-
+gbl/libgbl/src/android_boot/mod.rs-2975-        // Set up designated load buffer for boot_a image
+gbl/libgbl/src/android_boot/mod.rs-2976-        let img_len = read_test_data("android/boot_v2_a.img").len();
+gbl/libgbl/src/android_boot/mod.rs-2977-        let buf = RefCell::new(vec![0u8; img_len]);
+gbl/libgbl/src/android_boot/mod.rs-2978-        let get_partition_buffer_handler = |img: LoadPartition| match img {
+gbl/libgbl/src/android_boot/mod.rs:2979:            LoadPartition::Boot => {
+gbl/libgbl/src/android_boot/mod.rs-2980-                Ok(PartitionBuffer::Designated(into_refmut_bytes(buf.borrow_mut())))
+gbl/libgbl/src/android_boot/mod.rs-2981-            }
+gbl/libgbl/src/android_boot/mod.rs-2982-            _ => Err(Error::NotFound),
+gbl/libgbl/src/android_boot/mod.rs-2983-        };
+gbl/libgbl/src/android_boot/mod.rs-2984-
+--
+gbl/libgbl/src/android_boot/load.rs-340-    verify_data: &'b SlotVerifyData,
+gbl/libgbl/src/android_boot/load.rs-341-) -> Result<LoadedImages<'b>, Error> {
+gbl/libgbl/src/android_boot/load.rs-342-    let mut images = LoadedImages {
+gbl/libgbl/src/android_boot/load.rs-343-        dtb_part: get_verified_partition(
+gbl/libgbl/src/android_boot/load.rs-344-            ops,
+gbl/libgbl/src/android_boot/load.rs:345:            LoadPartition::Dtb,
+gbl/libgbl/src/android_boot/load.rs-346-            slot,
+gbl/libgbl/src/android_boot/load.rs-347-            unlocked,
+gbl/libgbl/src/android_boot/load.rs-348-            true,
+gbl/libgbl/src/android_boot/load.rs-349-            verify_data,
+gbl/libgbl/src/android_boot/load.rs-350-        )?,
+gbl/libgbl/src/android_boot/load.rs:351:        dtbo: get_verified_partition(ops, LoadPartition::Dtbo, slot, unlocked, true, verify_data)?,
+gbl/libgbl/src/android_boot/load.rs-352-        ..Default::default()
+gbl/libgbl/src/android_boot/load.rs-353-    };
+gbl/libgbl/src/android_boot/load.rs-354-    if ops.avf_is_supported()? {
+gbl/libgbl/src/android_boot/load.rs-355-        images.pvmfw =
+gbl/libgbl/src/android_boot/load.rs:356:            get_verified_partition(ops, LoadPartition::Pvmfw, slot, unlocked, true, verify_data)?;
+gbl/libgbl/src/android_boot/load.rs-357-    }
+gbl/libgbl/src/android_boot/load.rs-358-    let boot =
+gbl/libgbl/src/android_boot/load.rs:359:        get_verified_partition(ops, LoadPartition::Boot, slot, unlocked, false, verify_data)?;
+gbl/libgbl/src/android_boot/load.rs-360-    match log_and_parse_bootimg(ops, boot)? {
+gbl/libgbl/src/android_boot/load.rs-361-        BootImage::V3(_) | BootImage::V4(_) => load_v3_and_v4_verified(
+gbl/libgbl/src/android_boot/load.rs-362-            ops,
+gbl/libgbl/src/android_boot/load.rs-363-            boot,
+gbl/libgbl/src/android_boot/load.rs-364-            slot,
+--
+gbl/libgbl/src/android_boot/load.rs-474-    let boot_info = BootImageV3Info::new(boot).unwrap();
+gbl/libgbl/src/android_boot/load.rs-475-    images.boot_cmdline = BootImageV3Info::cmdline(boot)?;
+gbl/libgbl/src/android_boot/load.rs-476-
+gbl/libgbl/src/android_boot/load.rs-477-    // Loads vendor_boot partition, including ramdisk, dtb, commandline etc.
+gbl/libgbl/src/android_boot/load.rs-478-    let vendor_boot =
+gbl/libgbl/src/android_boot/load.rs:479:        get_verified_partition(ops, LoadPartition::VendorBoot, slot, unlocked, false, verify_data)?;
+gbl/libgbl/src/android_boot/load.rs-480-    let vendor_boot_info = VendorBootImageInfo::new(vendor_boot)?;
+gbl/libgbl/src/android_boot/load.rs-481-    images.vendor_cmdline = VendorBootImageInfo::cmdline(vendor_boot)?;
+gbl/libgbl/src/android_boot/load.rs-482-    images.dtb = get_range(vendor_boot, &vendor_boot_info.dtb_range)?;
+gbl/libgbl/src/android_boot/load.rs-483-    images.dtb_source = Some(DtComponentSource::VendorBoot);
+gbl/libgbl/src/android_boot/load.rs-484-    images.vendor_bootconfig = get_range(vendor_boot, &vendor_boot_info.bootconfig_range)?;
+--
+gbl/libgbl/src/android_boot/load.rs-486-    parse_vendor_ramdisks(vendor_boot, &vendor_boot_info, is_recovery, &mut images.ramdisks)?;
+gbl/libgbl/src/android_boot/load.rs-487-
+gbl/libgbl/src/android_boot/load.rs-488-    // Finds and loads vendor_kernel_boot partition if provided.
+gbl/libgbl/src/android_boot/load.rs-489-    let vendor_kernel_boot = get_verified_partition(
+gbl/libgbl/src/android_boot/load.rs-490-        ops,
+gbl/libgbl/src/android_boot/load.rs:491:        LoadPartition::VendorKernelBoot,
+gbl/libgbl/src/android_boot/load.rs-492-        slot,
+gbl/libgbl/src/android_boot/load.rs-493-        unlocked,
+gbl/libgbl/src/android_boot/load.rs-494-        true,
+gbl/libgbl/src/android_boot/load.rs-495-        verify_data,
+gbl/libgbl/src/android_boot/load.rs-496-    )?;
+--
+gbl/libgbl/src/android_boot/load.rs-503-
+gbl/libgbl/src/android_boot/load.rs-504-    // Loads generic ramdisk, which may come from either boot or init_boot.
+gbl/libgbl/src/android_boot/load.rs-505-    let generic_ramdisk = match boot_info.ramdisk_range.is_empty() {
+gbl/libgbl/src/android_boot/load.rs-506-        true => get_verified_partition(
+gbl/libgbl/src/android_boot/load.rs-507-            ops,
+gbl/libgbl/src/android_boot/load.rs:508:            LoadPartition::InitBoot,
+gbl/libgbl/src/android_boot/load.rs-509-            slot,
+gbl/libgbl/src/android_boot/load.rs-510-            unlocked,
+gbl/libgbl/src/android_boot/load.rs-511-            false,
+gbl/libgbl/src/android_boot/load.rs-512-            verify_data,
+gbl/libgbl/src/android_boot/load.rs-513-        )?,
+--
+gbl/libgbl/src/android_boot/vboot.rs-456-            verification: Some(Verification::Required),
+gbl/libgbl/src/android_boot/vboot.rs-457-            fdr: Fdr::No,
+gbl/libgbl/src/android_boot/vboot.rs-458-            critical: Critical::No,
+gbl/libgbl/src/android_boot/vboot.rs-459-        };
+gbl/libgbl/src/android_boot/vboot.rs-460-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:461:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:462:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:463:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:464:        partitions_to_verify.try_push(LoadPartition::PlatformSpecific(&fw)).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-465-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-466-            (c"boot_a", "android/boot_no_ramdisk_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-467-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-468-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-469-            (c"fw_a", "android/fw_a.img"),
+--
+gbl/libgbl/src/android_boot/vboot.rs-506-            verification: Some(Verification::Required),
+gbl/libgbl/src/android_boot/vboot.rs-507-            fdr: Fdr::No,
+gbl/libgbl/src/android_boot/vboot.rs-508-            critical: Critical::No,
+gbl/libgbl/src/android_boot/vboot.rs-509-        };
+gbl/libgbl/src/android_boot/vboot.rs-510-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:511:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:512:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:513:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:514:        partitions_to_verify.try_push(LoadPartition::PlatformSpecific(&not_presented)).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-515-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-516-            (c"boot_a", "android/boot_no_ramdisk_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-517-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-518-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-519-            (c"vbmeta_a", "android/vbmeta_v4_v4_init_boot_a.img"),
+--
+gbl/libgbl/src/android_boot/vboot.rs-554-            verification: Some(Verification::IfExists),
+gbl/libgbl/src/android_boot/vboot.rs-555-            fdr: Fdr::No,
+gbl/libgbl/src/android_boot/vboot.rs-556-            critical: Critical::No,
+gbl/libgbl/src/android_boot/vboot.rs-557-        };
+gbl/libgbl/src/android_boot/vboot.rs-558-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:559:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:560:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:561:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:562:        partitions_to_verify.try_push(LoadPartition::PlatformSpecific(&not_presented)).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-563-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-564-            (c"boot_a", "android/boot_no_ramdisk_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-565-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-566-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-567-            (c"vbmeta_a", "android/vbmeta_v4_v4_init_boot_a.img"),
+--
+gbl/libgbl/src/android_boot/vboot.rs-596-    }
+gbl/libgbl/src/android_boot/vboot.rs-597-
+gbl/libgbl/src/android_boot/vboot.rs-598-    #[test]
+gbl/libgbl/src/android_boot/vboot.rs-599-    fn test_avb_verify_slot_success_custom_key() {
+gbl/libgbl/src/android_boot/vboot.rs-600-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:601:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:602:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:603:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-604-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-605-            (c"boot_a", "android/boot_no_ramdisk_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-606-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-607-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-608-            (c"vbmeta_a", "android/vbmeta_v4_v4_init_boot_a.img"),
+--
+gbl/libgbl/src/android_boot/vboot.rs-642-        let mut boot = read_test_data("android/boot_no_ramdisk_v4_a.img");
+gbl/libgbl/src/android_boot/vboot.rs-643-        let mut init_boot = read_test_data("android/init_boot_a.img");
+gbl/libgbl/src/android_boot/vboot.rs-644-        let mut vendor_boot = read_test_data("android/vendor_boot_v4_a.img");
+gbl/libgbl/src/android_boot/vboot.rs-645-
+gbl/libgbl/src/android_boot/vboot.rs-646-        let mut preloaded = [
+gbl/libgbl/src/android_boot/vboot.rs:647:            (LoadPartition::Boot, PartitionBuffer::Preloaded(&mut boot[..])),
+gbl/libgbl/src/android_boot/vboot.rs:648:            (LoadPartition::InitBoot, PartitionBuffer::Preloaded(&mut init_boot[..])),
+gbl/libgbl/src/android_boot/vboot.rs:649:            (LoadPartition::VendorBoot, PartitionBuffer::Preloaded(&mut vendor_boot[..])),
+gbl/libgbl/src/android_boot/vboot.rs-650-        ];
+gbl/libgbl/src/android_boot/vboot.rs-651-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs-652-        for (p, v) in &mut preloaded {
+gbl/libgbl/src/android_boot/vboot.rs-653-            partitions_to_verify.try_push_preloaded(*p, v).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-654-        }
+--
+gbl/libgbl/src/android_boot/vboot.rs-691-            verification: Some(Verification::Required),
+gbl/libgbl/src/android_boot/vboot.rs-692-            fdr: Fdr::No,
+gbl/libgbl/src/android_boot/vboot.rs-693-            critical: Critical::No,
+gbl/libgbl/src/android_boot/vboot.rs-694-        };
+gbl/libgbl/src/android_boot/vboot.rs-695-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:696:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:697:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:698:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:699:        partitions_to_verify.try_push(LoadPartition::PlatformSpecific(&fw)).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-700-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-701-            (c"boot_a", "android/boot_no_ramdisk_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-702-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-703-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-704-            (c"fw_a", "android/fw_a.img"),
+--
+gbl/libgbl/src/android_boot/vboot.rs-745-            verification: Some(Verification::Required),
+gbl/libgbl/src/android_boot/vboot.rs-746-            fdr: Fdr::No,
+gbl/libgbl/src/android_boot/vboot.rs-747-            critical: Critical::No,
+gbl/libgbl/src/android_boot/vboot.rs-748-        };
+gbl/libgbl/src/android_boot/vboot.rs-749-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:750:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:751:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:752:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:753:        partitions_to_verify.try_push(LoadPartition::PlatformSpecific(&fw)).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:754:        partitions_to_verify.try_push(LoadPartition::PlatformSpecific(&not_presented)).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-755-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-756-            (c"boot_a", "android/boot_no_ramdisk_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-757-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-758-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-759-            (c"fw_a", "android/fw_a.img"),
+--
+gbl/libgbl/src/android_boot/vboot.rs-788-    }
+gbl/libgbl/src/android_boot/vboot.rs-789-
+gbl/libgbl/src/android_boot/vboot.rs-790-    #[test]
+gbl/libgbl/src/android_boot/vboot.rs-791-    fn test_avb_verify_slot_verification_failed_unlocked() {
+gbl/libgbl/src/android_boot/vboot.rs-792-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:793:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:794:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:795:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-796-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-797-            // Wrong boot image, expect verification to fail.
+gbl/libgbl/src/android_boot/vboot.rs-798-            (c"boot_a", "android/boot_v0_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-799-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-800-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+--
+gbl/libgbl/src/android_boot/vboot.rs-830-    }
+gbl/libgbl/src/android_boot/vboot.rs-831-
+gbl/libgbl/src/android_boot/vboot.rs-832-    #[test]
+gbl/libgbl/src/android_boot/vboot.rs-833-    fn test_avb_verify_slot_verification_fatal_failed_unlocked() {
+gbl/libgbl/src/android_boot/vboot.rs-834-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:835:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:836:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:837:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-838-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-839-            (c"boot_a", "android/boot_no_ramdisk_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-840-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-841-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-842-            (c"vbmeta_a", "android/vbmeta_v4_v4_init_boot_a.img"),
+--
+gbl/libgbl/src/android_boot/vboot.rs-870-    }
+gbl/libgbl/src/android_boot/vboot.rs-871-
+gbl/libgbl/src/android_boot/vboot.rs-872-    #[test]
+gbl/libgbl/src/android_boot/vboot.rs-873-    fn test_avb_verify_slot_verification_failed_locked() {
+gbl/libgbl/src/android_boot/vboot.rs-874-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:875:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:876:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:877:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-878-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-879-            // Wrong boot image, expect verification to fail.
+gbl/libgbl/src/android_boot/vboot.rs-880-            (c"boot_a", "android/boot_v0_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-881-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-882-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+--
+gbl/libgbl/src/android_boot/vboot.rs-913-    }
+gbl/libgbl/src/android_boot/vboot.rs-914-
+gbl/libgbl/src/android_boot/vboot.rs-915-    #[test]
+gbl/libgbl/src/android_boot/vboot.rs-916-    fn test_avb_verify_slot_success_eio_mode() {
+gbl/libgbl/src/android_boot/vboot.rs-917-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:918:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:919:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:920:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-921-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-922-            (c"boot_a", "android/boot_no_ramdisk_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-923-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-924-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-925-            (c"vbmeta_a", "android/vbmeta_v4_v4_init_boot_a.img"),
+--
+gbl/libgbl/src/android_boot/vboot.rs-983-
+gbl/libgbl/src/android_boot/vboot.rs-984-    #[cfg(feature = "gbl_dev")]
+gbl/libgbl/src/android_boot/vboot.rs-985-    #[test]
+gbl/libgbl/src/android_boot/vboot.rs-986-    fn test_avb_verify_slot_avb_not_implemented_dev_gbl() {
+gbl/libgbl/src/android_boot/vboot.rs-987-        let mut partitions_to_verify = PartitionsToVerify::default();
+gbl/libgbl/src/android_boot/vboot.rs:988:        partitions_to_verify.try_push(LoadPartition::Boot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:989:        partitions_to_verify.try_push(LoadPartition::InitBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs:990:        partitions_to_verify.try_push(LoadPartition::VendorBoot).unwrap();
+gbl/libgbl/src/android_boot/vboot.rs-991-        let partitions_data = [
+gbl/libgbl/src/android_boot/vboot.rs-992-            (c"boot_a", "android/boot_no_ramdisk_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-993-            (c"init_boot_a", "android/init_boot_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-994-            (c"vendor_boot_a", "android/vendor_boot_v4_a.img"),
+gbl/libgbl/src/android_boot/vboot.rs-995-            (c"vbmeta_a", "android/vbmeta_v4_v4_init_boot_a.img"),
+--
+gbl/libgbl/src/fastboot/mod.rs-5767-        let mut storage = FakeGblOpsStorage::default();
+gbl/libgbl/src/fastboot/mod.rs-5768-        let vbmeta = CString::new("vbmeta_a").unwrap();
+gbl/libgbl/src/fastboot/mod.rs-5769-        let vbmeta_img = read_test_data("android/vbmeta_v4_v4_init_boot_a.img");
+gbl/libgbl/src/fastboot/mod.rs-5770-        storage.add_raw_device(&vbmeta, vbmeta_img);
+gbl/libgbl/src/fastboot/mod.rs-5771-
+gbl/libgbl/src/fastboot/mod.rs:5772:        // Use preloaded buffers so that we can test that `GblOps::get_partition_buffer()` allows
+gbl/libgbl/src/fastboot/mod.rs-5773-        // backend to handle buffer acquire and release.
+gbl/libgbl/src/fastboot/mod.rs-5774-        let preloaded = [
+gbl/libgbl/src/fastboot/mod.rs:5775:            (LoadPartition::VendorKernelBoot, "android/vendor_kernel_boot_a.img"),
+gbl/libgbl/src/fastboot/mod.rs:5776:            (LoadPartition::VendorBoot, "android/vendor_boot_v4_a.img"),
+gbl/libgbl/src/fastboot/mod.rs:5777:            (LoadPartition::InitBoot, "android/init_boot_a.img"),
+gbl/libgbl/src/fastboot/mod.rs-5778-        ];
+gbl/libgbl/src/fastboot/mod.rs-5779-        let buffers = HashMap::<String, RefCell<Vec<u8>>>::from_iter(
+gbl/libgbl/src/fastboot/mod.rs-5780-            preloaded.iter().map(|(p, f)| (p.name().to_owned(), read_test_data(f).into())),
+gbl/libgbl/src/fastboot/mod.rs-5781-        );
+gbl/libgbl/src/fastboot/mod.rs-5782-        let get_partition_buffer_handler = |n: LoadPartition| {
+--
+gbl/libgbl/src/android_boot/mod.rs-68-}
+gbl/libgbl/src/android_boot/mod.rs-69-
+gbl/libgbl/src/android_boot/mod.rs-70-/// The set of partitions we always verify with libavb for Android boot.
+gbl/libgbl/src/android_boot/mod.rs-71-pub const STANDARD_PARTITIONS: &[LoadPartition] = &[
+gbl/libgbl/src/android_boot/mod.rs-72-    // LINT.IfChange(always_verify_partitions)
+gbl/libgbl/src/android_boot/mod.rs:73:    LoadPartition::Boot,
+gbl/libgbl/src/android_boot/mod.rs:74:    LoadPartition::VendorBoot,
+gbl/libgbl/src/android_boot/mod.rs:75:    LoadPartition::VendorKernelBoot,
+gbl/libgbl/src/android_boot/mod.rs:76:    LoadPartition::InitBoot,
+gbl/libgbl/src/android_boot/mod.rs:77:    LoadPartition::Dtb,
+gbl/libgbl/src/android_boot/mod.rs:78:    LoadPartition::Dtbo,
+gbl/libgbl/src/android_boot/mod.rs:79:    LoadPartition::Pvmfw,
+gbl/libgbl/src/android_boot/mod.rs-80-    // LINT.ThenChange(/gbl/docs/gbl_efi_avb_protocol.md:always_verify_partitions)
+gbl/libgbl/src/android_boot/mod.rs-81-];
+gbl/libgbl/src/android_boot/mod.rs-82-
+gbl/libgbl/src/android_boot/mod.rs-83-/// Loads Android images from the given slot on disk and fixes up bootconfig, commandline, and FDT.
+gbl/libgbl/src/android_boot/mod.rs-84-///
+--
+gbl/libgbl/src/android_boot/mod.rs-106-    // We need to first store all buffers and then create slices from them. Because they are
+gbl/libgbl/src/android_boot/mod.rs-107-    // opaque objects that need to be dereferenced to yield slices.
+gbl/libgbl/src/android_boot/mod.rs-108-    for partition in STANDARD_PARTITIONS
+gbl/libgbl/src/android_boot/mod.rs-109-        .iter()
+gbl/libgbl/src/android_boot/mod.rs-110-        .copied()
+gbl/libgbl/src/android_boot/mod.rs:111:        .chain(requested_partitions.iter().map(LoadPartition::PlatformSpecific))
+gbl/libgbl/src/android_boot/mod.rs-112-    {
+gbl/libgbl/src/android_boot/mod.rs:113:        let b = match ops.get_partition_buffer(partition) {
+gbl/libgbl/src/android_boot/mod.rs-114-            Ok(b) => {
+gbl/libgbl/src/android_boot/mod.rs-115-                let info = match b {
+gbl/libgbl/src/android_boot/mod.rs-116-                    PartitionBuffer::Preloaded(_) => "preloaded",
+gbl/libgbl/src/android_boot/mod.rs-117-                    PartitionBuffer::Designated(_) => "designated load",
+gbl/libgbl/src/android_boot/mod.rs-118-                };
+--
+gbl/libgbl/src/android_boot/mod.rs-2272-        storage.add_raw_device(c"init_boot_a", read_test_data("android/init_boot_a.img"));
+gbl/libgbl/src/android_boot/mod.rs-2273-        storage.add_raw_device(c"vbmeta_a", read_test_data("android/vbmeta_v4_v4_init_boot_a.img"));
+gbl/libgbl/src/android_boot/mod.rs-2274-
+gbl/libgbl/src/android_boot/mod.rs-2275-        let image_buffers: Vec<(LoadPartition, RefCell<Vec<u8>>, bool)> = vec![
+gbl/libgbl/src/android_boot/mod.rs-2276-            // Preloaded.
+gbl/libgbl/src/android_boot/mod.rs:2277:            (LoadPartition::Boot, read_test_data("android/boot_no_ramdisk_v4_a.img").into(), true),
+gbl/libgbl/src/android_boot/mod.rs-2278-            (
+gbl/libgbl/src/android_boot/mod.rs:2279:                LoadPartition::VendorKernelBoot,
+gbl/libgbl/src/android_boot/mod.rs-2280-                read_test_data("android/vendor_kernel_boot_a.img").into(),
+gbl/libgbl/src/android_boot/mod.rs-2281-                true,
+gbl/libgbl/src/android_boot/mod.rs-2282-            ),
+gbl/libgbl/src/android_boot/mod.rs-2283-            // Designated load
+gbl/libgbl/src/android_boot/mod.rs-2284-            (
+gbl/libgbl/src/android_boot/mod.rs:2285:                LoadPartition::VendorBoot,
+gbl/libgbl/src/android_boot/mod.rs-2286-                vec![0u8; read_test_data("android/vendor_boot_v4_a.img").len()].into(),
+gbl/libgbl/src/android_boot/mod.rs-2287-                false,
+gbl/libgbl/src/android_boot/mod.rs-2288-            ),
+gbl/libgbl/src/android_boot/mod.rs-2289-            (
+gbl/libgbl/src/android_boot/mod.rs:2290:                LoadPartition::InitBoot,
+gbl/libgbl/src/android_boot/mod.rs-2291-                vec![0u8; read_test_data("android/init_boot_a.img").len()].into(),
+gbl/libgbl/src/android_boot/mod.rs-2292-                false,
+gbl/libgbl/src/android_boot/mod.rs-2293-            ),
+gbl/libgbl/src/android_boot/mod.rs-2294-        ];
+gbl/libgbl/src/android_boot/mod.rs-2295-        let vendor_boot_addr = image_buffers[2].1.borrow_mut().as_ptr_range();
+--
+gbl/libgbl/src/android_boot/mod.rs-2917-
+gbl/libgbl/src/android_boot/mod.rs-2918-        // Set up designated load buffer for boot_a image
+gbl/libgbl/src/android_boot/mod.rs-2919-        let img_len = read_test_data("android/boot_v2_a.img").len();
+gbl/libgbl/src/android_boot/mod.rs-2920-        let buf = RefCell::new(vec![0u8; img_len]);
+gbl/libgbl/src/android_boot/mod.rs-2921-        let get_partition_buffer_handler = |img: LoadPartition| match img {
+gbl/libgbl/src/android_boot/mod.rs:2922:            LoadPartition::Boot => {
+gbl/libgbl/src/android_boot/mod.rs-2923-                Ok(PartitionBuffer::Designated(into_refmut_bytes(buf.borrow_mut())))
+gbl/libgbl/src/android_boot/mod.rs-2924-            }
+gbl/libgbl/src/android_boot/mod.rs-2925-            _ => Err(Error::NotFound),
+gbl/libgbl/src/android_boot/mod.rs-2926-        };
+gbl/libgbl/src/android_boot/mod.rs-2927-
+--
+gbl/libgbl/src/android_boot/mod.rs-2974-
+gbl/libgbl/src/android_boot/mod.rs-2975-        // Set up designated load buffer for boot_a image
+gbl/libgbl/src/android_boot/mod.rs-2976-        let img_len = read_test_data("android/boot_v2_a.img").len();
+gbl/libgbl/src/android_boot/mod.rs-2977-        let buf = RefCell::new(vec![0u8; img_len]);
+gbl/libgbl/src/android_boot/mod.rs-2978-        let get_partition_buffer_handler = |img: LoadPartition| match img {
+gbl/libgbl/src/android_boot/mod.rs:2979:            LoadPartition::Boot => {
+gbl/libgbl/src/android_boot/mod.rs-2980-                Ok(PartitionBuffer::Designated(into_refmut_bytes(buf.borrow_mut())))
+gbl/libgbl/src/android_boot/mod.rs-2981-            }
+gbl/libgbl/src/android_boot/mod.rs-2982-            _ => Err(Error::NotFound),
+gbl/libgbl/src/android_boot/mod.rs-2983-        };
+gbl/libgbl/src/android_boot/mod.rs-2984-
+
+=== DISK CONSTRUCTION ===
+// Copyright 2024, The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+use alloc::{boxed::Box, vec::Vec};
+use arrayvec::ArrayVec;
+use bytes::buf::UninitSlice;
+use core::cmp::max;
+use efi::{
+    efi_println,
+    profiling::EfiProfileBackend,
+    protocol::{
+        block_io::BlockIoProtocol, block_io2::BlockIo2Protocol, device_path::DevicePathProtocol,
+        erase_block::EraseBlockProtocol, loaded_image::LoadedImageProtocol, Protocol,
+    },
+    EfiEntry,
+};
+use efi_types::{defs::EFI_TPL_APPLICATION, protocol::block_io::BlockIo as _, tpl::TplLocked};
+use gbl_async::block_on;
+use gbl_storage::{gpt_buffer_size, BlockInfo, BlockIo, Disk, Gpt, GPT_MAX_NUM_ENTRIES};
+use liberror::Error;
+use libgbl::partition::GblDisk;
+use libprofile_macros::profile;
+use safemath::SafeNum;
+
+/// `EfiBlockDeviceIo` wraps an EFI `BlockIoProtocol` and optionally a `BlockIo2Protocol` and
+/// implements the `BlockIo` interface.
+///
+/// `BlockIoProtocol` is always required and used for implementation of `read_blocks_sync` and
+/// `write_blocks_sync`. When `BlockIo2Protocol` is provided, it will be used to implement
+/// `read_blocks` and `write_blocks`, otherwise they fall back to `BlockIoProtocol`.
+pub struct EfiBlockDeviceIo<'a> {
+    block_io: Protocol<'a, BlockIoProtocol>,
+    block_io2: Option<Protocol<'a, BlockIo2Protocol>>,
+    erase: Option<Protocol<'a, EraseBlockProtocol>>,
+    /// We don't currently support hot-plugging disks so we cache the media ID
+    /// upon creation; if this media ever goes away, the APIs will start
+    /// failing rather than trying to switch to a new ID.
+    media_id: u32,
+    block_info: BlockInfo,
+}
+
+// SAFETY:
+// `read_blocks()` uses EFI protocol that guarantees to read exact number of blocks that were
+// requested, or return error.
+// For async `read_blocks_ex()` blocking wait guarantees that read finishes.
+unsafe impl BlockIo for EfiBlockDeviceIo<'_> {
+    fn info(&self) -> BlockInfo {
+        self.block_info
+    }
+
+    async fn read_blocks<'a>(
+        &self,
+        blk_offset: u64,
+        out: impl Into<&'a mut UninitSlice>,
+    ) -> Result<(), Error> {
+        match &self.block_io2 {
+            Some(v) => v.read_blocks_ex(blk_offset, out).await,
+            _ => {
+                // SAFETY: `read_blocks()` will only initialize the data.
+                let out = unsafe { out.into().as_uninit_slice_mut() };
+                self.block_io.read_blocks(self.media_id, blk_offset, out).map_err(Into::into)
+            }
+        }
+    }
+
+    async fn write_blocks(&self, blk_offset: u64, data: &mut [u8]) -> Result<(), Error> {
+        match &self.block_io2 {
+            Some(v) => v.write_blocks_ex(blk_offset, data).await,
+            _ => self.block_io.write_blocks(self.media_id, blk_offset, data).map_err(Into::into),
+        }
+    }
+
+    async fn erase_blocks(&self, blk_off: u64, num_blks: u64) -> Result<(), Error> {
+        let protocol = self.erase.as_ref().ok_or(Error::Unsupported)?;
+        let block_info = self.info();
+        let erase_block_size = block_info.erase_block_size()?;
+        let lba = SafeNum::from(blk_off) * erase_block_size / block_info.block_size;
+        let sz = SafeNum::from(num_blks) * erase_block_size;
+        protocol.erase_blocks(self.media_id, lba.try_into()?, sz.try_into()?).await
+    }
+
+    fn read_blocks_sync<'a>(
+        &self,
+        blk_offset: u64,
+        out: impl Into<&'a mut UninitSlice>,
+    ) -> Result<(), Error> {
+        // SAFETY: `read_blocks()` will only initialize the data.
+        let out = unsafe { out.into().as_uninit_slice_mut() };
+        Ok(self.block_io.read_blocks(self.media_id, blk_offset, out)?)
+    }
+
+    fn write_blocks_sync(&self, blk_offset: u64, data: &mut [u8]) -> Result<(), Error> {
+        Ok(self.block_io.write_blocks(self.media_id, blk_offset, data)?)
+    }
+
+    async fn flush(&self) -> Result<(), Error> {
+        let res = match &self.block_io2 {
+            Some(v) => v.flush_blocks_ex().await,
+            _ => self.block_io.flush_blocks().map_err(Into::into),
+        };
+        match res {
+            Ok(()) | Err(Error::Unsupported) | Err(Error::NotFound) => Ok(()),
+            Err(e) => Err(e),
+        }
+    }
+}
+
+/// The [GblDisk] type in the GBL EFI context.
+pub type EfiGblDisk<'a> =
+    GblDisk<Disk<EfiBlockDeviceIo<'a>, ArrayVec<Option<Box<[u8]>>, 2>>, Gpt<Vec<u8>>>;
+
+#[cfg(not(test))]
+fn write_dualos_discovery_report(efi_entry: &EfiEntry, status: &str) {
+    let result = crate::diagnostic_fs::write_report(efi_entry, status);
+    efi_println!(efi_entry, "DualOS SD report: {result}");
+}
+
+/// Finds and returns all EFI devices supporting either EFI_BLOCK_IO or EFI_BLOCK_IO2 protocol.
+#[profile(backend = EfiProfileBackend::new(efi_entry))]
+pub fn find_block_devices(efi_entry: &EfiEntry) -> Result<Vec<EfiGblDisk<'_>>, Error> {
+    let bs = efi_entry.system_table().boot_services();
+    let block_dev_handles = bs.locate_handle_buffer_by_protocol::<BlockIoProtocol>()?;
+
+    // GBL is SD-only: identify the physical disk that contains this EFI image.
+    let loaded_image = bs.open_protocol::<LoadedImageProtocol>(efi_entry.image_handle())?;
+    let source_partition = loaded_image.device_handle();
+    let source_path = bs.open_protocol::<DevicePathProtocol>(source_partition)?;
+
+    let source_block_io = bs.open_protocol::<BlockIoProtocol>(source_partition)?;
+    // SAFETY: this code always executes at EFI_TPL_APPLICATION.
+    let source_media = unsafe {
+        source_block_io.with_lock::<EFI_TPL_APPLICATION, _>(efi_entry, || {
+            source_block_io.media().unwrap().clone()
+        })
+    };
+    if !source_media.logical_partition {
+        let status = "FAIL: loaded-image device handle is not a logical partition";
+        efi_println!(efi_entry, "DUALOS SD-ONLY FILTER: {status}");
+        #[cfg(not(test))]
+        write_dualos_discovery_report(efi_entry, status);
+        return Err(Error::InvalidInput);
+    }
+
+    let mut source_disk_handle = None;
+    for handle in block_dev_handles.handles() {
+        let candidate_path = match bs.open_protocol::<DevicePathProtocol>(*handle) {
+            Ok(path) => path,
+            Err(_) => continue,
+        };
+        if !candidate_path.is_parent_of(&source_path) {
+            continue;
+        }
+
+        let candidate_block_io = match bs.open_protocol::<BlockIoProtocol>(*handle) {
+            Ok(protocol) => protocol,
+            Err(_) => continue,
+        };
+        // SAFETY: this code always executes at EFI_TPL_APPLICATION.
+        let candidate_media = unsafe {
+            candidate_block_io.with_lock::<EFI_TPL_APPLICATION, _>(efi_entry, || {
+                candidate_block_io.media().unwrap().clone()
+            })
+        };
+        if candidate_media.logical_partition {
+            continue;
+        }
+
+        if source_disk_handle.replace(*handle).is_some() {
+            let status = "FAIL: multiple physical parent disks matched the loaded-image partition";
+            efi_println!(efi_entry, "DUALOS SD-ONLY FILTER: {status}");
+            #[cfg(not(test))]
+            write_dualos_discovery_report(efi_entry, status);
+            return Err(Error::InvalidInput);
+        }
+    }
+
+    let source_disk_handle = match source_disk_handle {
+        Some(handle) => handle,
+        None => {
+            let status = "FAIL: no physical parent disk found for the loaded-image partition";
+            efi_println!(efi_entry, "DUALOS SD-ONLY FILTER: {status}");
+            #[cfg(not(test))]
+            write_dualos_discovery_report(efi_entry, status);
+            return Err(Error::InvalidInput);
+        }
+    };
+
+    let selected_disk_path = crate::utils::get_device_path(efi_entry, source_disk_handle)?;
+    efi_println!(efi_entry, "DUALOS SELECTED PHYSICAL DISK: {selected_disk_path}");
+    efi_println!(
+        efi_entry,
+        "DUALOS FILTER: PASS — all other physical disks excluded from GBL discovery."
+    );
+
+    let mut gbl_disks = vec![];
+    // TODO(b/452455989) Buffer size and capacity can be configurable using vendor path.
+    let gpt_buffer_size = gpt_buffer_size(GPT_MAX_NUM_ENTRIES)?;
+    for (idx, handle) in block_dev_handles.handles().iter().enumerate() {
+        if *handle != source_disk_handle {
+            continue;
+        }
+        match crate::utils::get_device_path(efi_entry, *handle) {
+            Ok(path) => efi_println!(efi_entry, "Block #{idx} path: {path}"),
+            Err(e) => efi_println!(efi_entry, "Block #{idx} path unavailable: {e:?}"),
+        }
+        let block_io = bs.open_protocol::<BlockIoProtocol>(*handle).unwrap();
+        // SAFETY: this code always executes at `EFI_TPL_APPLICATION`.
+        let media = unsafe {
+            block_io.with_lock::<EFI_TPL_APPLICATION, _>(efi_entry, || {
+                // SAFETY: the protocol is locked while we access `media`, we
+                // clone it here for safe access outside the critical section.
+                block_io.media().unwrap().clone()
+            })
+        };
+        if media.logical_partition {
+            continue;
+        }
+        let open_disk = || -> Result<_, Error> {
+            let block_io2 = bs.open_protocol::<BlockIo2Protocol>(*handle).ok();
+            let erase = bs.open_protocol::<EraseBlockProtocol>(*handle).ok();
+            let erase_blocks =
+                erase.as_ref().map(|v| v.erase_length_granularity()).unwrap_or_default();
+            let block_info = BlockInfo {
+                // `block_size` is u32 so can always convert to u64
+                block_size: media.block_size as u64,
+                erase_blocks_num: max(1, erase_blocks).into(),
+                num_blocks: (SafeNum::from(media.last_block) + 1).try_into()?,
+                // `io_align` is u32 so can always convert to u64
+                alignment: max(1, media.io_align as u64),
+            };
+            let disk_io = Disk::new_alloc_scratch(EfiBlockDeviceIo {
+                block_io,
+                block_io2,
+                erase,
+                media_id: media.media_id,
+                block_info,
+            })?;
+            let disk = match bs.open_protocol::<DevicePathProtocol>(*handle) {
+                Ok(dpp) => {
+                    if let Some(device_name) = dpp.gbl_vendor_media_device_path()? {
+                        efi_println!(
+                            efi_entry,
+                            "Block #{idx} raw device vendor-defined name: {device_name:?}"
+                        );
+                        GblDisk::new_raw(disk_io, device_name)?
+                    } else {
+                        GblDisk::new_gpt(disk_io, Gpt::new(vec![0u8; gpt_buffer_size])?)
+                    }
+                }
+                _ => GblDisk::new_gpt(disk_io, Gpt::new(vec![0u8; gpt_buffer_size])?),
+            };
+            match block_on(disk.as_sync()?.sync_gpt()) {
+                Ok(Some(v)) => efi_println!(efi_entry, "Block #{idx} GPT sync result: {v}"),
+                Err(e) => efi_println!(efi_entry, "Block #{idx} error while syncing GPT: {e}"),
+                _ => {}
+            };
+            Ok(disk)
+        };
+        match open_disk() {
+            Ok(disk) => gbl_disks.push(disk),
+            Err(e) => efi_println!(efi_entry, "Block #{idx} failed to open device: {e}"),
+        }
+    }
+
+    let discovery_status = alloc::format!(
+        "PASS: physical parent selected; all other physical disks excluded\nSELECTED_PHYSICAL_DISK: {}\nGBL_DISKS_RETURNED: {}",
+        selected_disk_path,
+        gbl_disks.len()
+    );
