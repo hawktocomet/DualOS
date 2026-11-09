@@ -1,0 +1,19 @@
+{
+  "id": "20261109T025337Z-test-lpunpack-slot-argument-parsing-safely",
+  "title": "Test lpunpack slot argument parsing safely",
+  "created_utc": "2026-11-09T02:53:37.295737+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-lc",
+    "\nTMP=$(mktemp -d)\necho \"========== SLOT OPTION BEFORE IMAGE ==========\"\nlpunpack --slot=0 /nonexistent-super-image \"$TMP/a\" 2>&1\necho \"exit=$?\"\n\necho\necho \"========== SLOT OPTION AFTER IMAGE ==========\"\nlpunpack /nonexistent-super-image \"$TMP/b\" --slot=0 2>&1\necho \"exit=$?\"\n\necho\necho \"========== SHORT SLOT OPTION ==========\"\nlpunpack -S0 /nonexistent-super-image \"$TMP/c\" 2>&1\necho \"exit=$?\"\n\necho\necho \"========== CLEANUP ==========\"\nrmdir \"$TMP/a\" \"$TMP/b\" \"$TMP/c\" \"$TMP\" 2>/dev/null || true\necho \"No source image was opened; no partition extraction occurred\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.028,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? edl_config.json\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}

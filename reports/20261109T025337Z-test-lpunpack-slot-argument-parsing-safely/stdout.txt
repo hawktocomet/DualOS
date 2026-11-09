@@ -1,0 +1,31 @@
+========== SLOT OPTION BEFORE IMAGE ==========
+realpath failed: /nonexistent-super-image: No such file or directory
+exit=71
+
+========== SLOT OPTION AFTER IMAGE ==========
+realpath failed: /nonexistent-super-image: No such file or directory
+exit=71
+
+========== SHORT SLOT OPTION ==========
+lpunpack: unrecognized option '-S0'
+Unrecognized argument.
+lpunpack - command-line tool for extracting partition images from super
+
+Usage:
+  lpunpack [options...] SUPER_IMAGE [OUTPUT_DIR]
+
+The SUPER_IMAGE argument is mandatory and expected to contain
+the metadata. Additional super images are referenced with '-i' as needed to extract
+the desired partition[s].
+Default OUTPUT_DIR is '.'.
+
+Options:
+  -i, --image=IMAGE        Use the given file as an additional super image.
+                           This can be specified multiple times.
+  -p, --partition=NAME     Extract the named partition. This can
+                           be specified multiple times.
+  -S, --slot=NUM           Slot number (default is 0).
+exit=64
+
+========== CLEANUP ==========
+No source image was opened; no partition extraction occurred
