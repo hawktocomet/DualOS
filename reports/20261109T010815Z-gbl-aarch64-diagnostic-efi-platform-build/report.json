@@ -1,0 +1,13 @@
+{
+  "id": "20261109T010815Z-gbl-aarch64-diagnostic-efi-platform-build",
+  "title": "GBL AArch64 diagnostic EFI platform build",
+  "created_utc": "2026-11-09T01:08:15.354791+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd ~/source/DualOS-tools/aosp-uefi-gbl || exit 1\n\n./bootable/libbootloader/gbl/bazel.sh build \\\n  --extra_toolchains=@gbl//toolchain:all \\\n  @gbl//efi:aarch64_dev\n\nBUILD_STATUS=$?\necho \"BUILD_EXIT_CODE=$BUILD_STATUS\"\n\necho\necho \"===== AARCH64 DEVELOPMENT EFI =====\"\nfind out/bazel/output_user_root -type f -name \"gbl_aarch64_dev.efi\" \\\n  -exec stat -c \"%n | %s bytes | %y\" {} \\; \\\n  -exec sha256sum {} \\;\n\necho\necho \"===== SIGNED EFI =====\"\nfind out/bazel/output_user_root -type f -path \"*/testkey_signed/gbl.efi\" \\\n  -exec stat -c \"%n | %s bytes | %y\" {} \\; \\\n  -exec sha256sum {} \\;\n\nexit \"$BUILD_STATUS\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.601
+}

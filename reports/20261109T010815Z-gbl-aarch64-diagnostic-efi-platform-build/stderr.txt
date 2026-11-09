@@ -1,0 +1,15 @@
+Computing main repo mapping: 
+Loading: 
+Loading: 0 packages loaded
+Analyzing: target @@gbl+//efi:aarch64_dev (0 packages loaded, 0 targets configured)
+Analyzing: target @@gbl+//efi:aarch64_dev (0 packages loaded, 0 targets configured)
+
+INFO: From BazelWorkspaceStatusAction stable-status.txt:
+BUILD_BRANCH=gbl-mainline
+BUILD_NUMBER=eng.hawk.2026-11-08
+BUILD_REVISION=2392920e8324-dirty
+INFO: Analyzed target @@gbl+//efi:aarch64_dev (0 packages loaded, 0 targets configured).
+INFO: Found 1 target...
+INFO: Elapsed time: 0.329s, Critical Path: 0.04s
+INFO: 1 process: 19 action cache hit, 1 internal.
+INFO: Build completed successfully, 1 total action
