@@ -1,0 +1,189 @@
+========== IMAGE IDENTITY ==========
+Size: 12884901888 bytes
+Expected: 12884901888 bytes
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super.img: data
+
+========== AVAILABLE ANDROID PARTITION TOOLS ==========
+lpdump           /usr/bin/lpdump
+lpunpack         /usr/bin/lpunpack
+simg2img         /usr/bin/simg2img
+unpack_bootimg   /usr/bin/unpack_bootimg
+avbtool          /usr/bin/avbtool
+
+========== TOOL PACKAGE LOCATIONS ==========
+
+========== DYNAMIC PARTITION METADATA ==========
+Slot 0:
+Metadata version: 10.2
+Metadata size: 1720 bytes
+Metadata max size: 65536 bytes
+Metadata slot count: 3
+Header flags: virtual_ab_device
+Partition table:
+------------------------
+  Name: odm_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly,updated
+  Extents:
+    0 .. 2767 linear super 2048
+------------------------
+  Name: product_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly,updated
+  Extents:
+    0 .. 2301423 linear super 6144
+------------------------
+  Name: system_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly,updated
+  Extents:
+    0 .. 3050023 linear super 2308096
+    3050024 .. 3051351 linear super 4816
+    3051352 .. 3051879 linear super 2307568
+    3051880 .. 3053375 linear super 5358120
+    3053376 .. 3054567 linear super 5360472
+    3054568 .. 3054599 linear super 6455264
+    3054600 .. 3056239 linear super 9703832
+    3056240 .. 3107751 linear super 9841840
+------------------------
+  Name: system_dlkm_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly,updated
+  Extents:
+    0 .. 855 linear super 5359616
+------------------------
+  Name: system_ext_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly,updated
+  Extents:
+    0 .. 1093599 linear super 5361664
+------------------------
+  Name: vendor_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly,updated
+  Extents:
+    0 .. 3248535 linear super 6455296
+------------------------
+  Name: vendor_dlkm_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly,updated
+  Extents:
+    0 .. 136367 linear super 9705472
+    136368 .. 136375 linear super 9893352
+------------------------
+  Name: odm_a-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 8327 linear super 9893360
+------------------------
+  Name: product_a-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 44767 linear super 9901688
+------------------------
+  Name: system_a-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 57575 linear super 9946456
+------------------------
+  Name: system_dlkm_a-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 8311 linear super 10004032
+------------------------
+  Name: system_ext_a-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 25599 linear super 10012344
+------------------------
+  Name: vendor_a-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 59799 linear super 10037944
+------------------------
+  Name: vendor_dlkm_a-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 11671 linear super 10097744
+------------------------
+Super partition layout:
+------------------------
+super: 2048 .. 4816: odm_a (2768 sectors)
+super: 4816 .. 6144: system_a (1328 sectors)
+super: 6144 .. 2307568: product_a (2301424 sectors)
+super: 2307568 .. 2308096: system_a (528 sectors)
+super: 2308096 .. 5358120: system_a (3050024 sectors)
+super: 5358120 .. 5359616: system_a (1496 sectors)
+super: 5359616 .. 5360472: system_dlkm_a (856 sectors)
+super: 5360472 .. 5361664: system_a (1192 sectors)
+super: 5361664 .. 6455264: system_ext_a (1093600 sectors)
+super: 6455264 .. 6455296: system_a (32 sectors)
+super: 6455296 .. 9703832: vendor_a (3248536 sectors)
+super: 9703832 .. 9705472: system_a (1640 sectors)
+super: 9705472 .. 9841840: vendor_dlkm_a (136368 sectors)
+super: 9841840 .. 9893352: system_a (51512 sectors)
+super: 9893352 .. 9893360: vendor_dlkm_a (8 sectors)
+super: 9893360 .. 9901688: odm_a-cow (8328 sectors)
+super: 9901688 .. 9946456: product_a-cow (44768 sectors)
+super: 9946456 .. 10004032: system_a-cow (57576 sectors)
+super: 10004032 .. 10012344: system_dlkm_a-cow (8312 sectors)
+super: 10012344 .. 10037944: system_ext_a-cow (25600 sectors)
+super: 10037944 .. 10097744: vendor_a-cow (59800 sectors)
+super: 10097744 .. 10109416: vendor_dlkm_a-cow (11672 sectors)
+------------------------
+Block device table:
+------------------------
+  Partition name: super
+  First sector: 2048
+  Size: 12884901888 bytes
+  Flags: none
+------------------------
+Group table:
+------------------------
+  Name: default
+  Maximum size: 0 bytes
+  Flags: none
+------------------------
+  Name: qti_dynamic_partitions_a
+  Maximum size: 6438256640 bytes
+  Flags: none
+------------------------
+  Name: cow
+  Maximum size: 0 bytes
+  Flags: none
+------------------------
+
+========== FIRST 4 KiB SIGNATURE / HEADER ==========
+00000000: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000010: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000020: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000030: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000040: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000050: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000060: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000070: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000080: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000090: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000000a0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000000b0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000000c0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000000d0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000000e0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000000f0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000100: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000110: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000120: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000130: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000140: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000150: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000160: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000170: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+
+INSPECTION ONLY: super.img was not modified or unpacked

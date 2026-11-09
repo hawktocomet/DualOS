@@ -1,0 +1,19 @@
+{
+  "id": "20261109T025157Z-inspect-duo-lite-android-super-dynamic-partition",
+  "title": "Inspect Duo Lite Android super dynamic partition metadata",
+  "created_utc": "2026-11-09T02:51:57.124139+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-lc",
+    "\nIMG=\"/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super.img\"\nEXPECTED=12884901888\n\necho \"========== IMAGE IDENTITY ==========\"\nif [ ! -f \"$IMG\" ]; then echo \"ERROR: super.img missing\"; exit 20; fi\nACTUAL=$(stat -c%s \"$IMG\")\necho \"Size: $ACTUAL bytes\"\necho \"Expected: $EXPECTED bytes\"\nfile \"$IMG\"\nif [ \"$ACTUAL\" -ne \"$EXPECTED\" ]; then echo \"ERROR: size mismatch\"; exit 21; fi\n\necho\necho \"========== AVAILABLE ANDROID PARTITION TOOLS ==========\"\nfor TOOL in lpdump lpunpack simg2img unpack_bootimg avbtool; do\n  if command -v \"$TOOL\" >/dev/null 2>&1; then\n    printf \"%-16s %s\\n\" \"$TOOL\" \"$(command -v \"$TOOL\")\"\n  else\n    printf \"%-16s not in PATH\\n\" \"$TOOL\"\n  fi\ndone\n\necho\necho \"========== TOOL PACKAGE LOCATIONS ==========\"\nfor ROOT in \\\n  /home/hawk/Android/Sdk \\\n  /opt/android-sdk \\\n  /usr/lib/android-sdk \\\n  /home/hawk/.local/bin\ndo\n  if [ -d \"$ROOT\" ]; then\n    find \"$ROOT\" -maxdepth 6 -type f \\\n      \\( -name lpdump -o -name lpunpack -o -name simg2img \\) \\\n      -print 2>/dev/null\n  fi\ndone\n\necho\necho \"========== DYNAMIC PARTITION METADATA ==========\"\nif command -v lpdump >/dev/null 2>&1; then\n  lpdump \"$IMG\" 2>&1\nelse\n  echo \"lpdump unavailable; no unpacking attempted\"\nfi\n\necho\necho \"========== FIRST 4 KiB SIGNATURE / HEADER ==========\"\nxxd -l 4096 \"$IMG\" | head -n 24\n\necho\necho \"INSPECTION ONLY: super.img was not modified or unpacked\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.235,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? edl_config.json\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}
