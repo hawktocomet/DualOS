@@ -1,0 +1,34 @@
+===== WRAPPER TARGET CONFIGURATION =====
+#!/bin/bash -e
+# Copyright (C) 2024 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Use host readlink: the hermetic prebuilts cannot be located until WORKSPACE_DIR is known.
+MYPATH=$(readlink -f "$0")
+BAZEL_PY="${MYPATH%/*}/bazel.py"
+WORKSPACE_DIR=${MYPATH%/bootable/libbootloader/gbl/*}
+
+cd "$WORKSPACE_DIR"
+exec "$WORKSPACE_DIR"/prebuilts/build-tools/linux_musl-x86/bin/py3-cmd "$BAZEL_PY" "$@"
+
+===== BUILD =====
+BUILD_EXIT_CODE=0
+
+===== DEVELOPMENT EFI =====
+out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi | 70656 bytes | 2026-11-08 16:25:17.416478522 -0500
+90355b258c2eed84f67ab7ceab25c65a210106c89d3a5ea312ab6453def7b24f  out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi
+
+===== SIGNED EFI =====
+out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi | 143360 bytes | 2026-11-08 16:25:18.016755208 -0500
+edc8958b8308cf52d6e6e2d4b3c308c0d8786ee9b27d6b4534e9c72bae9fa4ae  out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi

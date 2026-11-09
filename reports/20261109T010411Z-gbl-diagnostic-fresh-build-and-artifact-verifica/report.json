@@ -1,0 +1,13 @@
+{
+  "id": "20261109T010411Z-gbl-diagnostic-fresh-build-and-artifact-verifica",
+  "title": "GBL diagnostic fresh build and artifact verification",
+  "created_utc": "2026-11-09T01:04:11.087701+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd ~/source/DualOS-tools/aosp-uefi-gbl || exit 1\n\necho \"===== WRAPPER TARGET CONFIGURATION =====\"\nsed -n \"1,240p\" bootable/libbootloader/gbl/bazel.sh\n\necho\necho \"===== BUILD =====\"\n./bootable/libbootloader/gbl/bazel.sh build --extra_toolchains=@gbl//toolchain\nBUILD_STATUS=$?\necho \"BUILD_EXIT_CODE=$BUILD_STATUS\"\n\necho\necho \"===== DEVELOPMENT EFI =====\"\nfind out/bazel/output_user_root -type f -name \"gbl_aarch64_dev.efi\" \\\n  -exec stat -c \"%n | %s bytes | %y\" {} \\; -exec sha256sum {} \\;\n\necho\necho \"===== SIGNED EFI =====\"\nfind out/bazel/output_user_root -type f -path \"*/testkey_signed/gbl.efi\" \\\n  -exec stat -c \"%n | %s bytes | %y\" {} \\; -exec sha256sum {} \\;\n\nexit \"$BUILD_STATUS\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.277
+}
