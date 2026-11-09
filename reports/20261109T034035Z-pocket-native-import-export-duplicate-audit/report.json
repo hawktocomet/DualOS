@@ -1,0 +1,19 @@
+{
+  "id": "20261109T034035Z-pocket-native-import-export-duplicate-audit",
+  "title": "pocket-native-import-export-duplicate-audit",
+  "created_utc": "2026-11-09T03:40:35.286330+00:00",
+  "cwd": "/home/hawk/source/pocket-recompiler/target",
+  "command": [
+    "bash",
+    "-c",
+    "\nROOT=\"$HOME/source/pocket-recompiler/target\"\n\necho \"========== IMPORT / EXPORT DIRECTORY SIZES ==========\"\nfor d in \\\n  \"$ROOT/pocket-native-import\" \\\n  \"$ROOT/pocket-native-fastmem-import\" \\\n  \"$ROOT/pocket-native-export\"\ndo\n  echo \"--- $d\"\n  du -sh \"$d\" 2>/dev/null\n  du -h --max-depth=2 \"$d\" 2>/dev/null | sort -h | tail -n 20\ndone\n\necho\necho \"========== GAME IMAGE HASHES ==========\"\nfind \"$ROOT/pocket-native-import\" \\\n     \"$ROOT/pocket-native-fastmem-import\" \\\n     \"$ROOT/pocket-native-export\" \\\n     -type f -name game.3ds -print0 2>/dev/null |\nwhile IFS= read -r -d \"\" f; do\n  sha256sum \"$f\"\ndone\n\necho\necho \"========== GENERATED OUTPUT INVENTORY ==========\"\nfind \"$ROOT/pocket-native-import\" \\\n     \"$ROOT/pocket-native-fastmem-import\" \\\n     \"$ROOT/pocket-native-export\" \\\n     -type f ! -name game.3ds -printf \"%s\\t%p\\n\" 2>/dev/null |\nsort -nr | head -n 60 |\nnumfmt --field=1 --to=iec --suffix=B\n\necho\necho \"========== EXPORT PACKAGE CONTENTS ==========\"\nfind \"$ROOT/pocket-native-export\" -maxdepth 4 -printf \"%y\\t%p\\n\" 2>/dev/null |\nhead -n 120\n\necho\necho \"========== TOP-LEVEL TEST ARTIFACTS ==========\"\nls -lah \"$ROOT\" | head -n 80\n\necho\necho \"READ-ONLY: no files modified\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 20.899,
+  "git": {
+    "root": "/home/hawk/source/pocket-recompiler",
+    "commit": "f83f76cbd0b18f7e5f6a5b68c7e4f0eaf5ca4215",
+    "branch": "main",
+    "status": ""
+  }
+}

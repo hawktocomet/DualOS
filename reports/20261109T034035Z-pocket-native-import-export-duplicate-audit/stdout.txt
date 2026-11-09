@@ -1,0 +1,227 @@
+========== IMPORT / EXPORT DIRECTORY SIZES ==========
+--- /home/hawk/source/pocket-recompiler/target/pocket-native-import
+2.2G	/home/hawk/source/pocket-recompiler/target/pocket-native-import
+2.2G	/home/hawk/source/pocket-recompiler/target/pocket-native-import
+2.2G	/home/hawk/source/pocket-recompiler/target/pocket-native-import/Poochy & Yoshi's Woolly World
+--- /home/hawk/source/pocket-recompiler/target/pocket-native-fastmem-import
+2.2G	/home/hawk/source/pocket-recompiler/target/pocket-native-fastmem-import
+2.2G	/home/hawk/source/pocket-recompiler/target/pocket-native-fastmem-import
+2.2G	/home/hawk/source/pocket-recompiler/target/pocket-native-fastmem-import/Poochy & Yoshi's Woolly World
+--- /home/hawk/source/pocket-recompiler/target/pocket-native-export
+2.6G	/home/hawk/source/pocket-recompiler/target/pocket-native-export
+3.0M	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100/sysdata
+440M	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation
+2.2G	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100
+2.6G	/home/hawk/source/pocket-recompiler/target/pocket-native-export
+
+========== GAME IMAGE HASHES ==========
+cf48bb02f9e8dbe419a7f88486ef91c7c0553af1ec0d0342be9ff7a2fe144634  /home/hawk/source/pocket-recompiler/target/pocket-native-import/Poochy & Yoshi's Woolly World/game.3ds
+cf48bb02f9e8dbe419a7f88486ef91c7c0553af1ec0d0342be9ff7a2fe144634  /home/hawk/source/pocket-recompiler/target/pocket-native-fastmem-import/Poochy & Yoshi's Woolly World/game.3ds
+cf48bb02f9e8dbe419a7f88486ef91c7c0553af1ec0d0342be9ff7a2fe144634  /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100/game.3ds
+
+========== GENERATED OUTPUT INVENTORY ==========
+175MB /home/hawk/source/pocket-recompiler/target/pocket-native-import/Poochy & Yoshi's Woolly World/title.so
+110MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100/title.so
+110MB /home/hawk/source/pocket-recompiler/target/pocket-native-fastmem-import/Poochy & Yoshi's Woolly World/title.so
+12MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/entries.c
+3.5MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code118.c
+3.5MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code116.c
+3.4MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code043.c
+3.4MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code117.c
+3.4MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code136.c
+3.4MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code008.c
+3.4MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code009.c
+3.3MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code010.c
+3.3MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code011.c
+3.3MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code042.c
+3.3MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code139.c
+3.3MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code021.c
+3.3MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code000.c
+3.3MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code004.c
+3.3MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code007.c
+3.3MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code138.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code025.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code026.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code028.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code036.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code100.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code089.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code005.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code019.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code110.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code012.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code029.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code020.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code054.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code078.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code015.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code095.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code003.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code032.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code006.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code027.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code068.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code040.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code065.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code103.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code018.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code013.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code064.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code091.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code048.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code030.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code072.c
+3.2MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code016.c
+3.1MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code102.c
+3.1MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code022.c
+3.1MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code024.c
+3.1MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code017.c
+3.1MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code063.c
+3.1MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code104.c
+3.1MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code137.c
+3.1MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code062.c
+
+========== EXPORT PACKAGE CONTENTS ==========
+d	/home/hawk/source/pocket-recompiler/target/pocket-native-export
+d	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/recomp.h
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/functions.h
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/entries.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code000.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code001.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code002.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code003.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code004.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code005.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code006.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code007.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code008.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code009.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code010.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code011.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code012.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code013.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code014.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code015.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code016.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code017.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code018.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code019.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code020.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code021.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code022.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code023.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code024.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code025.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code026.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code027.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code028.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code029.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code030.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code031.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code032.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code033.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code034.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code035.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code036.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code037.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code038.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code039.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code040.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code041.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code042.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code043.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code044.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code045.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code046.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code047.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code048.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code049.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code050.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code051.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code052.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code053.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code054.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code055.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code056.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code057.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code058.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code059.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code060.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code061.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code062.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code063.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code064.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code065.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code066.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code067.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code068.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code069.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code070.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code071.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code072.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code073.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code074.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code075.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code076.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code077.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code078.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code079.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code080.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code081.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code082.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code083.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code084.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code085.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code086.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code087.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code088.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code089.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code090.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code091.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code092.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code093.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code094.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code095.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code096.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code097.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code098.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code099.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code100.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code101.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code102.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code103.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code104.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code105.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code106.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code107.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code108.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code109.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code110.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code111.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code112.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code113.c
+f	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation/code114.c
+
+========== TOP-LEVEL TEST ARTIFACTS ==========
+total 112M
+drwxr-xr-x 1 hawk hawk  598 Nov  8 22:37 .
+drwxr-xr-x 1 hawk hawk  182 Nov  7 22:43 ..
+-rw-r--r-- 1 hawk hawk 112M Nov  7 21:18 00040000001A4100-device.so
+drwxr-xr-x 1 hawk hawk   48 Nov  7 16:55 aarch64-linux-android
+drwxr-xr-x 1 hawk hawk  150 Nov  7 19:29 android-app-exec-test
+drwxr-xr-x 1 hawk hawk   52 Nov  7 16:59 android-child-test
+drwxr-xr-x 1 hawk hawk   92 Nov  7 19:17 android-clang-builder
+drwxr-xr-x 1 hawk hawk   24 Nov  7 16:58 android-exec-test
+-rw-r--r-- 1 hawk hawk  31K Nov  7 21:45 android-integration-source.txt
+-rw-r--r-- 1 hawk hawk 2.1K Nov  7 21:45 app-integration-inventory.txt
+-rw-r--r-- 1 hawk hawk  177 Nov  7 13:37 CACHEDIR.TAG
+drwxr-xr-x 1 hawk hawk  136 Nov  7 13:37 debug
+drwxr-xr-x 1 hawk hawk   86 Nov  7 16:47 pocket-native-export
+drwxr-xr-x 1 hawk hawk   58 Nov  7 15:24 pocket-native-fastmem-import
+drwxr-xr-x 1 hawk hawk   58 Nov  7 14:50 pocket-native-import
+drwxr-xr-x 1 hawk hawk  300 Nov  7 16:28 release
+drwxr-xr-x 1 hawk hawk  138 Nov  7 22:46 releases
+-rw-r--r-- 1 hawk hawk 2.2K Nov  7 16:55 .rustc_info.json
+
+READ-ONLY: no files modified
