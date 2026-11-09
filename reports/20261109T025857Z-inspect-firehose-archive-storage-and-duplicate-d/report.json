@@ -1,0 +1,19 @@
+{
+  "id": "20261109T025857Z-inspect-firehose-archive-storage-and-duplicate-d",
+  "title": "Inspect Firehose archive storage and duplicate data",
+  "created_utc": "2026-11-09T02:58:57.378015+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-lc",
+    "\nBASE=\"/home/hawk\"\n\necho \"========== FILESYSTEM ==========\"\ndf -h \"$BASE\"\n\necho\necho \"========== SOURCE DIRECTORY BREAKDOWN ==========\"\nfor DIR in \\\n  \"$BASE/duo_edl\" \\\n  \"$BASE/duo_forensics/android_boot_chain_20261102_094334\" \\\n  \"$BASE/duo_forensics/qcs6125_loader_test\" \\\n  \"$BASE/duo_forensics/recovery_probe/bkerler-edl\"; do\n  if [ -e \"$DIR\" ]; then\n    echo\n    echo \"--- $DIR ---\"\n    du -h --max-depth=2 \"$DIR\" 2>/dev/null | sort -h | tail -n 35\n  fi\ndone\n\necho\necho \"========== EDL CHECKOUT TOP-LEVEL ==========\"\ndu -h --max-depth=1 \"$BASE/duo_edl/edl\" 2>/dev/null | sort -h\n\necho\necho \"========== EDL EXECUTABLES AND LOADER ==========\"\nls -lh \\\n  \"$BASE/duo_edl/edl/.venv/bin/edl\" \\\n  \"$BASE/duo_edl/edl/edl.py\" \\\n  \"$BASE/duo_forensics/qcs6125_loader_test\"/* \\\n  2>/dev/null\n\necho\necho \"========== KNOWN SUPER IMAGE ==========\"\nstat -c \"%n %s bytes\" \\\n  \"$BASE/duo_forensics/android_boot_chain_20261102_094334/super.img\" \\\n  2>/dev/null\nsha256sum \\\n  \"$BASE/duo_forensics/android_boot_chain_20261102_094334/super.img\" \\\n  2>/dev/null\n\necho\necho \"========== EXISTING ARCHIVE DESTINATION ==========\"\nif [ -e \"$BASE/duo_forensics/firehose-recovery-archive\" ]; then\n  du -sh \"$BASE/duo_forensics/firehose-recovery-archive\"\nelse\n  echo \"No archive created; safe to retry after planning.\"\nfi\n\necho\necho \"INSPECTION ONLY: no files modified\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 33.749,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? edl_config.json\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}

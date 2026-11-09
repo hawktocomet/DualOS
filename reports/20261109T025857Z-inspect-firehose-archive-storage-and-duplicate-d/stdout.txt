@@ -1,0 +1,202 @@
+========== FILESYSTEM ==========
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  238G  115G  117G  50% /home
+
+========== SOURCE DIRECTORY BREAKDOWN ==========
+
+--- /home/hawk/duo_edl ---
+8.0M	/home/hawk/duo_edl/edl/Drivers
+8.3M	/home/hawk/duo_edl/edl/ghidra_abl_project
+9.9M	/home/hawk/duo_edl/build/alpine-rootfs
+12M	/home/hawk/duo_edl/edl/sdcc_protocol_calltrace_20261101_083801
+13M	/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505
+14M	/home/hawk/duo_edl/edl/sdcc_bootpath_analysis_20261031_161837
+14M	/home/hawk/duo_edl/edl/uefi_module_audit_20261031_153151
+16M	/home/hawk/duo_edl/edl/depex_producer_ghidra_20261101_081911
+19M	/home/hawk/duo_edl/edl/ghidra_project
+25M	/home/hawk/duo_edl/edl/depex_producer_corrected_20261101_082800
+43M	/home/hawk/duo_edl/migration_work/duo-lite-reports
+44M	/home/hawk/duo_edl/migration_work
+48M	/home/hawk/duo_edl/android_boot_analysis/vendor_ramdisk
+48M	/home/hawk/duo_edl/gist_migration_backup_20261103_135803/gists
+49M	/home/hawk/duo_edl/gist_migration_backup_20261103_135803
+54M	/home/hawk/duo_edl/edl/boot_a_unpacked
+55M	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337
+59M	/home/hawk/duo_edl/build/busybox
+63M	/home/hawk/duo_edl/android_boot_analysis
+64M	/home/hawk/duo_edl/edl/full_forensics_20261031_152924
+71M	/home/hawk/duo_edl/build/sdcard-stage
+96M	/home/hawk/duo_edl/edl/new_authorized_dumps
+121M	/home/hawk/duo_edl/new_authorized_dumps
+148M	/home/hawk/duo_edl/edl/.git
+304M	/home/hawk/duo_edl/edl/Loaders
+320M	/home/hawk/duo_edl/edl/build
+353M	/home/hawk/duo_edl/build
+436M	/home/hawk/duo_edl/edl/.venv
+489M	/home/hawk/duo_edl/FreeABL/edk2
+1011M	/home/hawk/duo_edl/FreeABL/.git
+1.5G	/home/hawk/duo_edl/FreeABL
+1.8G	/home/hawk/duo_edl/edl
+1.9G	/home/hawk/duo_edl/reports/duo_sd_boot_parts_20261031_222358
+25G	/home/hawk/duo_edl/reports
+29G	/home/hawk/duo_edl
+
+--- /home/hawk/duo_forensics/android_boot_chain_20261102_094334 ---
+0	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked
+0	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked/slot0
+0	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked/slot1
+32K	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/first_stage_init_audit/init_a
+32K	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/first_stage_init_audit/init_b
+64K	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/first_stage_init_audit
+184K	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/sd_kernel_config_audit
+284K	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/boot_device_audit
+332K	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/sd_first_stage_audit
+2.0M	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/init_boot_a
+2.0M	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/init_boot_b
+7.0M	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/init_boot_a
+7.0M	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/init_boot_b
+7.8M	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/vendor_boot_a
+7.8M	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/vendor_boot_b
+48M	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/vendor_boot_a
+48M	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/vendor_boot_b
+54M	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/boot_a
+54M	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/boot_b
+109M	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis
+126M	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis
+4.8G	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0
+4.9G	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1
+9.7G	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt
+23G	/home/hawk/duo_forensics/android_boot_chain_20261102_094334
+
+--- /home/hawk/duo_forensics/qcs6125_loader_test ---
+616K	/home/hawk/duo_forensics/qcs6125_loader_test
+
+--- /home/hawk/duo_forensics/recovery_probe/bkerler-edl ---
+1.1M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/HuaQin
+1.2M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/edlclient/Library
+1.3M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/cyanogen
+1.8M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/fancymaker
+1.9M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/yulong_coolpad
+2.1M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/edlclient
+2.5M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/nothing
+2.7M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/gionee
+2.7M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/longcheer
+2.8M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lyf
+3.0M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/unknown
+3.5M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/meizu
+4.5M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/hisense_agm
+4.7M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/huawei
+6.2M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/LG
+6.5M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oppo
+6.9M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/vivo
+7.1M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox
+7.9M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Drivers/Windows
+8.0M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Drivers
+9.1M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/nokia_foxconn
+11M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/asus_wingtech
+11M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oneplus
+11M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel
+14M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/TCL
+19M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/.git/objects
+24M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi
+25M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/zte
+37M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung
+44M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola
+55M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/qualcomm
+84M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/.git/modules
+103M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/.git
+304M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders
+447M	/home/hawk/duo_forensics/recovery_probe/bkerler-edl
+
+========== EDL CHECKOUT TOP-LEVEL ==========
+0	/home/hawk/duo_edl/edl/android_boot_analysis
+0	/home/hawk/duo_edl/edl/qcombds_protocol_provider_20261031_163041
+0	/home/hawk/duo_edl/edl/sdcc_blockio_provider_20261031_164029
+4.0K	/home/hawk/duo_edl/edl/sdcc_protocol_provider_20261031_155359
+8.0K	/home/hawk/duo_edl/edl/duo_sd_slot_failure_trace_20261031_173011
+8.0K	/home/hawk/duo_edl/edl/__pycache__
+8.0K	/home/hawk/duo_edl/edl/sdcc_controller_matrix_20261031_154634
+12K	/home/hawk/duo_edl/edl/.github
+16K	/home/hawk/duo_edl/edl/Example
+20K	/home/hawk/duo_edl/edl/ghidra_scripts
+24K	/home/hawk/duo_edl/edl/duo_image_recovery_20261031_174936
+32K	/home/hawk/duo_edl/edl/duo_controller_and_dxe_20261031_174331
+32K	/home/hawk/duo_edl/edl/sdcc_protocol_xref_20261031_164552
+36K	/home/hawk/duo_edl/edl/ghidra_abl_scripts
+44K	/home/hawk/duo_edl/edl/sdcc_firmware_inventory_20261031_155758
+56K	/home/hawk/duo_edl/edl/sdcc_provider_candidates_20261031_155604
+68K	/home/hawk/duo_edl/edl/duo_slot_mapping_20261031_173056
+92K	/home/hawk/duo_edl/edl/sdcc_correct_guid_20261031_155506
+100K	/home/hawk/duo_edl/edl/qcombds_extract_audit_20261031_162558
+140K	/home/hawk/duo_edl/edl/edlclient.egg-info
+144K	/home/hawk/duo_edl/edl/duo_controller_and_dxe_fixed_20261031_174542
+216K	/home/hawk/duo_edl/edl/sdcc_slot2_audit_20261031_153327
+220K	/home/hawk/duo_edl/edl/duo_protocol_provider_trace_20261031_172145
+244K	/home/hawk/duo_edl/edl/ghidra_abl_reports
+744K	/home/hawk/duo_edl/edl/sdcc_deep_dive_20261031_153425
+744K	/home/hawk/duo_edl/edl/sdcc_deep_dive_20261031_153525
+2.2M	/home/hawk/duo_edl/edl/edlclient
+2.9M	/home/hawk/duo_edl/edl/sdcc_callback_protocol_trace_20261101_080122
+2.9M	/home/hawk/duo_edl/edl/sdcc_controller_mapping_20261101_075235
+2.9M	/home/hawk/duo_edl/edl/sdcc_controller_matrix_20261031_154724
+2.9M	/home/hawk/duo_edl/edl/sdcc_controller_matrix_20261031_154905
+2.9M	/home/hawk/duo_edl/edl/sdcc_enablement_audit_20261031_155047
+2.9M	/home/hawk/duo_edl/edl/sdcc_guid_entrypoint_trace_20261101_080428
+2.9M	/home/hawk/duo_edl/edl/sdcc_recovery_fixed_20261031_230551
+2.9M	/home/hawk/duo_edl/edl/sdcc_secondary_callback_deep_20261101_080639
+2.9M	/home/hawk/duo_edl/edl/sdcc_startup_card_exposure_20261101_075732
+2.9M	/home/hawk/duo_edl/edl/targeted_sdcc_20261031_230259
+3.0M	/home/hawk/duo_edl/edl/qcombds_ghidra_20261031_162703
+3.0M	/home/hawk/duo_edl/edl/qcombds_protocol_provider_20261031_163122
+3.0M	/home/hawk/duo_edl/edl/qcombds_protocol_provider_fixed_20261031_163831
+3.0M	/home/hawk/duo_edl/edl/sdcc_full_provider_audit_20261031_165815
+3.0M	/home/hawk/duo_edl/edl/sdcc_symbol_trace_20261031_154000
+3.1M	/home/hawk/duo_edl/edl/qcombds_callchain_20261031_162847
+3.2M	/home/hawk/duo_edl/edl/duo_sd_boot_10_batches_20261031_220547
+3.2M	/home/hawk/duo_edl/edl/sdcc_platform_dependencies_20261031_154436
+3.3M	/home/hawk/duo_edl/edl/duo_ghidra_reports
+3.6M	/home/hawk/duo_edl/edl/clock_protocol_provider_20261101_090540
+3.6M	/home/hawk/duo_edl/edl/clock_protocol_provider_20261101_090700
+3.7M	/home/hawk/duo_edl/edl/clock_service_lookup_20261101_090103
+3.9M	/home/hawk/duo_edl/edl/clock_provider_deep_20261101_085432
+3.9M	/home/hawk/duo_edl/edl/clock_provider_deep_20261101_085655
+3.9M	/home/hawk/duo_edl/edl/duo_boot_protocol_matrix_20261031_170157
+4.2M	/home/hawk/duo_edl/edl/clock_dispatcher_trace_20261101_090330
+4.2M	/home/hawk/duo_edl/edl/sdcc_driver_analysis_20261031_153751
+6.4M	/home/hawk/duo_edl/edl/clock_protocol_map_20261101_084342
+6.5M	/home/hawk/duo_edl/edl/clock_table_verified_20261101_084800
+6.5M	/home/hawk/duo_edl/edl/duo_boot_chain_deep_20261031_173640
+6.6M	/home/hawk/duo_edl/edl/clock_method_resolution_20261101_085110
+8.0M	/home/hawk/duo_edl/edl/Drivers
+8.3M	/home/hawk/duo_edl/edl/ghidra_abl_project
+12M	/home/hawk/duo_edl/edl/sdcc_protocol_calltrace_20261101_083801
+13M	/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505
+14M	/home/hawk/duo_edl/edl/sdcc_bootpath_analysis_20261031_161837
+14M	/home/hawk/duo_edl/edl/uefi_module_audit_20261031_153151
+16M	/home/hawk/duo_edl/edl/depex_producer_ghidra_20261101_081911
+19M	/home/hawk/duo_edl/edl/ghidra_project
+25M	/home/hawk/duo_edl/edl/depex_producer_corrected_20261101_082800
+54M	/home/hawk/duo_edl/edl/boot_a_unpacked
+55M	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337
+64M	/home/hawk/duo_edl/edl/full_forensics_20261031_152924
+96M	/home/hawk/duo_edl/edl/new_authorized_dumps
+148M	/home/hawk/duo_edl/edl/.git
+304M	/home/hawk/duo_edl/edl/Loaders
+320M	/home/hawk/duo_edl/edl/build
+436M	/home/hawk/duo_edl/edl/.venv
+1.8G	/home/hawk/duo_edl/edl
+
+========== EDL EXECUTABLES AND LOADER ==========
+-rwxr-xr-x 1 hawk hawk  26K Oct 30 12:25 /home/hawk/duo_edl/edl/edl.py
+-rwxr-xr-x 1 hawk hawk  181 Oct 30 12:28 /home/hawk/duo_edl/edl/.venv/bin/edl
+-rw-r--r-- 1 hawk hawk 589K Nov  1 23:05 /home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin
+-rw-r--r-- 1 hawk hawk  21K Nov  1 23:05 /home/hawk/duo_forensics/qcs6125_loader_test/REPORT.txt
+
+========== KNOWN SUPER IMAGE ==========
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super.img 12884901888 bytes
+f39072e566e7faa15d730c53b1335763b7eaf310b38bb9de530932c1c59d8d7a  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/super.img
+
+========== EXISTING ARCHIVE DESTINATION ==========
+No archive created; safe to retry after planning.
+
+INSPECTION ONLY: no files modified
