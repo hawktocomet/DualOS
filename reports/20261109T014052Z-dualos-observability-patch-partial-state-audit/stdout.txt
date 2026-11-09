@@ -1,0 +1,178 @@
+
+=== ENTRYPOINT IMPORTS AND APP MAIN ===
+pub mod utils;
+
+// Currently un-testable modules.
+//
+// The libefi API surface is large and complex; rather than trying to mock it all out at once, we
+// will selectively enable modules for test as they become mockable.
+#[cfg(not(test))]
+mod android_boot;
+#[cfg(not(test))]
+mod fastboot;
+
+// In tests, map the `efi_mocks` module as `efi`. This allows other modules to `use crate::efi`
+// and automatically pick up the correct one.
+#[cfg(not(test))]
+#[allow(clippy::single_component_path_imports)] // Needed for `crate::efi` paths.
+pub(crate) use efi;
+#[cfg(test)]
+pub(crate) use efi_mocks as efi;
+
+#[cfg(not(test))]
+use {
+    crate::{
+        efi_blocks::EfiGblDisk,
+    },
+    cfg_if::cfg_if,
+    core::convert::Infallible,
+    efi::{efi_println, EfiEntry},
+    libbuild_number::{format_build_fingerprint, format_build_vcs_info},
+    libgbl::Result,
+    utils::loaded_image_path,
+};
+
+#[cfg(not(test))]
+enum TargetOs {
+    Android,
+    #[cfg(feature = "fuchsia")]
+    Fuchsia,
+}
+
+#[cfg(not(test))]
+fn get_target_os(_entry: &EfiEntry, _disks: &[EfiGblDisk]) -> TargetOs {
+    cfg_if! {
+        if #[cfg(feature = "fuchsia")] {
+            let mut buf = [0u8; 1];
+            if _entry
+                .system_table()
+                .runtime_services()
+                .get_variable(&efi::GBL_EFI_VENDOR_GUID, efi::GBL_EFI_OS_BOOT_TARGET_VARNAME, &mut buf)
+                .is_ok()
+            {
+                efi_println!(
+                    _entry,
+                    "`{}` is set. Proceeding as Fuchsia.",
+                    efi::GBL_EFI_OS_BOOT_TARGET_VARNAME
+                );
+                TargetOs::Fuchsia
+            } else if fuchsia_boot::is_fuchsia_gpt(_disks).is_ok() {
+                efi_println!(_entry, "Partition layout looks like Fuchsia. Proceeding as Fuchsia");
+                TargetOs::Fuchsia
+            } else {
+                efi_println!(_entry, "Proceeding as Android");
+                TargetOs::Android
+            }
+        } else {
+            TargetOs::Android
+        }
+    }
+}
+
+/// GBL EFI application logic entry point.
+#[cfg(not(test))]
+#[allow(unreachable_code, unused_variables)]
+pub fn app_main(entry: EfiEntry) -> Result<Infallible> {
+    efi_println!(entry, "**** Generic Bootloader (GBL) ****");
+    efi_println!(entry, "Fingerprint: {}", format_build_fingerprint!());
+    efi_println!(entry, "VCS info: {}", format_build_vcs_info!());
+    if let Ok(v) = loaded_image_path(&entry) {
+        efi_println!(entry, "Image path: {v}");
+    }
+
+    // Read-only console mode diagnostic.
+    match entry.system_table().con_out() {
+        Ok(console) => {
+            let mode_info = console.interface().mode;
+            if mode_info.is_null() {
+                efi_println!(entry, "Console mode information unavailable.");
+            } else {
+                // SAFETY: UEFI provides this pointer as part of the live
+                // Simple Text Output Protocol.
+                let (max_mode, current_mode) = unsafe {
+                    ((*mode_info).max_mode, (*mode_info).mode)
+                };
+                efi_println!(
+                    entry,
+                    "Console current mode: {current_mode}; available modes: {max_mode}"
+                );
+
+                for mode in 0..max_mode.max(0) as usize {
+                    match console.query_mode(mode) {
+                        Ok((cols, rows)) => {
+                            efi_println!(
+                                entry,
+                                "Console mode {mode}: {cols} columns x {rows} rows"
+                            );
+                        }
+                        Err(e) => {
+                            efi_println!(
+                                entry,
+                                "Console mode {mode}: query failed: {e:?}"
+                            );
+                        }
+                    }
+                }
+            }
+        }
+        Err(e) => efi_println!(entry, "Console protocol unavailable: {e:?}"),
+    }
+
+    let report_status = diagnostic_fs::write_report(&entry);
+    efi_println!(entry, "Filesystem report: {report_status}");
+    efi_println!(entry, "Diagnostic complete. Halting before OS boot.");
+    loop {
+        core::hint::spin_loop();
+    }
+}
+
+=== DIAGNOSTIC WRITER SIGNATURES ===
+97:fn build_report(entry: &EfiEntry, source_device: efi::DeviceHandle, discovery_status: &str) -> String {
+106:    report.push_str(&format!("DUALOS_DISCOVERY_STATUS: {discovery_status}\\n\\n"));
+151:pub fn write_report(entry: &EfiEntry, discovery_status: &str) -> &'static str {
+163:    let report = build_report(entry, source_device, discovery_status);
+
+=== DISK DISCOVERY REPORTING ===
+142-        efi_println!(efi_entry, "Loaded image handle is not a logical partition; refusing disk discovery.");
+143-        return Err(Error::InvalidInput);
+144-    }
+145-
+146:    let mut source_disk_handle = None;
+147-    for handle in block_dev_handles.handles() {
+148-        let candidate_path = match bs.open_protocol::<DevicePathProtocol>(*handle) {
+149-            Ok(path) => path,
+150-            Err(_) => continue,
+--
+166-        if candidate_media.logical_partition {
+167-            continue;
+168-        }
+169-
+170:        if source_disk_handle.replace(*handle).is_some() {
+171-            efi_println!(efi_entry, "Multiple physical parent disks match the loaded image; refusing to boot.");
+172-            return Err(Error::InvalidInput);
+173-        }
+174-    }
+175-
+176:    let source_disk_handle = source_disk_handle.ok_or_else(|| {
+177-        efi_println!(efi_entry, "No physical parent disk found for the loaded image; refusing to boot.");
+178-        Error::InvalidInput
+179-    })?;
+180-    efi_println!(
+--
+185-    let mut gbl_disks = vec![];
+186-    // TODO(b/452455989) Buffer size and capacity can be configurable using vendor path.
+187-    let gpt_buffer_size = gpt_buffer_size(GPT_MAX_NUM_ENTRIES)?;
+188-    for (idx, handle) in block_dev_handles.handles().iter().enumerate() {
+189:        if *handle != source_disk_handle {
+190-            continue;
+191-        }
+192-        match crate::utils::get_device_path(efi_entry, *handle) {
+193-            Ok(path) => efi_println!(efi_entry, "Block #{idx} path: {path}"),
+
+=== DIFF VALIDATION ===
+ M gbl/efi/src/efi_blocks.rs
+ M gbl/efi/src/lib.rs
+ M gbl/libefi/src/lib.rs
+ M gbl/libefi/src/protocol/device_path.rs
+ M gbl/libefi/src/protocol/simple_text_output.rs
+?? gbl/efi/src/diagnostic_fs.rs
