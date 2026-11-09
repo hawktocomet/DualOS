@@ -1,0 +1,13 @@
+{
+  "id": "20261109T010239Z-gbl-diagnostic-efi-artifact-resolution",
+  "title": "GBL diagnostic EFI artifact resolution",
+  "created_utc": "2026-11-09T01:02:39.240319+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd ~/source/DualOS-tools/aosp-uefi-gbl || exit 1\n\necho \"===== BAZEL TARGET OUTPUTS =====\"\n./bootable/libbootloader/gbl/bazel.sh cquery \\\n  --extra_toolchains=@gbl//toolchain \\\n  \"@@gbl+//efi:aarch64_dev\" \\\n  --output=files\necho \"CQUERY_EXIT_CODE=$?\"\n\necho\necho \"===== BAZEL OUTPUT TREE =====\"\nls -la bootable/libbootloader/bazel-bin 2>&1\necho\nfind -L bootable/libbootloader/bazel-bin -maxdepth 7 -type f \\\n  \\( -iname \"*.efi\" -o -iname \"*.efi.signed\" -o -iname \"*aarch64_dev*\" \\) \\\n  -printf \"%p %s bytes\\n\" 2>/dev/null | head -80\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 1.104
+}

@@ -1,0 +1,6 @@
+===== BAZEL TARGET OUTPUTS =====
+CQUERY_EXIT_CODE=1
+
+===== BAZEL OUTPUT TREE =====
+ls: cannot access 'bootable/libbootloader/bazel-bin': No such file or directory
+
