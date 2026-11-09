@@ -1,0 +1,11 @@
+=== PREFLIGHT ===
+New artifact: 4b066ad11e222529a0ad526fa11c20e63ffb1480a819c4a45dbcac71b208ef55
+Current EFI: 610e939fd609f4bf69c82a71b460aedf95b64c6e676e2f469470ab9c648d4d2e
+=== REMOUNT READ-WRITE ===
+/dev/mmcblk0p1 vfat rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro /mnt/dualos-check
+=== PRESERVE CURRENT EFI ===
+=== INSTALL NEW SIGNED EFI ===
+=== FINAL VERIFICATION ===
+Deployed EFI: 4b066ad11e222529a0ad526fa11c20e63ffb1480a819c4a45dbcac71b208ef55
+Preserved previous EFI: 610e939fd609f4bf69c82a71b460aedf95b64c6e676e2f469470ab9c648d4d2e
+DEPLOYMENT_VERIFIED
