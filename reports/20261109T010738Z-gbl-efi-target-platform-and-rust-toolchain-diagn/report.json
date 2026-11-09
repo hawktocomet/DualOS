@@ -1,0 +1,13 @@
+{
+  "id": "20261109T010738Z-gbl-efi-target-platform-and-rust-toolchain-diagn",
+  "title": "GBL EFI target platform and Rust toolchain diagnosis",
+  "created_utc": "2026-11-09T01:07:38.784661+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd ~/source/DualOS-tools/aosp-uefi-gbl || exit 1\nG=bootable/libbootloader/gbl\n\necho \"===== MODULE DOCUMENTED BUILD COMMAND =====\"\nsed -n \"1435,1470p\" \"$G/MODULE.bazel\"\n\necho\necho \"===== EFI BUILD TARGET DEFINITIONS =====\"\nsed -n \"90,190p\" \"$G/efi/BUILD\"\n\necho\necho \"===== AARCH64 TOOLCHAIN PLATFORM DEFINITIONS =====\"\nsed -n \"220,325p\" \"$G/toolchain/BUILD\"\n\necho\necho \"===== RUST TOOLCHAIN REGISTRATION =====\"\nsed -n \"680,765p\" \"$G/toolchain/BUILD\"\n\necho\necho \"===== BUILD COMMANDS IN REPOSITORY DOCUMENTATION =====\"\nrg -n -C 3 \"bazel.sh build|extra_toolchains|aarch64_dev|platforms=\" \"$G\" \\\n  --glob \"*.md\" --glob \"*.sh\" --glob \"*.py\" --glob \"MODULE.bazel\"\n\necho\necho \"===== BAZEL CONFIGURED TARGET DETAILS =====\"\n./bootable/libbootloader/gbl/bazel.sh cquery \\\n  --extra_toolchains=@gbl//toolchain:all \\\n  @gbl//efi:aarch64_dev \\\n  --output=build\n\necho\necho \"===== WORKTREE STATUS =====\"\ngit -C \"$G\" status --short\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.655
+}

@@ -1,0 +1,363 @@
+===== MODULE DOCUMENTED BUILD COMMAND =====
+    compile_data = ["README.md"],
+    path = "external/rust/android-crates-io/crates/zeroize",
+    rustc_flags = ["--cap-lints=allow"],
+)
+
+gbl_rust_crate_repository(
+    name = "zmij",
+    path = "external/rust/android-crates-io/crates/zmij",
+)
+
+gbl_rust_crate_repository(
+    name = "zune_inflate",
+    crate_features = ["gzip"],
+    path = "external/rust/android-crates-io/crates/zune-inflate",
+)
+
+# We don't register GBL toolchains here because they will be masked by toolchains from
+# `build/kleaf//:` as they are registered earlier. Instead, we will pass GBL toolchains via
+# bazel commandline argument "--extra_toolchains=@gbl//toolchain:all" when building GBL
+# targets, which allows them to be evaluated first during toolchain resolution.
+
+===== EFI BUILD TARGET DEFINITIONS =====
+    # remove dead-code; for now it would require a lot of invasive
+    # code changes to selectively disable things on tests so this
+    # is worth it to keep things more readable.
+    rustc_flags = [
+        "-A",
+        "dead-code",
+    ],
+    deps = [
+        "@gbl//libefi:mocks",
+        "@mockall",
+    ],
+)
+
+dev_test(
+    name = "test_dev",
+    target = ":test",
+)
+
+APP_NAME = select({
+    "@gbl//toolchain:gbl_rust_elf_riscv64": "gbl_riscv64",
+    "@gbl//toolchain:gbl_rust_uefi_aarch64": "gbl_aarch64",
+    "@gbl//toolchain:gbl_rust_uefi_x86_64": "gbl_x86_64",
+    "//conditions:default": "gbl_unknown",
+}) + "_" + select({
+    "@gbl//toolchain:dev": "dev",
+    "@gbl//toolchain:prod": "prod",
+    "//conditions:default": "unknown",
+}) + select({
+    "@gbl//toolchain:efi_boot_stub": "_bootstub",
+    "//conditions:default": "",
+}) + select({
+    "@gbl//toolchain:uefi_debug": "_debug",
+    "//conditions:default": "",
+})
+
+# The UEFI application target.
+#
+# Almost all logic should be in the libgbl_efi target; this contains only the
+# things that would prevent unittesting such as global allocation hooks or
+# target-specific compiler dependencies.
+rust_binary(
+    name = "app",
+    srcs = glob(["app/**/*.rs"]),
+    binary_name = APP_NAME,
+    linker_script = select(
+        {
+            "@gbl//toolchain:gbl_rust_elf_riscv64": "@gbl//efi/arch/riscv64:riscv64_efi.lds",
+            "//conditions:default": None,
+        },
+    ),
+    rustc_flags = [
+        "-C",
+        "panic=abort",
+    ],
+    deps = [
+        ":libgbl_efi",
+        "@avb//:libavb_c_sha_staticlib",
+        "@cfg_if",
+        "@gbl//libavb:sysdeps",
+        "@gbl//libboringssl:libcrypto_c_baremetal_static",
+        "@gbl//libboringssl:sysdeps",
+        "@gbl//libefi",
+        "@gbl//libefi:libefi_rng",
+        "@gbl//libefi_types",
+        "@gbl//libgbl",
+        "@gbl//libstack",
+    ] + select(
+        {
+            "@gbl//toolchain:gbl_rust_elf_riscv64": [
+                "@gbl//efi/arch/riscv64:efi_arch_deps_riscv64",
+            ],
+            "@gbl//toolchain:gbl_rust_uefi_aarch64": [
+                "@gbl//efi/arch/aarch64:efi_arch_deps_aarch64",
+            ],
+            "//conditions:default": [],
+        },
+    ),
+)
+
+extract_pdb_file(
+    name = "app_pdb",
+    target = ":app",
+)
+
+genrule(
+    name = "gbl_efi",
+    srcs = [":app"],
+    outs = ["gbl.efi"],
+    cmd = select(
+        {
+            # For RISCV target, existing toolchain can only generate ELF format image.
+            # The current solution is to manually add a PE/COFF header at image
+            # start and use objcopy to remove the ELF header to make it a PE/COFF image.
+            # Also use `elf_static_relocation_checker` to check that our relocation library
+            # can handle all the generated relocation types. The following expands to two commands:
+            #
+            # 1. `llvm-objcopy <elf image> -O binary <efi image>`
+            # 2. `elf_static_relocation_checker <elf image> <efi image>`
+            "@gbl//toolchain:gbl_rust_elf_riscv64": """
+{} -O binary $(execpath @gbl//efi:app) $(OUTS) &&
+$(execpath @gbl//libelf:elf_static_relocation_checker) $(SRCS) $(OUTS)
+
+===== AARCH64 TOOLCHAIN PLATFORM DEFINITIONS =====
+    constraint_values = host_x86_64_constraint_values + [":dev"],
+)
+
+platform(
+    name = "host_x86_64_prod",
+    constraint_values = host_x86_64_constraint_values + [":prod"],
+)
+
+platform(
+    name = "gbl_uefi_x86_64_dev",
+    constraint_values = uefi_x86_64_constraint_values + [":dev"],
+)
+
+platform(
+    name = "gbl_uefi_x86_64_prod",
+    constraint_values = uefi_x86_64_constraint_values + [":prod"],
+)
+
+platform(
+    name = "gbl_uefi_x86_64_debug_dev",
+    constraint_values = uefi_x86_64_debug_constraint_values + [":dev"],
+)
+
+platform(
+    name = "gbl_uefi_x86_64_debug_prod",
+    constraint_values = uefi_x86_64_debug_constraint_values + [":prod"],
+)
+
+platform(
+    name = "gbl_uefi_aarch64_dev",
+    constraint_values = uefi_aarch64_constraint_values + [":dev"],
+)
+
+platform(
+    name = "gbl_uefi_aarch64_prod",
+    constraint_values = uefi_aarch64_constraint_values + [":prod"],
+)
+
+platform(
+    name = "gbl_uefi_aarch64_debug_dev",
+    constraint_values = uefi_aarch64_debug_constraint_values + [":dev"],
+)
+
+platform(
+    name = "gbl_uefi_aarch64_debug_prod",
+    constraint_values = uefi_aarch64_debug_constraint_values + [":prod"],
+)
+
+platform(
+    name = "gbl_elf_riscv64_dev",
+    constraint_values = elf_riscv64_constraint_values + [":dev"],
+)
+
+platform(
+    name = "gbl_elf_riscv64_prod",
+    constraint_values = elf_riscv64_constraint_values + [":prod"],
+)
+
+platform(
+    name = "gbl_elf_aarch64_dev",
+    constraint_values = elf_aarch64_constraint_values + [":dev"],
+)
+
+platform(
+    name = "gbl_elf_aarch64_prod",
+    constraint_values = elf_aarch64_constraint_values + [":prod"],
+)
+
+platform(
+    name = "gbl_elf_x86_64_dev",
+    constraint_values = elf_x86_64_constraint_values + [":dev"],
+)
+
+platform(
+    name = "gbl_uefi_x86_64_dev_bootstub",
+    constraint_values = uefi_x86_64_constraint_values + [
+        ":dev",
+        ":efi_boot_stub",
+    ],
+)
+
+platform(
+    name = "gbl_uefi_aarch64_dev_bootstub",
+    constraint_values = uefi_aarch64_constraint_values + [
+        ":dev",
+        ":efi_boot_stub",
+    ],
+)
+
+bool_setting(
+    name = "rust_no_sysroot",
+    build_setting_default = False,
+    visibility = ["//visibility:public"],
+)
+
+config_setting(
+    name = "rust_no_sysroot_true",
+    flag_values = {":rust_no_sysroot": "True"},
+)
+
+# For the end-to-end GDB example, we are using prebuilt UEFI firmware which doesn't have our custom
+# `gbl_debug` EFI variables. Thus for the example, we use a build flag to force enable waiting for
+# gdb connection.
+bool_flag(
+    name = "always_wait_gdb",
+    build_setting_default = False,
+
+===== RUST TOOLCHAIN REGISTRATION =====
+        "@rust_prebuilts//:liballoc",
+        "@rust_prebuilts//:libcompiler_builtins",
+        "@rust_prebuilts//:libcore",
+    ],
+)
+
+rust_stdlib_filegroup(
+    name = "rust_std_source_build",
+    srcs = [":rust_sysroot_source_build"],
+)
+
+# Default Rust and Clippy lint flags applied globally via the Rust toolchains.
+# Individual targets can override these settings in two ways:
+# 1. In `BUILD` files via `rustc_flags` (e.g. `rustc_flags = ["-A", "..."]` or
+#    `["--cap-lints=allow"]` for third-party crates), which `rules_rust`
+#    appends after `extra_rustc_flags` so the target's flags take precedence.
+# 2. In Rust source files via `#[allow(...)]` / `#![allow(...)]` attributes,
+#    which take precedence over command-line `-D` / `-W` flags.
+common_lint_opts = ANDROID_RUST_LINTS
+
+# Linux x86_64 Host toolchain
+rust_toolchain(
+    name = "x86_64_unknown_linux_gnu",
+    allocator_library = None,
+    binary_ext = "",
+    clippy_driver = "@rust_prebuilts//:bin/clippy-driver",
+    default_edition = "2021",
+    dylib_ext = ".so",
+    exec_triple = "x86_64-unknown-linux-musl",
+    extra_exec_rustc_flags = [
+        "-A",
+        "deprecated",
+    ],
+    extra_rustc_flags = common_lint_opts + select(rustc_dev_prod_flags_select),
+    extra_rustc_flags_for_crate_types = {
+        # The x86_64-unknown-linux-musl target defaults to static CRT (+crt-static). For proc-macros
+        # (dynamically loaded .so plugins), static CRT linking embeds an uninitialized musl allocator
+        # into the shared object, causing SIGSEGV when dlopened by rustc. Force dynamic linking against
+        # the musl sysroot libc_musl.so for proc-macros only, while leaving host binaries statically linked.
+        "proc-macro": [
+            "-C",
+            "target-feature=-crt-static",
+            "-C",
+            "link-self-contained=no",
+            "-C",
+            "link-arg=-L" + LINUX_SYSROOT_LIB_DIR,
+            "-C",
+            "link-arg=-Wl,-rpath," + LINUX_SYSROOT_LIB_DIR,
+        ],
+    },
+    global_allocator_library = None,
+    rust_doc = "@rust_prebuilts//:bin/rustdoc",
+    rust_std = "@rust_prebuilts//:stdlib_x86_64-unknown-linux-musl",
+    rustc = "@rust_prebuilts//:bin/rustc",
+    staticlib_ext = ".a",
+    stdlib_linkflags = [],
+    target_triple = "x86_64-unknown-linux-musl",
+)
+
+toolchain(
+    name = "x86_64_unknown_linux_gnu_toolchain",
+    exec_compatible_with = ["@platforms//os:linux"],
+    target_settings = [":gbl_rust_host_x86_64"],
+    toolchain = ":x86_64_unknown_linux_gnu",
+    toolchain_type = "@rules_rust//rust:toolchain",
+)
+
+# Common flags for all Rust UEFI toolchains.
+# Note this disables the default sysroot, so the rule must explicitly set `rust_std`.
+uefi_rustc_flags = [
+    # The linker options generated by rustc assumes `lld` as the linker. For windows platforms,
+    # the lld args style is different than that of clang++, i.e. for library search path, lld
+    # uses "/L<path>" while clang++ uses "-L<path>". Thus we need to use lld directly instead
+    # of `clang++`.
+    "--codegen=linker={}".format(gbl_llvm_tool_path("lld")),
+    # Disable default sysroot. We'll pass sysroot explicitly via the `rust_std` field.
+    "--sysroot",
+    "/dev/null",
+    # The bootloader does not persist for long and does not directly
+    # do any heavy computation.
+    # Trade some performance for additional security checks.
+    "-C",
+    "overflow-checks=true",
+    # Stack protector must be one of {none,all}
+    # Note: because the UEFI toolchain does not link against a libc
+    # we need to define the required symbols manually.
+
+===== BUILD COMMANDS IN REPOSITORY DOCUMENTATION =====
+bootable/libbootloader/gbl/README.md-253-   ```sh
+bootable/libbootloader/gbl/README.md-254-   launch_cvd \
+bootable/libbootloader/gbl/README.md-255-      --vm_manager=qemu_cli \
+bootable/libbootloader/gbl/README.md:256:      --android_efi_loader=./out/gbl_efi/gbl_aarch64_dev.efi \
+bootable/libbootloader/gbl/README.md-257-      --gdb_port=1337 \
+bootable/libbootloader/gbl/README.md-258-      --cpus=1
+bootable/libbootloader/gbl/README.md-259-   ```
+--
+bootable/libbootloader/gbl/README.md-263-
+bootable/libbootloader/gbl/README.md-264-   ```sh
+bootable/libbootloader/gbl/README.md-265-   lldb \
+bootable/libbootloader/gbl/README.md:266:    -o "target create ./out/gbl_efi/gbl_aarch64_dev.efi" \
+bootable/libbootloader/gbl/README.md-267-    -o "gdb-remote localhost:1337" \
+bootable/libbootloader/gbl/README.md-268-    -o "command script import bootable/libbootloader/gbl/qemu_gdb_example/lldb_load_gbl.py" \
+bootable/libbootloader/gbl/README.md-269-    -o "script lldb_load_gbl.start_gbl()"
+--
+bootable/libbootloader/gbl/MODULE.bazel-1450-
+bootable/libbootloader/gbl/MODULE.bazel-1451-# We don't register GBL toolchains here because they will be masked by toolchains from
+bootable/libbootloader/gbl/MODULE.bazel-1452-# `build/kleaf//:` as they are registered earlier. Instead, we will pass GBL toolchains via
+bootable/libbootloader/gbl/MODULE.bazel:1453:# bazel commandline argument "--extra_toolchains=@gbl//toolchain:all" when building GBL
+bootable/libbootloader/gbl/MODULE.bazel-1454-# targets, which allows them to be evaluated first during toolchain resolution.
+
+===== BAZEL CONFIGURED TARGET DETAILS =====
+# /home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/external/gbl+/efi/BUILD:280:20
+build_with_platform(
+  name = "aarch64_dev",
+  platform = "@gbl//toolchain:gbl_uefi_aarch64_dev",
+  deps = ["@gbl//efi:gbl_signed"],
+)
+# Rule aarch64_dev instantiated at (most recent call last):
+#   /home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/external/gbl+/efi/BUILD:280:20 in <toplevel>
+# Rule build_with_platform defined at (most recent call last):
+#   /home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/external/gbl+/toolchain/gbl_toolchain.bzl:266:27 in <toplevel>
+
+
+===== WORKTREE STATUS =====
+ M efi/src/efi_blocks.rs
+ M efi/src/lib.rs
+ M libefi/src/lib.rs
+ M libefi/src/protocol/simple_text_output.rs
+?? efi/src/diagnostic_fs.rs
