@@ -1,0 +1,19 @@
+{
+  "id": "20261109T021639Z-dualos-gbl-android-target-and-boot-path-source-i",
+  "title": "DualOS GBL Android target and boot path source inspection",
+  "created_utc": "2026-11-09T02:16:39.295533+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-c",
+    "\necho \"=== TARGET SELECTION DEFINITION ===\"\nrg -n \"get_target_os|enum TargetOs|TargetOs::Android\" gbl\n\necho\necho \"=== EFI MAIN BOOT FLOW ===\"\nsed -n \"90,190p\" gbl/efi/src/lib.rs\n\necho\necho \"=== ANDROID BOOT IMPLEMENTATION REFERENCES ===\"\nrg -n \"efi_android_load|efi_android_boot|android_boot|load.*android|boot.*android\" \\\n  gbl/efi/src gbl/libefi/src\n\necho\necho \"=== ANDROID PARTITION EXPECTATIONS ===\"\nrg -n \"boot_a|boot_b|vendor_boot|vbmeta|super|metadata|misc|init_boot|dtbo\" \\\n  gbl/efi/src gbl/libefi/src\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.021,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}

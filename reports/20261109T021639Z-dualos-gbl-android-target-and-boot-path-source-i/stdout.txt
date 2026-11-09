@@ -1,0 +1,232 @@
+=== TARGET SELECTION DEFINITION ===
+gbl/efi/src/lib.rs:69:enum TargetOs {
+gbl/efi/src/lib.rs:76:fn get_target_os(_entry: &EfiEntry, _disks: &[EfiGblDisk]) -> TargetOs {
+gbl/efi/src/lib.rs:97:                TargetOs::Android
+gbl/efi/src/lib.rs:100:            TargetOs::Android
+gbl/efi/src/lib.rs:122:    match get_target_os(&entry, &disks) {
+gbl/efi/src/lib.rs:132:        TargetOs::Android => {
+
+=== EFI MAIN BOOT FLOW ===
+                );
+                TargetOs::Fuchsia
+            } else if fuchsia_boot::is_fuchsia_gpt(_disks).is_ok() {
+                efi_println!(_entry, "Partition layout looks like Fuchsia. Proceeding as Fuchsia");
+                TargetOs::Fuchsia
+            } else {
+                efi_println!(_entry, "Proceeding as Android");
+                TargetOs::Android
+            }
+        } else {
+            TargetOs::Android
+        }
+    }
+}
+
+/// GBL EFI application logic entry point.
+#[cfg(not(test))]
+pub fn app_main(entry: EfiEntry) -> Result<Infallible> {
+    use libutils::get_sp;
+
+    efi_println!(entry, "***** DUALOS SD-ONLY GBL *****");
+    efi_println!(entry, "Only the physical disk containing this EFI image will be considered.");
+    efi_println!(entry, "**** Generic Bootloader (GBL) ****");
+    efi_println!(entry, "Fingerprint: {}", format_build_fingerprint!());
+    efi_println!(entry, "VCS info: {}", format_build_vcs_info!());
+    if let Ok(v) = loaded_image_path(&entry) {
+        efi_println!(entry, "Image path: {v}");
+    }
+
+    let disks = find_block_devices(&entry).inspect_err(|e| {
+        report_error_and_reset(&entry, e, efi_types::GBL_EFI_DEBUG_ERROR_TAG_PARTITION)
+    })?;
+    match get_target_os(&entry, &disks) {
+        #[cfg(feature = "fuchsia")]
+        TargetOs::Fuchsia => {
+            let mut load: libgbl::android_boot::BootBuffer =
+                utils::get_boot_buffer(&entry, 128 * 1024 * 1024)?.into();
+            let mut ops = Ops::new(&entry, &disks[..], Some(Os::Fuchsia), get_sp());
+            let images = fuchsia_boot::efi_fuchsia_load(&mut ops, load.scratch())?;
+            drop(disks);
+            fuchsia_boot::efi_fuchsia_boot(entry, images)
+        }
+        TargetOs::Android => {
+            efi_println!(entry, "DualOS: proceeding with Android boot from the SD-only disk set.");
+            let load = utils::get_boot_buffer(&entry, 256 * 1024 * 1024)?;
+            let mut ops = Ops::new(&entry, &disks[..], Some(Os::Android), get_sp());
+            let (ramdisk, fdt, kernel, remains) =
+                android_boot::efi_android_load(&mut ops, load.into())?;
+            drop(disks);
+            android_boot::efi_android_boot(entry, kernel, ramdisk, fdt, remains)
+        }
+    }
+}
+
+=== ANDROID BOOT IMPLEMENTATION REFERENCES ===
+gbl/efi/src/utils.rs:43:use libgbl::{android_boot::BootBuffer, metrics::GblTime};
+gbl/efi/src/fastboot.rs:17:// `android_boot:android_boot_demo()` and `fuchsia_boot:fuchsia_boot_demo()` for
+gbl/efi/src/fastboot.rs:37:    {android_boot::GblFastbootEntry, GblOps},
+gbl/efi/src/lib.rs:18://! `android_boot:android_boot_demo()` and `fuchsia_boot:fuchsia_boot_demo()` for
+gbl/efi/src/lib.rs:42:mod android_boot;
+gbl/efi/src/lib.rs:125:            let mut load: libgbl::android_boot::BootBuffer =
+gbl/efi/src/lib.rs:137:                android_boot::efi_android_load(&mut ops, load.into())?;
+gbl/efi/src/lib.rs:139:            android_boot::efi_android_boot(entry, kernel, ramdisk, fdt, remains)
+gbl/efi/src/android_boot.rs:19:    android_boot::{android_main, BootBuffer},
+gbl/efi/src/android_boot.rs:26:pub fn efi_android_load<'a>(
+gbl/efi/src/android_boot.rs:35:/// Boots loaded android images.
+gbl/efi/src/android_boot.rs:37:pub fn efi_android_boot(
+gbl/efi/src/android_boot.rs:73:        use libgbl::android_boot::device_tree::PROP_BOOTARGS;
+gbl/efi/src/android_boot.rs:203:        use libgbl::android_boot::device_tree::PROP_BOOTARGS;
+
+=== ANDROID PARTITION EXPECTATIONS ===
+gbl/efi/src/utils.rs:25:            gbl_clear_boot_buffer, gbl_get_boot_buffer, GblVendorReservedMemory,
+gbl/efi/src/utils.rs:209:pub(crate) fn get_boot_buffer(entry: &EfiEntry, default: usize) -> Result<GblEfiBootBuffer> {
+gbl/efi/src/utils.rs:216:    .map(|v| match gbl_get_boot_buffer(entry, v, 0) {
+gbl/efi/src/utils.rs:221:    let general = gbl_get_boot_buffer(entry, GBL_EFI_BOOT_BUFFER_TYPE_GENERAL_LOAD, default)?;
+gbl/efi/src/utils.rs:241:        let buffer = Some(gbl_get_boot_buffer(
+gbl/efi/src/utils.rs:258:        gbl_clear_boot_buffer(self.entry, GBL_EFI_BOOT_BUFFER_TYPE_FASTBOOT_DOWNLOAD).unwrap();
+gbl/efi/src/utils.rs:312:    use super::*;
+gbl/efi/src/fuchsia_boot.rs:51:        &["vbmeta_a"],
+gbl/efi/src/fuchsia_boot.rs:52:        &["vbmeta_b"],
+gbl/efi/src/fuchsia_boot.rs:53:        &["vbmeta_r"],
+gbl/efi/src/fuchsia_boot.rs:54:        &["misc", "durable_boot"],
+gbl/efi/src/fuchsia_boot.rs:282:    use super::*;
+gbl/efi/src/net.rs:558:    udp_tx_metadata_buffer: Vec<PacketMetadata<UdpMetadata>>,
+gbl/efi/src/net.rs:559:    udp_rx_metadata_buffer: Vec<PacketMetadata<UdpMetadata>>,
+gbl/efi/src/net.rs:578:        // The TCP stack requires ICMP6 solicitation for discovery. Enable promiscuous mode so that
+gbl/efi/src/net.rs:580:        if let Err(e) = snp.set_promiscuous_mode() {
+gbl/efi/src/net.rs:583:                "Warning: Failed to set promiscuous mode {e:?}. Device may be undiscoverable",
+gbl/efi/src/net.rs:593:            udp_tx_metadata_buffer: vec![PacketMetadata::EMPTY; 1],
+gbl/efi/src/net.rs:594:            udp_rx_metadata_buffer: vec![PacketMetadata::EMPTY; 1],
+gbl/efi/src/net.rs:670:            &mut self.udp_tx_metadata_buffer[..],
+gbl/efi/src/net.rs:674:            &mut self.udp_rx_metadata_buffer[..],
+gbl/efi/src/net.rs:724:    use super::*;
+gbl/efi/src/fastboot.rs:46:    use super::*;
+gbl/efi/src/fastboot.rs:47:    pub(super) use crate::net::{EfiGblNetwork, EfiTcpSocket};
+gbl/efi/src/fastboot.rs:48:    pub(super) use core::sync::atomic::AtomicU64;
+gbl/efi/src/fastboot.rs:64:    pub(super) struct EfiFastbootTcpTransport<'a, 'b, 'c> {
+gbl/efi/src/fastboot.rs:71:        pub(super) fn new(socket: &'c mut EfiTcpSocket<'a, 'b>, is_fuchsia: bool) -> Self {
+gbl/efi/src/fastboot.rs:152:    use super::*;
+gbl/efi/src/fastboot.rs:155:    pub(super) enum NoOpTcp {}
+gbl/efi/src/fastboot.rs:353:    // This is super ugly, but the lifetimes require these objects to remain
+gbl/libefi/src/utils.rs:96:    use super::*;
+gbl/efi/src/lib.rs:126:                utils::get_boot_buffer(&entry, 128 * 1024 * 1024)?.into();
+gbl/efi/src/lib.rs:134:            let load = utils::get_boot_buffer(&entry, 256 * 1024 * 1024)?;
+gbl/libefi/src/efi_hash_c.rs:249:    use super::*;
+gbl/efi/src/ops.rs:82:    pub(super) use alloc::vec::Vec;
+gbl/efi/src/ops.rs:83:    pub(super) use zbi::ZbiContainer;
+gbl/efi/src/ops.rs:85:    pub(super) use {
+gbl/efi/src/ops.rs:91:    pub(super) const EFI_ACPI_20_TABLE_GUID: EfiGuid =
+gbl/efi/src/ops.rs:94:    pub(super) const ACPI_TABLE_GUID: EfiGuid =
+gbl/efi/src/ops.rs:97:    pub(super) const SMBIOS3_TABLE_GUID: EfiGuid =
+gbl/efi/src/ops.rs:100:    pub(super) const SMBIOS_TABLE_GUID: EfiGuid =
+gbl/efi/src/ops.rs:115:// If more properties are detected across vbmeta, GBL rejects to boot.
+gbl/efi/src/ops.rs:119:    let (id, rev, custom_size, custom) = match component.selection_metadata.as_ref() {
+gbl/efi/src/ops.rs:128:        metadata: GblEfiDeviceTreeMetadata {
+gbl/efi/src/ops.rs:130:            source: match component.source_metadata.source {
+gbl/efi/src/ops.rs:597:    fn avb_validate_vbmeta_public_key(
+gbl/efi/src/ops.rs:600:        public_key_metadata: Option<&[u8]>,
+gbl/efi/src/ops.rs:604:                .validate_vbmeta_public_key(public_key, public_key_metadata)
+gbl/efi/src/ops.rs:742:            // https://cs.android.com/android/platform/superproject/main/+/main:packages/modules/Virtualization/docs/updatable_vm.md
+gbl/efi/src/ops.rs:842:                                        component.source_metadata.source,
+gbl/efi/src/ops.rs:864:        metadata: Option<&[u8]>,
+gbl/efi/src/ops.rs:868:                let metadata_slice = metadata.unwrap_or(&[]);
+gbl/efi/src/ops.rs:869:                match protocol.select_fit_configuration(fit, metadata_slice) {
+gbl/efi/src/ops.rs:1033:    fn one_shot_pause_fastboot_after_load(&mut self) -> bool {
+gbl/efi/src/ops.rs:1198:    use super::*;
+gbl/efi/src/ops.rs:1376:                name: PartitionName::try_from("vendor_boot").unwrap(),
+gbl/efi/src/ops.rs:1524:    fn ops_avb_validate_vbmeta_public_key_returns_valid() {
+gbl/efi/src/ops.rs:1527:        avb.validate_vbmeta_public_key_result =
+gbl/efi/src/ops.rs:1534:        assert_eq!(ops.avb_validate_vbmeta_public_key(&[], None), Ok(KeyValidationStatus::Valid));
+gbl/efi/src/ops.rs:1538:    fn ops_avb_validate_vbmeta_public_key_returns_valid_custom_key() {
+gbl/efi/src/ops.rs:1541:        avb.validate_vbmeta_public_key_result =
+gbl/efi/src/ops.rs:1549:            ops.avb_validate_vbmeta_public_key(&[], None),
+gbl/efi/src/ops.rs:1555:    fn ops_avb_validate_vbmeta_public_key_returns_invalid() {
+gbl/efi/src/ops.rs:1558:        avb.validate_vbmeta_public_key_result =
+gbl/efi/src/ops.rs:1565:        assert_eq!(ops.avb_validate_vbmeta_public_key(&[], None), Ok(KeyValidationStatus::Invalid));
+gbl/efi/src/ops.rs:1569:    fn ops_avb_validate_vbmeta_public_key_failed_error_mapped() {
+gbl/efi/src/ops.rs:1572:        avb.validate_vbmeta_public_key_result = Some(Err(Error::OutOfResources));
+gbl/efi/src/ops.rs:1578:        assert_eq!(ops.avb_validate_vbmeta_public_key(&[], None), Err(AvbIoError::Oom));
+gbl/efi/src/ops.rs:1582:    fn ops_avb_validate_vbmeta_public_key_protocol_not_found_mapped_to_not_implemented() {
+gbl/efi/src/ops.rs:1592:        assert_eq!(ops.avb_validate_vbmeta_public_key(&[], None), Err(AvbIoError::NotImplemented));
+gbl/efi/src/ops.rs:2558:    fn test_select_device_tree_components_select_base_overlay_and_vmdtbo() {
+gbl/efi/src/ops.rs:2560:        let overlay = include_bytes!("../../libfdt/test/data/overlay_by_path.dtbo").to_vec();
+gbl/efi/src/ops.rs:2561:        let overlay2 = include_bytes!("../../libfdt/test/data/overlay_by_reference.dtbo").to_vec();
+gbl/efi/src/ops.rs:2562:        let vmdtbo1 = include_bytes!("../../libfdt/test/data/overlay_2_by_path.dtbo").to_vec();
+gbl/efi/src/ops.rs:2563:        let vmdtbo2 = include_bytes!("../../libfdt/test/data/overlay_2_by_reference.dtbo").to_vec();
+gbl/efi/src/ops.rs:2569:        let vmdtbo1_scoped = vmdtbo1.clone();
+gbl/efi/src/ops.rs:2570:        let vmdtbo2_scoped = vmdtbo2.clone();
+gbl/efi/src/ops.rs:2589:                        vmdtbo1_passed,
+gbl/efi/src/ops.rs:2590:                        vmdtbo2_passed,
+gbl/efi/src/ops.rs:2607:                                vmdtbo1_scoped.len(),
+gbl/efi/src/ops.rs:2611:                                vmdtbo2_scoped.len(),
+gbl/efi/src/ops.rs:2619:                    assert_eq!(vmdtbo1_passed, &vmdtbo1_scoped[..]);
+gbl/efi/src/ops.rs:2620:                    assert_eq!(vmdtbo2_passed, &vmdtbo2_scoped[..]);
+gbl/efi/src/ops.rs:2670:                &vmdtbo1,
+gbl/efi/src/ops.rs:2679:                &vmdtbo2,
+gbl/efi/src/ops.rs:2689:                    source_metadata: DtComponentSourceMetadata {
+gbl/efi/src/ops.rs:2695:                vmdtbo: Some(SelectedDtComponent {
+gbl/efi/src/ops.rs:2696:                    source_metadata: DtComponentSourceMetadata {
+gbl/efi/src/ops.rs:2700:                    dt: &vmdtbo2[..]
+gbl/efi/src/ops.rs:2703:                    source_metadata: DtComponentSourceMetadata {
+gbl/efi/src/ops.rs:2910:        use super::*;
+gbl/efi/src/android_boot.rs:144:                    // Pass the Memory Map pointers and metadata
+gbl/libefi/src/protocol.rs:48:pub(super) mod hash2;
+gbl/libefi/src/protocol.rs:590:    use super::*;
+gbl/libefi/src/profiling.rs:141:    use super::*;
+gbl/libefi/src/lib.rs:1485:    pub(super) struct FatalErrorToken(());
+gbl/libefi/src/lib.rs:1499:    pub(super) fn report_fatal_error_and_reset_internal<P: core::fmt::Display, T>(
+gbl/libefi/src/lib.rs:1619:    use super::*;
+gbl/libefi/src/lib.rs:2438:            let desc = super::exit_boot_services(efi_entry, buffer).unwrap();
+gbl/libefi/src/lib.rs:2518:            assert!(super::exit_boot_services(efi_entry, &mut buffer[..]).is_err());
+gbl/libefi/src/lib.rs:2569:            let desc = super::exit_boot_services(efi_entry, &mut aligned[size - 1..]).unwrap();
+gbl/libefi/src/protocol/device_path.rs:306:    use super::*;
+gbl/libefi/src/protocol/dt_fixup.rs:69:    use super::*;
+gbl/libefi/src/protocol/hash2.rs:339:    use super::*;
+gbl/libefi/src/protocol/load_file2.rs:85:    use super::*;
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs:319:fn boot_buf_info(buf_type: GblEfiBootBufferType) -> (&'static str, usize) {
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs:331:/// Specifies operation for `boot_buffer_op`
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs:343:fn boot_buffer_op(entry: &EfiEntry, op: BootBufferOp) -> Result<Option<GblVendorReservedMemory>> {
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs:349:            let (name, align) = boot_buf_info(buf_type);
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs:368:                        v.interface().get_boot_buffer,
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs:411:            let name = boot_buf_info(v).0;
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs:421:pub fn gbl_get_boot_buffer(
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs:426:    boot_buffer_op(entry, BootBufferOp::Get(buf_type, default)).map(|v| v.unwrap())
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs:431:/// If the buffer is previously returned by `gbl_get_boot_buffer` and has not dropped,
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs:435:pub fn gbl_clear_boot_buffer(entry: &EfiEntry, buf_type: GblEfiBootBufferType) -> Result<()> {
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs:436:    boot_buffer_op(entry, BootBufferOp::Clear(buf_type)).map(|_| ())
+gbl/libefi/src/protocol/gbl_efi_boot_memory.rs:441:    use super::*;
+gbl/libefi/src/protocol/simple_network.rs:206:    /// Sets to promiscuous mode to receive all packets over the network.
+gbl/libefi/src/protocol/simple_network.rs:207:    pub fn set_promiscuous_mode(&self) -> Result<()> {
+gbl/libefi/src/protocol/service_binding.rs:49:    pub(super) fn create_child(&self) -> Result<DeviceHandle> {
+gbl/libefi/src/protocol/service_binding.rs:70:    pub(super) unsafe fn destroy_child(&self, handle: DeviceHandle) -> Result<()> {
+gbl/libefi/src/protocol/service_binding.rs:210:    use super::*;
+gbl/libefi/src/protocol/gbl_efi_avf.rs:93:    use super::*;
+gbl/libefi/src/protocol/gbl_efi_os_configuration.rs:99:    pub fn select_fit_configuration(&self, fit: &[u8], metadata: &[u8]) -> Result<usize> {
+gbl/libefi/src/protocol/gbl_efi_os_configuration.rs:108:        // * `metadata` can be a null buffer, used only within the call.
+gbl/libefi/src/protocol/gbl_efi_os_configuration.rs:117:                metadata.len(),
+gbl/libefi/src/protocol/gbl_efi_os_configuration.rs:118:                // TODO(b/385690995): Migrate metadata argument to Option once mock issue is
+gbl/libefi/src/protocol/gbl_efi_os_configuration.rs:120:                if metadata.is_empty() { null() } else { metadata.as_ptr() },
+gbl/libefi/src/protocol/gbl_efi_os_configuration.rs:161:    use super::*;
+gbl/libefi/src/protocol/gbl_efi_os_configuration.rs:494:            metadata_size: usize,
+gbl/libefi/src/protocol/gbl_efi_os_configuration.rs:495:            metadata: *const u8,
+gbl/libefi/src/protocol/gbl_efi_os_configuration.rs:501:            assert_eq!(metadata_size, 0);
+gbl/libefi/src/protocol/gbl_efi_os_configuration.rs:502:            assert!(metadata.is_null());
+gbl/libefi/src/protocol/gbl_efi_avb.rs:163:    /// Wraps `GBL_EFI_AVB_PROTOCOL.validate_vbmeta_public_key()`.
+gbl/libefi/src/protocol/gbl_efi_avb.rs:164:    pub fn validate_vbmeta_public_key(
+gbl/libefi/src/protocol/gbl_efi_avb.rs:167:        public_key_metadata: Option<&[u8]>,
+gbl/libefi/src/protocol/gbl_efi_avb.rs:174:        // * `public_key_metadata` pointer (can be null), used only within the call
+gbl/libefi/src/protocol/gbl_efi_avb.rs:178:                self.interface().validate_vbmeta_public_key,
+gbl/libefi/src/protocol/gbl_efi_avb.rs:182:                public_key_metadata.map_or(0, |m| m.len()),
+gbl/libefi/src/protocol/gbl_efi_avb.rs:183:                public_key_metadata.map_or(null(), |m| m.as_ptr() as *const _),
+gbl/libefi/src/protocol/gbl_efi_avb.rs:328:    use super::*;
+gbl/libefi/src/protocol/gbl_efi_avb.rs:631:    fn validate_vbmeta_public_key_status_provided() {
+gbl/libefi/src/protocol/gbl_efi_avb.rs:641:            _metadata_len: usize,
+gbl/libefi/src/protocol/gbl_efi_avb.rs:642:            _metadata_ptr: *const u8,
+gbl/libefi/src/protocol/gbl_efi_avb.rs:661:            validate_vbmeta_public_key: Some(c_return_error),
+gbl/libefi/src/protocol/gbl_efi_avb.rs:667:                avb_protocol.validate_vbmeta_public_key(EXPECTED_PUBLIC_KEY, None),
+gbl/libefi/src/protocol/gbl_efi_avb.rs:674:    fn validate_vbmeta_public_key_error_handled() {
+gbl/libefi/src/protocol/gbl_efi_avb.rs:680:            _metadata_len: usize,
+gbl/libefi/src/protocol/gbl_efi_avb.rs:681:            _metadata_ptr: *const u8,
+gbl/libefi/src/protocol/gbl_efi_avb.rs:688:            validate_vbmeta_public_key: Some(c_return_error),
+gbl/libefi/src/protocol/gbl_efi_avb.rs:693:            assert!(avb_protocol.validate_vbmeta_public_key(b"test_key", None).is_err());
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs:261:    use super::*;
