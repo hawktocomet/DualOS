@@ -1,0 +1,19 @@
+{
+  "id": "20261109T021739Z-dualos-gbl-android-loader-partition-requirements",
+  "title": "DualOS GBL Android loader partition requirements",
+  "created_utc": "2026-11-09T02:17:39.645402+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-c",
+    "\necho \"=== TARGET SELECTION ===\"\nsed -n \"60,112p\" gbl/efi/src/lib.rs\n\necho\necho \"=== ANDROID EFI LOAD ENTRY ===\"\nsed -n \"1,125p\" gbl/efi/src/android_boot.rs\n\necho\necho \"=== ANDROID PARTITION LOOKUP AND IMAGE LOADING ===\"\nrg -n -C 4 \"PartitionName|partition_name|find_partition|load_partition|bootimage|BootImage|vendor_boot|init_boot|vbmeta|boot_a|boot_b\" \\\n  gbl/efi/src gbl/libgbl/src\n\necho\necho \"=== DISK ENUMERATION AND PARTITION EXPOSURE ===\"\nrg -n -C 4 \"struct EfiGblDisk|impl.*EfiGblDisk|EfiGblDisk|partition\" \\\n  gbl/efi/src/efi_blocks.rs gbl/efi/src/ops.rs\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.022,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}
