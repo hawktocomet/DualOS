@@ -1,0 +1,13 @@
+{
+  "id": "20261109T004554Z-gbl-efi-entrypoint-and-loaded-image-to-physical-",
+  "title": "GBL EFI entrypoint and loaded-image to physical-disk mapping",
+  "created_utc": "2026-11-09T00:45:54.534661+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\nROOT=bootable/libbootloader/gbl\n\necho \"===== TARGET OS SELECTION =====\"\nsed -n \"65,105p\" \"$ROOT/efi/src/lib.rs\"\n\necho\necho \"===== COMPLETE EFI APP ENTRYPOINT =====\"\nsed -n \"104,330p\" \"$ROOT/efi/src/lib.rs\"\n\necho\necho \"===== LOADED IMAGE PATH HELPER =====\"\nsed -n \"45,80p\" \"$ROOT/efi/src/utils.rs\"\n\necho\necho \"===== LOADED IMAGE PROTOCOL API =====\"\nrg -n -C 8 \\\n  \"struct LoadedImage|LoadedImageProtocol|fn device_handle|device_handle\\(|fn file_path|file_path\\(\" \\\n  bootable/libbootloader\n\necho\necho \"===== DISK DISCOVERY CALL SITES =====\"\nrg -n -C 8 \\\n  \"find_block_devices\\(|get_target_os\\(|Ops::new\\(\" \\\n  \"$ROOT/efi/src\" --glob \"!**/*test*\"\n\necho\necho \"===== DEVICE PATH COMPARISON AND PARENT RELATIONSHIP APIs =====\"\nrg -n -C 6 \\\n  \"LocateDevicePath|locate_device_path|OpenProtocolInformation|open_protocol_information|DevicePathProtocol|DevicePathNode|device_path.*prefix|is_prefix|parent.*handle\" \\\n  bootable/libbootloader\n\necho\necho \"===== DISK HANDLE RETENTION =====\"\nsed -n \"120,205p\" \"$ROOT/efi/src/efi_blocks.rs\"\nsed -n \"145,215p\" \"$ROOT/efi/src/ops.rs\"\n\necho\necho \"===== END =====\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.038
+}
