@@ -1,0 +1,112 @@
+
+=== DISCOVERY STATUS STRING ===
+277:    let discovery_status = alloc::format!(
+278-        "PASS: physical parent selected; all other physical disks excluded\nSELECTED_PHYSICAL_DISK: {}\nGBL_DISKS_RETURNED: {}",
+279-        selected_disk_path,
+280-        gbl_disks.len()
+281-    );
+
+=== RESTORED ANDROID BOOT PATH ===
+pub(crate) use efi;
+#[cfg(test)]
+pub(crate) use efi_mocks as efi;
+
+#[cfg(not(test))]
+use {
+    crate::{
+        efi_blocks::{find_block_devices, EfiGblDisk},
+        ops::Ops,
+    },
+    cfg_if::cfg_if,
+    core::convert::Infallible,
+    efi::{efi_println, report_error_and_reset, EfiEntry},
+    libbuild_number::{format_build_fingerprint, format_build_vcs_info},
+    libgbl::{Os, Result},
+    utils::loaded_image_path,
+};
+
+#[cfg(not(test))]
+enum TargetOs {
+    Android,
+    #[cfg(feature = "fuchsia")]
+    Fuchsia,
+}
+
+#[cfg(not(test))]
+fn get_target_os(_entry: &EfiEntry, _disks: &[EfiGblDisk]) -> TargetOs {
+    cfg_if! {
+        if #[cfg(feature = "fuchsia")] {
+            let mut buf = [0u8; 1];
+            if _entry
+                .system_table()
+                .runtime_services()
+                .get_variable(&efi::GBL_EFI_VENDOR_GUID, efi::GBL_EFI_OS_BOOT_TARGET_VARNAME, &mut buf)
+                .is_ok()
+            {
+                efi_println!(
+                    _entry,
+                    "`{}` is set. Proceeding as Fuchsia.",
+                    efi::GBL_EFI_OS_BOOT_TARGET_VARNAME
+                );
+                TargetOs::Fuchsia
+            } else if fuchsia_boot::is_fuchsia_gpt(_disks).is_ok() {
+                efi_println!(_entry, "Partition layout looks like Fuchsia. Proceeding as Fuchsia");
+                TargetOs::Fuchsia
+            } else {
+                efi_println!(_entry, "Proceeding as Android");
+                TargetOs::Android
+            }
+        } else {
+            TargetOs::Android
+        }
+    }
+}
+
+/// GBL EFI application logic entry point.
+#[cfg(not(test))]
+pub fn app_main(entry: EfiEntry) -> Result<Infallible> {
+    use libutils::get_sp;
+
+    efi_println!(entry, "***** DUALOS SD-ONLY GBL *****");
+    efi_println!(entry, "Only the physical disk containing this EFI image will be considered.");
+    efi_println!(entry, "**** Generic Bootloader (GBL) ****");
+    efi_println!(entry, "Fingerprint: {}", format_build_fingerprint!());
+    efi_println!(entry, "VCS info: {}", format_build_vcs_info!());
+    if let Ok(v) = loaded_image_path(&entry) {
+        efi_println!(entry, "Image path: {v}");
+    }
+
+    let disks = find_block_devices(&entry).inspect_err(|e| {
+        report_error_and_reset(&entry, e, efi_types::GBL_EFI_DEBUG_ERROR_TAG_PARTITION)
+    })?;
+    match get_target_os(&entry, &disks) {
+        #[cfg(feature = "fuchsia")]
+        TargetOs::Fuchsia => {
+            let mut load: libgbl::android_boot::BootBuffer =
+                utils::get_boot_buffer(&entry, 128 * 1024 * 1024)?.into();
+            let mut ops = Ops::new(&entry, &disks[..], Some(Os::Fuchsia), get_sp());
+            let images = fuchsia_boot::efi_fuchsia_load(&mut ops, load.scratch())?;
+            drop(disks);
+            fuchsia_boot::efi_fuchsia_boot(entry, images)
+        }
+        TargetOs::Android => {
+            efi_println!(entry, "DualOS: proceeding with Android boot from the SD-only disk set.");
+            let load = utils::get_boot_buffer(&entry, 256 * 1024 * 1024)?;
+            let mut ops = Ops::new(&entry, &disks[..], Some(Os::Android), get_sp());
+            let (ramdisk, fdt, kernel, remains) =
+                android_boot::efi_android_load(&mut ops, load.into())?;
+            drop(disks);
+            android_boot::efi_android_boot(entry, kernel, ramdisk, fdt, remains)
+        }
+    }
+}
+
+=== DIFF CHECK ===
+
+=== WORKTREE ===
+ M gbl/efi/src/efi_blocks.rs
+ M gbl/efi/src/lib.rs
+ M gbl/libefi/src/lib.rs
+ M gbl/libefi/src/protocol/device_path.rs
+ M gbl/libefi/src/protocol/simple_text_output.rs
+?? gbl/efi/src/diagnostic_fs.rs
