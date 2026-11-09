@@ -1,0 +1,61 @@
+=== MTOOLS AVAILABILITY ===
+mdir: /usr/bin/mdir
+
+=== RAW ROOT DIRECTORY ===
+ Volume in drive : is GBLTEST    
+ Volume Serial Number is DD36-A492
+Directory for ::/
+
+EFI          <DIR>     2026-11-08  20:38 
+DUALOS~1 TXT     14509 1980-01-06   0:18  DUALOS-DIAG.TXT
+        2 files              14 509 bytes
+                     64 003 211 264 bytes free
+
+
+=== EXPECTED EFI DIRECTORY ===
+ Volume in drive : is GBLTEST    
+ Volume Serial Number is DD36-A492
+Directory for ::/EFI/BOOT
+
+.            <DIR>     2026-11-08  20:38 
+..           <DIR>     2026-11-08  20:38 
+BOOTAA64 EFI    155648 2026-11-09   1:32 
+BOOTAA~1 DUA    229376 2026-11-08  20:48  BOOTAA64.EFI.dualos-backup
+BOOTAA~1 PRE    143360 2026-11-08  21:27  BOOTAA64.EFI.pre-dualos-diagnostic
+BOOTAA~2 PRE    155648 2026-11-09   1:32  BOOTAA64.EFI.pre-sd-only-filter
+        6 files             684 032 bytes
+                     64 003 211 264 bytes free
+
+
+=== MOUNTED FILE VIEW ===
+d 
+
+=== FAT METADATA SUMMARY ===
+fsck.fat 4.2 (2021-01-31)
+Checking we can access the last sector of the filesystem
+There are differences between boot sector and its backup.
+This is mostly harmless. Differences: (offset:original/backup)
+  65:01/00
+  Not automatically fixing this.
+Boot sector contents:
+System ID "mkfs.fat"
+Media byte 0xf8 (hard disk)
+       512 bytes per logical sector
+     32768 bytes per cluster
+        64 reserved sectors
+First FAT starts at byte 32768 (sector 64)
+         2 FATs, 32 bit entries
+   7831552 bytes per FAT (= 15296 sectors)
+Root directory start at cluster 2 (arbitrary size)
+Data area starts at byte 15695872 (sector 30656)
+   1953249 data clusters (64004063232 bytes)
+16 sectors/track, 4 heads
+      2048 hidden sectors
+ 125038592 sectors total
+Checking for unused clusters.
+Dirty bit is set. Fs was not properly unmounted and some data may be corrupt.
+ Automatically removing dirty bit.
+Checking free cluster summary.
+
+Leaving filesystem unchanged.
+/dev/mmcblk0p1: 8 files, 26/1953249 clusters

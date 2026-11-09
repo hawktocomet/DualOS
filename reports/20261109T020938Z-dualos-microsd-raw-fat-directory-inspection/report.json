@@ -1,0 +1,13 @@
+{
+  "id": "20261109T020938Z-dualos-microsd-raw-fat-directory-inspection",
+  "title": "DualOS microSD raw FAT directory inspection",
+  "created_utc": "2026-11-09T02:09:38.833975+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\nSD_PART=\"/dev/mmcblk0p1\"\n\necho \"=== MTOOLS AVAILABILITY ===\"\nif command -v mdir >/dev/null 2>&1; then\n  echo \"mdir: $(command -v mdir)\"\n  echo\n  echo \"=== RAW ROOT DIRECTORY ===\"\n  sudo mdir -a -i \"$SD_PART\" ::/\n  echo\n  echo \"=== EXPECTED EFI DIRECTORY ===\"\n  sudo mdir -a -i \"$SD_PART\" ::/EFI/BOOT\nelse\n  echo \"mdir is not installed; raw directory listing unavailable.\"\nfi\n\necho\necho \"=== MOUNTED FILE VIEW ===\"\nsudo find /mnt/dualos-check -xdev -printf \"%y %P\\n\" 2>&1 | sort\n\necho\necho \"=== FAT METADATA SUMMARY ===\"\nsudo fsck.fat -vn \"$SD_PART\" 2>&1 | tail -n 35\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.804
+}
