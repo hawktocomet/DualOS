@@ -1,0 +1,13 @@
+{
+  "id": "20261109T010307Z-gbl-diagnostic-efi-artifact-location",
+  "title": "GBL diagnostic EFI artifact location",
+  "created_utc": "2026-11-09T01:03:07.234716+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd ~/source/DualOS-tools/aosp-uefi-gbl || exit 1\n\necho \"===== BAZEL WRAPPER =====\"\nsed -n \"1,240p\" bootable/libbootloader/gbl/bazel.sh\n\necho\necho \"===== EFI FILES IN BUILD TREE =====\"\nfind out/bazel -type f \\( -iname \"*.efi\" -o -iname \"*.efi.signed\" \\) \\\n  -printf \"%p %s bytes\\n\" 2>/dev/null | tail -80\n\necho\necho \"===== EFI FILES IN REPOSITORY =====\"\nfind bootable/libbootloader -type f \\( -iname \"*.efi\" -o -iname \"*.efi.signed\" \\) \\\n  -printf \"%p %s bytes\\n\" 2>/dev/null | tail -80\n\necho\necho \"===== BAZEL OUTPUT LINKS =====\"\nls -la out/bazel\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.046
+}
