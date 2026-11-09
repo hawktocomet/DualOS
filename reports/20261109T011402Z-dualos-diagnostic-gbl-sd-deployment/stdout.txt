@@ -1,0 +1,11 @@
+===== PRE-FLIGHT =====
+Card: /dev/mmcblk0p1 vfat
+Original EFI:
+edc8958b8308cf52d6e6e2d4b3c308c0d8786ee9b27d6b4534e9c72bae9fa4ae  /mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI
+Diagnostic EFI:
+367cb02aa0c3bed854926b595ce1bbe5fb63fa2b52b99596b6b9caa93c1ca145  out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi
+
+===== CREATE HOST BACKUP =====
+edc8958b8308cf52d6e6e2d4b3c308c0d8786ee9b27d6b4534e9c72bae9fa4ae  /home/hawk/dualos-sd-backups/20261109T0113Z/BOOTAA64.EFI.original
+
+===== REMOUNT CARD READ-WRITE =====

@@ -1,0 +1,2 @@
+mount: /mnt/dualos-check: must be superuser to use mount.
+       dmesg(1) may have more information after failed mount system call.
