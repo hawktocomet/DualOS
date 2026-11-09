@@ -1,0 +1,19 @@
+{
+  "id": "20261109T023430Z-duo-lite-firehose-read-command-provenance-audit",
+  "title": "Duo Lite Firehose read-command provenance audit",
+  "created_utc": "2026-11-09T02:34:30.122525+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-lc",
+    "\nROOTS=(\n  /home/hawk/duo_forensics\n  /home/hawk/duo_edl\n)\n\necho \"========== EXISTING EDL READ SCRIPTS ==========\"\nfind \"${ROOTS[@]}\" -maxdepth 5 -type f \\\n  \\( -iname \"*.sh\" -o -iname \"*.py\" -o -iname \"*.txt\" -o -iname \"*.log\" \\) \\\n  -size -5M -print0 2>/dev/null |\nwhile IFS= read -r -d \"\" FILE; do\n  MATCHES=$(grep -nEi \\\n    \"edl\\.py|firehose|read.*partition|partition.*read|--memory|super_a|super \" \\\n    \"$FILE\" 2>/dev/null)\n  if [ -n \"$MATCHES\" ]; then\n    echo\n    echo \"----- $FILE -----\"\n    printf \"%s\\n\" \"$MATCHES\" | head -n 60\n  fi\ndone\n\necho\necho \"========== FIREHOSE TOOL ENTRY POINTS ==========\"\nfind /home/hawk/duo_edl /home/hawk/duo_forensics \\\n  -maxdepth 5 -type f \\\n  \\( -name \"edl.py\" -o -name \"edl\" -o -name \"*firehose*.py\" \\) \\\n  -printf \"%p\\n\" 2>/dev/null | sort -u\n\necho\necho \"AUDIT COMPLETE; NO DEVICE COMMANDS EXECUTED\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 30.351,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}
