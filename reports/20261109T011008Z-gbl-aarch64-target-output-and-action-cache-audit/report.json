@@ -1,0 +1,13 @@
+{
+  "id": "20261109T011008Z-gbl-aarch64-target-output-and-action-cache-audit",
+  "title": "GBL AArch64 target output and action-cache audit",
+  "created_utc": "2026-11-09T01:10:08.801212+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd ~/source/DualOS-tools/aosp-uefi-gbl || exit 1\nG=bootable/libbootloader/gbl\n\necho \"===== PLATFORM BUILD MACRO =====\"\nsed -n \"235,315p\" \"$G/toolchain/gbl_toolchain.bzl\"\n\necho\necho \"===== EFI PLATFORM TARGET =====\"\nsed -n \"260,295p\" \"$G/efi/BUILD\"\n\necho\necho \"===== CONFIGURED TARGET OUTPUT FILES =====\"\n./bootable/libbootloader/gbl/bazel.sh cquery \\\n  --extra_toolchains=@gbl//toolchain:all \\\n  @gbl//efi:aarch64_dev \\\n  --output=files\necho \"CQUERY_EXIT_CODE=$?\"\n\necho\necho \"===== SIGNED TARGET OUTPUT FILES =====\"\n./bootable/libbootloader/gbl/bazel.sh cquery \\\n  --extra_toolchains=@gbl//toolchain:all \\\n  @gbl//efi:gbl_signed \\\n  --output=files\necho \"SIGNED_CQUERY_EXIT_CODE=$?\"\n\necho\necho \"===== EFI ACTION GRAPH =====\"\n./bootable/libbootloader/gbl/bazel.sh aquery \\\n  --extra_toolchains=@gbl//toolchain:all \\\n  \"deps(@gbl//efi:aarch64_dev)\" \\\n  --output=summary\necho \"AQUERY_EXIT_CODE=$?\"\n\necho\necho \"===== ARTIFACT IDENTIFICATION =====\"\nfind out/bazel/output_user_root -type f \\\n  \\( -name \"gbl_aarch64_dev.efi\" -o -path \"*/testkey_signed/gbl.efi\" \\) \\\n  -exec file {} \\; -exec sha256sum {} \\; -exec stat -c \"%y %s %n\" {} \\;\n\necho\necho \"===== SOURCE MODIFICATION TIMES =====\"\nstat -c \"%y %n\" \\\n  \"$G/efi/src/lib.rs\" \\\n  \"$G/efi/src/diagnostic_fs.rs\" \\\n  \"$G/efi/src/efi_blocks.rs\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 1.396
+}

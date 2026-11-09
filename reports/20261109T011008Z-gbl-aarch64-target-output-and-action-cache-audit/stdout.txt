@@ -1,0 +1,245 @@
+===== PLATFORM BUILD MACRO =====
+    for file in ctx.files.deps:
+        outs.append(_create_symlink_wrapper(ctx, file))
+    return [DefaultInfo(files = depset(outs))]
+
+# A rule for building rust targets with the `@gbl//toolchain:rust_no_sysroot_true` setting.
+build_with_no_rust_sysroot = rule(
+    implementation = _forward_and_symlink,
+    cfg = _no_sysroot_transition,
+    attrs = {
+        # Mandatory attribute for rules with transition.
+        "_allowlist_function_transition": attr.label(
+            default = Label("@bazel_tools//tools/allowlists/function_transition_allowlist"),
+        ),
+        "deps": attr.label_list(allow_files = True, mandatory = True),
+    },
+)
+
+# A transition rule that emits the "--platforms=<attr.platform>" option.
+def _platform_transition_impl(settings, attr):
+    mode = attr.mode if attr.mode != "" else settings["//command_line_option:compilation_mode"]
+    return {
+        "//command_line_option:platforms": attr.platform,
+        "//command_line_option:compilation_mode": mode,
+    }
+
+_platform_transition = transition(
+    implementation = _platform_transition_impl,
+    inputs = ["//command_line_option:compilation_mode"],
+    outputs = ["//command_line_option:platforms", "//command_line_option:compilation_mode"],
+)
+
+build_with_platform = rule(
+    implementation = _forward_and_symlink,
+    cfg = _platform_transition,
+    attrs = {
+        # Mandatory attribute for rules with transition.
+        "_allowlist_function_transition": attr.label(
+            default = Label("@bazel_tools//tools/allowlists/function_transition_allowlist"),
+        ),
+        "platform": attr.string(mandatory = True),
+        "mode": attr.string(mandatory = False),
+        "deps": attr.label_list(allow_files = True, mandatory = True),
+    },
+)
+
+# Unconditionally transitions to the host dev platform.
+def _dev_transition_impl(_settings, _attr):
+    return {"//command_line_option:platforms": "@gbl//toolchain:host_x86_64_dev"}
+
+_dev_transition = transition(
+    inputs = [],
+    outputs = ["//command_line_option:platforms"],
+    implementation = _dev_transition_impl,
+)
+
+# Wrapper to build the dev version of a host test target.
+# In our current setup, the default build is always the prod configuration
+# so we need to wrap tests with this to also run the dev tests.
+def _dev_test_impl(ctx):
+    # Our rule implementation is required to create the executable it runs.
+    # Since we're just wrapping a target that has already built the test under
+    # the dev platform transition, we just symlink to it.
+    file = ctx.files.target[0]
+    return DefaultInfo(
+        files = depset(ctx.files.target),
+        executable = _create_symlink_wrapper(ctx, file),
+        runfiles = ctx.attr.target[DefaultInfo].default_runfiles,
+    )
+
+dev_test = rule(
+    cfg = _dev_transition,
+    attrs = {
+        "target": attr.label(),
+    },
+    implementation = _dev_test_impl,
+    test = True,
+)
+
+# This rule creates symlink for a static library in both Linux/GNU and MSVC naming styles so that
+# rust linker is able to find it when building for them.
+#
+
+===== EFI PLATFORM TARGET =====
+build_with_platform(
+    name = "x86_64_prod_pdb",
+    platform = "@gbl//toolchain:gbl_uefi_x86_64_prod",
+    deps = [":app_pdb"],
+)
+
+build_with_platform(
+    name = "x86_64_debug_dev",
+    mode = "dbg",
+    platform = "@gbl//toolchain:gbl_uefi_x86_64_debug_dev",
+    deps = [":gbl_signed"],
+)
+
+build_with_platform(
+    name = "x86_64_debug_prod",
+    mode = "dbg",
+    platform = "@gbl//toolchain:gbl_uefi_x86_64_debug_prod",
+    deps = [":gbl_signed"],
+)
+
+build_with_platform(
+    name = "aarch64_dev",
+    platform = "@gbl//toolchain:gbl_uefi_aarch64_dev",
+    deps = [":gbl_signed"],
+)
+
+build_with_platform(
+    name = "aarch64_dev_pdb",
+    platform = "@gbl//toolchain:gbl_uefi_aarch64_dev",
+    deps = [":app_pdb"],
+)
+
+build_with_platform(
+    name = "aarch64_dev_bootstub",
+    platform = "@gbl//toolchain:gbl_uefi_aarch64_dev_bootstub",
+    deps = [":gbl_signed"],
+
+===== CONFIGURED TARGET OUTPUT FILES =====
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/aarch64_dev/gbl_aarch64_dev.efi
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libabr/libabr.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libutils/libutils.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfastboot/libfastboot.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboot/aarch64_cache_helper/aarch64_cache_helper_lib.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libopendice/libopendice.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libsafemath/libsafemath.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/liberror/liberror.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libtrace/libtrace.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libasync/libasync.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboot/libboot.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libbuild_number/libbuild_number.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libc/libc.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfdt/libfdt_sysdeps.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfdt/libfdt.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libbootimg/libbootimg.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libbootparams/libbootparams.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libdttable/libdttable.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfit/libfit.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libgblutils/libgblutils.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/liblp/liblp.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libmisc/libmisc.clippy.ok
+bazel-out/k8-opt-exec/bin/external/gbl+/libprofile/libprofile_macros.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libprofile/libprofile.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libpvmfwconfig/libpvmfwconfig.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libstorage/libstorage.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libgbl/libgbl.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libefi/libefi.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libavb/sysdeps.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboringssl/libboringssl.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libefi/libefi_rng.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libstack/libstack.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/protocol_integration/libprotocol_test.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/libgbl_efi.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/app.clippy.ok
+CQUERY_EXIT_CODE=0
+
+===== SIGNED TARGET OUTPUT FILES =====
+bazel-out/k8-fastbuild/bin/external/gbl+/efi/gbl_signed/gbl_unknown_prod.efi
+bazel-out/k8-fastbuild/bin/external/gbl+/libabr/libabr.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libutils/libutils.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libfastboot/libfastboot.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libopendice/libopendice.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libsafemath/libsafemath.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/liberror/liberror.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libtrace/libtrace.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libasync/libasync.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libboot/libboot.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libbuild_number/libbuild_number.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libc/libc_deps_posix.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libc/libc.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libfdt/libfdt_sysdeps.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libfdt/libfdt.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libbootimg/libbootimg.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libbootparams/libbootparams.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libdttable/libdttable.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libfit/libfit.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libgblutils/libgblutils.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/liblp/liblp.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libmisc/libmisc.clippy.ok
+bazel-out/k8-opt-exec/bin/external/gbl+/libprofile/libprofile_macros.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libprofile/libprofile.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libpvmfwconfig/libpvmfwconfig.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libstorage/libstorage.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libgbl/libgbl.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libefi/libefi.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/efi/libgbl_efi.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libavb/sysdeps.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libefi/libefi_rng.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/libstack/libstack.clippy.ok
+bazel-out/k8-fastbuild/bin/external/gbl+/efi/app.clippy.ok
+bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_signed/gbl_aarch64_dev.efi
+SIGNED_CQUERY_EXIT_CODE=0
+
+===== EFI ACTION GRAPH =====
+1124 total actions.
+
+Mnemonics:
+  CcStrip: 1
+  PythonZipper: 1
+  SolibSymlink: 1
+  CppLink: 1
+  TemplateExpand: 4
+  TranslateBuildInfo: 8
+  SymlinkTree: 10
+  SourceSymlinkManifest: 10
+  RunfilesTree: 10
+  RepoMappingManifest: 11
+  RustBindgen: 12
+  ExecutableSymlink: 16
+  Genrule: 16
+  CppArchive: 28
+  FileWrite: 31
+  Clippy: 34
+  Rustc: 81
+  Symlink: 409
+  CppCompile: 440
+
+Configurations:
+  k8-fastbuild-ST-9b8e53afdcb3: 20
+  k8-opt-exec-ST-34ff0eb4eac8: 106
+  k8-opt-exec: 152
+  k8-fastbuild-ST-1cb3a8a3a143: 846
+
+Execution Platforms:
+  @@platforms//host:host: 1124
+
+Aspects:
+  @@gbl+//toolchain:clippy.bzl%gbl_clippy_aspect: 34
+AQUERY_EXIT_CODE=0
+
+===== ARTIFACT IDENTIFICATION =====
+out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi: PE32+ executable for EFI (application), ARM64, 5 sections
+367cb02aa0c3bed854926b595ce1bbe5fb63fa2b52b99596b6b9caa93c1ca145  out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi
+2026-11-08 20:06:40.417653932 -0500 155648 out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi
+out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi: PE32+ executable for EFI (application), ARM64, 5 sections
+2cba21f42ccefdb65672d0c53dc1b6a3007ddc97b3f7966234bf4fddc3f28126  out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi
+2026-11-08 20:06:38.989847547 -0500 84480 out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi
+
+===== SOURCE MODIFICATION TIMES =====
+2026-11-08 16:23:16.476157337 -0500 bootable/libbootloader/gbl/efi/src/lib.rs
+2026-11-08 20:02:13.432666127 -0500 bootable/libbootloader/gbl/efi/src/diagnostic_fs.rs
+2026-11-08 15:23:57.153989402 -0500 bootable/libbootloader/gbl/efi/src/efi_blocks.rs
