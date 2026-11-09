@@ -1,0 +1,15 @@
+Computing main repo mapping: 
+Loading: 
+Loading: 0 packages loaded
+Analyzing: target @@gbl+//efi:aarch64_dev (0 packages loaded, 0 targets configured)
+Analyzing: target @@gbl+//efi:aarch64_dev (0 packages loaded, 0 targets configured)
+
+INFO: From BazelWorkspaceStatusAction stable-status.txt:
+BUILD_BRANCH=gbl-mainline
+BUILD_NUMBER=eng.hawk.2026-11-08
+BUILD_REVISION=2392920e8324-dirty
+ERROR: /home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/external/gbl+/efi/BUILD:130:12: While resolving toolchains for target @@gbl+//efi:app (81b58aa): invalid registered toolchain '@gbl//toolchain': no such target '@@gbl+//toolchain:toolchain': target 'toolchain' not declared in package 'toolchain' defined by /home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/external/gbl+/toolchain/BUILD
+ERROR: Analysis of target '@@gbl+//efi:aarch64_dev' failed; build aborted: Analysis failed
+INFO: Elapsed time: 0.133s, Critical Path: 0.02s
+INFO: 1 process: 1 internal.
+ERROR: Build did NOT complete successfully

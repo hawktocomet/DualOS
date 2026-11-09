@@ -1,0 +1,234 @@
+===== EFI TARGET DEFINITIONS =====
+# Copyright (C) 2023 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+load("@gbl//licensing:licenses.bzl", "merged_license")
+load("@gbl//toolchain:gbl_toolchain.bzl", "build_with_platform", "dev_test", "extract_pdb_file", "rename_output")
+load("@gbl_config//:variables.bzl", "IMG_ARCHIVE_TAG")
+load("@gbl_llvm_prebuilts//:info.bzl", "gbl_llvm_tool_path")
+load("@rules_pkg//pkg:install.bzl", "pkg_install")
+load("@rules_pkg//pkg:mappings.bzl", "pkg_files", "strip_prefix")
+load("@rules_pkg//pkg:zip.bzl", "pkg_zip")
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_library", "rust_test")
+
+package(
+    default_applicable_licenses = ["@gbl//licensing:gbl_license"],
+    default_visibility = ["//visibility:public"],
+)
+
+filegroup(
+    name = "libgbl_efi_prod_files",
+    srcs = glob(
+        ["src/**/*.rs"],
+        exclude = ["src/fuchsia_boot.rs"],
+    ),
+)
+
+filegroup(
+    name = "libgbl_efi_dev_files",
+    srcs = glob(["src/**/*.rs"]),
+)
+
+rust_library(
+    name = "libgbl_efi",
+    srcs = select({
+        "@gbl//toolchain:dev": [":libgbl_efi_dev_files"],
+        "@gbl//toolchain:prod": [":libgbl_efi_prod_files"],
+    }),
+    crate_name = "gbl_efi",
+    edition = "2024",
+    proc_macro_deps = ["@gbl//libprofile:libprofile_macros"],
+    deps = [
+        "@arrayvec",
+        "@bytes",
+        "@cfg_if",
+        "@gbl//libasync",
+        "@gbl//libboot",
+        "@gbl//libbuild_number",
+        "@gbl//libefi",
+        "@gbl//libefi_types",
+        "@gbl//liberror",
+        "@gbl//libfastboot",
+        "@gbl//libfdt",
+        "@gbl//libgbl",
+        "@gbl//libgblutils",
+        "@gbl//libprofile",
+        "@gbl//libsafemath",
+        "@gbl//libstorage",
+        "@gbl//libtrace",
+        "@gbl//libutils",
+        "@spin",
+        "@static_assertions",
+        "@zerocopy",
+    ] + select({
+        "@gbl//toolchain:dev": [
+            "@gbl//protocol_integration:libprotocol_test",
+            "@smoltcp",
+            "@zbi",
+        ],
+        "@gbl//toolchain:prod": [],
+    }),
+)
+
+rust_test(
+    name = "test",
+    compile_data = [
+        "@gbl//libfdt/test/data:all",
+    ],
+    crate = ":libgbl_efi",
+    # TODO(b/578053281): mock out the rest of the libefi APIs and
+    # remove dead-code; for now it would require a lot of invasive
+    # code changes to selectively disable things on tests so this
+    # is worth it to keep things more readable.
+    rustc_flags = [
+        "-A",
+        "dead-code",
+    ],
+    deps = [
+        "@gbl//libefi:mocks",
+        "@mockall",
+    ],
+)
+
+dev_test(
+    name = "test_dev",
+    target = ":test",
+)
+
+APP_NAME = select({
+    "@gbl//toolchain:gbl_rust_elf_riscv64": "gbl_riscv64",
+    "@gbl//toolchain:gbl_rust_uefi_aarch64": "gbl_aarch64",
+    "@gbl//toolchain:gbl_rust_uefi_x86_64": "gbl_x86_64",
+    "//conditions:default": "gbl_unknown",
+}) + "_" + select({
+    "@gbl//toolchain:dev": "dev",
+    "@gbl//toolchain:prod": "prod",
+    "//conditions:default": "unknown",
+}) + select({
+    "@gbl//toolchain:efi_boot_stub": "_bootstub",
+    "//conditions:default": "",
+}) + select({
+    "@gbl//toolchain:uefi_debug": "_debug",
+    "//conditions:default": "",
+})
+
+# The UEFI application target.
+#
+# Almost all logic should be in the libgbl_efi target; this contains only the
+# things that would prevent unittesting such as global allocation hooks or
+# target-specific compiler dependencies.
+rust_binary(
+    name = "app",
+    srcs = glob(["app/**/*.rs"]),
+    binary_name = APP_NAME,
+    linker_script = select(
+        {
+            "@gbl//toolchain:gbl_rust_elf_riscv64": "@gbl//efi/arch/riscv64:riscv64_efi.lds",
+            "//conditions:default": None,
+        },
+    ),
+    rustc_flags = [
+        "-C",
+        "panic=abort",
+    ],
+    deps = [
+        ":libgbl_efi",
+        "@avb//:libavb_c_sha_staticlib",
+        "@cfg_if",
+        "@gbl//libavb:sysdeps",
+        "@gbl//libboringssl:libcrypto_c_baremetal_static",
+        "@gbl//libboringssl:sysdeps",
+        "@gbl//libefi",
+        "@gbl//libefi:libefi_rng",
+        "@gbl//libefi_types",
+        "@gbl//libgbl",
+        "@gbl//libstack",
+    ] + select(
+        {
+            "@gbl//toolchain:gbl_rust_elf_riscv64": [
+                "@gbl//efi/arch/riscv64:efi_arch_deps_riscv64",
+            ],
+            "@gbl//toolchain:gbl_rust_uefi_aarch64": [
+                "@gbl//efi/arch/aarch64:efi_arch_deps_aarch64",
+            ],
+            "//conditions:default": [],
+        },
+    ),
+)
+
+extract_pdb_file(
+    name = "app_pdb",
+    target = ":app",
+)
+
+genrule(
+    name = "gbl_efi",
+    srcs = [":app"],
+    outs = ["gbl.efi"],
+    cmd = select(
+        {
+            # For RISCV target, existing toolchain can only generate ELF format image.
+            # The current solution is to manually add a PE/COFF header at image
+            # start and use objcopy to remove the ELF header to make it a PE/COFF image.
+            # Also use `elf_static_relocation_checker` to check that our relocation library
+            # can handle all the generated relocation types. The following expands to two commands:
+            #
+            # 1. `llvm-objcopy <elf image> -O binary <efi image>`
+            # 2. `elf_static_relocation_checker <elf image> <efi image>`
+            "@gbl//toolchain:gbl_rust_elf_riscv64": """
+{} -O binary $(execpath @gbl//efi:app) $(OUTS) &&
+$(execpath @gbl//libelf:elf_static_relocation_checker) $(SRCS) $(OUTS)
+        """.format(
+                gbl_llvm_tool_path("llvm-objcopy"),
+            ),
+            "//conditions:default": "cp $(SRCS) $(OUTS)",
+        },
+    ),
+    tools = select(
+        {
+            "@gbl//toolchain:gbl_rust_elf_riscv64": [
+                "@gbl//libelf:elf_static_relocation_checker",
+            ],
+            "//conditions:default": [],
+        },
+    ),
+)
+
+genrule(
+    name = "gbl_efi_testkey",
+    srcs = [":gbl_efi"],
+    outs = ["testkey_signed/gbl.efi"],
+    cmd = "$(execpath @gbl//signtool:gblsigntool_py) sign $(SRCS) -o $(OUTS)" +
+          " --avbtool_args '--key $(execpath @gbl//signtool/testkeys:testkey_RSA4096)'" +
+          " --avbtool_args '--algorithm SHA256_RSA4096'" +
+          " --avbtool_args '--prop testkey:true'",
+    tools = [
+        "@gbl//signtool:gblsigntool_py",
+        "@gbl//signtool/testkeys:testkey_RSA4096",
+    ],
+)
+
+
+===== EXISTING ARTIFACTS =====
+out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi | 143360 bytes | 2026-11-08 16:25:18.016755208 -0500
+edc8958b8308cf52d6e6e2d4b3c308c0d8786ee9b27d6b4534e9c72bae9fa4ae  out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi
+out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi | 70656 bytes | 2026-11-08 16:25:17.416478522 -0500
+90355b258c2eed84f67ab7ceab25c65a210106c89d3a5ea312ab6453def7b24f  out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi
+
+===== REBUILD DEVELOPMENT TARGET =====
+BUILD_EXIT_CODE=1
+
+===== RESULTING DEVELOPMENT ARTIFACT =====
+out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi | 70656 bytes | 2026-11-08 16:25:17.416478522 -0500
+90355b258c2eed84f67ab7ceab25c65a210106c89d3a5ea312ab6453def7b24f  out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi

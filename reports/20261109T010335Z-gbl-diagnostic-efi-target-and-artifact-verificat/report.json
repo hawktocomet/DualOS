@@ -1,0 +1,13 @@
+{
+  "id": "20261109T010335Z-gbl-diagnostic-efi-target-and-artifact-verificat",
+  "title": "GBL diagnostic EFI target and artifact verification",
+  "created_utc": "2026-11-09T01:03:35.751593+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd ~/source/DualOS-tools/aosp-uefi-gbl || exit 1\n\necho \"===== EFI TARGET DEFINITIONS =====\"\nsed -n \"1,220p\" bootable/libbootloader/gbl/efi/BUILD\n\necho\necho \"===== EXISTING ARTIFACTS =====\"\nfind out/bazel/output_user_root -type f \\\n  \\( -name \"gbl_aarch64_dev.efi\" -o -path \"*/testkey_signed/gbl.efi\" \\) \\\n  -exec stat -c \"%n | %s bytes | %y\" {} \\; \\\n  -exec sha256sum {} \\;\n\necho\necho \"===== REBUILD DEVELOPMENT TARGET =====\"\n./bootable/libbootloader/gbl/bazel.sh build \\\n  --extra_toolchains=@gbl//toolchain \\\n  @@gbl+//efi:aarch64_dev\nBUILD_STATUS=$?\necho \"BUILD_EXIT_CODE=$BUILD_STATUS\"\n\necho\necho \"===== RESULTING DEVELOPMENT ARTIFACT =====\"\nfind out/bazel/output_user_root -type f -name \"gbl_aarch64_dev.efi\" \\\n  -exec stat -c \"%n | %s bytes | %y\" {} \\; \\\n  -exec sha256sum {} \\;\n\nexit \"$BUILD_STATUS\"\n"
+  ],
+  "exit_code": 1,
+  "duration_seconds": 0.305
+}
