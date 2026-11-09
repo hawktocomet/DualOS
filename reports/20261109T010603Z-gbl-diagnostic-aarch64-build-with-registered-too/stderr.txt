@@ -1,0 +1,119 @@
+Computing main repo mapping: 
+Loading: 
+Loading: 0 packages loaded
+WARNING: Build option --extra_toolchains has changed, discarding analysis cache (this can be expensive, see https://bazel.build/advanced/performance/iteration-speed).
+Analyzing: 2 targets (0 packages loaded, 0 targets configured)
+Analyzing: 2 targets (0 packages loaded, 0 targets configured)
+
+INFO: From BazelWorkspaceStatusAction stable-status.txt:
+BUILD_BRANCH=gbl-mainline
+BUILD_NUMBER=eng.hawk.2026-11-08
+BUILD_REVISION=2392920e8324-dirty
+Analyzing: 2 targets (103 packages loaded, 1646 targets configured)
+
+Analyzing: 2 targets (124 packages loaded, 7558 targets configured)
+
+INFO: Analyzed 2 targets (124 packages loaded, 7664 targets configured, 349 aspect applications).
+[64 / 254] [Prepa] Creating symlink external/gbl+/toolchain/x86_64_unknown_linux_gnu/lib/rustlib/x86_64-unknown-linux-musl/lib/libtest-f649de2f4c587e1c.rmeta
+[325 / 1,112] [Sched] Executing genrule @@gbl+//libbuild_number:workspace_status_env ... (2 actions, 0 running)
+[637 / 1,539] Clippy @gbl//libabr:libabr; 0s linux-sandbox ... (5 actions, 4 running)
+[872 / 1,539] Compiling libfdt/fdt_ro.c; 0s linux-sandbox ... (7 actions, 6 running)
+[1,011 / 1,539] Compiling Rust rlib zerocopy (142 files); 0s linux-sandbox ... (8 actions, 7 running)
+[1,029 / 1,539] Compiling Rust rlib zerocopy (142 files); 1s linux-sandbox ... (8 actions, 7 running)
+[1,053 / 1,539] Compiling Rust rlib zerocopy (142 files); 2s linux-sandbox ... (8 actions, 7 running)
+[1,075 / 1,539] Compiling Rust rlib zerocopy (142 files); 3s linux-sandbox ... (8 actions, 7 running)
+[1,091 / 1,539] Compiling Rust rlib zerocopy (142 files); 4s linux-sandbox ... (8 actions, 7 running)
+[1,108 / 1,539] Compiling Rust rlib zerocopy (142 files); 5s linux-sandbox ... (8 actions, 7 running)
+[1,126 / 1,539] Compiling Rust rlib zerocopy (142 files); 6s linux-sandbox ... (8 actions, 7 running)
+[1,147 / 1,539] Compiling Rust rlib zerocopy (142 files); 7s linux-sandbox ... (7 actions, 6 running)
+[1,185 / 1,539] Compiling Rust rlib zerocopy (142 files); 8s linux-sandbox ... (8 actions, 7 running)
+[1,195 / 1,539] Compiling Rust rlib zerocopy (142 files); 10s linux-sandbox ... (8 actions, 7 running)
+[1,205 / 1,539] Compiling Rust rlib zerocopy (142 files); 11s linux-sandbox ... (8 actions, 7 running)
+[1,227 / 1,539] Compiling Rust rlib zerocopy (142 files); 12s linux-sandbox ... (8 actions, 7 running)
+[1,239 / 1,539] Compiling Rust rlib zerocopy (142 files); 13s linux-sandbox ... (8 actions, 7 running)
+[1,246 / 1,539] Compiling Rust rlib zerocopy (142 files); 14s linux-sandbox ... (8 actions running)
+[1,251 / 1,539] Compiling Rust rlib zerocopy (142 files); 15s linux-sandbox ... (8 actions running)
+[1,254 / 1,539] Compiling Rust rlib zerocopy (142 files); 16s linux-sandbox ... (8 actions running)
+[1,259 / 1,539] Compiling src/crypto/fipsmodule/bcm.cc; 17s linux-sandbox ... (8 actions running)
+[1,265 / 1,539] Compiling src/crypto/fipsmodule/bcm.cc; 18s linux-sandbox ... (8 actions running)
+[1,270 / 1,539] Compiling src/crypto/fipsmodule/bcm.cc; 19s linux-sandbox ... (8 actions running)
+[1,275 / 1,539] Compiling src/crypto/fipsmodule/bcm.cc; 20s linux-sandbox ... (8 actions, 7 running)
+[1,282 / 1,539] Compiling src/crypto/fipsmodule/bcm.cc; 22s linux-sandbox ... (8 actions, 7 running)
+[1,290 / 1,539] Compiling src/crypto/fipsmodule/bcm.cc; 23s linux-sandbox ... (8 actions, 7 running)
+[1,295 / 1,539] Compiling src/crypto/fipsmodule/bcm.cc; 24s linux-sandbox ... (8 actions, 7 running)
+[1,303 / 1,539] Compiling Rust bin app (2 files); 6s linux-sandbox ... (8 actions, 7 running)
+[1,310 / 1,539] Compiling Rust bin app (2 files); 7s linux-sandbox ... (8 actions, 7 running)
+[1,315 / 1,539] Compiling Rust bin app (2 files); 9s linux-sandbox ... (8 actions running)
+[1,328 / 1,539] Executing genrule @@gbl+//efi:gbl_efi_testkey; 0s linux-sandbox ... (8 actions running)
+INFO: From Executing genrule @@gbl+//efi:gbl_efi_testkey:
+[1,338 / 1,539] Compiling src/crypto/x509/v3_akey.cc; 1s linux-sandbox ... (8 actions running)
+[1,348 / 1,539] Compiling src/crypto/x509/policy.cc; 0s linux-sandbox ... (8 actions running)
+[1,356 / 1,539] Compiling src/crypto/x509/policy.cc; 1s linux-sandbox ... (8 actions running)
+[1,365 / 1,539] Compiling src/crypto/trust_token/voprf.cc; 0s linux-sandbox ... (8 actions running)
+[1,376 / 1,539] Compiling src/crypto/stack/stack.cc; 0s linux-sandbox ... (8 actions running)
+[1,388 / 1,539] Compiling src/crypto/rsa/rsa_crypt.cc; 0s linux-sandbox ... (8 actions running)
+[1,400 / 1,539] Compiling src/crypto/rand/forkunsafe.cc; 0s linux-sandbox ... (8 actions, 7 running)
+[1,412 / 1,539] Compiling src/crypto/pkcs8/pkcs8_x509.cc; 0s linux-sandbox ... (8 actions, 7 running)
+[1,421 / 1,539] Compiling src/crypto/pem/pem_x509.cc; 0s linux-sandbox ... (8 actions, 7 running)
+[1,431 / 1,539] Compiling src/crypto/pem/pem_all.cc; 0s linux-sandbox ... (8 actions, 7 running)
+[1,443 / 1,539] Compiling src/crypto/md4/md4.cc; 0s linux-sandbox ... (8 actions, 7 running)
+[1,452 / 1,539] Clippy @gbl//libstorage:libstorage; 1s linux-sandbox ... (8 actions, 7 running)
+[1,458 / 1,539] Clippy @gbl//libstorage:libstorage; 2s linux-sandbox ... (8 actions, 7 running)
+[1,466 / 1,539] Compiling src/crypto/evp/p_ec.cc; 1s linux-sandbox ... (8 actions, 7 running)
+[1,473 / 1,539] Compiling Rust rlib libstorage (4 files); 1s linux-sandbox ... (8 actions, 7 running)
+[1,481 / 1,539] Compiling Rust rlib libstorage (4 files); 2s linux-sandbox ... (8 actions, 7 running)
+[1,490 / 1,539] Compiling src/crypto/curve25519/curve25519.cc; 1s linux-sandbox ... (8 actions, 7 running)
+[1,498 / 1,539] Clippy @gbl//libgbl:libgbl; 1s linux-sandbox ... (8 actions running)
+[1,502 / 1,539] Clippy @gbl//libgbl:libgbl; 2s linux-sandbox ... (8 actions running)
+[1,507 / 1,539] Clippy @gbl//libgbl:libgbl; 3s linux-sandbox ... (8 actions running)
+[1,512 / 1,539] Clippy @gbl//libgbl:libgbl; 4s linux-sandbox ... (8 actions running)
+[1,524 / 1,539] Clippy @gbl//libgbl:libgbl; 5s linux-sandbox ... (3 actions, 2 running)
+[1,528 / 1,539] Compiling Rust rlib libgbl (30 files); 2s linux-sandbox
+[1,529 / 1,539] [Prepa] Compiling Rust rlib libefi (30 files) ... (2 actions, 0 running)
+[1,531 / 1,539] [Prepa] Compiling Rust rlib libgbl_efi (8 files) ... (4 actions, 0 running)
+ERROR: /home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/external/gbl+/efi/BUILD:130:12: Clippy @@gbl+//efi:app failed: (Exit 1): process_wrapper failed: error executing Clippy command (from aspects [@@gbl+//toolchain:clippy.bzl%gbl_clippy_aspect] on rust_binary rule target @@gbl+//efi:app) bazel-out/k8-opt-exec/bin/external/rules_rust+/util/process_wrapper/process_wrapper --subst 'pwd=${pwd}' --touch-file bazel-out/k8-fastbuild/bin/external/gbl+/efi/app.clippy.ok -- ... (remaining 111 arguments skipped)
+
+Use --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging
+error[E0152]: found duplicate lang item `panic_impl`
+  --> external/gbl+/efi/app/main.rs:40:1
+   |
+40 | / fn handle_panic(p_info: &PanicInfo) -> ! {
+41 | |     // Safety:
+42 | |     // * The very first thing the application does is initialize the global EFI entry.
+43 | |     unsafe {
+...  |
+46 | | }
+   | |_^
+   |
+   = note: the lang item is first defined in crate `std` (which `libc_deps_posix` depends on)
+   = note: first definition in `std` loaded from bazel-out/k8-fastbuild/bin/external/gbl+/toolchain/x86_64_unknown_linux_gnu/lib/rustlib/x86_64-unknown-linux-musl/lib/libstd-f427463f91d27ca0.rmeta
+   = note: second definition in the local crate (`app`)
+
+error: aborting due to 1 previous error
+
+For more information about this error, try `rustc --explain E0152`.
+ERROR: /home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/external/gbl+/efi/BUILD:130:12: Compiling Rust bin app (2 files) failed: (Exit 1): process_wrapper failed: error executing Rustc command (from rust_binary rule target @@gbl+//efi:app) bazel-out/k8-opt-exec/bin/external/rules_rust+/util/process_wrapper/process_wrapper --subst 'pwd=${pwd}' -- bazel-out/k8-fastbuild/bin/external/gbl+/toolchain/x86_64_unknown_linux_gnu/bin/rustc ... (remaining 154 arguments skipped)
+
+Use --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging
+error[E0152]: found duplicate lang item `panic_impl`
+  --> external/gbl+/efi/app/main.rs:40:1
+   |
+40 | / fn handle_panic(p_info: &PanicInfo) -> ! {
+41 | |     // Safety:
+42 | |     // * The very first thing the application does is initialize the global EFI entry.
+43 | |     unsafe {
+...  |
+46 | | }
+   | |_^
+   |
+   = note: the lang item is first defined in crate `std` (which `libc_deps_posix` depends on)
+   = note: first definition in `std` loaded from bazel-out/k8-fastbuild/bin/external/gbl+/toolchain/x86_64_unknown_linux_gnu/lib/rustlib/x86_64-unknown-linux-musl/lib/libstd-f427463f91d27ca0.so, bazel-out/k8-fastbuild/bin/external/gbl+/toolchain/x86_64_unknown_linux_gnu/lib/rustlib/x86_64-unknown-linux-musl/lib/libstd-f427463f91d27ca0.rlib, bazel-out/k8-fastbuild/bin/external/gbl+/toolchain/x86_64_unknown_linux_gnu/lib/rustlib/x86_64-unknown-linux-musl/lib/libstd-f427463f91d27ca0.rmeta
+   = note: second definition in the local crate (`app`)
+
+error: aborting due to 1 previous error
+
+For more information about this error, try `rustc --explain E0152`.
+Use --verbose_failures to see the command lines of failed build steps.
+INFO: Elapsed time: 64.556s, Critical Path: 34.18s
+INFO: 652 processes: 885 action cache hit, 96 internal, 556 linux-sandbox.
+ERROR: Build did NOT complete successfully

@@ -1,0 +1,13 @@
+{
+  "id": "20261109T010603Z-gbl-diagnostic-aarch64-build-with-registered-too",
+  "title": "GBL diagnostic AArch64 build with registered toolchains",
+  "created_utc": "2026-11-09T01:06:03.906544+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd ~/source/DualOS-tools/aosp-uefi-gbl || exit 1\n\necho \"===== BUILD DIAGNOSTIC AARCH64 EFI =====\"\n./bootable/libbootloader/gbl/bazel.sh build \\\n  --extra_toolchains=@gbl//toolchain:all \\\n  @gbl//efi:aarch64_dev \\\n  @gbl//efi:gbl_efi_testkey\nBUILD_STATUS=$?\necho \"BUILD_EXIT_CODE=$BUILD_STATUS\"\n\necho\necho \"===== DEVELOPMENT EFI ARTIFACT =====\"\nfind out/bazel/output_user_root -type f -name \"gbl_aarch64_dev.efi\" \\\n  -exec stat -c \"%n | %s bytes | %y\" {} \\; \\\n  -exec sha256sum {} \\;\n\necho\necho \"===== SIGNED EFI ARTIFACT =====\"\nfind out/bazel/output_user_root -type f -path \"*/testkey_signed/gbl.efi\" \\\n  -exec stat -c \"%n | %s bytes | %y\" {} \\; \\\n  -exec sha256sum {} \\;\n\necho\necho \"===== WORKTREE =====\"\ngit -C bootable/libbootloader status --short\n\nexit \"$BUILD_STATUS\"\n"
+  ],
+  "exit_code": 1,
+  "duration_seconds": 64.821
+}

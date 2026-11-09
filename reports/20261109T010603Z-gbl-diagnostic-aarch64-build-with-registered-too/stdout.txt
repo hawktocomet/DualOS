@@ -1,0 +1,20 @@
+===== BUILD DIAGNOSTIC AARCH64 EFI =====
+avbtool command: avbtool add_hash_footer --key external/gbl+/signtool/testkeys/testkey_RSA4096.pem --algorithm SHA256_RSA4096 --prop testkey:true --image /tmp/tmpje44n3i_/gbl.efi --partition_name gbl --dynamic_partition_size --prop authenticode:fe21d2493e14c89d4e73a363fd1599eca0f89c5f0ba23263452f86eadf4ab2f1
+Authenticode digest (sha256): fe21d2493e14c89d4e73a363fd1599eca0f89c5f0ba23263452f86eadf4ab2f1
+Signed image written to bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi
+BUILD_EXIT_CODE=1
+
+===== DEVELOPMENT EFI ARTIFACT =====
+out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi | 84480 bytes | 2026-11-08 20:06:38.989847547 -0500
+2cba21f42ccefdb65672d0c53dc1b6a3007ddc97b3f7966234bf4fddc3f28126  out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi
+
+===== SIGNED EFI ARTIFACT =====
+out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi | 155648 bytes | 2026-11-08 20:06:40.417653932 -0500
+367cb02aa0c3bed854926b595ce1bbe5fb63fa2b52b99596b6b9caa93c1ca145  out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi
+
+===== WORKTREE =====
+ M gbl/efi/src/efi_blocks.rs
+ M gbl/efi/src/lib.rs
+ M gbl/libefi/src/lib.rs
+ M gbl/libefi/src/protocol/simple_text_output.rs
+?? gbl/efi/src/diagnostic_fs.rs
