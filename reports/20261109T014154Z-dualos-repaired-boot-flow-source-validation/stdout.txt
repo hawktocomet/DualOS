@@ -1,0 +1,80 @@
+
+=== RESTORED ANDROID BOOT FLOW ===
+57:        efi_blocks::{find_block_devices, EfiGblDisk},
+110:    efi_println!(entry, "***** DUALOS SD-ONLY GBL *****");
+119:    let disks = find_block_devices(&entry).inspect_err(|e| {
+137:                android_boot::efi_android_load(&mut ops, load.into())?;
+139:            android_boot::efi_android_boot(entry, kernel, ramdisk, fdt, remains)
+
+=== DISCOVERY REPORTING ===
+121-    GblDisk<Disk<EfiBlockDeviceIo<'a>, ArrayVec<Option<Box<[u8]>>, 2>>, Gpt<Vec<u8>>>;
+122-
+123-#[cfg(not(test))]
+124:fn write_dualos_discovery_report(efi_entry: &EfiEntry, status: &str) {
+125-    let result = crate::diagnostic_fs::write_report(efi_entry, status);
+126-    efi_println!(efi_entry, "DualOS SD report: {result}");
+127-}
+--
+148-        let status = "FAIL: loaded-image device handle is not a logical partition";
+149-        efi_println!(efi_entry, "DUALOS SD-ONLY FILTER: {status}");
+150-        #[cfg(not(test))]
+151:        write_dualos_discovery_report(efi_entry, status);
+152-        return Err(Error::InvalidInput);
+153-    }
+154-
+--
+180-            let status = "FAIL: multiple physical parent disks matched the loaded-image partition";
+181-            efi_println!(efi_entry, "DUALOS SD-ONLY FILTER: {status}");
+182-            #[cfg(not(test))]
+183:            write_dualos_discovery_report(efi_entry, status);
+184-            return Err(Error::InvalidInput);
+185-        }
+186-    }
+--
+191-            let status = "FAIL: no physical parent disk found for the loaded-image partition";
+192-            efi_println!(efi_entry, "DUALOS SD-ONLY FILTER: {status}");
+193-            #[cfg(not(test))]
+194:            write_dualos_discovery_report(efi_entry, status);
+195-            return Err(Error::InvalidInput);
+196-        }
+197-    };
+198-
+199-    let selected_disk_path = crate::utils::get_device_path(efi_entry, source_disk_handle)
+200-        .unwrap_or_else(|error| alloc::format!("UNAVAILABLE: {error:?}"));
+201:    efi_println!(efi_entry, "DUALOS SELECTED PHYSICAL DISK: {selected_disk_path}");
+202-    efi_println!(
+203-        efi_entry,
+204:        "DUALOS FILTER: PASS — all other physical disks excluded from GBL discovery."
+205-    );
+206-
+207-    let mut gbl_disks = vec![];
+--
+274-        }
+275-    }
+276-
+277:    let discovery_status = alloc::format!(
+278-        "PASS: physical parent selected; all other physical disks excluded\\nSELECTED_PHYSICAL_DISK: {}\\nGBL_DISKS_RETURNED: {}",
+279-        selected_disk_path,
+280-        gbl_disks.len()
+--
+285-        gbl_disks.len()
+286-    );
+287-    #[cfg(not(test))]
+288:    write_dualos_discovery_report(efi_entry, &discovery_status);
+289-
+290-    Ok(gbl_disks)
+291-}
+
+=== REPORT WRITER ===
+97:fn build_report(entry: &EfiEntry, source_device: efi::DeviceHandle, discovery_status: &str) -> String {
+106:    report.push_str(&format!("DUALOS_DISCOVERY_STATUS: {discovery_status}\n\n"));
+151:pub fn write_report(entry: &EfiEntry, discovery_status: &str) -> &'static str {
+163:    let report = build_report(entry, source_device, discovery_status);
+
+=== DIFF CHECK ===
+ M gbl/efi/src/efi_blocks.rs
+ M gbl/efi/src/lib.rs
+ M gbl/libefi/src/lib.rs
+ M gbl/libefi/src/protocol/device_path.rs
+ M gbl/libefi/src/protocol/simple_text_output.rs
+?? gbl/efi/src/diagnostic_fs.rs

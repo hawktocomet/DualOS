@@ -1,0 +1,19 @@
+{
+  "id": "20261109T014154Z-dualos-repaired-boot-flow-source-validation",
+  "title": "DualOS repaired boot flow source validation",
+  "created_utc": "2026-11-09T01:41:54.728766+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-c",
+    "\nprintf \"\\n=== RESTORED ANDROID BOOT FLOW ===\\n\"\ngrep -n -E \"DUALOS SD-ONLY GBL|find_block_devices|efi_android_load|efi_android_boot|Diagnostic complete|spin_loop\" gbl/efi/src/lib.rs\n\nprintf \"\\n=== DISCOVERY REPORTING ===\\n\"\ngrep -n -C 3 -E \"write_dualos_discovery_report|DUALOS SELECTED|discovery_status|DUALOS FILTER\" gbl/efi/src/efi_blocks.rs\n\nprintf \"\\n=== REPORT WRITER ===\\n\"\ngrep -n -E \"build_report|write_report|DUALOS_DISCOVERY_STATUS\" gbl/efi/src/diagnostic_fs.rs\n\nprintf \"\\n=== DIFF CHECK ===\\n\"\ngit diff --check\ngit status --short\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.015,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}
