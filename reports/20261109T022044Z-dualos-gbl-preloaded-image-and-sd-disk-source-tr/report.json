@@ -1,0 +1,19 @@
+{
+  "id": "20261109T022044Z-dualos-gbl-preloaded-image-and-sd-disk-source-tr",
+  "title": "DualOS GBL preloaded image and SD disk source trace",
+  "created_utc": "2026-11-09T02:20:44.987440+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-c",
+    "\necho \"=== VERIFIED PARTITION LOADING ===\"\nsed -n \"80,180p\" gbl/libgbl/src/android_boot/mod.rs\nrg -n -C 18 \"fn get_verified_partition|pub fn get_verified_partition\" gbl/libgbl/src\n\necho\necho \"=== PARTITION BUFFER USE AND FALLBACK ===\"\nsed -n \"90,175p\" gbl/libgbl/src/android_boot/mod.rs\nrg -n -C 12 \"PartitionBuffer::Preloaded|PartitionBuffer::Designated|read_unique_partition\" \\\n  gbl/libgbl/src/android_boot gbl/libgbl/src\n\necho\necho \"=== EFI GBL DISK IMPLEMENTATION ===\"\nsed -n \"1,230p\" gbl/efi/src/efi_blocks.rs\nsed -n \"230,390p\" gbl/efi/src/efi_blocks.rs\n\necho\necho \"=== EFI OPS DISK OWNERSHIP AND CONSTRUCTION ===\"\nrg -n -C 12 \"EfiGblDisk|disks:|fn new\\\\(|GblOps for|impl.*GblOps|read_from_partition|read_partition\" \\\n  gbl/efi/src/ops.rs gbl/efi/src/lib.rs\n\necho\necho \"=== PRELOADED BUFFER PROTOCOL SEMANTICS ===\"\nsed -n \"180,315p\" gbl/libefi/src/protocol/gbl_efi_boot_memory.rs\nsed -n \"740,770p\" gbl/efi/src/ops.rs\n\necho\necho \"=== SOURCE DIFF CHECK ===\"\ngit diff --check\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.025,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}
