@@ -1,0 +1,19 @@
+{
+  "id": "20261109T025607Z-inspect-extracted-duo-lite-android-slots-and-sna",
+  "title": "Inspect extracted Duo Lite Android slots and snapshot formats",
+  "created_utc": "2026-11-09T02:56:07.734775+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-lc",
+    "\nROOT=\"/home/hawk/duo_forensics/android_boot_chain_20261102_094334\"\nOUT=\"$ROOT/super-unpacked-longopt\"\n\necho \"========== PREVIOUSLY CAPTURED ACTIVE SLOT ==========\"\nif [ -f /home/hawk/duo_fastboot_vars.txt ]; then\n  grep -iE \"current-slot|slot-suffix|slot-count|unlocked|verifiedboot\" /home/hawk/duo_fastboot_vars.txt\nelse\n  echo \"No saved fastboot variables file found\"\nfi\n\necho\necho \"========== PARTITION IMAGE FORMATS ==========\"\nfind \"$OUT\" -type f -name \"*.img\" -print0 |\n  sort -z |\n  xargs -0 -r file\n\necho\necho \"========== FILESYSTEM SIGNATURES ==========\"\nfor IMG in \"$OUT\"/slot0/{system,system_ext,product,vendor,odm,system_dlkm,vendor_dlkm}_a.img \\\n           \"$OUT\"/slot1/{system,system_ext,product,vendor,odm,system_dlkm,vendor_dlkm}_b.img; do\n  [ -f \"$IMG\" ] || continue\n  echo\n  echo \"--- $(basename \"$IMG\") ---\"\n  blkid -p \"$IMG\" 2>&1\n  od -An -tx1 -N16 \"$IMG\"\ndone\n\necho\necho \"========== COW IMAGE HEADERS ==========\"\nfind \"$OUT\" -type f -name \"*-cow.img\" -print0 |\n  sort -z |\n  while IFS= read -r -d \"\" IMG; do\n    echo\n    echo \"--- ${IMG#$OUT/} ---\"\n    stat -c \"%s bytes\" \"$IMG\"\n    od -An -tx1 -N64 \"$IMG\"\n    strings -n 8 \"$IMG\" | head -n 8\n  done\n\necho\necho \"========== AVAILABLE SNAPSHOT UTILITIES ==========\"\nfor TOOL in inspect_cow cow_dump snapshotctl snapuserd lpdump lpunpack simg2img avbtool; do\n  command -v \"$TOOL\" 2>/dev/null || true\ndone\n\necho\necho \"========== SOURCE IMAGE HASH ==========\"\nsha256sum \"$ROOT/super.img\"\n\necho\necho \"INSPECTION ONLY: no images or device partitions modified\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 37.036,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? edl_config.json\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}

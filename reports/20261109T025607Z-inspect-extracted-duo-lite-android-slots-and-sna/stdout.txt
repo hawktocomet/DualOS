@@ -1,0 +1,313 @@
+========== PREVIOUSLY CAPTURED ACTIVE SLOT ==========
+(bootloader) unlocked:yes
+(bootloader) current-slot:a
+(bootloader) slot-count:2
+
+========== PARTITION IMAGE FORMATS ==========
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/odm_a-cow.img:         data
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/odm_a.img:             Linux rev 1.0 ext2 filesystem data, UUID=f57600d9-4a3d-5000-a78d-80c4f33bba8b, volume name "odm" (extents) (large files) (huge files)
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/product_a-cow.img:     data
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/product_a.img:         Linux rev 1.0 ext2 filesystem data, UUID=d5dff6d5-2de6-5087-ba3f-d5f9897ddfb6, volume name "product" (extents) (large files) (huge files)
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/system_a-cow.img:      data
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/system_a.img:          Linux rev 1.0 ext2 filesystem data, UUID=ae659dc7-9a2d-5edc-b34d-df8850b0768e (extents) (large files) (huge files)
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/system_dlkm_a-cow.img: data
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/system_dlkm_a.img:     Linux rev 1.0 ext2 filesystem data, UUID=020c8946-7847-5fea-9a2b-a578a61ee339, volume name "system_dlkm" (extents) (large files) (huge files)
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/system_ext_a-cow.img:  data
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/system_ext_a.img:      Linux rev 1.0 ext2 filesystem data, UUID=f3ff24c2-8c9e-5527-b2fa-541c49f8ec8b, volume name "system_ext" (extents) (large files) (huge files)
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/vendor_a-cow.img:      data
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/vendor_a.img:          Linux rev 1.0 ext2 filesystem data, UUID=e32c3acc-5059-5346-a840-cc1e43eebfe9, volume name "vendor" (extents) (large files) (huge files)
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/vendor_dlkm_a-cow.img: data
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/vendor_dlkm_a.img:     Linux rev 1.0 ext2 filesystem data, UUID=1520a4ec-dbf7-504b-917a-eddddbe5539c, volume name "vendor_dlkm" (extents) (large files) (huge files)
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/odm_b-cow.img:         data
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/odm_b.img:             Linux rev 1.0 ext2 filesystem data, UUID=f57600d9-4a3d-5000-a78d-80c4f33bba8b, volume name "odm" (extents) (large files) (huge files)
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/product_b-cow.img:     data
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/product_b.img:         Linux rev 1.0 ext2 filesystem data, UUID=d5dff6d5-2de6-5087-ba3f-d5f9897ddfb6, volume name "product" (extents) (large files) (huge files)
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/system_b-cow.img:      data
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/system_b.img:          Linux rev 1.0 ext2 filesystem data, UUID=ae659dc7-9a2d-5edc-b34d-df8850b0768e (extents) (large files) (huge files)
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/system_dlkm_b-cow.img: data
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/system_dlkm_b.img:     Linux rev 1.0 ext2 filesystem data, UUID=020c8946-7847-5fea-9a2b-a578a61ee339, volume name "system_dlkm" (extents) (large files) (huge files)
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/system_ext_b-cow.img:  data
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/system_ext_b.img:      Linux rev 1.0 ext2 filesystem data, UUID=f3ff24c2-8c9e-5527-b2fa-541c49f8ec8b, volume name "system_ext" (extents) (large files) (huge files)
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/vendor_b-cow.img:      data
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/vendor_b.img:          Linux rev 1.0 ext2 filesystem data, UUID=e32c3acc-5059-5346-a840-cc1e43eebfe9, volume name "vendor" (extents) (large files) (huge files)
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/vendor_dlkm_b-cow.img: data
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/vendor_dlkm_b.img:     Linux rev 1.0 ext2 filesystem data, UUID=1520a4ec-dbf7-504b-917a-eddddbe5539c, volume name "vendor_dlkm" (extents) (large files) (huge files)
+
+========== FILESYSTEM SIGNATURES ==========
+
+--- system_a.img ---
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/system_a.img: LABEL="/" UUID="ae659dc7-9a2d-5edc-b34d-df8850b0768e" VERSION="1.0" FSBLOCKSIZE="4096" BLOCK_SIZE="4096" FSLASTBLOCK="382319" FSSIZE="1565978624" TYPE="ext4" USAGE="filesystem"
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+--- system_ext_a.img ---
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/system_ext_a.img: LABEL="system_ext" UUID="f3ff24c2-8c9e-5527-b2fa-541c49f8ec8b" VERSION="1.0" FSBLOCKSIZE="4096" BLOCK_SIZE="4096" FSLASTBLOCK="134522" FSSIZE="551002112" TYPE="ext4" USAGE="filesystem"
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+--- product_a.img ---
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/product_a.img: LABEL="product" UUID="d5dff6d5-2de6-5087-ba3f-d5f9897ddfb6" VERSION="1.0" FSBLOCKSIZE="4096" BLOCK_SIZE="4096" FSLASTBLOCK="283117" FSSIZE="1159647232" TYPE="ext4" USAGE="filesystem"
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+--- vendor_a.img ---
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/vendor_a.img: LABEL="vendor" UUID="e32c3acc-5059-5346-a840-cc1e43eebfe9" VERSION="1.0" FSBLOCKSIZE="4096" BLOCK_SIZE="4096" FSLASTBLOCK="399638" FSSIZE="1636917248" TYPE="ext4" USAGE="filesystem"
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+--- odm_a.img ---
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/odm_a.img: LABEL="odm" UUID="f57600d9-4a3d-5000-a78d-80c4f33bba8b" VERSION="1.0" FSBLOCKSIZE="4096" BLOCK_SIZE="4096" FSLASTBLOCK="320" FSSIZE="1310720" TYPE="ext4" USAGE="filesystem"
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+--- system_dlkm_a.img ---
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/system_dlkm_a.img: LABEL="system_dlkm" UUID="020c8946-7847-5fea-9a2b-a578a61ee339" VERSION="1.0" FSBLOCKSIZE="4096" BLOCK_SIZE="4096" FSLASTBLOCK="86" FSSIZE="352256" TYPE="ext4" USAGE="filesystem"
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+--- vendor_dlkm_a.img ---
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/vendor_dlkm_a.img: LABEL="vendor_dlkm" UUID="1520a4ec-dbf7-504b-917a-eddddbe5539c" VERSION="1.0" FSBLOCKSIZE="4096" BLOCK_SIZE="4096" FSLASTBLOCK="16756" FSSIZE="68632576" TYPE="ext4" USAGE="filesystem"
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+--- system_b.img ---
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/system_b.img: LABEL="/" UUID="ae659dc7-9a2d-5edc-b34d-df8850b0768e" VERSION="1.0" FSBLOCKSIZE="4096" BLOCK_SIZE="4096" FSLASTBLOCK="382319" FSSIZE="1565978624" TYPE="ext4" USAGE="filesystem"
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+--- system_ext_b.img ---
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/system_ext_b.img: LABEL="system_ext" UUID="f3ff24c2-8c9e-5527-b2fa-541c49f8ec8b" VERSION="1.0" FSBLOCKSIZE="4096" BLOCK_SIZE="4096" FSLASTBLOCK="134522" FSSIZE="551002112" TYPE="ext4" USAGE="filesystem"
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+--- product_b.img ---
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/product_b.img: LABEL="product" UUID="d5dff6d5-2de6-5087-ba3f-d5f9897ddfb6" VERSION="1.0" FSBLOCKSIZE="4096" BLOCK_SIZE="4096" FSLASTBLOCK="283117" FSSIZE="1159647232" TYPE="ext4" USAGE="filesystem"
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+--- vendor_b.img ---
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/vendor_b.img: LABEL="vendor" UUID="e32c3acc-5059-5346-a840-cc1e43eebfe9" VERSION="1.0" FSBLOCKSIZE="4096" BLOCK_SIZE="4096" FSLASTBLOCK="399638" FSSIZE="1636917248" TYPE="ext4" USAGE="filesystem"
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+--- odm_b.img ---
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/odm_b.img: LABEL="odm" UUID="f57600d9-4a3d-5000-a78d-80c4f33bba8b" VERSION="1.0" FSBLOCKSIZE="4096" BLOCK_SIZE="4096" FSLASTBLOCK="320" FSSIZE="1310720" TYPE="ext4" USAGE="filesystem"
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+--- system_dlkm_b.img ---
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/system_dlkm_b.img: LABEL="system_dlkm" UUID="020c8946-7847-5fea-9a2b-a578a61ee339" VERSION="1.0" FSBLOCKSIZE="4096" BLOCK_SIZE="4096" FSLASTBLOCK="86" FSSIZE="352256" TYPE="ext4" USAGE="filesystem"
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+--- vendor_dlkm_b.img ---
+/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/vendor_dlkm_b.img: LABEL="vendor_dlkm" UUID="1520a4ec-dbf7-504b-917a-eddddbe5539c" VERSION="1.0" FSBLOCKSIZE="4096" BLOCK_SIZE="4096" FSLASTBLOCK="16756" FSSIZE="68632576" TYPE="ext4" USAGE="filesystem"
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+========== COW IMAGE HEADERS ==========
+
+--- slot0/odm_a-cow.img ---
+4263936 bytes
+ 21 21 57 4f 63 77 6f 43 02 00 00 00 26 00 54 00
+ 14 00 00 10 00 00 00 04 00 00 1f 00 00 00 00 00
+ 00 00 00 00 20 00 01 00 00 00 00 00 00 00 00 26
+ 20 00 00 00 00 00 00 01 00 00 00 00 00 00 00 26
+!!WOcwoC
+####################################
+# from generate-common-build-props
+# These properties identify this partition image.
+####################################
+ro.product.odm.brand=qti
+ro.product.odm.device=trinket
+ro.product.odm.manufacturer=Moorechip
+
+--- slot0/product_a-cow.img ---
+22921216 bytes
+ 21 21 57 4f 63 77 6f 43 02 00 00 00 26 00 54 00
+ 14 00 00 10 00 00 00 04 00 00 43 15 00 00 00 00
+ 00 00 00 00 20 00 01 00 00 00 00 00 00 00 00 26
+ 20 00 00 00 00 00 00 01 00 00 00 00 00 00 00 26
+!!WOcwoC
+/product
+/product
+/product
+####################################
+# from generate-common-build-props
+# These properties identify this partition image.
+####################################
+
+--- slot0/system_a-cow.img ---
+29478912 bytes
+ 21 21 57 4f 63 77 6f 43 02 00 00 00 26 00 54 00
+ 14 00 00 10 00 00 00 04 00 00 c0 1c 00 00 00 00
+ 00 00 00 00 20 00 01 00 00 00 00 00 00 00 00 26
+ 20 00 00 00 00 00 00 01 00 00 00 00 00 00 00 26
+!!WOcwoC
+####################################
+# from generate-common-build-props
+# These properties identify this partition image.
+####################################
+ro.product.system.brand=qti
+ro.product.system.device=qssi
+ro.product.system.manufacturer=QUALCOMM
+
+--- slot0/system_dlkm_a-cow.img ---
+4255744 bytes
+ 21 21 57 4f 63 77 6f 43 02 00 00 00 26 00 54 00
+ 14 00 00 10 00 00 00 04 00 00 33 00 00 00 00 00
+ 00 00 00 00 20 00 01 00 00 00 00 00 00 00 00 26
+ 20 00 00 00 00 00 00 01 00 00 00 00 00 00 00 26
+!!WOcwoC
+9system_dlkm
+/system_dlkm
+u:object_r:system_dlkm_file:s0
+u:object_r:system_dlkm_file:s0
+u:object_r:system_dlkm_file:s0
+u:object_r:system_dlkm_file:s0
+u:object_r:system_dlkm_file:s0
+
+--- slot0/system_ext_a-cow.img ---
+13107200 bytes
+ 21 21 57 4f 63 77 6f 43 02 00 00 00 26 00 54 00
+ 14 00 00 10 00 00 00 04 00 00 2f 0a 00 00 00 00
+ 00 00 00 00 20 00 01 03 00 00 00 00 00 00 00 26
+ 20 00 00 00 00 00 00 18 00 00 00 00 00 00 00 26
+!!WOcwoC
+####################################
+# from generate-common-build-props
+# These properties identify this partition image.
+####################################
+ro.product.system_ext.brand=qti
+ro.product.system_ext.device=qssi
+ro.product.system_ext.manufacturer=QUALCOMM
+
+--- slot0/vendor_a-cow.img ---
+30617600 bytes
+ 21 21 57 4f 63 77 6f 43 02 00 00 00 26 00 54 00
+ 14 00 00 10 00 00 00 04 00 00 1a 1e 00 00 00 00
+ 00 00 00 00 20 00 01 03 00 00 00 00 00 00 00 26
+ 20 00 00 00 00 00 00 14 00 00 00 00 00 00 00 26
+!!WOcwoC
+####################################
+# from generate-common-build-props
+# These properties identify this partition image.
+####################################
+ro.product.vendor.brand=qti
+ro.product.vendor.device=trinket
+ro.product.vendor.manufacturer=Moorechip
+
+--- slot0/vendor_dlkm_a-cow.img ---
+5976064 bytes
+ 21 21 57 4f 63 77 6f 43 02 00 00 00 26 00 54 00
+ 14 00 00 10 00 00 00 04 00 00 c3 3e 00 00 00 00
+ 00 00 00 00 20 00 01 ff 2c 00 00 00 00 00 00 26
+ 20 00 00 00 00 00 00 fe 2c 00 00 00 00 00 00 26
+!!WOcwoC
+wait_for_completion_timeout
+do_trace_netlink_extack
+cfg80211_vendor_cmd_get_sender
+nla_memcpy
+__nla_parse
+scnprintf
+__cfg80211_alloc_reply_skb
+
+--- slot1/odm_b-cow.img ---
+4263936 bytes
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+*
+!!WOcwoC
+####################################
+# from generate-common-build-props
+# These properties identify this partition image.
+####################################
+ro.product.odm.brand=qti
+ro.product.odm.device=trinket
+ro.product.odm.manufacturer=Moorechip
+
+--- slot1/product_b-cow.img ---
+22921216 bytes
+ 21 21 57 4f 63 77 6f 43 02 00 00 00 26 00 54 00
+ 14 00 00 10 00 00 00 04 00 00 43 15 00 00 00 00
+ 00 00 00 00 20 00 01 00 00 00 00 00 00 00 00 26
+ 20 00 00 00 00 00 00 01 00 00 00 00 00 00 00 26
+!!WOcwoC
+!!WOcwoC
+/product
+/product
+/product
+####################################
+# from generate-common-build-props
+# These properties identify this partition image.
+
+--- slot1/system_b-cow.img ---
+75431936 bytes
+ 21 21 57 4f 63 77 6f 43 02 00 00 00 26 00 54 00
+ 14 00 00 10 00 00 00 04 00 00 ff 16 05 00 00 00
+ 00 00 00 00 20 00 01 8f a9 03 00 00 00 00 00 26
+ 20 00 00 00 00 00 00 90 a9 03 00 00 00 00 00 26
+!!WOcwoC
+&!!WOcwoC
+####################################
+# from generate-common-build-props
+# These properties identify this partition image.
+####################################
+ro.product.system.brand=qti
+ro.product.system.device=qssi
+
+--- slot1/system_dlkm_b-cow.img ---
+4251648 bytes
+ 21 21 57 4f 63 77 6f 43 02 00 00 00 26 00 54 00
+ 14 00 00 10 00 00 00 04 00 00 21 00 00 00 00 00
+ 00 00 00 00 20 00 01 00 00 00 00 00 00 00 00 26
+ 20 00 00 00 00 00 00 01 00 00 00 00 00 00 00 26
+!!WOcwoC
+system_dlkm
+/system_dlkm
+####################################
+# from generate-common-build-props
+# These properties identify this partition image.
+####################################
+ro.product.system_dlkm.brand=qti
+
+--- slot1/system_ext_b-cow.img ---
+13107200 bytes
+ 60 14 8c 82 51 30 0a 46 c1 28 18 05 a3 60 14 8c
+ 82 a1 0e 78 cd 55 94 42 38 83 cc 34 6c 03 58 82
+ 38 b8 38 f5 19 fd 18 19 58 ad 43 99 99 b9 c5 19
+ 83 e4 d8 b8 25 c4 82 84 38 64 79 a5 c5 42 13 65
+2~o2v>3v
+4ImSX;I*
+(S$ Xx0"P
+M6$NBLsK
+fpgO43$h
+Rkjvfq#j
+7oQf-;@}
+bj[7_5Nh
+
+--- slot1/vendor_b-cow.img ---
+30760960 bytes
+ 21 21 57 4f 63 77 6f 43 02 00 00 00 26 00 54 00
+ 14 00 00 10 00 00 00 04 00 00 75 1e 00 00 00 00
+ 00 00 00 00 20 00 01 00 00 00 00 00 00 00 00 26
+ 20 00 00 00 00 00 00 03 00 00 00 00 00 00 00 26
+!!WOcwoC
+EWvendor
+/system/bin/linker64
+wifi_reset_epno_list
+wifi_set_passpoint_list
+wifi_reset_passpoint_list
+wifi_get_rtt_capabilities
+wifi_rtt_range_request
+
+--- slot1/vendor_dlkm_b-cow.img ---
+5423104 bytes
+ 21 21 57 4f 63 77 6f 43 02 00 00 00 26 00 54 00
+ 14 00 00 10 00 00 00 04 00 00 39 03 00 00 00 00
+ 00 00 00 00 20 00 01 00 00 00 00 00 00 00 00 26
+ 20 00 00 00 00 00 00 01 00 00 00 00 00 00 00 26
+!!WOcwoC
+(vendor_dlkm
+/vendor_dlkm
+u:object_r:vendor_file:s0
+u:object_r:vendor_file:s0
+u:object_r:vendor_file:s0
+u:object_r:vendor_file:s0
+u:object_r:vendor_file:s0
+
+========== AVAILABLE SNAPSHOT UTILITIES ==========
+/usr/bin/lpdump
+/usr/bin/lpunpack
+/usr/bin/simg2img
+/usr/bin/avbtool
+
+========== SOURCE IMAGE HASH ==========
+f39072e566e7faa15d730c53b1335763b7eaf310b38bb9de530932c1c59d8d7a  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/super.img
+
+INSPECTION ONLY: no images or device partitions modified
