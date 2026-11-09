@@ -1,0 +1,549 @@
+
+=== DIAGNOSTIC FILE ===
+// DualOS EFI diagnostic filesystem writer.
+// Uses only the device handle reported by EFI_LOADED_IMAGE_PROTOCOL.
+
+use alloc::format;
+use alloc::string::String;
+use core::ffi::c_void;
+use core::ptr::null_mut;
+
+use efi::protocol::block_io::BlockIoProtocol;
+use efi::protocol::loaded_image::LoadedImageProtocol;
+use efi::{efi_call, EfiEntry};
+use efi_types::EfiGuid;
+
+#[repr(C)]
+struct EfiSimpleFileSystemInterface {
+    revision: u64,
+    open_volume: Option<
+        unsafe extern "efiapi" fn(
+            this: *mut EfiSimpleFileSystemInterface,
+            root: *mut *mut EfiFileProtocol,
+        ) -> efi_types::EfiStatus,
+    >,
+}
+
+#[repr(C)]
+struct EfiFileProtocol {
+    revision: u64,
+    open: Option<
+        unsafe extern "efiapi" fn(
+            this: *mut EfiFileProtocol,
+            new_handle: *mut *mut EfiFileProtocol,
+            file_name: *const u16,
+            open_mode: u64,
+            attributes: u64,
+        ) -> efi_types::EfiStatus,
+    >,
+    close: Option<
+        unsafe extern "efiapi" fn(this: *mut EfiFileProtocol) -> efi_types::EfiStatus,
+    >,
+    delete: Option<
+        unsafe extern "efiapi" fn(this: *mut EfiFileProtocol) -> efi_types::EfiStatus,
+    >,
+    read: Option<
+        unsafe extern "efiapi" fn(
+            this: *mut EfiFileProtocol,
+            buffer_size: *mut usize,
+            buffer: *mut c_void,
+        ) -> efi_types::EfiStatus,
+    >,
+    write: Option<
+        unsafe extern "efiapi" fn(
+            this: *mut EfiFileProtocol,
+            buffer_size: *mut usize,
+            buffer: *const c_void,
+        ) -> efi_types::EfiStatus,
+    >,
+    get_position: Option<
+        unsafe extern "efiapi" fn(
+            this: *mut EfiFileProtocol,
+            position: *mut u64,
+        ) -> efi_types::EfiStatus,
+    >,
+    set_position: Option<
+        unsafe extern "efiapi" fn(
+            this: *mut EfiFileProtocol,
+            position: u64,
+        ) -> efi_types::EfiStatus,
+    >,
+    get_info: Option<
+        unsafe extern "efiapi" fn(
+            this: *mut EfiFileProtocol,
+            information_type: *const EfiGuid,
+            buffer_size: *mut usize,
+            buffer: *mut c_void,
+        ) -> efi_types::EfiStatus,
+    >,
+    set_info: Option<
+        unsafe extern "efiapi" fn(
+            this: *mut EfiFileProtocol,
+            information_type: *const EfiGuid,
+            buffer_size: usize,
+            buffer: *const c_void,
+        ) -> efi_types::EfiStatus,
+    >,
+    flush: Option<
+        unsafe extern "efiapi" fn(this: *mut EfiFileProtocol) -> efi_types::EfiStatus,
+    >,
+}
+
+const SIMPLE_FILE_SYSTEM_GUID: EfiGuid =
+    EfiGuid::from_u64s(0x964e5b22645911d2, 0x8e3900a0c969723b);
+
+const FILE_NAME: [u16; 16] = [
+    68, 85, 65, 76, 79, 83, 45, 68, 73, 65, 71, 46, 84, 88, 84, 0,
+];
+
+fn build_report(entry: &EfiEntry, source_device: efi::DeviceHandle) -> String {
+    let mut report = String::from(
+        "DualOS EFI device-path diagnostic
+\
+         Source: LoadedImageProtocol.DeviceHandle
+
+"
+    );
+
+    match crate::utils::get_device_path(entry, source_device) {
+        Ok(path) => report.push_str(&format!("LOADED_IMAGE_DEVICE: {path}
+")),
+        Err(error) => report.push_str(&format!("LOADED_IMAGE_DEVICE_ERROR: {error:?}
+")),
+    }
+
+    report.push_str(&format!("LOADED_IMAGE_HANDLE: {source_device:?}
+
+"));
+    report.push_str("BLOCK_IO_HANDLES:
+");
+
+    let boot_services = entry.system_table().boot_services();
+    match boot_services.locate_handle_buffer_by_protocol::<BlockIoProtocol>() {
+        Ok(handles) => {
+            report.push_str(&format!("COUNT: {}
+", handles.handles().len()));
+
+            for (index, handle) in handles.handles().iter().enumerate() {
+                report.push_str(&format!("
+BLOCK #{index} HANDLE: {handle:?}
+"));
+                match crate::utils::get_device_path(entry, *handle) {
+                    Ok(path) => report.push_str(&format!("PATH: {path}
+")),
+                    Err(error) => report.push_str(&format!("PATH_ERROR: {error:?}
+")),
+                }
+            }
+        }
+        Err(error) => {
+            report.push_str(&format!("BLOCK_IO_ENUMERATION_ERROR: {error:?}
+"));
+        }
+    }
+
+    report.push_str("
+END_OF_REPORT
+");
+    report
+}
+
+pub fn write_report(entry: &EfiEntry) -> &'static str {
+    let boot_services = entry.system_table().boot_services();
+
+    let loaded_image = match boot_services
+        .open_protocol::<LoadedImageProtocol>(entry.image_handle())
+    {
+        Ok(protocol) => protocol,
+        Err(_) => return "FAILED: loaded-image protocol",
+    };
+
+    // Restrict filesystem discovery to the device that loaded this EFI image.
+    let source_device = loaded_image.device_handle();
+    let report = build_report(entry, source_device);
+
+    // SAFETY: The GUID identifies EFI_SIMPLE_FILE_SYSTEM_PROTOCOL. The returned
+    // interface is interpreted using the matching UEFI protocol ABI below.
+    let filesystem_ptr = match unsafe {
+        boot_services.handle_protocol_raw(source_device, &SIMPLE_FILE_SYSTEM_GUID)
+    } {
+        Ok(pointer) => pointer.as_ptr() as *mut EfiSimpleFileSystemInterface,
+        Err(_) => return "FAILED: no filesystem on loaded-image device",
+    };
+
+    let mut root: *mut EfiFileProtocol = null_mut();
+    // SAFETY: filesystem_ptr is the firmware-provided protocol interface; root is a valid output pointer.
+    let open_volume_result = unsafe {
+        efi_call!(
+            (*filesystem_ptr).open_volume,
+            filesystem_ptr,
+            &mut root
+        )
+    };
+
+    if open_volume_result.is_err() || root.is_null() {
+        return "FAILED: opening source filesystem";
+    }
+
+    let mut file: *mut EfiFileProtocol = null_mut();
+    // SAFETY: root is the valid handle returned by OpenVolume; file is a valid output pointer and FILE_NAME is NUL-terminated UTF-16.
+    let open_file_result = unsafe {
+        efi_call!(
+            (*root).open,
+            root,
+            &mut file,
+            FILE_NAME.as_ptr(),
+            0x1 | 0x2 | 0x8000_0000_0000_0000,
+            0
+        )
+    };
+
+    if open_file_result.is_err() || file.is_null() {
+        // SAFETY: root is the valid file-protocol handle returned by OpenVolume.
+        let _ = unsafe { efi_call!((*root).close, root) };
+        return "FAILED: creating diagnostic report";
+    }
+
+    let report_bytes = report.as_bytes();
+    let mut written = report_bytes.len();
+    // SAFETY: file is the valid handle returned by Open; REPORT is readable and written is a valid size pointer.
+    let write_result = unsafe {
+        efi_call!(
+            (*file).write,
+            file,
+            &mut written,
+            report_bytes.as_ptr() as *const c_void
+        )
+    };
+
+    let flush_ok = if write_result.is_ok() && written == report_bytes.len() {
+        // SAFETY: file is the valid file-protocol handle returned by Open.
+        unsafe { efi_call!((*file).flush, file) }.is_ok()
+    } else {
+        false
+    };
+
+    // SAFETY: file is the valid file-protocol handle returned by Open.
+    let _ = unsafe { efi_call!((*file).close, file) };
+    // SAFETY: root is the valid file-protocol handle returned by OpenVolume.
+    let _ = unsafe { efi_call!((*root).close, root) };
+
+    if write_result.is_err() || written != report_bytes.len() || !flush_ok {
+        return "FAILED: writing or flushing report";
+    }
+
+    "OK: DUALOS-DIAG.TXT written"
+}
+
+=== EFI LIBRARY DIAGNOSTIC REFERENCES ===
+24-#[macro_use]
+25-extern crate alloc;
+26-
+27-mod efi_blocks;
+28-#[cfg(not(test))]
+29:mod diagnostic_fs;
+30-#[cfg(feature = "fuchsia")]
+31-mod fuchsia_boot;
+32-mod net;
+33-mod ops;
+34-#[macro_use]
+--
+110-    efi_println!(entry, "VCS info: {}", format_build_vcs_info!());
+111-    if let Ok(v) = loaded_image_path(&entry) {
+112-        efi_println!(entry, "Image path: {v}");
+113-    }
+114-
+115:    // Read-only console mode diagnostic.
+116-    match entry.system_table().con_out() {
+117-        Ok(console) => {
+118-            let mode_info = console.interface().mode;
+119-            if mode_info.is_null() {
+120-                efi_println!(entry, "Console mode information unavailable.");
+--
+148-            }
+149-        }
+150-        Err(e) => efi_println!(entry, "Console protocol unavailable: {e:?}"),
+151-    }
+152-
+153:    let report_status = diagnostic_fs::write_report(&entry);
+154-    efi_println!(entry, "Filesystem report: {report_status}");
+155-    efi_println!(entry, "Diagnostic complete. Halting before OS boot.");
+156-    loop {
+157-        core::hint::spin_loop();
+158-    }
+
+=== DISK DISCOVERY IMPLEMENTATION ===
+105-    }
+106-
+107-    async fn flush(&self) -> Result<(), Error> {
+108-        let res = match &self.block_io2 {
+109-            Some(v) => v.flush_blocks_ex().await,
+110-            _ => self.block_io.flush_blocks().map_err(Into::into),
+111-        };
+112-        match res {
+113-            Ok(()) | Err(Error::Unsupported) | Err(Error::NotFound) => Ok(()),
+114-            Err(e) => Err(e),
+115-        }
+116-    }
+117-}
+118-
+119-/// The [GblDisk] type in the GBL EFI context.
+120-pub type EfiGblDisk<'a> =
+121-    GblDisk<Disk<EfiBlockDeviceIo<'a>, ArrayVec<Option<Box<[u8]>>, 2>>, Gpt<Vec<u8>>>;
+122-
+123-/// Finds and returns all EFI devices supporting either EFI_BLOCK_IO or EFI_BLOCK_IO2 protocol.
+124-#[profile(backend = EfiProfileBackend::new(efi_entry))]
+125:pub fn find_block_devices(efi_entry: &EfiEntry) -> Result<Vec<EfiGblDisk<'_>>, Error> {
+126-    let bs = efi_entry.system_table().boot_services();
+127-    let block_dev_handles = bs.locate_handle_buffer_by_protocol::<BlockIoProtocol>()?;
+128-
+129-    // GBL is SD-only: identify the physical disk that contains this EFI image.
+130-    let loaded_image = bs.open_protocol::<LoadedImageProtocol>(efi_entry.image_handle())?;
+131-    let source_partition = loaded_image.device_handle();
+132-    let source_path = bs.open_protocol::<DevicePathProtocol>(source_partition)?;
+133-
+134-    let source_block_io = bs.open_protocol::<BlockIoProtocol>(source_partition)?;
+135-    // SAFETY: this code always executes at EFI_TPL_APPLICATION.
+136-    let source_media = unsafe {
+137-        source_block_io.with_lock::<EFI_TPL_APPLICATION, _>(efi_entry, || {
+138-            source_block_io.media().unwrap().clone()
+139-        })
+140-    };
+141-    if !source_media.logical_partition {
+142-        efi_println!(efi_entry, "Loaded image handle is not a logical partition; refusing disk discovery.");
+143-        return Err(Error::InvalidInput);
+144-    }
+145-
+146-    let mut source_disk_handle = None;
+147-    for handle in block_dev_handles.handles() {
+148-        let candidate_path = match bs.open_protocol::<DevicePathProtocol>(*handle) {
+149-            Ok(path) => path,
+150-            Err(_) => continue,
+151-        };
+152-        if !candidate_path.is_parent_of(&source_path) {
+153-            continue;
+154-        }
+155-
+156-        let candidate_block_io = match bs.open_protocol::<BlockIoProtocol>(*handle) {
+157-            Ok(protocol) => protocol,
+158-            Err(_) => continue,
+159-        };
+160-        // SAFETY: this code always executes at EFI_TPL_APPLICATION.
+161-        let candidate_media = unsafe {
+162-            candidate_block_io.with_lock::<EFI_TPL_APPLICATION, _>(efi_entry, || {
+163-                candidate_block_io.media().unwrap().clone()
+164-            })
+165-        };
+166-        if candidate_media.logical_partition {
+167-            continue;
+168-        }
+169-
+170-        if source_disk_handle.replace(*handle).is_some() {
+171-            efi_println!(efi_entry, "Multiple physical parent disks match the loaded image; refusing to boot.");
+172-            return Err(Error::InvalidInput);
+173-        }
+174-    }
+175-
+176-    let source_disk_handle = source_disk_handle.ok_or_else(|| {
+177-        efi_println!(efi_entry, "No physical parent disk found for the loaded image; refusing to boot.");
+178-        Error::InvalidInput
+179-    })?;
+180-    efi_println!(
+181-        efi_entry,
+182-        "Restricting GBL disk discovery to the physical parent of the loaded EFI image."
+183-    );
+184-
+185-    let mut gbl_disks = vec![];
+186-    // TODO(b/452455989) Buffer size and capacity can be configurable using vendor path.
+187-    let gpt_buffer_size = gpt_buffer_size(GPT_MAX_NUM_ENTRIES)?;
+188-    for (idx, handle) in block_dev_handles.handles().iter().enumerate() {
+189-        if *handle != source_disk_handle {
+190-            continue;
+191-        }
+192-        match crate::utils::get_device_path(efi_entry, *handle) {
+193-            Ok(path) => efi_println!(efi_entry, "Block #{idx} path: {path}"),
+194-            Err(e) => efi_println!(efi_entry, "Block #{idx} path unavailable: {e:?}"),
+195-        }
+196-        let block_io = bs.open_protocol::<BlockIoProtocol>(*handle).unwrap();
+197-        // SAFETY: this code always executes at `EFI_TPL_APPLICATION`.
+198-        let media = unsafe {
+199-            block_io.with_lock::<EFI_TPL_APPLICATION, _>(efi_entry, || {
+200-                // SAFETY: the protocol is locked while we access `media`, we
+201-                // clone it here for safe access outside the critical section.
+202-                block_io.media().unwrap().clone()
+203-            })
+204-        };
+205-        if media.logical_partition {
+206-            continue;
+207-        }
+208-        let open_disk = || -> Result<_, Error> {
+209-            let block_io2 = bs.open_protocol::<BlockIo2Protocol>(*handle).ok();
+210-            let erase = bs.open_protocol::<EraseBlockProtocol>(*handle).ok();
+211-            let erase_blocks =
+212-                erase.as_ref().map(|v| v.erase_length_granularity()).unwrap_or_default();
+213-            let block_info = BlockInfo {
+214-                // `block_size` is u32 so can always convert to u64
+215-                block_size: media.block_size as u64,
+216-                erase_blocks_num: max(1, erase_blocks).into(),
+217-                num_blocks: (SafeNum::from(media.last_block) + 1).try_into()?,
+218-                // `io_align` is u32 so can always convert to u64
+219-                alignment: max(1, media.io_align as u64),
+220-            };
+221-            let disk_io = Disk::new_alloc_scratch(EfiBlockDeviceIo {
+222-                block_io,
+223-                block_io2,
+224-                erase,
+225-                media_id: media.media_id,
+226-                block_info,
+227-            })?;
+228-            let disk = match bs.open_protocol::<DevicePathProtocol>(*handle) {
+229-                Ok(dpp) => {
+230-                    if let Some(device_name) = dpp.gbl_vendor_media_device_path()? {
+231-                        efi_println!(
+232-                            efi_entry,
+233-                            "Block #{idx} raw device vendor-defined name: {device_name:?}"
+234-                        );
+235-                        GblDisk::new_raw(disk_io, device_name)?
+236-                    } else {
+237-                        GblDisk::new_gpt(disk_io, Gpt::new(vec![0u8; gpt_buffer_size])?)
+238-                    }
+239-                }
+240-                _ => GblDisk::new_gpt(disk_io, Gpt::new(vec![0u8; gpt_buffer_size])?),
+241-            };
+242-            match block_on(disk.as_sync()?.sync_gpt()) {
+243-                Ok(Some(v)) => efi_println!(efi_entry, "Block #{idx} GPT sync result: {v}"),
+244-                Err(e) => efi_println!(efi_entry, "Block #{idx} error while syncing GPT: {e}"),
+245-                _ => {}
+246-            };
+247-            Ok(disk)
+248-        };
+249-        match open_disk() {
+250-            Ok(disk) => gbl_disks.push(disk),
+251-            Err(e) => efi_println!(efi_entry, "Block #{idx} failed to open device: {e}"),
+252-        }
+253-    }
+254-    Ok(gbl_disks)
+255-}
+
+=== CONSOLE OUTPUT API ===
+// Copyright 2024, The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+//! Rust wrapper for `EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL`.
+
+use crate::efi_call;
+use crate::protocol::{MaybeVersioned, Protocol, ProtocolInfo};
+use core::fmt::{Error, Write};
+use efi_types::{
+    EfiGuid, EfiSimpleTextOutputProtocol, EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL_GUID_U64_0,
+    EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL_GUID_U64_1,
+};
+use liberror::Result;
+
+impl MaybeVersioned for EfiSimpleTextOutputProtocol {}
+
+/// EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL
+pub struct SimpleTextOutputProtocol;
+
+impl ProtocolInfo for SimpleTextOutputProtocol {
+    type InterfaceType = EfiSimpleTextOutputProtocol;
+
+    const GUID: EfiGuid = EfiGuid::from_u64s(
+        EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL_GUID_U64_0,
+        EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL_GUID_U64_1,
+    );
+}
+
+impl Protocol<'_, SimpleTextOutputProtocol> {
+    /// Wrapper of `EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL.Reset()`
+    pub fn reset(&self, extended: bool) -> Result<()> {
+        // SAFETY:
+        // `self.interface()` is non-null and points to a valid object.
+        // `self.interface_ptr()` is an input parameter and is not retained. It outlives the call.
+        unsafe { efi_call!(self.interface().reset, self.interface_ptr(), extended) }
+    }
+
+    /// Query the dimensions supported by a console text mode.
+    pub fn query_mode(&self, mode: usize) -> Result<(usize, usize)> {
+        let mut cols = 0usize;
+        let mut rows = 0usize;
+        // SAFETY:
+        // The protocol interface is valid, and the output pointers refer to
+        // live local variables for the duration of the firmware call.
+        unsafe {
+            efi_call!(
+                self.interface().query_mode,
+                self.interface_ptr(),
+                mode,
+                &mut cols,
+                &mut rows
+            )?;
+        }
+        Ok((cols, rows))
+    }
+
+    /// Select a console text mode.
+    pub fn set_mode(&self, mode: usize) -> Result<()> {
+        // SAFETY:
+        // The protocol interface is valid and the mode number is passed only
+        // for the duration of the firmware call.
+        unsafe { efi_call!(self.interface().set_mode, self.interface_ptr(), mode) }
+    }
+
+    /// Wrapper of `EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL.OutputString()`
+    pub fn output_string(&self, msg: &mut [u16]) -> Result<()> {
+        if !msg.contains(&0) {
+            return Err(liberror::Error::InvalidInput);
+        }
+        // SAFETY:
+        // `self.interface_ptr()` guarantees `self.interface_ptr()` is non-null and points to a valid object
+        // established by `Protocol::new()`.
+        // `self.interface_ptr()` is input parameter and will not be retained. It outlives the call.
+        // `msg` is null-terminated, for input only, and will not be retained.
+        unsafe { efi_call!(self.interface().output_string, self.interface_ptr(), msg.as_mut_ptr()) }
+    }
+}
+
+/// Implement formatted write for `EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL`, so that we can print by
+/// writing to it. i.e.:
+///
+/// ```
+/// let protocol: Protocol<SimpleTextOutputProtocol> = ...;
+/// write!(protocol, "Value = {}\n", 1234);
+/// ```
+impl Write for Protocol<'_, SimpleTextOutputProtocol> {
+    fn write_str(&mut self, s: &str) -> core::fmt::Result {
+        let mut prev: char = '\0';
+        for ch in s.chars() {
+            // 2 is enough for encode_utf16(). Add an additional one as NULL.
+            let mut buffer = [0u16; 3];
+            let _ = ch.encode_utf16(&mut buffer[..2]);
+            if ch == '\n' && prev != '\r' {
+                self.output_string(&mut [b'\r' as _, 0u16]).map_err(|_| Error {})?;
+            }
+            // Pass all of `buffer` so the NUL terminator is inside the slice.
+            self.output_string(&mut buffer[..]).map_err(|_| Error {})?;
+            prev = ch;
+        }
+        Ok(())
+    }
+}
+
+=== WORKTREE STATUS ===
+ M gbl/efi/src/efi_blocks.rs
+ M gbl/efi/src/lib.rs
+ M gbl/libefi/src/lib.rs
+ M gbl/libefi/src/protocol/device_path.rs
+ M gbl/libefi/src/protocol/simple_text_output.rs
+?? gbl/efi/src/diagnostic_fs.rs
