@@ -1,0 +1,13 @@
+{
+  "id": "20261109T021021Z-dualos-microsd-stale-mount-refresh-read-only",
+  "title": "DualOS microSD stale mount refresh read-only",
+  "created_utc": "2026-11-09T02:10:21.625636+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\nPART=\"/dev/mmcblk0p1\"\nMNT=\"/mnt/dualos-check\"\nEXPECTED=\"1b806d74-8676-4e78-a90a-9c209e214d81\"\n\nACTUAL=\"$(sudo blkid -s PARTUUID -o value \"$PART\" 2>/dev/null)\"\n[ \"$ACTUAL\" = \"$EXPECTED\" ] || { echo \"STOP: PARTUUID mismatch: $ACTUAL\"; exit 10; }\n\necho \"=== UNMOUNT ===\"\nif mountpoint -q \"$MNT\"; then\n  sudo umount \"$MNT\" || { echo \"STOP: unmount failed\"; exit 11; }\nfi\n\necho \"=== READ-ONLY REMOUNT ===\"\nsudo mount -o ro \"$PART\" \"$MNT\" || { echo \"STOP: read-only mount failed\"; exit 12; }\n\necho \"=== MOUNT IDENTITY ===\"\nfindmnt -rn -T \"$MNT\" -o SOURCE,FSTYPE,OPTIONS,TARGET\n\necho\necho \"=== MOUNTED EFI DIRECTORY ===\"\nsudo find \"$MNT\" -maxdepth 4 -type f -printf \"%p %s bytes\\n\" | sort\n\necho\necho \"=== ACTIVE EFI HASH ===\"\nsudo sha256sum \"$MNT/EFI/BOOT/BOOTAA64.EFI\" || exit 13\n\necho\necho \"=== ROOT LISTING ===\"\nsudo ls -la \"$MNT\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.657
+}

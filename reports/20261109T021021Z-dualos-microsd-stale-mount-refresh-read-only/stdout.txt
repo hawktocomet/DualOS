@@ -1,0 +1,21 @@
+=== UNMOUNT ===
+=== READ-ONLY REMOUNT ===
+=== MOUNT IDENTITY ===
+/dev/mmcblk0p1 vfat ro,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro /mnt/dualos-check
+
+=== MOUNTED EFI DIRECTORY ===
+/mnt/dualos-check/DUALOS-DIAG.TXT 14509 bytes
+/mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI 155648 bytes
+/mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI.dualos-backup 229376 bytes
+/mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI.pre-dualos-diagnostic 143360 bytes
+/mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI.pre-sd-only-filter 155648 bytes
+
+=== ACTIVE EFI HASH ===
+610e939fd609f4bf69c82a71b460aedf95b64c6e676e2f469470ab9c648d4d2e  /mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI
+
+=== ROOT LISTING ===
+total 96
+drwxr-xr-x 3 root root 32768 Dec 31  1969 .
+drwxr-xr-x 1 root root   178 Nov  8 16:27 ..
+-rwxr-xr-x 1 root root 14509 Jan  5  1980 DUALOS-DIAG.TXT
+drwxr-xr-x 3 root root 32768 Nov  8 15:38 EFI
