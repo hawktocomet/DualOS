@@ -1,0 +1,13 @@
+{
+  "id": "20261109T004110Z-gbl-os-configuration-and-boot-control-audit",
+  "title": "GBL OS configuration and boot control audit",
+  "created_utc": "2026-11-09T00:41:10.717022+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\necho \"===== REPOSITORY REVISION =====\"\ngit -C bootable/libbootloader rev-parse HEAD\necho\necho \"===== WORKTREE STATUS =====\"\ngit -C bootable/libbootloader status --short\necho\necho \"===== OS CONFIGURATION AND BOOT CONTROL IMPLEMENTATIONS =====\"\nrg -n -C 12 \"GblOsConfigurationProtocol|GblEfiOsConfigurationProtocol|gbl_efi_os_configuration|open_os_configuration|OS_CONFIGURATION|GBL_EFI_OS_BOOT_TARGET_VARNAME|expected_os|TargetOs|enum Os|pub enum Os\" bootable/libbootloader/gbl/\necho\necho \"===== A/B SLOT CONTROL IMPLEMENTATIONS =====\"\nrg -n -C 12 \"GblBootControlProtocol|GblEfiBootControlProtocol|gbl_efi_boot_control|open_boot_control|current_slot|select_slot|set_active_slot|bootable\" bootable/libbootloader/gbl/\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.026
+}
