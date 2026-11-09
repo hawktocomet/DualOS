@@ -1,0 +1,19 @@
+{
+  "id": "20261109T021840Z-dualos-gbl-android-core-partition-access-audit",
+  "title": "DualOS GBL Android core partition access audit",
+  "created_utc": "2026-11-09T02:18:40.919830+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-c",
+    "\necho \"=== ANDROID AND PARTITION SOURCE FILES ===\"\nrg --files gbl/libgbl/src | rg \"android|partition|slot\"\n\necho\necho \"=== ANDROID MAIN IMPLEMENTATION ===\"\nrg -n -C 8 \"android_main|load_boot_images|load.*image|LoadPartition\" gbl/libgbl/src\n\necho\necho \"=== GBL PARTITION BUFFER ADAPTER ===\"\nsed -n \"740,775p\" gbl/efi/src/ops.rs\nsed -n \"1,280p\" gbl/efi/src/efi_blocks.rs\n\necho\necho \"=== PARTITION BUFFER PROTOCOL CONTRACT ===\"\nrg -n -C 5 \"gbl_get_partition_buffer|GblEfiPartitionBuffer|PARTITION_BUFFER\" gbl/libefi/src gbl/efi/src\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.021,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}
