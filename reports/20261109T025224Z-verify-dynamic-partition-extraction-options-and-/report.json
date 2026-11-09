@@ -1,0 +1,19 @@
+{
+  "id": "20261109T025224Z-verify-dynamic-partition-extraction-options-and-",
+  "title": "Verify dynamic partition extraction options and metadata slots",
+  "created_utc": "2026-11-09T02:52:24.534174+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-lc",
+    "\nIMG=\"/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super.img\"\nOUT=\"/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked\"\n\necho \"========== LPDUMP OPTIONS ==========\"\nlpdump --help 2>&1 | head -n 120\n\necho\necho \"========== LPUNPACK OPTIONS ==========\"\nlpunpack --help 2>&1 | head -n 120\n\necho\necho \"========== METADATA SLOT INSPECTION ==========\"\nfor SLOT in 0 1 2; do\n  echo\n  echo \"----- SLOT $SLOT -----\"\n  lpdump --slot=\"$SLOT\" \"$IMG\" 2>&1 | head -n 100\ndone\n\necho\necho \"========== EXTRACTION DESTINATION ==========\"\nif [ -e \"$OUT\" ]; then\n  echo \"WARNING: destination already exists; will not overwrite\"\n  ls -lah \"$OUT\" | head -n 60\nelse\n  echo \"Destination is clear: $OUT\"\nfi\ndf -h \"$(dirname \"$OUT\")\"\n\necho\necho \"INSPECTION ONLY: no partitions extracted and no source files modified\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.046,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? edl_config.json\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}

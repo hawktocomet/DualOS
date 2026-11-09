@@ -1,0 +1,348 @@
+========== LPDUMP OPTIONS ==========
+lpdump - command-line tool for dumping Android Logical Partition images.
+
+Usage:
+  lpdump [-s <SLOT#>|--slot=<SLOT#>] [-j|--json] [FILE|DEVICE]
+
+Options:
+  -s, --slot=N     Slot number or suffix.
+  -j, --json       Print in JSON format.
+  -d, --dump-metadata-size
+                   Print the space reserved for metadata to stdout
+                   in bytes.
+  -a, --all        Dump all slots (not available in JSON mode).
+
+========== LPUNPACK OPTIONS ==========
+lpunpack: unrecognized option '--help'
+Unrecognized argument.
+lpunpack - command-line tool for extracting partition images from super
+
+Usage:
+  lpunpack [options...] SUPER_IMAGE [OUTPUT_DIR]
+
+The SUPER_IMAGE argument is mandatory and expected to contain
+the metadata. Additional super images are referenced with '-i' as needed to extract
+the desired partition[s].
+Default OUTPUT_DIR is '.'.
+
+Options:
+  -i, --image=IMAGE        Use the given file as an additional super image.
+                           This can be specified multiple times.
+  -p, --partition=NAME     Extract the named partition. This can
+                           be specified multiple times.
+  -S, --slot=NUM           Slot number (default is 0).
+
+========== METADATA SLOT INSPECTION ==========
+
+----- SLOT 0 -----
+Slot 0:
+Metadata version: 10.2
+Metadata size: 1720 bytes
+Metadata max size: 65536 bytes
+Metadata slot count: 3
+Header flags: virtual_ab_device
+Partition table:
+------------------------
+  Name: odm_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly,updated
+  Extents:
+    0 .. 2767 linear super 2048
+------------------------
+  Name: product_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly,updated
+  Extents:
+    0 .. 2301423 linear super 6144
+------------------------
+  Name: system_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly,updated
+  Extents:
+    0 .. 3050023 linear super 2308096
+    3050024 .. 3051351 linear super 4816
+    3051352 .. 3051879 linear super 2307568
+    3051880 .. 3053375 linear super 5358120
+    3053376 .. 3054567 linear super 5360472
+    3054568 .. 3054599 linear super 6455264
+    3054600 .. 3056239 linear super 9703832
+    3056240 .. 3107751 linear super 9841840
+------------------------
+  Name: system_dlkm_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly,updated
+  Extents:
+    0 .. 855 linear super 5359616
+------------------------
+  Name: system_ext_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly,updated
+  Extents:
+    0 .. 1093599 linear super 5361664
+------------------------
+  Name: vendor_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly,updated
+  Extents:
+    0 .. 3248535 linear super 6455296
+------------------------
+  Name: vendor_dlkm_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly,updated
+  Extents:
+    0 .. 136367 linear super 9705472
+    136368 .. 136375 linear super 9893352
+------------------------
+  Name: odm_a-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 8327 linear super 9893360
+------------------------
+  Name: product_a-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 44767 linear super 9901688
+------------------------
+  Name: system_a-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 57575 linear super 9946456
+------------------------
+  Name: system_dlkm_a-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 8311 linear super 10004032
+------------------------
+  Name: system_ext_a-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 25599 linear super 10012344
+------------------------
+  Name: vendor_a-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 59799 linear super 10037944
+------------------------
+  Name: vendor_dlkm_a-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 11671 linear super 10097744
+------------------------
+
+----- SLOT 1 -----
+Slot 1:
+Metadata version: 10.2
+Metadata size: 1696 bytes
+Metadata max size: 65536 bytes
+Metadata slot count: 3
+Header flags: virtual_ab_device
+Partition table:
+------------------------
+  Name: odm_b
+  Group: qti_dynamic_partitions_b
+  Attributes: readonly,updated
+  Extents:
+    0 .. 2767 linear super 2048
+------------------------
+  Name: product_b
+  Group: qti_dynamic_partitions_b
+  Attributes: readonly,updated
+  Extents:
+    0 .. 2301423 linear super 6144
+------------------------
+  Name: system_b
+  Group: qti_dynamic_partitions_b
+  Attributes: readonly,updated
+  Extents:
+    0 .. 3050023 linear super 2308096
+    3050024 .. 3051351 linear super 4816
+    3051352 .. 3051879 linear super 2307568
+    3051880 .. 3053375 linear super 5358120
+    3053376 .. 3054567 linear super 5360472
+    3054568 .. 3054599 linear super 6455264
+    3054600 .. 3056239 linear super 9703832
+    3056240 .. 3107751 linear super 9841840
+------------------------
+  Name: system_dlkm_b
+  Group: qti_dynamic_partitions_b
+  Attributes: readonly,updated
+  Extents:
+    0 .. 855 linear super 5359616
+------------------------
+  Name: system_ext_b
+  Group: qti_dynamic_partitions_b
+  Attributes: readonly,updated
+  Extents:
+    0 .. 1093599 linear super 5361664
+------------------------
+  Name: vendor_b
+  Group: qti_dynamic_partitions_b
+  Attributes: readonly,updated
+  Extents:
+    0 .. 3248535 linear super 6455296
+------------------------
+  Name: vendor_dlkm_b
+  Group: qti_dynamic_partitions_b
+  Attributes: readonly,updated
+  Extents:
+    0 .. 136367 linear super 9705472
+------------------------
+  Name: odm_b-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 8327 linear super 9893352
+------------------------
+  Name: product_b-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 44767 linear super 9901680
+------------------------
+  Name: system_b-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 147327 linear super 9946448
+------------------------
+  Name: system_dlkm_b-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 8303 linear super 10093776
+------------------------
+  Name: system_ext_b-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 25599 linear super 10102080
+------------------------
+  Name: vendor_b-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 60079 linear super 10127680
+------------------------
+  Name: vendor_dlkm_b-cow
+  Group: cow
+  Attributes: none
+  Extents:
+    0 .. 10591 linear super 10187760
+------------------------
+Super partition layout:
+
+----- SLOT 2 -----
+Slot 2:
+Metadata version: 10.2
+Metadata size: 1360 bytes
+Metadata max size: 65536 bytes
+Metadata slot count: 3
+Header flags: virtual_ab_device
+Partition table:
+------------------------
+  Name: odm_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly
+  Extents:
+    0 .. 2767 linear super 2048
+------------------------
+  Name: odm_b
+  Group: qti_dynamic_partitions_b
+  Attributes: readonly
+  Extents:
+------------------------
+  Name: product_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly
+  Extents:
+    0 .. 2301423 linear super 6144
+------------------------
+  Name: product_b
+  Group: qti_dynamic_partitions_b
+  Attributes: readonly
+  Extents:
+------------------------
+  Name: system_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly
+  Extents:
+    0 .. 3050023 linear super 2308096
+------------------------
+  Name: system_b
+  Group: qti_dynamic_partitions_b
+  Attributes: readonly
+  Extents:
+------------------------
+  Name: system_dlkm_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly
+  Extents:
+    0 .. 855 linear super 5359616
+------------------------
+  Name: system_dlkm_b
+  Group: qti_dynamic_partitions_b
+  Attributes: readonly
+  Extents:
+------------------------
+  Name: system_ext_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly
+  Extents:
+    0 .. 1093599 linear super 5361664
+------------------------
+  Name: system_ext_b
+  Group: qti_dynamic_partitions_b
+  Attributes: readonly
+  Extents:
+------------------------
+  Name: vendor_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly
+  Extents:
+    0 .. 3248535 linear super 6455296
+------------------------
+  Name: vendor_b
+  Group: qti_dynamic_partitions_b
+  Attributes: readonly
+  Extents:
+------------------------
+  Name: vendor_dlkm_a
+  Group: qti_dynamic_partitions_a
+  Attributes: readonly
+  Extents:
+    0 .. 136367 linear super 9705472
+------------------------
+  Name: vendor_dlkm_b
+  Group: qti_dynamic_partitions_b
+  Attributes: readonly
+  Extents:
+------------------------
+Super partition layout:
+------------------------
+super: 2048 .. 4816: odm_a (2768 sectors)
+super: 6144 .. 2307568: product_a (2301424 sectors)
+super: 2308096 .. 5358120: system_a (3050024 sectors)
+super: 5359616 .. 5360472: system_dlkm_a (856 sectors)
+super: 5361664 .. 6455264: system_ext_a (1093600 sectors)
+super: 6455296 .. 9703832: vendor_a (3248536 sectors)
+super: 9705472 .. 9841840: vendor_dlkm_a (136368 sectors)
+------------------------
+Block device table:
+------------------------
+  Partition name: super
+  First sector: 2048
+  Size: 12884901888 bytes
+
+========== EXTRACTION DESTINATION ==========
+Destination is clear: /home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  238G  107G  124G  47% /home
+
+INSPECTION ONLY: no partitions extracted and no source files modified
