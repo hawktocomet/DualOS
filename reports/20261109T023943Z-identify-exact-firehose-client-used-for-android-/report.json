@@ -1,0 +1,19 @@
+{
+  "id": "20261109T023943Z-identify-exact-firehose-client-used-for-android-",
+  "title": "Identify exact Firehose client used for Android partition captures",
+  "created_utc": "2026-11-09T02:39:43.414927+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-lc",
+    "\necho \"========== RECOVERY PROCEDURE READ COMMANDS ==========\"\nfor F in \\\n  /home/hawk/duo_forensics/firehose_method_recovery_20261101_235248.txt \\\n  /home/hawk/duo_forensics/firehose_method_minimal.txt \\\n  /home/hawk/duo_forensics/abl_a_firehose_readback.log \\\n  /home/hawk/duo_forensics/firehose_abl_write_prep_20261101_235214.txt \\\n  /home/hawk/duo_edl/edl_partition_read.log \\\n  /home/hawk/duo_edl/edl/README.md\ndo\n  if [ -f \"$F\" ]; then\n    echo\n    echo \"----- $F -----\"\n    grep -niE -C 3 \"edl\\.py|/edl |\\.venv/bin/edl|python.*edl|Dumped sector|read.*partition|partition.*read|--loader|--memory\" \"$F\" 2>/dev/null | head -n 180\n  fi\ndone\n\necho\necho \"========== CAPTURE LOG LOCATIONS ==========\"\nfind /home/hawk/duo_edl /home/hawk/duo_forensics \\\n  -maxdepth 7 -type f \\\n  \\( -iname \"*partition*read*.log\" -o -iname \"*edl*.log\" -o -iname \"*firehose*.log\" \\) \\\n  -printf \"%TY-%Tm-%Td %TH:%TM %s %p\\n\" 2>/dev/null | sort\n\necho\necho \"========== CLIENT CHECKOUT IDENTITIES ==========\"\nfor D in \\\n  /home/hawk/duo_edl/edl \\\n  /home/hawk/duo_forensics/recovery_probe/bkerler-edl\ndo\n  if [ -d \"$D/.git\" ]; then\n    echo \"--- $D ---\"\n    git -C \"$D\" remote -v 2>/dev/null | head -n 4\n    git -C \"$D\" log -1 --format=\"%H %cs %s\" 2>/dev/null\n  fi\ndone\n\necho\necho \"INSPECTION ONLY: no device commands executed\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.159,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}

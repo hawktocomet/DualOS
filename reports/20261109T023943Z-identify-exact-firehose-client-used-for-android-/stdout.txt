@@ -1,0 +1,112 @@
+========== RECOVERY PROCEDURE READ COMMANDS ==========
+
+----- /home/hawk/duo_forensics/firehose_method_recovery_20261101_235248.txt -----
+
+----- /home/hawk/duo_forensics/firehose_method_minimal.txt -----
+23-===== EDL TOOL VALIDATION =====
+24-Repository: /home/hawk/duo_forensics/recovery_probe/bkerler-edl
+25-Python:     /home/hawk/duo_forensics/recovery_probe/venv/bin/python
+26:Script:     /home/hawk/duo_forensics/recovery_probe/bkerler-edl/edl.py
+27-
+28-===== CHECKING DEVICE EDL MODE =====
+29-Bus 001 Device 044: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+--
+69-firehose - INFO: fixgpt
+70-firehose - INFO: End of supported functions 14
+71-firehose_client
+72:firehose_client - [LIB]: [33mNo --memory option set, we assume "UFS" as default ..., if it fails, try using "--memory" with "UFS","NAND" or "spinor" instead ![0m
+73-firehose
+74-firehose - [LIB]: [33mCouldn't detect MaxPayloadSizeFromTargetinBytes[0m
+75-firehose
+
+----- /home/hawk/duo_forensics/abl_a_firehose_readback.log -----
+59------------------
+60-program,read,nop,patch,configure,setbootablestoragedrive,erase,power,firmwarewrite,getstorageinfo,benchmark,emmc,ufs,fixgpt
+61-firehose - 
+62:Reading from physical partition 0, sector 1968640, sectors 2048
+63-
+Done |----------|   0.0% Read (Sector 0x0 of 0x800) 0.00 MB/s                 
+Progress: |██████████| 100.0% Read (Sector 0x800 of 0x800, ) 33.98 MB/s       
+64:Dumped sector 1968640 with sector count 2048 as /home/hawk/duo_forensics/abl_a_firehose_readback.img.
+
+----- /home/hawk/duo_forensics/firehose_abl_write_prep_20261101_235214.txt -----
+
+----- /home/hawk/duo_edl/edl/README.md -----
+62-- `edlclient/Library/sahara_defs.py` - Added V3 command constant
+63-- `edlclient/Library/sahara.py` - Added V3 chip info reading and improved output format
+64-
+65:> **Note**: If autodetection still fails, you can use `--loader` option to specify a loader manually.
+66-  
+67-### Use LiveDVD (everything ready to go, based on Ubuntu):
+68-User: user, Password:user (based on Ubuntu 22.04 LTS)
+--
+199-### Generic
+200-
+201-- ```edl -h``` -> to see help with all options
+202:- ```edl server --memory=ufs --tcpport=1340``` -> Run TCP/IP server on port 1340, see tcpclient.py for an example client
+203-- ```edl xml run.xml``` -> To send a xml file run.xml via firehose
+204-- ```edl reset``` -> To reboot the phone
+205-- ```edl rawxml <xmlstring>``` -> To send own xml string, example :
+--
+226-
+227-### For UFS Flash
+228-
+229:- ```edl printgpt --memory=ufs --lun=0``` -> to print gpt on lun 0
+230:- ```edl printgpt --memory=ufs``` -> to print gpt of all lun
+231:- ```edl rf lun0.bin --memory=ufs --lun=0``` -> to dump whole lun 0
+232:- ```edl rf flash.bin --memory=ufs``` -> to dump all luns as lun0_flash.bin, lun1_flash.bin, ...
+233:- ```edl rl dumps --memory=ufs --lun=0 --skip=userdata,vendor_a``` -> to dump all partitions from lun0 to directory dumps for device with ufs and skip userdata and vendor_a partition
+234:- ```edl rl dumps --memory=ufs --genxml``` -> to dump all partitions from all lun to directory dumps and write rawprogram[lun].xml
+235:- ```edl rs 0 15 data.bin --memory=ufs --lun=0``` -> to dump 15 sectors from starting sector 0 from lun 0 to file data.bin
+236:- ```edl r boot_a boot.img --memory=ufs --lun=4``` -> to dump the partition "boot_a" from lun 4 to the filename boot.img
+237:- ```edl r boot_a boot.img --memory=ufs``` -> to dump the partition "boot_a" to the filename boot.img using lun autodetection
+238:- ```edl r boot_a,boot_b boot_a.img,boot_b.img --memory=ufs``` -> to dump multiple partitions to multiple filenames
+239:- ```edl footer footer.bin --memory=ufs``` -> to dump the crypto footer
+240:- ```edl w boot boot.img --memory=ufs --lun=4``` -> to write boot.img to the "boot" partition on lun 4 on the device with ufs flash
+241:- ```edl w gpt gpt.img --memory=ufs --lun=4``` -> to write gpt partition table from gpt.img to the lun 4 on the device with ufs flash
+242:- ```edl wl dumps --memory=ufs --lun=0``` -> to write all files from "dumps" folder to according partitions to flash lun 0
+243:- ```edl wl dumps --memory=ufs``` -> to write all files from "dumps" folder to according partitions to flash and try to autodetect lun
+244:- ```edl wf dump.bin --memory=ufs --lun=0``` -> to write the rawimage dump.bin to flash lun 0
+245:- ```edl e misc --memory=ufs --lun=0``` -> to erase the partition misc on lun 0
+246:- ```edl gpt . --genxml --memory=ufs``` -> dump gpt_main[lun].bin/gpt_backup[lun].bin and write rawprogram[lun].xml to current directory (".")
+247-
+248-### QFIL emulation (credits to LyuOnLine):
+249-
+--
+280-##### Sierra Wireless Modem
+281-- Send AT!BOOTHOLD and AT!QPSTDLOAD to modem port or use ```modem/boottodwnload.py``` script
+282-- Send AT!ENTERCND="A710" and then AT!EROPTION=0 for memory dump
+283:- ```edl --vid 1199 --pid 9070 --loader=loaders/NPRG9x35p.bin printgpt``` -> To show the partition table
+284-
+285-##### Netgear MR1100
+286-- run ```boottodownload```, device will enter download mode (0x900E pid)
+287:- ```edl printgpt --loader=Loaders/qualcomm/patched/mdm9x5x/NPRG9x55p.bin```, device will reboot to 0x9008
+288-- now use edl regulary such as ```edl printgpt``` (do not use loader option)
+289-
+290-##### ZTE MF920V, Quectel, Telit, etc.. Modem
+--
+306-- ```qc_diag -vid 0x1234 -pid 0x5678 -interface 0 -cmd 00``` -> Send cmd "00" (hexstring)
+307-- ```qc_diag -vid 0x1234 -pid 0x5678 -interface 0 -nvread 0x55``` -> Display nvitem 0x55
+308-- ```qc_diag -vid 0x1234 -pid 0x5678 -interface 0 -nvbackup backup.json``` -> Backup all nvitems to a json structured file
+309:- ```qc_diag -vid 0x1234 -pid 0x5678 -interface 0 -efsread efs.bin``` -> Dump the EFS Modem partition to file efs.bin
+310-- ```qc_diag -vid 0x1234 -pid 0x5678 -interface 0 -efslistdir /``` -> Display / directory listing of EFS
+311-
+312-
+
+========== CAPTURE LOG LOCATIONS ==========
+2026-11-01 23:55 2833 /home/hawk/duo_forensics/abl_a_firehose_readback.log
+2026-11-02 09:44 44272 /home/hawk/duo_forensics/android_boot_chain_20261102_094334/edl_partition_read.log
+2026-11-03 14:03 2833 /home/hawk/duo_edl/gist_migration_backup_20261103_135803/gists/d485ff793b496f7d2f481450b72bab15/abl_a_firehose_readback.log
+2026-11-03 14:03 2833 /home/hawk/duo_edl/migration_work/duo-lite-reports/archive/gists/d485ff793b496f7d2f481450b72bab15/abl_a_firehose_readback.log
+
+========== CLIENT CHECKOUT IDENTITIES ==========
+--- /home/hawk/duo_edl/edl ---
+origin	https://github.com/bkerler/edl.git (fetch)
+origin	https://github.com/bkerler/edl.git (push)
+1cda1a616748d608667b2d13b73a28d3197ceb45 2026-09-19 Update Loader
+--- /home/hawk/duo_forensics/recovery_probe/bkerler-edl ---
+origin	https://github.com/bkerler/edl.git (fetch)
+origin	https://github.com/bkerler/edl.git (push)
+1cda1a616748d608667b2d13b73a28d3197ceb45 2026-09-19 Update Loader
+
+INSPECTION ONLY: no device commands executed
