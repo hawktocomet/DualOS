@@ -1,0 +1,19 @@
+{
+  "id": "20261109T033750Z-pocket-recompiler-target-storage-audit",
+  "title": "pocket-recompiler-target-storage-audit",
+  "created_utc": "2026-11-09T03:37:50.020493+00:00",
+  "cwd": "/home/hawk/source/pocket-recompiler/target",
+  "command": [
+    "bash",
+    "-c",
+    "\nROOT=\"$HOME/source/pocket-recompiler/target\"\n\necho \"========== TARGET DIRECTORY BREAKDOWN ==========\"\ndu -xhd2 \"$ROOT\" 2>/dev/null | sort -h | tail -n 60\n\necho\necho \"========== LARGEST FILES ==========\"\nfind \"$ROOT\" -xdev -type f -printf \"%s\\t%p\\n\" 2>/dev/null |\n  sort -nr | head -n 40 |\n  numfmt --field=1 --to=iec --suffix=B\n\necho\necho \"========== TOP-LEVEL CONTENTS ==========\"\nls -lah \"$ROOT\"\n\necho\necho \"READ-ONLY: no files modified\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 1.233,
+  "git": {
+    "root": "/home/hawk/source/pocket-recompiler",
+    "commit": "f83f76cbd0b18f7e5f6a5b68c7e4f0eaf5ca4215",
+    "branch": "main",
+    "status": ""
+  }
+}

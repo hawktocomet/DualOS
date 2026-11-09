@@ -1,0 +1,101 @@
+========== TARGET DIRECTORY BREAKDOWN ==========
+0	/home/hawk/source/pocket-recompiler/target/debug/build
+0	/home/hawk/source/pocket-recompiler/target/debug/examples
+0	/home/hawk/source/pocket-recompiler/target/release/build
+0	/home/hawk/source/pocket-recompiler/target/release/examples
+0	/home/hawk/source/pocket-recompiler/target/release/incremental
+8.0K	/home/hawk/source/pocket-recompiler/target/android-app-exec-test/bin
+8.0K	/home/hawk/source/pocket-recompiler/target/android-app-exec-test/compiler-proof
+12K	/home/hawk/source/pocket-recompiler/target/android-exec-test
+24K	/home/hawk/source/pocket-recompiler/target/android-child-test
+64K	/home/hawk/source/pocket-recompiler/target/debug/.fingerprint
+80K	/home/hawk/source/pocket-recompiler/target/release/.fingerprint
+136K	/home/hawk/source/pocket-recompiler/target/android-app-exec-test/build
+360K	/home/hawk/source/pocket-recompiler/target/debug/deps
+364K	/home/hawk/source/pocket-recompiler/target/android-app-exec-test/.gradle
+4.1M	/home/hawk/source/pocket-recompiler/target/aarch64-linux-android/release
+4.9M	/home/hawk/source/pocket-recompiler/target/release/deps
+5.0M	/home/hawk/source/pocket-recompiler/target/aarch64-linux-android/debug
+5.0M	/home/hawk/source/pocket-recompiler/target/release
+5.4M	/home/hawk/source/pocket-recompiler/target/debug/incremental
+5.9M	/home/hawk/source/pocket-recompiler/target/debug
+9.1M	/home/hawk/source/pocket-recompiler/target/aarch64-linux-android
+12M	/home/hawk/source/pocket-recompiler/target/android-app-exec-test/app
+13M	/home/hawk/source/pocket-recompiler/target/android-app-exec-test
+110M	/home/hawk/source/pocket-recompiler/target/pocket-native-fastmem-import
+110M	/home/hawk/source/pocket-recompiler/target/pocket-native-fastmem-import/Poochy & Yoshi's Woolly World
+167M	/home/hawk/source/pocket-recompiler/target/releases
+257M	/home/hawk/source/pocket-recompiler/target/android-clang-builder/device-test-package
+440M	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100.generation
+2.2G	/home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100
+2.2G	/home/hawk/source/pocket-recompiler/target/pocket-native-import
+2.2G	/home/hawk/source/pocket-recompiler/target/pocket-native-import/Poochy & Yoshi's Woolly World
+2.6G	/home/hawk/source/pocket-recompiler/target/pocket-native-export
+15G	/home/hawk/source/pocket-recompiler/target/android-clang-builder
+15G	/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source
+21G	/home/hawk/source/pocket-recompiler/target
+
+========== LARGEST FILES ==========
+2.0GB /home/hawk/source/pocket-recompiler/target/pocket-native-import/Poochy & Yoshi's Woolly World/game.3ds
+2.0GB /home/hawk/source/pocket-recompiler/target/pocket-native-fastmem-import/Poochy & Yoshi's Woolly World/game.3ds
+2.0GB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100/game.3ds
+1.7GB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/bin/clang-22
+991MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/bin/lld
+460MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libclangSema.a
+313MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libclangAST.a
+307MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libLLVMCodeGen.a
+249MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libclangCodeGen.a
+201MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libclangStaticAnalyzerCheckers.a
+175MB /home/hawk/source/pocket-recompiler/target/pocket-native-import/Poochy & Yoshi's Woolly World/title.so
+165MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libLLVMAnalysis.a
+160MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/src/llvm-project-22.1.0-rc3.src.tar.xz
+152MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libLLVMX86CodeGen.a
+148MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libLLVMScalarOpts.a
+146MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libLLVMipo.a
+140MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/device-test-package/bin/clang
+126MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libLLVMAArch64CodeGen.a
+115MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libLLVMTransformUtils.a
+112MB /home/hawk/source/pocket-recompiler/target/00040000001A4100-device.so
+110MB /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100/title.so
+110MB /home/hawk/source/pocket-recompiler/target/pocket-native-fastmem-import/Poochy & Yoshi's Woolly World/title.so
+108MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libclangDriver.a
+108MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libLLVMCore.a
+106MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libLLVMVectorize.a
+94MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/liblldELF.a
+90MB /home/hawk/source/pocket-recompiler/target/releases/pocket-native-forge-v0.1.0.apk
+82MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libLLVMSelectionDAG.a
+80MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/device-test-package/bin/lld
+78MB /home/hawk/source/pocket-recompiler/target/releases/pn-forge-android-arm64-toolchain.tar.gz
+76MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libclangStaticAnalyzerCore.a
+73MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libclangSerialization.a
+72MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libclangFrontend.a
+63MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libLLVMInstrumentation.a
+60MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libLLVMSupport.a
+60MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libLLVMObjectYAML.a
+54MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libclangAnalysis.a
+53MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libclangBasic.a
+49MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libLLVMPasses.a
+49MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libLLVMInstCombine.a
+
+========== TOP-LEVEL CONTENTS ==========
+total 112M
+drwxr-xr-x 1 hawk hawk  598 Nov  8 22:37 .
+drwxr-xr-x 1 hawk hawk  182 Nov  7 22:43 ..
+-rw-r--r-- 1 hawk hawk 112M Nov  7 21:18 00040000001A4100-device.so
+drwxr-xr-x 1 hawk hawk   48 Nov  7 16:55 aarch64-linux-android
+drwxr-xr-x 1 hawk hawk  150 Nov  7 19:29 android-app-exec-test
+drwxr-xr-x 1 hawk hawk   52 Nov  7 16:59 android-child-test
+drwxr-xr-x 1 hawk hawk   92 Nov  7 19:17 android-clang-builder
+drwxr-xr-x 1 hawk hawk   24 Nov  7 16:58 android-exec-test
+-rw-r--r-- 1 hawk hawk  31K Nov  7 21:45 android-integration-source.txt
+-rw-r--r-- 1 hawk hawk 2.1K Nov  7 21:45 app-integration-inventory.txt
+-rw-r--r-- 1 hawk hawk  177 Nov  7 13:37 CACHEDIR.TAG
+drwxr-xr-x 1 hawk hawk  136 Nov  7 13:37 debug
+drwxr-xr-x 1 hawk hawk   86 Nov  7 16:47 pocket-native-export
+drwxr-xr-x 1 hawk hawk   58 Nov  7 15:24 pocket-native-fastmem-import
+drwxr-xr-x 1 hawk hawk   58 Nov  7 14:50 pocket-native-import
+drwxr-xr-x 1 hawk hawk  300 Nov  7 16:28 release
+drwxr-xr-x 1 hawk hawk  138 Nov  7 22:46 releases
+-rw-r--r-- 1 hawk hawk 2.2K Nov  7 16:55 .rustc_info.json
+
+READ-ONLY: no files modified
