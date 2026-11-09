@@ -1,0 +1,14 @@
+
+=== LOCATE SIGNED EFI ARTIFACT ===
+Artifact: out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi
+out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi: PE32+ executable for EFI (application), ARM64, 6 sections
+Artifact SHA256: 4b066ad11e222529a0ad526fa11c20e63ffb1480a819c4a45dbcac71b208ef55
+
+=== IDENTIFY SD PARTITION BY PARTUUID ===
+Matched partition: /dev/mmcblk0p1
+/dev/mmcblk0p1: LABEL_FATBOOT="GBLTEST" LABEL="GBLTEST" UUID="DD36-A492" BLOCK_SIZE="512" TYPE="vfat" PARTLABEL="primary" PARTUUID="1b806d74-8676-4e78-a90a-9c209e214d81"
+
+=== MOUNT SD PARTITION IF NEEDED ===
+Already mounted at: /mnt/dualos-check
+Mount source: /dev/mmcblk0p1
+STOP: expected existing EFI destination not found: /mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI
