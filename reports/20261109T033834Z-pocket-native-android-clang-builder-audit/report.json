@@ -1,0 +1,19 @@
+{
+  "id": "20261109T033834Z-pocket-native-android-clang-builder-audit",
+  "title": "pocket-native-android-clang-builder-audit",
+  "created_utc": "2026-11-09T03:38:34.162524+00:00",
+  "cwd": "/home/hawk/source/pocket-recompiler/target",
+  "command": [
+    "bash",
+    "-c",
+    "\nROOT=\"$HOME/source/pocket-recompiler/target/android-clang-builder\"\n\necho \"========== BUILDER BREAKDOWN ==========\"\ndu -xhd3 \"$ROOT\" 2>/dev/null | sort -h | tail -n 60\n\necho\necho \"========== TOP-LEVEL CONTENTS ==========\"\nls -lah \"$ROOT\"\n\necho\necho \"========== GIT CHECKOUTS ==========\"\nfind \"$ROOT\" -maxdepth 5 -type d -name .git -print 2>/dev/null\n\necho\necho \"========== LARGE SOURCE ARCHIVES ==========\"\nfind \"$ROOT\" -type f \\( -name \"*.tar\" -o -name \"*.tar.xz\" -o -name \"*.tar.gz\" -o -name \"*.zip\" \\) \\\n  -printf \"%s\\t%p\\n\" 2>/dev/null | sort -nr | head -n 20 | numfmt --field=1 --to=iec --suffix=B\n\necho\necho \"========== BUILD DIRECTORY MARKERS ==========\"\nfind \"$ROOT\" -maxdepth 7 -type f \\( -name CMakeCache.txt -o -name build.ninja -o -name Makefile \\) \\\n  -printf \"%p\\n\" 2>/dev/null | head -n 50\n\necho\necho \"READ-ONLY: no files modified\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.682,
+  "git": {
+    "root": "/home/hawk/source/pocket-recompiler",
+    "commit": "f83f76cbd0b18f7e5f6a5b68c7e4f0eaf5ca4215",
+    "branch": "main",
+    "status": ""
+  }
+}

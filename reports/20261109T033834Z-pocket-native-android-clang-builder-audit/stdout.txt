@@ -1,0 +1,43 @@
+========== BUILDER BREAKDOWN ==========
+8.0K	/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/.git/info
+8.0K	/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/.git/refs
+12K	/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/.git/logs
+20K	/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/tools
+20K	/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/tools/toolchain-patches
+32K	/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/scripts
+64K	/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/.git/hooks
+524K	/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/.git/objects
+1.2M	/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/.git
+15M	/home/hawk/source/pocket-recompiler/target/android-clang-builder/device-test-package/lib
+15M	/home/hawk/source/pocket-recompiler/target/android-clang-builder/device-test-package/lib/clang
+24M	/home/hawk/source/pocket-recompiler/target/android-clang-builder/device-test-package/sysroot
+24M	/home/hawk/source/pocket-recompiler/target/android-clang-builder/device-test-package/sysroot/usr
+219M	/home/hawk/source/pocket-recompiler/target/android-clang-builder/device-test-package/bin
+257M	/home/hawk/source/pocket-recompiler/target/android-clang-builder/device-test-package
+15G	/home/hawk/source/pocket-recompiler/target/android-clang-builder
+15G	/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source
+15G	/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build
+15G	/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain
+
+========== TOP-LEVEL CONTENTS ==========
+total 4.0K
+drwxr-xr-x 1 hawk hawk  92 Nov  7 19:17 .
+drwxr-xr-x 1 hawk hawk 598 Nov  8 22:37 ..
+-rw-r--r-- 1 hawk hawk 633 Nov  7 17:19 Containerfile
+drwxr-xr-x 1 hawk hawk  26 Nov  7 19:18 device-test-package
+drwxr-xr-x 1 hawk hawk  42 Nov  7 17:20 tinaide-source
+
+========== GIT CHECKOUTS ==========
+/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/.git
+
+========== LARGE SOURCE ARCHIVES ==========
+160MB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/src/llvm-project-22.1.0-rc3.src.tar.xz
+7.8KB /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/src/llvm-project-22.1.0-rc3-pathfix0-execwrap0/lldb/unittests/Host/common/Inputs/zip-test.zip
+
+========== BUILD DIRECTORY MARKERS ==========
+/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/host/CMakeCache.txt
+/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/host/build.ninja
+/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/CMakeCache.txt
+/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/build.ninja
+
+READ-ONLY: no files modified
