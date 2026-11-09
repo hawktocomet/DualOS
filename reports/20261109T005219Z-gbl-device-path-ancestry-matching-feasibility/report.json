@@ -1,0 +1,13 @@
+{
+  "id": "20261109T005219Z-gbl-device-path-ancestry-matching-feasibility",
+  "title": "GBL device-path ancestry matching feasibility",
+  "created_utc": "2026-11-09T00:52:19.178805+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\nGBL=bootable/libbootloader\ncd \"$GBL\" || exit 1\n\necho \"===== GENERIC EFI PROTOCOL HANDLE AND POINTER API =====\"\nrg -n -C 8 \"pub struct Protocol|impl.*Protocol|fn interface_ptr|fn handle\\\\(\" gbl/libefi/src\n\necho\necho \"===== DEVICE PATH HEADER DEFINITIONS =====\"\nrg -n -C 8 \\\n  \"struct EfiDevicePathProtocol|EFI_DEVICE_PATH_TYPE_END|EFI_END_OF_HARDWARE_DEVICE_PATH_SUB_TYPE_END_ENTIRE_DEVICE_PATH|EFI_MEDIA_DEVICE_PATH_SUB_TYPE_HARD_DRIVE\" \\\n  gbl/libefi_types gbl/libefi/src\n\necho\necho \"===== DEVICE PATH NODE PARSING AND COMPARISON HELPERS =====\"\nrg -n -C 5 \\\n  \"EfiDevicePathNodeIter|from_bytes|byte_add|device.path.*equal|device.path.*prefix|DevicePath.*PartialEq\" \\\n  gbl/libefi/src gbl/libefi_types\n\necho\necho \"===== BLOCK IO MEDIA PARTITION IDENTIFICATION =====\"\nrg -n -C 5 \"logical_partition|struct EfiBlockIoMedia|EfiBlockIoMedia\" \\\n  gbl/libefi/src gbl/libefi_types\n\necho\necho \"===== AVAILABLE EFI BOOT SERVICE WRAPPERS =====\"\nrg -n -C 4 \"locate_handle|locate_device|LocateDevicePath|open_protocol\" \\\n  gbl/libefi/src\n\necho\necho \"===== END =====\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.034
+}
