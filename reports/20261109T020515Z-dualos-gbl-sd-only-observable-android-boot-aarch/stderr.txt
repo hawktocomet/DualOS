@@ -1,0 +1,29 @@
+Computing main repo mapping: 
+Loading: 
+Loading: 0 packages loaded
+Analyzing: target @@gbl+//efi:aarch64_dev (0 packages loaded, 0 targets configured)
+Analyzing: target @@gbl+//efi:aarch64_dev (0 packages loaded, 0 targets configured)
+
+INFO: Analyzed target @@gbl+//efi:aarch64_dev (0 packages loaded, 0 targets configured).
+INFO: From BazelWorkspaceStatusAction stable-status.txt:
+BUILD_BRANCH=gbl-mainline
+BUILD_NUMBER=eng.hawk.2026-11-08
+BUILD_REVISION=2392920e8324-dirty
+ERROR: /home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/external/gbl+/efi/BUILD:42:13: Clippy @@gbl+//efi:libgbl_efi failed: (Exit 1): process_wrapper failed: error executing Clippy command (from aspects [@@gbl+//toolchain:clippy.bzl%gbl_clippy_aspect] on rust_library rule target @@gbl+//efi:libgbl_efi) bazel-out/k8-opt-exec/bin/external/rules_rust+/util/process_wrapper/process_wrapper --subst 'pwd=${pwd}' --touch-file bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/libgbl_efi.clippy.ok ... (remaining 153 arguments skipped)
+
+Use --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging
+error[E0308]: mismatched types
+   --> external/gbl+/efi/src/efi_blocks.rs:130:1
+    |
+130 | #[profile(backend = EfiProfileBackend::new(efi_entry))]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected `DevicePathText<'_>`, found `String`
+    |
+    = note: this error originates in the macro `alloc::format` which comes from the expansion of the attribute macro `profile` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: aborting due to 1 previous error
+
+For more information about this error, try `rustc --explain E0308`.
+Use --verbose_failures to see the command lines of failed build steps.
+INFO: Elapsed time: 0.783s, Critical Path: 0.61s
+INFO: 3 processes: 1 action cache hit, 3 internal.
+ERROR: Build did NOT complete successfully

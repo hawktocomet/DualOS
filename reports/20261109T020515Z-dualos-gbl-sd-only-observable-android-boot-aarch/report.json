@@ -1,0 +1,13 @@
+{
+  "id": "20261109T020515Z-dualos-gbl-sd-only-observable-android-boot-aarch",
+  "title": "DualOS GBL SD-only observable Android boot AArch64 build",
+  "created_utc": "2026-11-09T02:05:15.182295+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd \"$HOME/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader\" || exit 2\n./gbl/bazel.sh build \\\n  --extra_toolchains=@gbl//toolchain:all \\\n  @gbl//efi:aarch64_dev\n"
+  ],
+  "exit_code": 1,
+  "duration_seconds": 0.851
+}
