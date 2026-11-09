@@ -1,0 +1,310 @@
+========== FILESYSTEM ==========
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  238G  115G  117G  50% /home
+
+========== TOP-LEVEL DIRECTORY SIZES ==========
+        0.00 GiB  /home/hawk/abl_backup
+        0.00 GiB  /home/hawk/azahar-duolite-staging
+        0.00 GiB  /home/hawk/.debug
+        0.00 GiB  /home/hawk/Desktop
+        0.00 GiB  /home/hawk/Music
+        0.00 GiB  /home/hawk/Projects
+        0.00 GiB  /home/hawk/Public
+        0.00 GiB  /home/hawk/Templates
+        0.00 GiB  /home/hawk/Videos
+        0.00 GiB  /home/hawk/duolite-abl-backup
+        0.00 GiB  /home/hawk/.cmake
+        0.00 GiB  /home/hawk/logs
+        0.00 GiB  /home/hawk/.ssh
+        0.00 GiB  /home/hawk/.repoconfig
+        0.00 GiB  /home/hawk/bin
+        0.00 GiB  /home/hawk/duo_boot_research_20261031_140134
+        0.00 GiB  /home/hawk/ghidra_scripts
+        0.00 GiB  /home/hawk/lasrecomp-duolite-test
+        0.00 GiB  /home/hawk/Pictures
+        0.00 GiB  /home/hawk/.gnupg
+        0.00 GiB  /home/hawk/trinket-dt
+        0.00 GiB  /home/hawk/dualos-sd-backups
+        0.00 GiB  /home/hawk/.agents
+        0.00 GiB  /home/hawk/DualOS
+        0.00 GiB  /home/hawk/duo_boot_research_20261031_090909
+        0.00 GiB  /home/hawk/.java
+        0.00 GiB  /home/hawk/.vnc
+        0.00 GiB  /home/hawk/thor_display
+        0.00 GiB  /home/hawk/DualOS-GBL-diagnostic-2026-11-08
+        0.00 GiB  /home/hawk/duo-lite-reports
+        0.00 GiB  /home/hawk/.android
+        0.00 GiB  /home/hawk/duo_research_agent
+        0.00 GiB  /home/hawk/duo_sd_boot_handoff
+        0.01 GiB  /home/hawk/Duo_Lite_Claude_Handoff
+        0.01 GiB  /home/hawk/lasrecomp-backup-before-0510
+        0.01 GiB  /home/hawk/duo_boot_research_20261031_140208
+        0.01 GiB  /home/hawk/.net
+        0.01 GiB  /home/hawk/3dsrecomp
+        0.02 GiB  /home/hawk/FOTA-src
+        0.02 GiB  /home/hawk/azahar-sm6115-qt6-build
+        0.02 GiB  /home/hawk/.gemini
+        0.03 GiB  /home/hawk/ap30
+        0.03 GiB  /home/hawk/azahar-build-duolite-master
+        0.03 GiB  /home/hawk/.var
+        0.05 GiB  /home/hawk/duo_DTS
+        0.05 GiB  /home/hawk/duo_egl_trace
+        0.05 GiB  /home/hawk/duolite-dt
+        0.06 GiB  /home/hawk/.skiko
+        0.07 GiB  /home/hawk/.cargo
+        0.08 GiB  /home/hawk/RetroidLauncher_src
+        0.09 GiB  /home/hawk/yay
+        0.12 GiB  /home/hawk/ap30_re
+        0.15 GiB  /home/hawk/duo_stutter_test
+        0.16 GiB  /home/hawk/.config
+        0.16 GiB  /home/hawk/AndroidStudioProjects
+        0.21 GiB  /home/hawk/Programs
+        0.46 GiB  /home/hawk/DualOS-source-audit
+        0.49 GiB  /home/hawk/.npm
+        0.54 GiB  /home/hawk/.gradle
+        0.72 GiB  /home/hawk/.rustup
+        1.19 GiB  /home/hawk/azahar-upstream-20261106_144804
+        1.38 GiB  /home/hawk/Downloads
+        1.71 GiB  /home/hawk/.codex
+        1.93 GiB  /home/hawk/zakuro
+        2.57 GiB  /home/hawk/.local
+        3.28 GiB  /home/hawk/pocket-native-test
+        3.39 GiB  /home/hawk/Android
+        4.38 GiB  /home/hawk/.cache
+        6.00 GiB  /home/hawk/Documents
+        6.66 GiB  /home/hawk/Games
+        7.65 GiB  /home/hawk/dualos-rocknix-audit
+       13.25 GiB  /home/hawk/Daijishou
+       28.35 GiB  /home/hawk/duo_edl
+       49.27 GiB  /home/hawk/duo_forensics
+       73.65 GiB  /home/hawk/source
+      208.73 GiB  /home/hawk
+
+========== TOP-LEVEL FILES ==========
+   246012773 bytes  retroarch.apk
+    39912515 bytes  rocknix-qt6-target-build-20261106.log
+    28249679 bytes  RetroidLauncher.apk
+    26801876 bytes  duo-analysis-focused.tar.gz
+    19655240 bytes  libretroarch-activity.so
+    18606527 bytes  duo_trace_vsync_off.perfetto
+    15777419 bytes  duo_trace.perfetto
+     7800512 bytes  surfaceflinger
+     5864016 bytes  msm_drm.ko
+     5193214 bytes  duo_60fps.mp4
+     4527408 bytes  duo_trace.txt
+     4376135 bytes  FOTA.apk
+     3506023 bytes  tempfile
+     2682240 bytes  libandroid_runtime.so
+     2540369 bytes  Duo_Lite_Claude_Handoff.tar.gz
+     2539249 bytes  duo_sd_boot_handoff.tar.gz
+     1566679 bytes  GBL-SOURCE-SCRATCHPAD.txt
+     1556376 bytes  libgui.so
+     1330244 bytes  azahar-upper-visible.png
+     1105920 bytes  duolite-uefi-shell.efi
+      870400 bytes  azaharpics.tar
+      861934 bytes  azahar-lower.png
+      638400 bytes  libsdmcore.so
+      414959 bytes  perf.data
+      251151 bytes  DUO_LITE_BOOT_STRAP_FOLLOWUP.txt
+      227320 bytes  dwc3-msm.ko
+      123699 bytes  DUO_LITE_UEFI_SD_INVESTIGATION.txt
+      102776 bytes  DualOS-GBL-diagnostic-2026-11-08.tar.gz
+       97008 bytes  eglSubDriverAndroid.so
+       71381 bytes  duo_sf_60fps.txt
+       58676 bytes  azahar-qt6-target-correction-audit.txt
+       56949 bytes  DUO_LITE_BOOT_CONFIG_DTB_ANALYSIS.txt
+       44024 bytes  libEGL_adreno.so
+       43769 bytes  azahar-rocknix-build-command-discovery.txt
+       42056 bytes  pmic_glink.ko
+       39520 bytes  libnativewindow.so
+       36943 bytes  duolite-qt-decision-4JGeg4.txt
+       36079 bytes  azahar-sm6115-qt6-final-preflight.txt
+       35824 bytes  ucsi_glink.ko
+       35680 bytes  phy-msm-ssusb-qmp.ko
+       35164 bytes  dualos-filesystem-interface-audit.txt
+       34752 bytes  altmode-glink.ko
+       33585 bytes  azahar-frontend-source-audit.txt
+       31975 bytes  dualos-efi-filesystem-api.txt
+       30167 bytes  duolite-reuse-audit-2Cgj5Y.txt
+       21670 bytes  dualos-efi-implementation-source.txt
+       17879 bytes  .bash_history
+       16162 bytes  azahar-rocknix-package-invocation-audit.txt
+       14684 bytes  duo_sd_boot_report_3.sh
+       14624 bytes  dualos-implementation-context.txt
+       12938 bytes  azahar-output-location-diagnostic.txt
+       12773 bytes  gbl-aarch64-dev-build.log
+       12649 bytes  azahar-rocknix-qt-package-audit.txt
+       12552 bytes  azahar-qt6-build-handoff.txt
+       12498 bytes  azahar-ffmpeg-audit.txt
+       11574 bytes  azahar-qt-target-artifact-audit.txt
+       11175 bytes  azahar-audit-next-output.txt
+       10762 bytes  azahar-build-20261106.log
+       10698 bytes  trace_processor
+        9772 bytes  azahar-sysroot-sonames.txt
+        9324 bytes  azahar-rocknix-package-build-plan.txt
+        8612 bytes  duo_fastboot_vars.txt
+        8532 bytes  azahar-configure-failure-diagnostic.txt
+        8516 bytes  azahar-qt-dependency-audit.txt
+        8292 bytes  duo_sd_boot_report_3_fixed.sh
+        7087 bytes  azahar-sm6115-readiness-audit.txt
+        6899 bytes  azahar-configure-20261106.log
+        6790 bytes  duolite_uefi_sd_investigation.sh
+        6218 bytes  duo-android-sd-audit.sh
+        6121 bytes  duolite-top-black.png
+        6121 bytes  azahar-upper.png
+        5853 bytes  prepare-duolite-uefi-card.sh
+        5719 bytes  azahar-build-plan-handoff.txt
+        4483 bytes  azahar-prepare.sh
+        4427 bytes  flash-rocknix-abl-a-only.sh
+        2349 bytes  azahar-audit-next.sh
+        2240 bytes  javac.20261029_144246.args
+        2074 bytes  gbl-aarch64-device-path-build.log
+        2029 bytes  azahar-sm6115-qt6-stamp-audit.txt
+        2021 bytes  .wget-hsts
+        1871 bytes  azahar-build-step-result.txt
+        1737 bytes  gbl-console-mode-diagnostic.log
+        1466 bytes  gbl-device-path-diagnostic.log
+        1464 bytes  dualos-efi-diagnostic-build.log
+         393 bytes  edl_config.json
+         318 bytes  .bashrc
+         231 bytes  .repo_.gitconfig.json
+         200 bytes  .gitconfig
+         195 bytes  azahar-runtime-inspection.txt
+         170 bytes  log.txt
+         159 bytes  .bash_profile
+          72 bytes  azahar-stage-20261106.log
+          21 bytes  .profile
+          21 bytes  .bash_logout
+           8 bytes  rocknix-qt6-target-build-20261106.pid
+           4 bytes  rocknix-qt6-target-build-20261106.exit
+           0 bytes  trinket-iot-dp-idp.dts
+           0 bytes  duo_edl_report_2.sh
+
+========== HIDDEN TOP-LEVEL DIRECTORIES ==========
+.agents
+.android
+.cache
+.cargo
+.cmake
+.codex
+.config
+.debug
+.gemini
+.gnupg
+.gradle
+.java
+.local
+.net
+.npm
+.repoconfig
+.rustup
+.skiko
+.ssh
+.var
+.vnc
+
+========== GIT REPOSITORIES ==========
+/home/hawk/3dsrecomp
+/home/hawk/azahar-upstream-20261106_144804
+/home/hawk/.cache/yay/android-studio
+/home/hawk/.cache/yay/catppuccin-gtk-theme-mocha
+/home/hawk/.cache/yay/python-minilzo
+/home/hawk/.cache/yay/vmlinux-to-elf
+/home/hawk/.codex/.tmp/plugins
+/home/hawk/Daijishou
+/home/hawk/DualOS
+/home/hawk/DualOS-source-audit/duolinux
+/home/hawk/DualOS-source-audit/freeabl
+/home/hawk/DualOS-source-audit/rocknix
+/home/hawk/duo_edl/edl
+/home/hawk/duo_edl/FreeABL
+/home/hawk/duo_edl/migration_work/duo-lite-reports
+/home/hawk/duo_forensics/abl_source_audit/duolinux
+/home/hawk/duo_forensics/abl_source_audit/OpenABL
+/home/hawk/duo_forensics/duolite-firehose-backup/firehose-program
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl
+/home/hawk/duo_forensics/rocknix_v1.2_source_20261102/rocknix-abl
+/home/hawk/duo-lite-reports
+/home/hawk/Games/gamecube/BetterWW
+/home/hawk/Games/gamecube/WWwidescreenSD
+/home/hawk/pocket-native-test/pocket-native
+/home/hawk/source/DualOS
+/home/hawk/source/DualOS-tools/aosp-libbootloader
+/home/hawk/source/pocket-recompiler
+/home/hawk/trinket-dt
+/home/hawk/yay
+/home/hawk/zakuro
+/home/hawk/zakuro/odysseus
+
+========== VIRTUAL ENVIRONMENTS ==========
+/home/hawk/duo_edl/edl/.venv
+/home/hawk/duo_forensics/duolite-firehose-backup/firehose-program/.venv
+/home/hawk/duo_forensics/recovery_probe/venv
+/home/hawk/Games/gamecube/BetterWW/.venv
+
+========== LARGEST FILES (DEPTH 4) ==========
+    65536.00 MiB  /home/hawk/duo_edl/build/duo-lite-linux-64gb.img
+    12288.00 MiB  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/super.img
+     2097.00 MiB  /home/hawk/dualos-rocknix-audit/rocknix.raw.img
+     1931.69 MiB  /home/hawk/duo_edl/reports/duo_boot_protocol_batch_20261031_171337.txt
+     1931.61 MiB  /home/hawk/duo_edl/reports/duo_protocol_provider_trace_20261031_172145.txt
+     1931.57 MiB  /home/hawk/duo_edl/reports/duo_boot_provider_full_decompilation_20261031_172927.txt
+     1931.40 MiB  /home/hawk/duo_edl/reports/duo_sd_slot_failure_trace_20261031_173011.txt
+     1931.39 MiB  /home/hawk/duo_edl/reports/duo_slot_mapping_20261031_173056.txt
+     1931.38 MiB  /home/hawk/duo_edl/reports/duo_slot_mapping_full_20261031_173303.txt
+     1931.33 MiB  /home/hawk/duo_edl/reports/duo_boot_chain_deep_20261031_173640.txt
+     1930.65 MiB  /home/hawk/duo_edl/reports/duo_boot_chain_decompilation_and_drivers_20261031_174227.txt
+     1929.90 MiB  /home/hawk/duo_edl/reports/duo_controller_and_dxe_20261031_174331.txt
+     1929.87 MiB  /home/hawk/duo_edl/reports/duo_controller_and_dxe_fixed_20261031_174542.txt
+     1929.84 MiB  /home/hawk/duo_edl/reports/duo_image_recovery_20261031_174936.txt
+     1928.18 MiB  /home/hawk/duo_edl/reports/duo_sd_boot_10_batches_20261031_220547.txt
+     1392.34 MiB  /home/hawk/Games/gamecube/The Legend of Zelda - The Wind Waker Widescreen.iso
+     1392.34 MiB  /home/hawk/Games/gamecube/The Legend of Zelda - The Wind Waker.iso
+     1352.49 MiB  /home/hawk/.cache/tracker3/files/meta.db
+     1325.52 MiB  /home/hawk/Downloads/ROCKNIX-SM6115.aarch64-20261101.img.gz
+     1309.25 MiB  /home/hawk/dualos-rocknix-audit/SYSTEM.squashfs
+     1038.30 MiB  /home/hawk/Games/gamecube/patched/Wind Waker BetterWW.iso
+     1024.00 MiB  /home/hawk/duo_edl/build/duo-lite-diagnostic.img
+     1022.00 MiB  /home/hawk/duo_edl/build/duo-lite-boot-partition.img
+      639.51 MiB  /home/hawk/duo_forensics/recovery_probe/RECOVERY_PROBE.txt
+      639.49 MiB  /home/hawk/duo_forensics/recovery_probe/NICOBAR_EXACT_PROGRAMMER_PROBE.txt
+      639.49 MiB  /home/hawk/duo_forensics/recovery_probe/NICOBAR_DEBUG_RETRY.txt
+      639.47 MiB  /home/hawk/duo_forensics/recovery_probe/NICOBAR_FIREHOSE_RETRY.txt
+      638.63 MiB  /home/hawk/duo_forensics/firehose_method_recovery_20261101_235248.txt
+      585.70 MiB  /home/hawk/.cache/llvm-debuginfod/client/llvmcache-10936662395325775086
+      507.32 MiB  /home/hawk/Games/gamecube/texture pack/GZL.zip
+      479.95 MiB  /home/hawk/Games/gamecube/texture pack/Hypatia WWHD Mod v2.0001a (Android-Lite).7z
+      467.08 MiB  /home/hawk/Games/gamecube/texture pack/Hypatia-GZL.tar.gz
+      234.62 MiB  /home/hawk/retroarch.apk
+      223.30 MiB  /home/hawk/.local/bin/agy
+      164.14 MiB  /home/hawk/.local/share/3dsrecomp/0004000000164800.so
+      164.14 MiB  /home/hawk/.cache/3dsrecomp/0004000000164800/0004000000164800.so
+      111.47 MiB  /home/hawk/source/pocket-recompiler/target/00040000001A4100-device.so
+       98.82 MiB  /home/hawk/zakuro/target/release/zakuro
+       97.10 MiB  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018.tar.gz
+       96.00 MiB  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/vendor_boot_b.img
+       96.00 MiB  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/vendor_boot_a.img
+       96.00 MiB  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/boot_b.img
+       96.00 MiB  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/boot_a.img
+       96.00 MiB  /home/hawk/duo_edl/new_authorized_dumps/vendor_boot_a.bin
+       96.00 MiB  /home/hawk/duo_edl/edl/new_authorized_dumps/boot_a.bin
+       91.99 MiB  /home/hawk/Programs/Babysmash/babysmash
+       83.79 MiB  /home/hawk/Downloads/LASRecomp-Android-0.5.10.apk
+       72.02 MiB  /home/hawk/Programs/Komelia/Komelia-0.18.5-linux-x64.jar
+       63.25 MiB  /home/hawk/duo_edl/build/kernel-recovered.elf
+       62.80 MiB  /home/hawk/.codex/cache/remote_plugin_catalog/58a5a30786382195.json
+       53.22 MiB  /home/hawk/duo_edl/edl/boot_a_unpacked/kernel
+       47.38 MiB  /home/hawk/duo_DTS/azahar_backup/base.apk
+       45.94 MiB  /home/hawk/duo_stutter_test/duo_focused_trace.dec.txt
+       43.68 MiB  /home/hawk/duo_stutter_test/duo_sync_trace.dec.txt
+       41.48 MiB  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/framework/framework.jar
+       39.68 MiB  /home/hawk/Programs/Babysmash/BabySmash-linux-x64.tar.gz
+       38.06 MiB  /home/hawk/rocknix-qt6-target-build-20261106.log
+       37.62 MiB  /home/hawk/.npm/_prebuilds/ada27f-frida-v17.23.2-napi-v8-linux-x64.tar.gz
+       33.15 MiB  /home/hawk/dualos-rocknix-audit/KERNEL
+       30.74 MiB  /home/hawk/Android/Sdk/emulator/netsimd
+
+========== BACKUP DESTINATION CHECK ==========
+/home/hawk/Backups does not exist yet
+
+INVENTORY ONLY: no files moved, deleted, or modified

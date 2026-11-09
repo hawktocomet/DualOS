@@ -1,0 +1,13 @@
+{
+  "id": "20261109T030758Z-inventory-home-directory-for-cleanup",
+  "title": "Inventory home directory for cleanup",
+  "created_utc": "2026-11-09T03:07:58.781917+00:00",
+  "cwd": "/home/hawk",
+  "command": [
+    "bash",
+    "-lc",
+    "\nHOME_DIR=\"/home/hawk\"\n\necho \"========== FILESYSTEM ==========\"\ndf -h \"$HOME_DIR\"\necho\n\necho \"========== TOP-LEVEL DIRECTORY SIZES ==========\"\ndu -x -B1 --max-depth=1 \"$HOME_DIR\" 2>/dev/null |\n  sort -n |\n  awk '{ size=$1; $1=\"\"; sub(/^ /,\"\"); printf \"%12.2f GiB  %s\\n\", size/1073741824, $0 }'\necho\n\necho \"========== TOP-LEVEL FILES ==========\"\nfind \"$HOME_DIR\" -maxdepth 1 -type f \\\n  -printf \"%12s bytes  %f\\n\" | sort -nr\necho\n\necho \"========== HIDDEN TOP-LEVEL DIRECTORIES ==========\"\nfind \"$HOME_DIR\" -mindepth 1 -maxdepth 1 -type d -name \".*\" \\\n  -printf \"%f\\n\" | sort\necho\n\necho \"========== GIT REPOSITORIES ==========\"\nfind \"$HOME_DIR\" -maxdepth 4 -type d -name .git -prune \\\n  -printf \"%h\\n\" 2>/dev/null | sort\necho\n\necho \"========== VIRTUAL ENVIRONMENTS ==========\"\nfind \"$HOME_DIR\" -maxdepth 4 -type d \\\n  \\( -name .venv -o -name venv -o -name env \\) -prune \\\n  -printf \"%p\\n\" 2>/dev/null | sort\necho\n\necho \"========== LARGEST FILES (DEPTH 4) ==========\"\nfind \"$HOME_DIR\" -maxdepth 4 -type f -printf \"%s\\t%p\\n\" 2>/dev/null |\n  sort -nr | head -n 60 |\n  awk -F \"\\t\" '{ printf \"%12.2f MiB  %s\\n\", $1/1048576, $2 }'\necho\n\necho \"========== BACKUP DESTINATION CHECK ==========\"\nif [ -e \"$HOME_DIR/Backups\" ]; then\n  ls -ld \"$HOME_DIR/Backups\"\n  find \"$HOME_DIR/Backups\" -mindepth 1 -maxdepth 2 -type d -print | sort\nelse\n  echo \"$HOME_DIR/Backups does not exist yet\"\nfi\n\necho\necho \"INVENTORY ONLY: no files moved, deleted, or modified\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 12.023
+}
