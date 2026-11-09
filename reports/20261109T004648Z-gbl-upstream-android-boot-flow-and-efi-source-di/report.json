@@ -1,0 +1,13 @@
+{
+  "id": "20261109T004648Z-gbl-upstream-android-boot-flow-and-efi-source-di",
+  "title": "GBL upstream Android boot flow and EFI source-disk mapping",
+  "created_utc": "2026-11-09T00:46:48.278695+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\nGBL=bootable/libbootloader\ncd \"$GBL\" || exit 1\n\necho \"===== PINNED REVISION AND LOCAL CHANGES =====\"\ngit rev-parse HEAD\ngit status --short\necho\ngit diff --stat\necho\n\necho \"===== UPSTREAM EFI ENTRYPOINT =====\"\ngit show HEAD:gbl/efi/src/lib.rs | sed -n \"65,260p\"\n\necho\necho \"===== UPSTREAM EFI DISK DISCOVERY =====\"\ngit show HEAD:gbl/efi/src/efi_blocks.rs | sed -n \"115,205p\"\n\necho\necho \"===== UPSTREAM LOADED IMAGE HELPERS =====\"\ngit show HEAD:gbl/efi/src/utils.rs | sed -n \"40,85p\"\n\necho\necho \"===== UPSTREAM OPS CONSTRUCTION AND DISK ACCESS =====\"\ngit grep -n -C 5 \"Ops::new\\\\|find_block_devices\\\\|get_target_os\" HEAD -- gbl/efi/src\n\necho\necho \"===== DEVICE PATH IMPLEMENTATION =====\"\ngit grep -n -C 5 \"struct DevicePathProtocol\\\\|impl.*DevicePathProtocol\\\\|DevicePathNode\\\\|device_path\" HEAD -- gbl/libefi/src/protocol/device_path.rs\n\necho\necho \"===== LOADED IMAGE DEVICE HANDLE API =====\"\ngit show HEAD:gbl/libefi/src/protocol/loaded_image.rs | sed -n \"35,75p\"\n\necho\necho \"===== ANDROID PARTITION RESOLUTION =====\"\ngit grep -n -C 5 \"partition_io\\\\|find_partition\\\\|get_partition_buffer\\\\|disks()\" HEAD -- gbl/libgbl/src\n\necho\necho \"===== END =====\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.037
+}
