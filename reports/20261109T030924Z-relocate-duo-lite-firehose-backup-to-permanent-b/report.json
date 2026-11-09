@@ -1,0 +1,13 @@
+{
+  "id": "20261109T030924Z-relocate-duo-lite-firehose-backup-to-permanent-b",
+  "title": "Relocate Duo Lite Firehose backup to permanent backups",
+  "created_utc": "2026-11-09T03:09:24.094081+00:00",
+  "cwd": "/home/hawk",
+  "command": [
+    "bash",
+    "-lc",
+    "\nOLD=\"/home/hawk/duo_forensics/duolite-firehose-backup\"\nPARENT=\"/home/hawk/Backups/Retroid-Pocket-Duo-Lite\"\nNEW=\"$PARENT/Firehose-Recovery\"\n\necho \"========== PREFLIGHT ==========\"\nif [ ! -d \"$OLD\" ] || [ ! -f \"$OLD/SHA256SUMS\" ]; then\n  echo \"ERROR: source backup or checksum manifest missing\"\n  exit 20\nfi\nif [ -e \"$NEW\" ]; then\n  echo \"ERROR: destination already exists; refusing overwrite\"\n  exit 21\nfi\nmkdir -p \"$PARENT\"\n\necho\necho \"========== MOVE ==========\"\nmv \"$OLD\" \"$NEW\"\nRC=$?\nif [ \"$RC\" -ne 0 ]; then\n  echo \"ERROR: move failed\"\n  exit \"$RC\"\nfi\n\necho\necho \"========== VERIFY ALL CHECKSUMS ==========\"\nVERIFY_LOG=\"/tmp/duolite-firehose-relocation-check.txt\"\n(\n  cd \"$NEW\" || exit 30\n  sha256sum -c SHA256SUMS > \"$VERIFY_LOG\" 2>&1\n)\nRC=$?\nif [ \"$RC\" -ne 0 ]; then\n  echo \"ERROR: checksum verification failed\"\n  tail -n 30 \"$VERIFY_LOG\"\n  exit 31\nfi\n\necho \"All $(wc -l < \"$NEW/SHA256SUMS\") checksum entries passed.\"\n\necho\necho \"========== VERIFY SUPER IMAGE ==========\"\nsha256sum \"$NEW/duo-lite-captures/raw-partitions/super.img\"\n\necho\necho \"========== FINAL LOCATION ==========\"\ndu -sh \"$NEW\"\nls -ld \"$NEW\"\ntest ! -e \"$OLD\" && echo \"Old location is clear.\"\ndf -h /home/hawk\necho \"FIREHOSE_BACKUP_RELOCATION_VERIFIED\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 109.098
+}

@@ -1,0 +1,17 @@
+========== PREFLIGHT ==========
+
+========== MOVE ==========
+
+========== VERIFY ALL CHECKSUMS ==========
+All 5674 checksum entries passed.
+
+========== VERIFY SUPER IMAGE ==========
+f39072e566e7faa15d730c53b1335763b7eaf310b38bb9de530932c1c59d8d7a  /home/hawk/Backups/Retroid-Pocket-Duo-Lite/Firehose-Recovery/duo-lite-captures/raw-partitions/super.img
+
+========== FINAL LOCATION ==========
+23G	/home/hawk/Backups/Retroid-Pocket-Duo-Lite/Firehose-Recovery
+drwxr-xr-x 1 hawk hawk 176 Nov  8 22:02 /home/hawk/Backups/Retroid-Pocket-Duo-Lite/Firehose-Recovery
+Old location is clear.
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  238G  115G  117G  50% /home
+FIREHOSE_BACKUP_RELOCATION_VERIFIED
