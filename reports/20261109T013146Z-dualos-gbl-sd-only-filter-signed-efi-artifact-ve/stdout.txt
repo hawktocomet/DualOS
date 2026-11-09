@@ -1,0 +1,13 @@
+=== BUILD OUTPUT TARGET ===
+lrwxrwxrwx 1 hawk hawk 211 Nov  8 20:31 /home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/aarch64_dev/gbl_aarch64_dev.efi -> /home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_signed/gbl_aarch64_dev.efi
+/home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi
+=== SIGNED EFI ARTIFACT ===
+-rwxr-xr-x 1 hawk hawk 155648 Nov  8 20:31 /home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi
+/home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi: PE32+ executable for EFI (application), ARM64, 5 sections
+610e939fd609f4bf69c82a71b460aedf95b64c6e676e2f469470ab9c648d4d2e  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi
+=== UNSIGNED EFI ARTIFACT ===
+-rwxr-xr-x 1 hawk hawk 84480 Nov  8 20:31 /home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi
+/home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi: PE32+ executable for EFI (application), ARM64, 5 sections
+b94f0e8ec1a4a2624e66cb361bcbdbd944496f2a8aee566fe9fe08b23338b9c9  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi
+=== BUILD SOURCE REVISION ===
+2392920e832470f38899b068f880971d3a679664
