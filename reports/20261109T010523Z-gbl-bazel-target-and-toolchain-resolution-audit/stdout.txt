@@ -1,0 +1,536 @@
+===== TOOLCHAIN BUILD FILE =====
+# Copyright (C) 2023 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+load("@bazel_skylib//lib:selects.bzl", "selects")
+load("@bazel_skylib//rules:common_settings.bzl", "bool_flag", "bool_setting", "int_flag", "string_flag")
+load("@gbl_config//:variables.bzl", "ENABLE_CROSS_LANG_LTO")
+load(
+    "@gbl_llvm_prebuilts//:info.bzl",
+    "GBL_CPP_CONFIG_INC",
+    "GBL_EFI_SYSROOT",
+    "LINUX_SYSROOT_INCLUDES",
+    "LINUX_SYSROOT_LIB_DIR",
+    "LINUX_X86_MUSL_CPP_CONFIG",
+    "LLVM_PREBUILTS_CPP_INCLUDE",
+    "LLVM_PREBUILTS_C_INCLUDE",
+    "gbl_llvm_tool_path",
+)
+load(
+    "@rules_rust//rust:toolchain.bzl",
+    "rust_stdlib_filegroup",
+    "rust_toolchain",
+    "rustfmt_toolchain",
+)
+
+# buildifier: disable=bzl-visibility
+load("@rules_rust//rust/private:lto.bzl", "rust_lto_flag")
+load("@rules_rust_bindgen//:defs.bzl", "rust_bindgen_toolchain")
+load(
+    ":gbl_toolchain.bzl",
+    "build_with_no_rust_sysroot",
+    "gbl_clang_cc_toolchain",
+    "prebuilt_binary",
+)
+load(":gbl_workspace_util.bzl", "ANDROID_RUST_LINTS")
+
+package(
+    default_applicable_licenses = ["@gbl//licensing:gbl_license"],
+    default_visibility = ["//visibility:public"],
+)
+
+# The following constraint/settings will be used in our newly defined
+# toolchains, so that they only get selected by bazel when we configure
+# to build GBL.
+constraint_setting(name = "firmware_image_type")
+
+constraint_value(
+    name = "uefi",
+    constraint_setting = ":firmware_image_type",
+)
+
+constraint_value(
+    name = "uefi_debug",
+    constraint_setting = ":firmware_image_type",
+)
+
+constraint_value(
+    name = "elf",
+    constraint_setting = ":firmware_image_type",
+)
+
+# This constraint specifies whether we're building for a dev or prod board.
+constraint_setting(
+    name = "board_class",
+    # Default to prod for now; eventually we may want to update all call sites
+    # and force the caller to explicitly declare which variant to build.
+    default_constraint_value = ":prod",
+)
+
+constraint_value(
+    name = "dev",
+    constraint_setting = ":board_class",
+)
+
+constraint_value(
+    name = "prod",
+    constraint_setting = ":board_class",
+)
+
+# Specifies whether we're booting Linux with the EFI boot stub.
+constraint_setting(name = "linux_jump_mode")
+
+constraint_value(
+    name = "efi_boot_stub",
+    constraint_setting = ":linux_jump_mode",
+)
+
+# Rustc flags to add based on the dev/prod board class.
+# This is intended to be used inside a `select()` statement.
+rustc_dev_prod_flags_select = {
+    # Enable the "gbl_dev" feature for all dev targets.
+    # Enable the "fuchsia" feature for all dev targets.
+    ":dev": [
+        "--cfg=feature=\"gbl_dev\"",
+        "--cfg=feature=\"fuchsia\"",
+    ],
+    # Prod is the absence of the dev feature.
+    # Rust features should be additive; in this case we consider prod to be
+    # the default featureset, and adding "dev" on top enables additional
+    # dev-only functionality e.g. extra logging, fastboot over TCP, etc.
+    ":prod": [],
+}
+
+host_x86_64_constraint_values = [
+    "@platforms//os:linux",
+    "@platforms//cpu:x86_64",
+]
+
+uefi_x86_64_constraint_values = [
+    ":uefi",
+    "@platforms//os:none",
+    "@platforms//cpu:x86_64",
+]
+
+uefi_x86_64_debug_constraint_values = [
+    ":uefi_debug",
+    "@platforms//os:none",
+    "@platforms//cpu:x86_64",
+]
+
+uefi_aarch64_constraint_values = [
+    ":uefi",
+    "@platforms//os:none",
+    "@platforms//cpu:aarch64",
+]
+
+uefi_aarch64_debug_constraint_values = [
+    ":uefi_debug",
+    "@platforms//os:none",
+    "@platforms//cpu:aarch64",
+]
+
+elf_riscv64_constraint_values = [
+    ":elf",
+    "@platforms//os:none",
+    "@platforms//cpu:riscv64",
+]
+
+config_setting(
+    name = "gbl_rust_host_x86_64",
+    constraint_values = host_x86_64_constraint_values,
+)
+
+config_setting(
+    name = "gbl_rust_uefi_x86_64",
+    constraint_values = uefi_x86_64_constraint_values,
+)
+
+config_setting(
+    name = "gbl_rust_uefi_x86_64_debug",
+    constraint_values = uefi_x86_64_debug_constraint_values,
+)
+
+selects.config_setting_group(
+    name = "gbl_rust_uefi_x86_64_any",
+    match_any = [
+        ":gbl_rust_uefi_x86_64",
+        ":gbl_rust_uefi_x86_64_debug",
+    ],
+)
+
+config_setting(
+    name = "gbl_rust_uefi_aarch64",
+    constraint_values = uefi_aarch64_constraint_values,
+)
+
+config_setting(
+    name = "gbl_rust_uefi_aarch64_debug",
+    constraint_values = uefi_aarch64_debug_constraint_values,
+)
+
+config_setting(
+    name = "gbl_rust_elf_riscv64",
+    constraint_values = elf_riscv64_constraint_values,
+)
+
+elf_aarch64_constraint_values = [
+    ":elf",
+    "@platforms//os:none",
+    "@platforms//cpu:aarch64",
+]
+
+config_setting(
+    name = "gbl_rust_elf_aarch64",
+    constraint_values = elf_aarch64_constraint_values,
+)
+
+selects.config_setting_group(
+    name = "gbl_rust_aarch64",
+    match_any = [
+        ":gbl_rust_uefi_aarch64",
+        ":gbl_rust_uefi_aarch64_debug",
+        ":gbl_rust_elf_aarch64",
+    ],
+)
+
+elf_x86_64_constraint_values = [
+    ":elf",
+    "@platforms//os:none",
+    "@platforms//cpu:x86_64",
+]
+
+config_setting(
+    name = "gbl_rust_elf_x86_64",
+    constraint_values = elf_x86_64_constraint_values,
+)
+
+platform(
+    name = "host_x86_64_dev",
+    constraint_values = host_x86_64_constraint_values + [":dev"],
+)
+
+platform(
+    name = "host_x86_64_prod",
+    constraint_values = host_x86_64_constraint_values + [":prod"],
+)
+
+platform(
+    name = "gbl_uefi_x86_64_dev",
+    constraint_values = uefi_x86_64_constraint_values + [":dev"],
+)
+
+platform(
+    name = "gbl_uefi_x86_64_prod",
+    constraint_values = uefi_x86_64_constraint_values + [":prod"],
+)
+
+platform(
+    name = "gbl_uefi_x86_64_debug_dev",
+    constraint_values = uefi_x86_64_debug_constraint_values + [":dev"],
+)
+
+platform(
+    name = "gbl_uefi_x86_64_debug_prod",
+    constraint_values = uefi_x86_64_debug_constraint_values + [":prod"],
+)
+
+platform(
+    name = "gbl_uefi_aarch64_dev",
+    constraint_values = uefi_aarch64_constraint_values + [":dev"],
+)
+
+platform(
+    name = "gbl_uefi_aarch64_prod",
+    constraint_values = uefi_aarch64_constraint_values + [":prod"],
+)
+
+platform(
+    name = "gbl_uefi_aarch64_debug_dev",
+    constraint_values = uefi_aarch64_debug_constraint_values + [":dev"],
+)
+
+platform(
+    name = "gbl_uefi_aarch64_debug_prod",
+    constraint_values = uefi_aarch64_debug_constraint_values + [":prod"],
+)
+
+platform(
+    name = "gbl_elf_riscv64_dev",
+    constraint_values = elf_riscv64_constraint_values + [":dev"],
+)
+
+platform(
+    name = "gbl_elf_riscv64_prod",
+    constraint_values = elf_riscv64_constraint_values + [":prod"],
+)
+
+platform(
+    name = "gbl_elf_aarch64_dev",
+    constraint_values = elf_aarch64_constraint_values + [":dev"],
+
+===== TOOLCHAIN TARGET DEFINITIONS =====
+bootable/libbootloader/gbl/MODULE.bazel:1453:# bazel commandline argument "--extra_toolchains=@gbl//toolchain:all" when building GBL
+bootable/libbootloader/gbl/toolchain/clippy.bzl:189:    toolchain = find_toolchain(ctx)
+bootable/libbootloader/gbl/toolchain/clippy.bzl:190:    cc_toolchain, feature_configuration = find_cc_toolchain(ctx)
+bootable/libbootloader/gbl/toolchain/clippy.bzl:260:        toolchain = "@rules_rust//rust:toolchain_type",
+bootable/libbootloader/gbl/toolchain/clippy.bzl:289:        str(Label("@rules_rust//rust:toolchain_type")),
+bootable/libbootloader/gbl/toolchain/clippy.bzl:290:        "@bazel_tools//tools/cpp:toolchain_type",
+bootable/libbootloader/gbl/toolchain/gbl_toolchain.bzl:148:def gbl_clang_cc_toolchain(
+bootable/libbootloader/gbl/toolchain/gbl_toolchain.bzl:155:    """Configure a clang based cc_toolchain().
+bootable/libbootloader/gbl/toolchain/gbl_toolchain.bzl:180:    cc_toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:249:    name = "gbl_uefi_aarch64_dev",
+bootable/libbootloader/gbl/toolchain/BUILD:279:    name = "gbl_elf_aarch64_dev",
+bootable/libbootloader/gbl/toolchain/BUILD:302:    name = "gbl_uefi_aarch64_dev_bootstub",
+bootable/libbootloader/gbl/toolchain/BUILD:414:gbl_clang_cc_toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:429:toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:437:    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+bootable/libbootloader/gbl/toolchain/BUILD:496:gbl_clang_cc_toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:505:toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:510:    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+bootable/libbootloader/gbl/toolchain/BUILD:521:gbl_clang_cc_toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:530:toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:535:    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+bootable/libbootloader/gbl/toolchain/BUILD:541:gbl_clang_cc_toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:564:toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:569:    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+bootable/libbootloader/gbl/toolchain/BUILD:581:gbl_clang_cc_toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:590:toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:595:    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+bootable/libbootloader/gbl/toolchain/BUILD:599:gbl_clang_cc_toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:620:toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:625:    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+bootable/libbootloader/gbl/toolchain/BUILD:628:gbl_clang_cc_toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:641:toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:646:    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+bootable/libbootloader/gbl/toolchain/BUILD:649:gbl_clang_cc_toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:660:toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:665:    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+bootable/libbootloader/gbl/toolchain/BUILD:701:rust_toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:739:toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:744:    toolchain_type = "@rules_rust//rust:toolchain",
+bootable/libbootloader/gbl/toolchain/BUILD:837:rust_toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:869:toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:874:    toolchain_type = "@rules_rust//rust:toolchain",
+bootable/libbootloader/gbl/toolchain/BUILD:887:rust_toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:984:toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:989:    toolchain_type = "@rules_rust//rust:toolchain",
+bootable/libbootloader/gbl/toolchain/BUILD:993:rust_toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:1037:toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:1042:    toolchain_type = "@rules_rust//rust:toolchain",
+bootable/libbootloader/gbl/toolchain/BUILD:1046:rust_toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:1141:toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:1146:    toolchain_type = "@rules_rust//rust:toolchain",
+bootable/libbootloader/gbl/toolchain/BUILD:1150:rust_toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:1216:toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:1221:    toolchain_type = "@rules_rust//rust:toolchain",
+bootable/libbootloader/gbl/toolchain/BUILD:1224:rust_toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:1254:toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:1259:    toolchain_type = "@rules_rust//rust:toolchain",
+bootable/libbootloader/gbl/toolchain/BUILD:1262:rust_toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:1294:toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:1299:    toolchain_type = "@rules_rust//rust:toolchain",
+bootable/libbootloader/gbl/toolchain/BUILD:1303:rustfmt_toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:1308:toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:1312:    toolchain_type = "@rules_rust//rust/rustfmt:toolchain_type",
+bootable/libbootloader/gbl/toolchain/BUILD:1322:rust_bindgen_toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:1329:toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:1332:    toolchain_type = "@rules_rust_bindgen//:toolchain_type",
+bootable/libbootloader/gbl/toolchain/BUILD:1337:toolchain(
+bootable/libbootloader/gbl/toolchain/BUILD:1342:    toolchain_type = "@bazel_tools//tools/test:default_test_toolchain_type",
+
+===== BAZEL TARGET QUERY: EFI PACKAGE =====
+@gbl//efi:BUILD
+@gbl//efi:LICENSE
+@gbl//efi:aarch64_debug_dev
+@gbl//efi:aarch64_debug_prod
+@gbl//efi:aarch64_dev
+@gbl//efi:aarch64_dev_bootstub
+@gbl//efi:aarch64_dev_bootstub_pdb
+@gbl//efi:aarch64_dev_pdb
+@gbl//efi:aarch64_prod
+@gbl//efi:aarch64_prod_pdb
+@gbl//efi:all_platforms
+@gbl//efi:all_platforms_merged_license
+@gbl//efi:all_platforms_prod
+@gbl//efi:app
+@gbl//efi:app/main.rs
+@gbl//efi:app/riscv64.rs
+@gbl//efi:app_pdb
+@gbl//efi:copies_for_tests
+@gbl//efi:gbl-img-eng.hawk.zip
+@gbl//efi:gbl-resources-eng.hawk.zip
+@gbl//efi:gbl.efi
+@gbl//efi:gbl_aarch64.efi
+@gbl//efi:gbl_efi
+@gbl//efi:gbl_efi_dist
+@gbl//efi:gbl_efi_dist_files
+@gbl//efi:gbl_efi_dist_install_script
+@gbl//efi:gbl_efi_dist_install_script.py
+@gbl//efi:gbl_efi_prod_zip
+@gbl//efi:gbl_efi_testkey
+@gbl//efi:gbl_resources_zip
+@gbl//efi:gbl_riscv64.efi
+@gbl//efi:gbl_signed
+@gbl//efi:gbl_x86_64.efi
+@gbl//efi:libgbl_efi
+@gbl//efi:libgbl_efi_dev_files
+@gbl//efi:libgbl_efi_prod_files
+@gbl//efi:resources/README.md
+@gbl//efi:resources_files
+@gbl//efi:riscv64_dev
+@gbl//efi:riscv64_prod
+@gbl//efi:src/android_boot.rs
+@gbl//efi:src/diagnostic_fs.rs
+@gbl//efi:src/efi_blocks.rs
+@gbl//efi:src/fastboot.rs
+@gbl//efi:src/fuchsia_boot.rs
+@gbl//efi:src/lib.rs
+@gbl//efi:src/net.rs
+@gbl//efi:src/ops.rs
+@gbl//efi:src/utils.rs
+@gbl//efi:test
+@gbl//efi:test_dev
+@gbl//efi:testkey_signed/gbl.efi
+@gbl//efi:x86_64_debug_dev
+@gbl//efi:x86_64_debug_prod
+@gbl//efi:x86_64_dev
+@gbl//efi:x86_64_dev_bootstub
+@gbl//efi:x86_64_dev_bootstub_pdb
+@gbl//efi:x86_64_dev_pdb
+@gbl//efi:x86_64_prod
+@gbl//efi:x86_64_prod_pdb
+EFI_QUERY_EXIT_CODE=0
+
+===== BAZEL TARGET QUERY: TOOLCHAIN PACKAGE =====
+@gbl//toolchain:BUILD
+@gbl//toolchain:_aarch64_elf_clang_cc_toolchain_config
+@gbl//toolchain:_aarch64_uefi_clang_cc_toolchain_config
+@gbl//toolchain:_aarch64_uefi_debug_clang_cc_toolchain_config
+@gbl//toolchain:_empty_aarch64_elf_clang_cc_toolchain
+@gbl//toolchain:_empty_aarch64_uefi_clang_cc_toolchain
+@gbl//toolchain:_empty_aarch64_uefi_debug_clang_cc_toolchain
+@gbl//toolchain:_empty_riscv64_elf_clang_cc_toolchain
+@gbl//toolchain:_empty_x86_64-unknown-linux-gnu
+@gbl//toolchain:_empty_x86_64_elf_clang_cc_toolchain
+@gbl//toolchain:_empty_x86_64_uefi_clang_cc_toolchain
+@gbl//toolchain:_empty_x86_64_uefi_debug_clang_cc_toolchain
+@gbl//toolchain:_riscv64_elf_clang_cc_toolchain_config
+@gbl//toolchain:_x86_64-unknown-linux-gnu_config
+@gbl//toolchain:_x86_64_elf_clang_cc_toolchain_config
+@gbl//toolchain:_x86_64_uefi_clang_cc_toolchain_config
+@gbl//toolchain:_x86_64_uefi_debug_clang_cc_toolchain_config
+@gbl//toolchain:aarch64-unknown-none
+@gbl//toolchain:aarch64-unknown-none_toolchain
+@gbl//toolchain:aarch64-unknown-uefi
+@gbl//toolchain:aarch64-unknown-uefi-debug
+@gbl//toolchain:aarch64-unknown-uefi-debug_toolchain
+@gbl//toolchain:aarch64-unknown-uefi_toolchain
+@gbl//toolchain:aarch64_elf_clang
+@gbl//toolchain:aarch64_elf_clang_cc_toolchain
+@gbl//toolchain:aarch64_trace_timer
+@gbl//toolchain:aarch64_trace_timer_pmu
+@gbl//toolchain:aarch64_uefi_clang
+@gbl//toolchain:aarch64_uefi_clang_cc_toolchain
+@gbl//toolchain:aarch64_uefi_debug_clang
+@gbl//toolchain:aarch64_uefi_debug_clang_cc_toolchain
+@gbl//toolchain:always_wait_gdb
+@gbl//toolchain:always_wait_gdb_enabled
+@gbl//toolchain:bindgen_prebuilt
+@gbl//toolchain:bindgen_toolchain
+@gbl//toolchain:bindgen_toolchain_impl
+@gbl//toolchain:board_class
+@gbl//toolchain:compilation_mode_dbg
+@gbl//toolchain:dev
+@gbl//toolchain:efi_boot_stub
+@gbl//toolchain:elf
+@gbl//toolchain:enable_tracing
+@gbl//toolchain:firmware_image_type
+@gbl//toolchain:gbl_elf_aarch64_dev
+@gbl//toolchain:gbl_elf_aarch64_prod
+@gbl//toolchain:gbl_elf_riscv64_dev
+@gbl//toolchain:gbl_elf_riscv64_prod
+@gbl//toolchain:gbl_elf_x86_64_dev
+@gbl//toolchain:gbl_rust_aarch64
+@gbl//toolchain:gbl_rust_aarch64_2
+@gbl//toolchain:gbl_rust_elf_aarch64
+@gbl//toolchain:gbl_rust_elf_riscv64
+@gbl//toolchain:gbl_rust_elf_x86_64
+@gbl//toolchain:gbl_rust_host_x86_64
+@gbl//toolchain:gbl_rust_uefi_aarch64
+@gbl//toolchain:gbl_rust_uefi_aarch64_debug
+@gbl//toolchain:gbl_rust_uefi_x86_64
+@gbl//toolchain:gbl_rust_uefi_x86_64_any
+@gbl//toolchain:gbl_rust_uefi_x86_64_debug
+@gbl//toolchain:gbl_uefi_aarch64_debug_dev
+@gbl//toolchain:gbl_uefi_aarch64_debug_prod
+@gbl//toolchain:gbl_uefi_aarch64_dev
+@gbl//toolchain:gbl_uefi_aarch64_dev_bootstub
+@gbl//toolchain:gbl_uefi_aarch64_prod
+@gbl//toolchain:gbl_uefi_x86_64_debug_dev
+@gbl//toolchain:gbl_uefi_x86_64_debug_prod
+@gbl//toolchain:gbl_uefi_x86_64_dev
+@gbl//toolchain:gbl_uefi_x86_64_dev_bootstub
+@gbl//toolchain:gbl_uefi_x86_64_prod
+@gbl//toolchain:host_dev_test_toolchain
+@gbl//toolchain:host_x86_64_dev
+@gbl//toolchain:host_x86_64_prod
+@gbl//toolchain:linux_jump_mode
+@gbl//toolchain:lto
+@gbl//toolchain:pause_boot_in_fastboot
+@gbl//toolchain:pause_boot_in_fastboot_true
+@gbl//toolchain:prod
+@gbl//toolchain:riscv64_elf_clang
+@gbl//toolchain:riscv64_elf_clang_cc_toolchain
+@gbl//toolchain:riscv64gc-unknown-none-pie_elf
+@gbl//toolchain:riscv64gc-unknown-none-pie_elf_toolchain
+@gbl//toolchain:rust_no_sysroot
+@gbl//toolchain:rust_no_sysroot_true
+@gbl//toolchain:rust_std_source_build
+@gbl//toolchain:rust_stdlib_empty
+@gbl//toolchain:rust_sysroot_source_build
+@gbl//toolchain:rustfmt
+@gbl//toolchain:rustfmt_toolchain
+@gbl//toolchain:trace_buffer_size_mb
+@gbl//toolchain:tracing_enabled
+@gbl//toolchain:uefi
+@gbl//toolchain:uefi_debug
+@gbl//toolchain:x86_64-unknown-linux-gnu
+@gbl//toolchain:x86_64-unknown-linux-gnu_toolchain
+@gbl//toolchain:x86_64-unknown-none
+@gbl//toolchain:x86_64-unknown-none_toolchain
+@gbl//toolchain:x86_64-unknown-uefi
+@gbl//toolchain:x86_64-unknown-uefi-debug
+@gbl//toolchain:x86_64-unknown-uefi-debug_toolchain
+@gbl//toolchain:x86_64-unknown-uefi_toolchain
+@gbl//toolchain:x86_64_elf_clang
+@gbl//toolchain:x86_64_elf_clang_cc_toolchain
+@gbl//toolchain:x86_64_uefi_clang
+@gbl//toolchain:x86_64_uefi_clang_cc_toolchain
+@gbl//toolchain:x86_64_uefi_debug_clang
+@gbl//toolchain:x86_64_uefi_debug_clang_cc_toolchain
+@gbl//toolchain:x86_64_unknown_linux_gnu
+@gbl//toolchain:x86_64_unknown_linux_gnu_toolchain
+TOOLCHAIN_QUERY_EXIT_CODE=0
+
+===== BAZEL CONFIGURATION =====
+bootable/libbootloader/gbl/MODULE.bazel
+
+===== WORKSPACE REVISION AND MODIFICATIONS =====
+2392920e832470f38899b068f880971d3a679664
+ M gbl/efi/src/efi_blocks.rs
+ M gbl/efi/src/lib.rs
+ M gbl/libefi/src/lib.rs
+ M gbl/libefi/src/protocol/simple_text_output.rs
+?? gbl/efi/src/diagnostic_fs.rs

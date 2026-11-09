@@ -1,0 +1,13 @@
+{
+  "id": "20261109T010523Z-gbl-bazel-target-and-toolchain-resolution-audit",
+  "title": "GBL Bazel target and toolchain resolution audit",
+  "created_utc": "2026-11-09T01:05:23.920105+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd ~/source/DualOS-tools/aosp-uefi-gbl || exit 1\n\necho \"===== TOOLCHAIN BUILD FILE =====\"\nsed -n \"1,280p\" bootable/libbootloader/gbl/toolchain/BUILD\n\necho\necho \"===== TOOLCHAIN TARGET DEFINITIONS =====\"\nrg -n \"aarch64_dev|toolchain_type|toolchain\\\\(|register_toolchains|extra_toolchains\" \\\n  bootable/libbootloader/gbl/toolchain \\\n  bootable/libbootloader/gbl/WORKSPACE \\\n  bootable/libbootloader/gbl/MODULE.bazel \\\n  bootable/libbootloader/gbl/BUILD 2>/dev/null\n\necho\necho \"===== BAZEL TARGET QUERY: EFI PACKAGE =====\"\n./bootable/libbootloader/gbl/bazel.sh query \"@gbl//efi:*\"\necho \"EFI_QUERY_EXIT_CODE=$?\"\n\necho\necho \"===== BAZEL TARGET QUERY: TOOLCHAIN PACKAGE =====\"\n./bootable/libbootloader/gbl/bazel.sh query \"@gbl//toolchain:*\"\necho \"TOOLCHAIN_QUERY_EXIT_CODE=$?\"\n\necho\necho \"===== BAZEL CONFIGURATION =====\"\nfind bootable/libbootloader/gbl -maxdepth 2 \\\n  \\( -name \".bazelrc\" -o -name \"MODULE.bazel\" -o -name \"WORKSPACE\" \\) \\\n  -type f -print\n\necho\necho \"===== WORKSPACE REVISION AND MODIFICATIONS =====\"\ngit -C bootable/libbootloader rev-parse HEAD\ngit -C bootable/libbootloader status --short\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.268
+}
