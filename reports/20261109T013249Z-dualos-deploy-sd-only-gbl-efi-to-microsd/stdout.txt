@@ -1,0 +1,13 @@
+=== PRE-FLIGHT ===
+Mount source: /dev/mmcblk0p1
+PARTUUID: 1b806d74-8676-4e78-a90a-9c209e214d81
+Filesystem: vfat
+New artifact: 610e939fd609f4bf69c82a71b460aedf95b64c6e676e2f469470ab9c648d4d2e
+Current SD EFI: 367cb02aa0c3bed854926b595ce1bbe5fb63fa2b52b99596b6b9caa93c1ca145
+=== PRESERVE CURRENT DIAGNOSTIC EFI ===
+=== DEPLOY SIGNED SD-ONLY EFI ===
+=== FINAL SD STATE ===
+Deployed EFI: 610e939fd609f4bf69c82a71b460aedf95b64c6e676e2f469470ab9c648d4d2e  /mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI
+Preserved diagnostic EFI: 367cb02aa0c3bed854926b595ce1bbe5fb63fa2b52b99596b6b9caa93c1ca145  /mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI.pre-sd-only-filter
+Original EFI backup: edc8958b8308cf52d6e6e2d4b3c308c0d8786ee9b27d6b4534e9c72bae9fa4ae  /mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI.pre-dualos-diagnostic
+DEPLOYMENT_VERIFIED
