@@ -1,0 +1,162 @@
+========== HOME DIRECTORY ==========
+Home: /home/hawk
+
+========== DISK SPACE ==========
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  238G  109G  122G  48% /home
+
+========== TOP-LEVEL DIRECTORY SIZES ==========
+0	/home/hawk/.debug
+0	/home/hawk/Desktop
+0	/home/hawk/Music
+0	/home/hawk/Projects
+0	/home/hawk/Public
+0	/home/hawk/Templates
+0	/home/hawk/Videos
+4.0K	/home/hawk/bin
+8.0K	/home/hawk/.cmake
+8.0K	/home/hawk/.ssh
+20K	/home/hawk/.repoconfig
+76K	/home/hawk/Pictures
+80K	/home/hawk/.gnupg
+148K	/home/hawk/.agents
+340K	/home/hawk/.java
+384K	/home/hawk/.vnc
+3.7M	/home/hawk/.android
+12M	/home/hawk/.net
+25M	/home/hawk/.gemini
+30M	/home/hawk/.var
+59M	/home/hawk/.skiko
+68M	/home/hawk/.cargo
+93M	/home/hawk/yay
+161M	/home/hawk/.config
+162M	/home/hawk/AndroidStudioProjects
+217M	/home/hawk/Programs
+507M	/home/hawk/.npm
+553M	/home/hawk/.gradle
+738M	/home/hawk/.rustup
+1.4G	/home/hawk/Downloads
+1.8G	/home/hawk/.codex
+3.4G	/home/hawk/Android
+5.0G	/home/hawk/.cache
+6.1G	/home/hawk/Documents
+6.7G	/home/hawk/Games
+20G	/home/hawk/.local
+23G	/home/hawk/Backups
+51G	/home/hawk/source
+64G	/home/hawk/DUO_LITE
+183G	/home/hawk
+
+========== LARGEST DIRECTORIES UNDER HOME ==========
+25M	/home/hawk/.gemini
+25M	/home/hawk/.gemini/antigravity-cli
+26M	/home/hawk/yay/pkg
+29M	/home/hawk/.skiko/skiko-linux-x64-de8318c33ab44bf18d469988e8cb5fbbac9b7e25e55829b14ea2bd5def4ca5ac
+30M	/home/hawk/.var
+30M	/home/hawk/.var/app
+31M	/home/hawk/.skiko/040d8902ffbe518e41279fda5ab6b9e9246433120c31524cd99e0b5c07ad76a5
+32M	/home/hawk/.cache/pip
+38M	/home/hawk/.npm/_prebuilds
+47M	/home/hawk/.cargo/registry
+59M	/home/hawk/.skiko
+60M	/home/hawk/yay/src
+63M	/home/hawk/.cache/bazelisk
+63M	/home/hawk/.codex/cache
+68M	/home/hawk/.cargo
+73M	/home/hawk/Programs/Komelia
+93M	/home/hawk/.codex/.tmp
+93M	/home/hawk/yay
+125M	/home/hawk/.cache/gnome-software
+132M	/home/hawk/Programs/Babysmash
+142M	/home/hawk/.config/mozilla
+143M	/home/hawk/.cache/go-build
+161M	/home/hawk/.config
+162M	/home/hawk/AndroidStudioProjects
+162M	/home/hawk/AndroidStudioProjects/GameSync
+188M	/home/hawk/.cache/bazel
+217M	/home/hawk/Programs
+224M	/home/hawk/.cache/mozilla
+224M	/home/hawk/.local/bin
+229M	/home/hawk/.cache/epiphany
+469M	/home/hawk/.npm/_cacache
+507M	/home/hawk/.npm
+550M	/home/hawk/.gradle/caches
+553M	/home/hawk/.gradle
+602M	/home/hawk/.cache/llvm-debuginfod
+645M	/home/hawk/.cache/Google
+704M	/home/hawk/source/pocket-recompiler
+738M	/home/hawk/.rustup
+738M	/home/hawk/.rustup/toolchains
+804M	/home/hawk/.cache/3dsrecomp
+1.4G	/home/hawk/Downloads
+1.6G	/home/hawk/.codex/packages
+1.8G	/home/hawk/.codex
+1.9G	/home/hawk/.cache/tracker3
+3.4G	/home/hawk/Android
+3.4G	/home/hawk/Android/Sdk
+5.0G	/home/hawk/.cache
+6.0G	/home/hawk/Documents/ROMS
+6.1G	/home/hawk/Documents
+6.7G	/home/hawk/Games
+6.7G	/home/hawk/Games/gamecube
+20G	/home/hawk/.local
+20G	/home/hawk/.local/share
+23G	/home/hawk/Backups
+23G	/home/hawk/Backups/Retroid-Pocket-Duo-Lite
+50G	/home/hawk/source/DualOS-tools
+51G	/home/hawk/source
+64G	/home/hawk/DUO_LITE
+64G	/home/hawk/DUO_LITE/duo-lite-research
+183G	/home/hawk
+
+========== TOP-LEVEL ENTRIES ==========
+total 48K
+drwx------ 1 hawk hawk  712 Nov  8 22:47 .
+drwxr-xr-x 1 root root    8 Jun  5 22:02 ..
+drwxr-xr-x 1 hawk hawk   12 Oct 27 20:26 .agents
+drwxr-xr-x 1 hawk hawk  184 Nov  7 17:05 .android
+drwxr-xr-x 1 hawk hawk    6 Jul 18 15:12 Android
+drwxr-xr-x 1 hawk hawk   16 Jul 18 15:19 AndroidStudioProjects
+drwxr-xr-x 1 hawk hawk   46 Nov  8 22:09 Backups
+-rw------- 1 hawk hawk  18K Nov  8 15:00 .bash_history
+-rw-r--r-- 1 hawk hawk   21 Jun  4 12:05 .bash_logout
+-rw-r--r-- 1 hawk hawk  159 Nov  7 16:54 .bash_profile
+-rw-r--r-- 1 hawk hawk  318 Nov  8 18:48 .bashrc
+drwxr-xr-x 1 hawk hawk   26 Nov  8 22:35 bin
+drwxr-xr-x 1 hawk hawk  932 Nov  8 13:53 .cache
+drwxr-xr-x 1 hawk hawk  130 Nov  7 16:54 .cargo
+drwxr-xr-x 1 hawk hawk   16 Nov  6 16:18 .cmake
+drwxr-xr-x 1 hawk hawk  958 Nov  8 13:44 .codex
+drwx------ 1 hawk hawk  564 Oct 31 14:37 .config
+drwxr-xr-x 1 hawk hawk    0 Nov  5 20:54 .debug
+drwxr-xr-x 1 hawk hawk    0 Jun  6 00:21 Desktop
+drwxr-xr-x 1 hawk hawk   16 Nov  8 13:52 Documents
+drwxr-xr-x 1 hawk hawk  132 Nov  7 15:46 Downloads
+drwxr-xr-x 1 hawk hawk   78 Nov  8 22:28 DUO_LITE
+drwxr-xr-x 1 hawk hawk   16 Sep  8 16:27 Games
+drwxr-xr-x 1 hawk hawk   42 Nov  1 17:04 .gemini
+-rw-r--r-- 1 hawk hawk  200 Nov  8 14:08 .gitconfig
+drwx------ 1 hawk hawk  116 Nov  8 14:07 .gnupg
+drwxr-xr-x 1 hawk hawk  126 Jul 18 15:20 .gradle
+drwxr-xr-x 1 hawk hawk   30 Jul 18 15:11 .java
+drwx------ 1 hawk hawk   26 Sep  8 16:34 .local
+drwxr-xr-x 1 hawk hawk    0 Jun  6 00:21 Music
+drwx------ 1 hawk hawk   18 Jun  6 08:39 .net
+drwxr-xr-x 1 hawk hawk  104 Oct 27 20:23 .npm
+drwxr-xr-x 1 hawk hawk   58 Nov  8 22:06 Pictures
+-rw-r--r-- 1 hawk hawk   21 Nov  7 16:54 .profile
+drwxr-xr-x 1 hawk hawk   50 Jun  8 22:12 Programs
+drwxr-xr-x 1 hawk hawk    0 Jun  6 00:21 Projects
+drwxr-xr-x 1 hawk hawk    0 Jun  6 00:21 Public
+drwxr-xr-x 1 hawk hawk   74 Nov  8 14:08 .repoconfig
+-rw-r--r-- 1 hawk hawk  231 Nov  8 14:08 .repo_.gitconfig.json
+drwxr-xr-x 1 hawk hawk   96 Nov  7 16:54 .rustup
+drwxr-xr-x 1 hawk hawk  310 Jun  8 21:10 .skiko
+drwxr-xr-x 1 hawk hawk   70 Nov  8 16:52 source
+drwx------ 1 hawk hawk   52 Nov  7 00:02 .ssh
+drwxr-xr-x 1 hawk hawk    0 Jun  6 00:21 Templates
+drwxr-xr-x 1 hawk hawk    6 Jun  6 09:04 .var
+drwxr-xr-x 1 hawk hawk    0 Jun  6 00:21 Videos
+drwx------ 1 hawk hawk  154 Nov  6 22:36 .vnc
+-rw-r--r-- 1 hawk hawk 2.0K Nov  6 23:09 .wget-hsts
+drwxr-xr-x 1 hawk hawk  242 Jun  5 22:30 yay

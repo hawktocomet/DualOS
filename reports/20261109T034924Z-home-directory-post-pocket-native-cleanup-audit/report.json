@@ -1,0 +1,13 @@
+{
+  "id": "20261109T034924Z-home-directory-post-pocket-native-cleanup-audit",
+  "title": "home-directory-post-pocket-native-cleanup-audit",
+  "created_utc": "2026-11-09T03:49:24.871210+00:00",
+  "cwd": "/home/hawk",
+  "command": [
+    "bash",
+    "-c",
+    "\necho \"========== HOME DIRECTORY ==========\"\nprintf \"Home: %s\\n\" \"$HOME\"\necho\necho \"========== DISK SPACE ==========\"\ndf -h \"$HOME\"\necho\necho \"========== TOP-LEVEL DIRECTORY SIZES ==========\"\ndu -x -h --max-depth=1 \"$HOME\" 2>/dev/null | sort -h\necho\necho \"========== LARGEST DIRECTORIES UNDER HOME ==========\"\ndu -x -h --max-depth=2 \"$HOME\" 2>/dev/null | sort -h | tail -60\necho\necho \"========== TOP-LEVEL ENTRIES ==========\"\nls -lah \"$HOME\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 4.153
+}
