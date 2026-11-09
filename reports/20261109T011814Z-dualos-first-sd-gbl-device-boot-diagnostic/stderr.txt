@@ -1,0 +1,1 @@
+sha256sum: /mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI: No such file or directory

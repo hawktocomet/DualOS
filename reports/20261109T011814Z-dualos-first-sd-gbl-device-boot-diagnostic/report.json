@@ -1,0 +1,13 @@
+{
+  "id": "20261109T011814Z-dualos-first-sd-gbl-device-boot-diagnostic",
+  "title": "DualOS first SD GBL device boot diagnostic",
+  "created_utc": "2026-11-09T01:18:14.371696+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\nCARD=/mnt/dualos-check\nREPORT=\"$CARD/DUALOS-DIAG.TXT\"\n\necho \"===== SD CARD MOUNT =====\"\nfindmnt \"$CARD\"\nlsblk -o NAME,SIZE,FSTYPE,LABEL,MOUNTPOINTS /dev/mmcblk0\n\necho\necho \"===== DIAGNOSTIC FILE =====\"\nif [ -f \"$REPORT\" ]; then\n  stat \"$REPORT\"\n  sha256sum \"$REPORT\"\n  echo\n  cat \"$REPORT\"\n  echo\n  echo \"===== END FILE =====\"\nelse\n  echo \"DUALOS-DIAG.TXT NOT FOUND\"\n  echo \"SD root contents:\"\n  ls -la \"$CARD\"\nfi\n\necho\necho \"===== EFI BOOT FILE =====\"\nsha256sum \"$CARD/EFI/BOOT/BOOTAA64.EFI\"\n"
+  ],
+  "exit_code": 1,
+  "duration_seconds": 0.009
+}

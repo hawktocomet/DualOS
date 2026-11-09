@@ -1,0 +1,15 @@
+===== SD CARD MOUNT =====
+TARGET            SOURCE         FSTYPE OPTIONS
+/mnt/dualos-check /dev/mmcblk0p1 vfat   rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro
+NAME         SIZE FSTYPE LABEL   MOUNTPOINTS
+mmcblk0     59.6G                
+└─mmcblk0p1 59.6G vfat   GBLTEST /mnt/dualos-check
+
+===== DIAGNOSTIC FILE =====
+DUALOS-DIAG.TXT NOT FOUND
+SD root contents:
+total 32
+drwxr-xr-x 3 root root 32768 Dec 31  1969 .
+drwxr-xr-x 1 root root   178 Nov  8 16:27 ..
+
+===== EFI BOOT FILE =====
