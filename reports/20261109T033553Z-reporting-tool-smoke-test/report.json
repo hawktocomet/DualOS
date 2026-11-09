@@ -1,0 +1,13 @@
+{
+  "id": "20261109T033553Z-reporting-tool-smoke-test",
+  "title": "reporting-tool-smoke-test",
+  "created_utc": "2026-11-09T03:35:53.616019+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/REPORTING",
+  "command": [
+    "bash",
+    "-c",
+    "printf \"DualOS reporting smoke test\\n\"; printf \"Timestamp: \"; date -Is; printf \"Working directory: %s\\n\" \"$PWD\""
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.005
+}
