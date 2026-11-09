@@ -1,0 +1,13 @@
+{
+  "id": "20261109T010053Z-gbl-sd-device-path-diagnostic-build-verification",
+  "title": "GBL SD device-path diagnostic build verification",
+  "created_utc": "2026-11-09T01:00:53.165307+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd ~/source/DualOS-tools/aosp-uefi-gbl || exit 1\n\necho \"===== PINNED REVISION =====\"\ngit -C bootable/libbootloader rev-parse HEAD\n\necho\necho \"===== DIAGNOSTIC WRITER =====\"\nsed -n \"1,300p\" bootable/libbootloader/gbl/efi/src/diagnostic_fs.rs\n\necho\necho \"===== BUILD =====\"\n./bootable/libbootloader/gbl/bazel.sh build --extra_toolchains=@gbl//toolchain\nBUILD_STATUS=$?\necho \"BUILD_EXIT_CODE=$BUILD_STATUS\"\n\necho\necho \"===== EFI ARTIFACTS =====\"\nfind bootable/libbootloader/bazel-bin -type f \\( -iname \"*.efi\" -o -iname \"*.EFI\" \\) -printf \"%p %s bytes\\n\" 2>/dev/null | tail -40\n\necho\necho \"===== WORKTREE STATUS =====\"\ngit -C bootable/libbootloader status --short\n\nexit \"$BUILD_STATUS\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.206
+}

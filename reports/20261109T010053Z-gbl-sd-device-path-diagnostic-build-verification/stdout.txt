@@ -1,0 +1,198 @@
+===== PINNED REVISION =====
+2392920e832470f38899b068f880971d3a679664
+
+===== DIAGNOSTIC WRITER =====
+// DualOS EFI diagnostic filesystem writer.
+// Uses only the device handle reported by EFI_LOADED_IMAGE_PROTOCOL.
+
+use core::ffi::c_void;
+use core::ptr::null_mut;
+
+use efi::protocol::loaded_image::LoadedImageProtocol;
+use efi::{efi_call, EfiEntry};
+use efi_types::EfiGuid;
+
+#[repr(C)]
+struct EfiSimpleFileSystemInterface {
+    revision: u64,
+    open_volume: Option<
+        unsafe extern "efiapi" fn(
+            this: *mut EfiSimpleFileSystemInterface,
+            root: *mut *mut EfiFileProtocol,
+        ) -> efi_types::EfiStatus,
+    >,
+}
+
+#[repr(C)]
+struct EfiFileProtocol {
+    revision: u64,
+    open: Option<
+        unsafe extern "efiapi" fn(
+            this: *mut EfiFileProtocol,
+            new_handle: *mut *mut EfiFileProtocol,
+            file_name: *const u16,
+            open_mode: u64,
+            attributes: u64,
+        ) -> efi_types::EfiStatus,
+    >,
+    close: Option<
+        unsafe extern "efiapi" fn(this: *mut EfiFileProtocol) -> efi_types::EfiStatus,
+    >,
+    delete: Option<
+        unsafe extern "efiapi" fn(this: *mut EfiFileProtocol) -> efi_types::EfiStatus,
+    >,
+    read: Option<
+        unsafe extern "efiapi" fn(
+            this: *mut EfiFileProtocol,
+            buffer_size: *mut usize,
+            buffer: *mut c_void,
+        ) -> efi_types::EfiStatus,
+    >,
+    write: Option<
+        unsafe extern "efiapi" fn(
+            this: *mut EfiFileProtocol,
+            buffer_size: *mut usize,
+            buffer: *const c_void,
+        ) -> efi_types::EfiStatus,
+    >,
+    get_position: Option<
+        unsafe extern "efiapi" fn(
+            this: *mut EfiFileProtocol,
+            position: *mut u64,
+        ) -> efi_types::EfiStatus,
+    >,
+    set_position: Option<
+        unsafe extern "efiapi" fn(
+            this: *mut EfiFileProtocol,
+            position: u64,
+        ) -> efi_types::EfiStatus,
+    >,
+    get_info: Option<
+        unsafe extern "efiapi" fn(
+            this: *mut EfiFileProtocol,
+            information_type: *const EfiGuid,
+            buffer_size: *mut usize,
+            buffer: *mut c_void,
+        ) -> efi_types::EfiStatus,
+    >,
+    set_info: Option<
+        unsafe extern "efiapi" fn(
+            this: *mut EfiFileProtocol,
+            information_type: *const EfiGuid,
+            buffer_size: usize,
+            buffer: *const c_void,
+        ) -> efi_types::EfiStatus,
+    >,
+    flush: Option<
+        unsafe extern "efiapi" fn(this: *mut EfiFileProtocol) -> efi_types::EfiStatus,
+    >,
+}
+
+const SIMPLE_FILE_SYSTEM_GUID: EfiGuid =
+    EfiGuid::from_u64s(0x964e5b22645911d2, 0x8e3900a0c969723b);
+
+const FILE_NAME: [u16; 16] = [
+    68, 85, 65, 76, 79, 83, 45, 68, 73, 65, 71, 46, 84, 88, 84, 0,
+];
+
+const REPORT: &[u8] = b"DualOS EFI diagnostic\r\n\
+Filesystem: loaded-image device only\r\n\
+Protocol: EFI_SIMPLE_FILE_SYSTEM_PROTOCOL\r\n\
+Report: write completed\r\n";
+
+pub fn write_report(entry: &EfiEntry) -> &'static str {
+    let boot_services = entry.system_table().boot_services();
+
+    let loaded_image = match boot_services
+        .open_protocol::<LoadedImageProtocol>(entry.image_handle())
+    {
+        Ok(protocol) => protocol,
+        Err(_) => return "FAILED: loaded-image protocol",
+    };
+
+    // Restrict filesystem discovery to the device that loaded this EFI image.
+    let source_device = loaded_image.device_handle();
+
+    // SAFETY: The GUID identifies EFI_SIMPLE_FILE_SYSTEM_PROTOCOL. The returned
+    // interface is interpreted using the matching UEFI protocol ABI below.
+    let filesystem_ptr = match unsafe {
+        boot_services.handle_protocol_raw(source_device, &SIMPLE_FILE_SYSTEM_GUID)
+    } {
+        Ok(pointer) => pointer.as_ptr() as *mut EfiSimpleFileSystemInterface,
+        Err(_) => return "FAILED: no filesystem on loaded-image device",
+    };
+
+    let mut root: *mut EfiFileProtocol = null_mut();
+    // SAFETY: filesystem_ptr is the firmware-provided protocol interface; root is a valid output pointer.
+    let open_volume_result = unsafe {
+        efi_call!(
+            (*filesystem_ptr).open_volume,
+            filesystem_ptr,
+            &mut root
+        )
+    };
+
+    if open_volume_result.is_err() || root.is_null() {
+        return "FAILED: opening source filesystem";
+    }
+
+    let mut file: *mut EfiFileProtocol = null_mut();
+    // SAFETY: root is the valid handle returned by OpenVolume; file is a valid output pointer and FILE_NAME is NUL-terminated UTF-16.
+    let open_file_result = unsafe {
+        efi_call!(
+            (*root).open,
+            root,
+            &mut file,
+            FILE_NAME.as_ptr(),
+            0x1 | 0x2 | 0x8000_0000_0000_0000,
+            0
+        )
+    };
+
+    if open_file_result.is_err() || file.is_null() {
+        // SAFETY: root is the valid file-protocol handle returned by OpenVolume.
+        let _ = unsafe { efi_call!((*root).close, root) };
+        return "FAILED: creating diagnostic report";
+    }
+
+    let mut written = REPORT.len();
+    // SAFETY: file is the valid handle returned by Open; REPORT is readable and written is a valid size pointer.
+    let write_result = unsafe {
+        efi_call!(
+            (*file).write,
+            file,
+            &mut written,
+            REPORT.as_ptr() as *const c_void
+        )
+    };
+
+    let flush_ok = if write_result.is_ok() && written == REPORT.len() {
+        // SAFETY: file is the valid file-protocol handle returned by Open.
+        unsafe { efi_call!((*file).flush, file) }.is_ok()
+    } else {
+        false
+    };
+
+    // SAFETY: file is the valid file-protocol handle returned by Open.
+    let _ = unsafe { efi_call!((*file).close, file) };
+    // SAFETY: root is the valid file-protocol handle returned by OpenVolume.
+    let _ = unsafe { efi_call!((*root).close, root) };
+
+    if write_result.is_err() || written != REPORT.len() || !flush_ok {
+        return "FAILED: writing or flushing report";
+    }
+
+    "OK: DUALOS-DIAG.TXT written"
+}
+
+===== BUILD =====
+BUILD_EXIT_CODE=0
+
+===== EFI ARTIFACTS =====
+
+===== WORKTREE STATUS =====
+ M gbl/efi/src/efi_blocks.rs
+ M gbl/efi/src/lib.rs
+ M gbl/libefi/src/lib.rs
+ M gbl/libefi/src/protocol/simple_text_output.rs
+?? gbl/efi/src/diagnostic_fs.rs
