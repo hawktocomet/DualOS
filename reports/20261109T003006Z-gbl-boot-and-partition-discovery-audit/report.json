@@ -1,0 +1,13 @@
+{
+  "id": "20261109T003006Z-gbl-boot-and-partition-discovery-audit",
+  "title": "GBL boot and partition discovery audit",
+  "created_utc": "2026-11-09T00:30:06.674386+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\necho \"===== REPOSITORY REVISION =====\"\ngit -C bootable/libbootloader rev-parse HEAD\necho\necho \"===== WORKTREE STATUS =====\"\ngit -C bootable/libbootloader status --short\necho\necho \"===== GBL EFI RUST SOURCE FILES =====\"\nfind bootable/libbootloader/gbl/efi/src -maxdepth 2 -type f -name \"*.rs\" -print | sort\necho\necho \"===== ANDROID BOOT / PARTITION / DEVICE DISCOVERY REFERENCES =====\"\nrg -n -C 8 \"impl.*GblOps|GblOps|android_main|get_partition_buffer|partition_size|EFI_BLOCK_IO|LoadedImage|DevicePath|BlockIo|Partition\" bootable/libbootloader/gbl/\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.05
+}
