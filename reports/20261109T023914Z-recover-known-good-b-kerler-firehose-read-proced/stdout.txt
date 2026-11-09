@@ -1,0 +1,1008 @@
+========== SAVED FIREHOSE PROCEDURE ==========
+
+----- /home/hawk/duo_forensics/firehose_method_minimal.txt -----
+===== PREVIOUS FIREHOSE REPORT =====
+===== DUO LITE QCS6125 EXACT-MATCH FIREHOSE TEST =====
+Sun Nov  1 11:05:25 PM EST 2026
+
+===== DEVICE IDENTIFIERS THIS LOADER MATCHES =====
+HWID:    001750e100000000
+PK_HASH: d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87
+
+===== DOWNLOADING MATCHING LOADER =====
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+
+  0      0   0      0   0      0      0      0                              0
+100 588.4k 100 588.4k   0      0  2.47M      0                              0
+100 588.4k 100 588.4k   0      0  2.47M      0                              0
+100 588.4k 100 588.4k   0      0  2.47M      0                              0
+Download completed.
+
+===== LOADER VALIDATION =====
+File size: 602588 bytes
+/home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin: ELF 64-bit LSB executable, ARM aarch64, version 1 (SYSV), statically linked, no section header
+2a2123157b81d78701a54822305749d751d789e1cd83c15cea5bf891efab30e0  /home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Machine:                           AArch64
+
+===== EDL TOOL VALIDATION =====
+Repository: /home/hawk/duo_forensics/recovery_probe/bkerler-edl
+Python:     /home/hawk/duo_forensics/recovery_probe/venv/bin/python
+Script:     /home/hawk/duo_forensics/recovery_probe/bkerler-edl/edl.py
+
+===== CHECKING DEVICE EDL MODE =====
+Bus 001 Device 044: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+
+===== READ-ONLY FIREHOSE / GPT TEST =====
+No partition write or erase commands will be issued.
+Qualcomm Sahara / Firehose Client V3.62 (c) B.Kerler 2018-2025.
+main - Using loader /home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin ...
+main - Waiting for the device
+main - Device detected :)
+sahara - Protocol version: 2, Version supported: 1
+main - Mode detected: sahara
+sahara - 
+Version 0x2
+------------------------
+HWID:              0x001750e100000000 (MSM_ID:0x001750e1,OEM_ID:0x0000,MODEL_ID:0x0000)
+CPU detected:      "nicobar_IoT_modem"
+PK_HASH:           0xd40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87
+Serial:            0x63b30b6d
+
+sahara - Protocol version: 2, Version supported: 1
+sahara - Uploading loader /home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin ...
+sahara - 64-Bit mode detected.
+sahara - Loader successfully uploaded.
+main - Trying to connect to firehose loader ...
+firehose - INFO: Binary build date: Oct 13 2022 @ 18:19:54
+firehose - INFO: Binary build date: Oct 13 2022 @ 18:19:54 
+firehose - INFO: Chip serial num: 1672678253 (0x63b30b6d)
+firehose - INFO: Supported Functions (14):
+firehose - INFO: program
+firehose - INFO: read
+firehose - INFO: nop
+firehose - INFO: patch
+firehose - INFO: configure
+firehose - INFO: setbootablestoragedrive
+firehose - INFO: erase
+firehose - INFO: power
+firehose - INFO: firmwarewrite
+firehose - INFO: getstorageinfo
+firehose - INFO: benchmark
+firehose - INFO: emmc
+firehose - INFO: ufs
+firehose - INFO: fixgpt
+firehose - INFO: End of supported functions 14
+firehose_client
+firehose_client - [LIB]: [33mNo --memory option set, we assume "UFS" as default ..., if it fails, try using "--memory" with "UFS","NAND" or "spinor" instead ![0m
+firehose
+firehose - [LIB]: [33mCouldn't detect MaxPayloadSizeFromTargetinBytes[0m
+firehose
+firehose - [LIB]: [33mCouldn't detect TargetName[0m
+firehose - TargetName=Unknown
+firehose - MemoryName=UFS
+firehose - Version=1
+firehose - Trying to read first storage sector...
+firehose - Running configure...
+firehose
+firehose - [LIB]: [33mMemory type UFS doesn't seem to match (Failed to init). Trying to use eMMC instead.[0m
+firehose
+firehose - [LIB]: [33mCouldn't detect MaxPayloadSizeFromTargetinBytes[0m
+firehose
+firehose - [LIB]: [33mCouldn't detect TargetName[0m
+firehose - TargetName=Unknown
+firehose - MemoryName=eMMC
+firehose - Version=1
+firehose - Trying to read first storage sector...
+firehose - Running configure...
+firehose
+firehose - [LIB]: [33mCouldn't detect MaxPayloadSizeFromTargetinBytes[0m
+firehose
+firehose - [LIB]: [33mCouldn't detect TargetName[0m
+firehose - TargetName=Unknown
+firehose - MemoryName=eMMC
+firehose - Version=1
+firehose - Trying to read first storage sector...
+firehose - Running configure...
+firehose - Storage report:
+firehose - total_blocks:244285440
+firehose - block_size:512
+firehose - page_size:512
+firehose - num_physical:4
+firehose - manufacturer_id:144
+firehose - serial_num:4010781202
+firehose - fw_version:858796080
+firehose - mem_type:eMMC
+firehose - prod_name:hDEaP3
+firehose_client - Supported functions:
+-----------------
+program,read,nop,patch,configure,setbootablestoragedrive,erase,power,firmwarewrite,getstorageinfo,benchmark,emmc,ufs,fixgpt
+
+Parsing Lun 0:
+
+GPT Table:
+-------------
+modemst1:            Offset 0x0000000000005000, Length 0x0000000000400000, Flags 0x0000000000000000, UUID 8f4162ea-1084-687a-6578-1014d1f61b87, Type 0xebbeadaf, Active False
+modemst2:            Offset 0x0000000000405000, Length 0x0000000000400000, Flags 0x0000000000000000, UUID 3604e266-2a6f-fe22-4899-203f273ef68d, Type 0xa288b1f, Active False
+fsg:                 Offset 0x0000000004000000, Length 0x0000000000400000, Flags 0x1000000000000000, UUID ba96facd-f5e3-8106-ede1-72b178e84849, Type 0x638ff8e2, Active False
+fsc:                 Offset 0x0000000008000000, Length 0x0000000000020000, Flags 0x0000000000000000, UUID ed5aef71-aa5e-b3ca-e965-4de57b3c8eca, Type 0x57b90a16, Active False
+nvdata1:             Offset 0x0000000008020000, Length 0x0000000000180000, Flags 0x0000000000000000, UUID f77dc7d3-d9d6-0949-4948-383a3cb47de2, Type 0x97745aba, Active False
+nvdata2:             Offset 0x00000000081a0000, Length 0x0000000000180000, Flags 0x0000000000000000, UUID 2e331b21-507c-7c69-83f9-49d604ea0452, Type 0x97745aba, Active False
+reserve1:            Offset 0x0000000008320000, Length 0x0000000000400000, Flags 0x0000000000000000, UUID f7716b06-3626-b3a8-ffea-f50711218827, Type 0x5af99321, Active False
+reserve2:            Offset 0x0000000008720000, Length 0x0000000000400000, Flags 0x0000000000000000, UUID 6b4bc0bd-bd38-f03d-29f3-53e63dbc8c0f, Type 0x5af99321, Active False
+persist:             Offset 0x0000000008b20000, Length 0x0000000002000000, Flags 0x0000000000000000, UUID ecc7998f-9297-fded-e4cc-d22c9e3b6897, Type 0x6c95e238, Active False
+qpdata1:             Offset 0x000000000ab20000, Length 0x0000000004000000, Flags 0x0000000000000000, UUID 23078930-1f2c-1145-3511-57ed8247457e, Type 0x5af80123, Active False
+qpdata2:             Offset 0x000000000eb20000, Length 0x0000000000a00000, Flags 0x0000000000000000, UUID b416446b-7be5-0900-2cdc-c8158b19a67a, Type 0x5af99321, Active False
+modem_a:             Offset 0x000000000f520000, Length 0x000000000b400000, Flags 0x007f000000000000, UUID 92388933-af3f-cbce-0812-b12ffd9ab0fa, Type EFI_BASIC_DATA, Active True
+modem_b:             Offset 0x000000001a920000, Length 0x000000000b400000, Flags 0x00fb000000000000, UUID 335708ee-32ca-2d6b-0ffb-8bfe3ec630aa, Type 0x77036cd4, Active False
+bluetooth_a:         Offset 0x0000000025d20000, Length 0x0000000000100000, Flags 0x007f000000000000, UUID bd19b55b-82ae-5791-cbaa-26b27e11fb28, Type 0x6cb747f1, Active True
+bluetooth_b:         Offset 0x0000000025e20000, Length 0x0000000000100000, Flags 0x00fb000000000000, UUID d41195eb-2797-db79-2fa4-d76478241884, Type 0x77036cd4, Active False
+splash:              Offset 0x0000000025f20000, Length 0x0000000002000000, Flags 0x0000000000000000, UUID a7e7e795-0696-372e-fee0-7e92c88d6d52, Type 0xad99f201, Active False
+imagefv_a:           Offset 0x0000000027f20000, Length 0x0000000002000000, Flags 0x007f000000000001, UUID 394159d2-33d2-b24f-153c-54dd0a93b652, Type 0x17911177, Active True
+imagefv_b:           Offset 0x0000000029f20000, Length 0x0000000002000000, Flags 0x00fb000000000001, UUID fb031b6f-2597-fd8a-80d2-3e267fa647bf, Type 0x77036cd4, Active False
+apdp:                Offset 0x000000002bf20000, Length 0x0000000000040000, Flags 0x0000000000000000, UUID a9993b73-8e2e-b58d-2ea0-ca1edc153b02, Type 0xe6e98da2, Active False
+catecontentfv:       Offset 0x000000002bf60000, Length 0x0000000000100000, Flags 0x0000000000000000, UUID de5ff8fc-7064-9889-9fa0-63a286151386, Type 0xe12d830b, Active False
+catefv:              Offset 0x000000002c060000, Length 0x0000000000080000, Flags 0x0000000000000000, UUID 20746d72-6914-9832-525a-d085346a05f1, Type 0x80c23c26, Active False
+cateloader:          Offset 0x000000002c0e0000, Length 0x0000000000200000, Flags 0x0000000000000000, UUID 279d9522-eeca-5521-d462-36048526f3f3, Type 0xaa9a5c4c, Active False
+ddr:                 Offset 0x000000002c2e0000, Length 0x0000000000100000, Flags 0x0000000000000000, UUID c3cdac88-3752-a7fb-7c42-68bbb98c47f6, Type 0x20a0c19c, Active False
+dip:                 Offset 0x000000002c3e0000, Length 0x0000000000100000, Flags 0x0000000000000000, UUID 4fc42ab1-423d-88e0-87c5-aac66106777b, Type 0x4114b077, Active False
+frp:                 Offset 0x000000002c4e0000, Length 0x0000000000080000, Flags 0x0000000000000000, UUID aae080b0-adbe-9215-da51-3a5de2b1e596, Type 0x91b72d4d, Active False
+keystore:            Offset 0x000000002c560000, Length 0x0000000000080000, Flags 0x0000000000000000, UUID b464c402-e8f6-f12e-d244-a4b3223d4ed9, Type 0xde7d4029, Active False
+limits:              Offset 0x000000002c5e0000, Length 0x0000000000001000, Flags 0x0000000000000000, UUID db0b786d-4bcf-b2cd-2100-c078f7bd6e32, Type 0x10a0c19c, Active False
+mdtpsecapp_a:        Offset 0x000000002c5e1000, Length 0x0000000000400000, Flags 0x007f000000000000, UUID 121f06ed-bfe8-e4ab-934b-23cb0bdc1618, Type 0xea02d680, Active True
+mdtpsecapp_b:        Offset 0x000000002c9e1000, Length 0x0000000000400000, Flags 0x00fb000000000000, UUID efe22bc1-55f9-64be-7a75-789865696d2f, Type 0x77036cd4, Active False
+mdtp_a:              Offset 0x000000002cde1000, Length 0x0000000002000000, Flags 0x007f000000000000, UUID 51583a99-17bf-c77b-e914-ba3eea1b3d90, Type 0x3878408a, Active True
+mdtp_b:              Offset 0x000000002ede1000, Length 0x0000000002000000, Flags 0x00fb000000000000, UUID 7fc1aa32-6650-ef24-3474-cf5f3c71eff9, Type 0x77036cd4, Active False
+multiimgoem:         Offset 0x0000000030de1000, Length 0x0000000000008000, Flags 0x0000000000000000, UUID 30a7de0b-8c84-fd50-4304-f2a8bda07f8d, Type 0xe126a436, Active False
+multiimgqti:         Offset 0x0000000030de9000, Length 0x0000000000008000, Flags 0x0000000000000000, UUID 0fec0219-9cb0-2d95-71c3-baf175b84f71, Type 0x846c6f05, Active False
+secdata:             Offset 0x0000000030df1000, Length 0x0000000000006400, Flags 0x0000000000000000, UUID 7d277cd5-3bd7-0d47-d077-4d751db0bec7, Type 0x76cfc7ef, Active False
+spunvm:              Offset 0x0000000030df8000, Length 0x0000000000800000, Flags 0x0000000000000000, UUID aa93dea8-c67d-6d25-a277-3a234a4d1302, Type 0xe42e2b4c, Active False
+ssd:                 Offset 0x00000000315f8000, Length 0x0000000000002000, Flags 0x0000000000000000, UUID 61010f15-c99f-e2e4-234c-001368cf6738, Type 0x2c86e742, Active False
+toolsfv:             Offset 0x00000000315fa000, Length 0x0000000000100000, Flags 0x0000000000000000, UUID d54e5b7b-a04b-43d3-9ec6-350cbfab3fc3, Type 0x97745aba, Active False
+uefivarstore:        Offset 0x00000000316fa000, Length 0x0000000000080000, Flags 0x0000000000000000, UUID 9738f7ce-fd3a-38b3-20bc-94c51a57297a, Type 0x165bd6bc, Active False
+cmnlib_a:            Offset 0x000000003177a000, Length 0x0000000000080000, Flags 0x007f000000000000, UUID 0e1e6740-e9c8-e4b3-b84f-530a3aa62d1e, Type 0x73471795, Active True
+cmnlib64_a:          Offset 0x00000000317fa000, Length 0x0000000000080000, Flags 0x007f000000000000, UUID a8576a14-2f6f-80dc-3828-1735c8ea1223, Type 0x8ea64893, Active True
+cmnlib_b:            Offset 0x000000003187a000, Length 0x0000000000080000, Flags 0x00fb000000000000, UUID 5f81903b-0796-e8b4-a20f-65f09087f972, Type 0x77036cd4, Active False
+cmnlib64_b:          Offset 0x00000000318fa000, Length 0x0000000000080000, Flags 0x00fb000000000000, UUID fcef1902-d69a-f36d-2999-ba5e4be2ff8c, Type 0x77036cd4, Active False
+devcfg_a:            Offset 0x000000003197a000, Length 0x0000000000020000, Flags 0x007f000000000000, UUID ce47deac-6049-0975-b9ad-056a567bb37b, Type 0xf65d4b16, Active True
+devcfg_b:            Offset 0x000000003199a000, Length 0x0000000000020000, Flags 0x00fb000000000000, UUID 6e75df49-3d11-15be-c4f1-d86928ea8a78, Type 0x77036cd4, Active False
+devinfo:             Offset 0x00000000319ba000, Length 0x0000000000001000, Flags 0x0000000000000000, UUID 73497758-d4aa-ba39-44e2-de76804be3cd, Type 0x65addcf4, Active False
+dsp_a:               Offset 0x00000000319bb000, Length 0x0000000002000000, Flags 0x007f000000000000, UUID 9bb99830-eca3-7fe1-f201-1953cfcf877b, Type 0x7efe5010, Active True
+dsp_b:               Offset 0x00000000339bb000, Length 0x0000000002000000, Flags 0x00fb000000000000, UUID a8e85f9d-375f-de7c-349e-c4b487d364af, Type 0x77036cd4, Active False
+hyp_a:               Offset 0x00000000359bb000, Length 0x0000000000080000, Flags 0x007f000000000000, UUID f37dde83-5e62-ab1e-495d-3a30df89353e, Type 0xe1a6a689, Active True
+hyp_b:               Offset 0x0000000035a3b000, Length 0x0000000000080000, Flags 0x00fb000000000000, UUID 2dea64a2-c710-c798-e985-07e6ca7dcb18, Type 0x77036cd4, Active False
+keymaster_a:         Offset 0x0000000035abb000, Length 0x0000000000080000, Flags 0x007f000000000000, UUID b915f7ae-6c47-493b-b969-2d9455f38816, Type 0xa11d2a7c, Active True
+keymaster_b:         Offset 0x0000000035b3b000, Length 0x0000000000080000, Flags 0x00fb000000000000, UUID 9b78504a-e30d-ab94-b2ef-ce66600341d1, Type 0x77036cd4, Active False
+logfs:               Offset 0x0000000035bbb000, Length 0x0000000000800000, Flags 0x0000000000000000, UUID 4449f402-8513-f182-363e-214a1df35ad1, Type 0xbc0330eb, Active False
+qupfw_a:             Offset 0x00000000363bb000, Length 0x0000000000010000, Flags 0x007f000000000000, UUID 3e7f5273-a5ab-4365-3125-65c6aa39d03a, Type 0x21d1219f, Active True
+qupfw_b:             Offset 0x00000000363cb000, Length 0x0000000000010000, Flags 0x00fb000000000000, UUID 2e3d37ac-7e25-9f4c-3ff0-9197d93bc700, Type 0x77036cd4, Active False
+rpm_a:               Offset 0x00000000363db000, Length 0x0000000000080000, Flags 0x007f000000000000, UUID 712adabf-af3b-d22a-2d01-2574a3295a34, Type 0x98df793, Active True
+rpm_b:               Offset 0x000000003645b000, Length 0x0000000000080000, Flags 0x00fb000000000000, UUID d815f277-7ff6-1e7f-55a0-343d0524da94, Type 0x77036cd4, Active False
+storsec:             Offset 0x00000000364db000, Length 0x0000000000020000, Flags 0x0000000000000000, UUID 7db7fe13-65b6-2b10-71b1-d7822eac95d5, Type 0x2db45fe, Active False
+tz_a:                Offset 0x00000000364fb000, Length 0x0000000000400000, Flags 0x007f000000000000, UUID 0e32479e-2495-7fd7-0e45-646047319843, Type 0xa053aa7f, Active True
+tz_b:                Offset 0x00000000368fb000, Length 0x0000000000400000, Flags 0x00fb000000000000, UUID befda9d3-e604-7878-8f51-933127214b3c, Type 0x77036cd4, Active False
+uefisecapp_a:        Offset 0x0000000036cfb000, Length 0x0000000000200000, Flags 0x007f000000000000, UUID 5dd29db2-42e5-abcc-e4ba-16b9da86064c, Type 0xbe8a7e08, Active True
+uefisecapp_b:        Offset 0x0000000036efb000, Length 0x0000000000200000, Flags 0x00fb000000000000, UUID 2ac3b2e2-4fba-5a72-00a0-5fc3ee90f03b, Type 0x77036cd4, Active False
+xbl_a:               Offset 0x0000000038000000, Length 0x0000000000380000, Flags 0x107f000000000000, UUID ce4ead6b-c5fc-2728-eef9-1fe662d71275, Type 0xdea0ba2c, Active True
+xbl_b:               Offset 0x0000000038380000, Length 0x0000000000380000, Flags 0x10fb000000000000, UUID c0762d50-1c5a-6896-3126-a90ff9538930, Type 0x77036cd4, Active False
+xbl_config_a:        Offset 0x000000003c000000, Length 0x0000000000020000, Flags 0x007f000000000000, UUID 1ceff720-9b5b-f013-33cd-4274ebdcb4b4, Type 0x5a325ae4, Active True
+xbl_config_b:        Offset 0x000000003c020000, Length 0x0000000000020000, Flags 0x00fb000000000000, UUID 754887cc-f1a6-cb7a-91e7-0569f9d159da, Type 0x77036cd4, Active False
+misc:                Offset 0x000000003c040000, Length 0x0000000000100000, Flags 0x0000000000000000, UUID 8979fff3-70bc-25b7-9cad-5c64bc23fd48, Type 0x82acc91f, Active False
+abl_a:               Offset 0x000000003c140000, Length 0x0000000000100000, Flags 0x007f000000000000, UUID d56c25cf-cdfb-8bc6-abcd-f9ef1c630897, Type 0xbd6928a1, Active True
+abl_b:               Offset 0x000000003c240000, Length 0x0000000000100000, Flags 0x00fb000000000000, UUID 6885479d-1b34-8d49-a37a-1b1bd93c6714, Type 0x77036cd4, Active False
+boot_a:              Offset 0x000000003c340000, Length 0x0000000006000000, Flags 0x0077000000000000, UUID f76c6d9b-8104-9341-fcdd-e547b247fafd, Type 0x20117f86, Active True
+boot_b:              Offset 0x0000000042340000, Length 0x0000000006000000, Flags 0x00f3000000000000, UUID 9cac171d-29df-7670-6a72-31c8e0d36126, Type 0x77036cd4, Active False
+dtbo_a:              Offset 0x0000000048340000, Length 0x0000000001800000, Flags 0x007f000000000000, UUID fc7bc069-5027-79ee-4a82-c10bad89254f, Type 0x24d0d418, Active True
+dtbo_b:              Offset 0x0000000049b40000, Length 0x0000000001800000, Flags 0x00fb000000000000, UUID 3885c2ef-091c-6998-e6b9-540fb631d6f0, Type 0x77036cd4, Active False
+init_boot_a:         Offset 0x000000004b340000, Length 0x0000000000800000, Flags 0x007f000000000000, UUID e63ba506-1b0d-3761-3f55-82a1d9b4a39c, Type 0xe5b0f3f7, Active True
+init_boot_b:         Offset 0x000000004bb40000, Length 0x0000000000800000, Flags 0x00fb000000000000, UUID 4bc2006a-30ca-7b9e-0528-229f312d8c6b, Type 0x77036cd4, Active False
+metadata:            Offset 0x000000004c340000, Length 0x0000000004000000, Flags 0x0000000000000000, UUID 21e5f679-f87b-9233-3c81-b8d7e468f3a2, Type 0x988a98c9, Active False
+recovery_a:          Offset 0x0000000050340000, Length 0x0000000006400000, Flags 0x007f000000000000, UUID cc689fb5-9918-d545-9a0f-081130fed855, Type 0xd504d6db, Active True
+recovery_b:          Offset 0x0000000056740000, Length 0x0000000006400000, Flags 0x00fb000000000000, UUID 5a39d230-077b-a274-9bb0-e1d5bdd248d7, Type 0x352b8083, Active False
+vbmeta_a:            Offset 0x000000005cb40000, Length 0x0000000000010000, Flags 0x007f000000000000, UUID c228813b-e29c-45da-3d17-e20a92d02cc6, Type 0x4b7a15d6, Active True
+vbmeta_b:            Offset 0x000000005cb50000, Length 0x0000000000010000, Flags 0x00fb000000000000, UUID 58c07759-8189-fa57-3150-570e11ea70ee, Type 0x77036cd4, Active False
+vendor_boot_a:       Offset 0x000000005cb60000, Length 0x0000000006000000, Flags 0x007f000000000000, UUID f47cb86b-e792-311f-8979-bae1fa51b7a8, Type 0x6d286a7f, Active True
+vendor_boot_b:       Offset 0x0000000062b60000, Length 0x0000000006000000, Flags 0x00fb000000000000, UUID 6cd93fa3-7206-16c1-48b7-25be39f1220d, Type 0x77036cd4, Active False
+vbmeta_system_a:     Offset 0x0000000068b60000, Length 0x0000000000010000, Flags 0x0004000000000000, UUID 382ee600-5acf-c36f-116c-8e9208471118, Type 0x1344859d, Active True
+vbmeta_system_b:     Offset 0x0000000068b70000, Length 0x0000000000010000, Flags 0x0000000000000000, UUID 9b292e0e-2bd1-fc4b-434a-43e83f3b247e, Type 0xfe3ab853, Active False
+logdump:             Offset 0x0000000068b80000, Length 0x0000000004000000, Flags 0x0000000000000000, UUID 963d07ea-de17-043b-ea43-1e8be01bec3f, Type 0x5af80809, Active False
+rawdump:             Offset 0x000000006cb80000, Length 0x0000000008000000, Flags 0x0000000000000000, UUID 2bf61587-04b7-68b4-f71c-e9dfed6ecf76, Type 0x66c9b323, Active False
+super:               Offset 0x0000000074b80000, Length 0x0000000300000000, Flags 0x0000000000000000, UUID 51a426b4-137c-8761-03ea-724b4eb8b191, Type 0x89a12de1, Active False
+userdata:            Offset 0x0000000374b80000, Length 0x00000019aa47be00, Flags 0x0000000000000000, UUID e08179de-6bd6-f5e3-b4af-be4095a5ecd8, Type 0x1b81e7e6, Active False
+
+Total disk size:0x0000001d1f000000, sectors:0x000000000e8f8000
+
+
+EDL_COMMAND_EXIT_STATUS=0
+
+===== TEST COMPLETE =====
+Report: /home/hawk/duo_forensics/qcs6125_loader_test/REPORT.txt
+No partition writes or erases were requested.
+
+===== QCS6125 TEST DIRECTORY =====
+total 616K
+drwxr-xr-x 1 hawk hawk  254 Nov  1 23:05 .
+drwxr-xr-x 1 hawk hawk 1.8K Nov  1 23:54 ..
+
+----- /home/hawk/duo_forensics/firehose_method_recovery_20261101_235248.txt -----
+===== FIREHOSE METHOD RECOVERY =====
+2026-11-01T23:52:48-05:00
+
+===== PREVIOUS WORKING QCS6125 LOADER REPORT =====
+===== DUO LITE QCS6125 EXACT-MATCH FIREHOSE TEST =====
+Sun Nov  1 11:05:25 PM EST 2026
+
+===== DEVICE IDENTIFIERS THIS LOADER MATCHES =====
+HWID:    001750e100000000
+PK_HASH: d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87
+
+===== DOWNLOADING MATCHING LOADER =====
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+
+  0      0   0      0   0      0      0      0                              0
+100 588.4k 100 588.4k   0      0  2.47M      0                              0
+100 588.4k 100 588.4k   0      0  2.47M      0                              0
+100 588.4k 100 588.4k   0      0  2.47M      0                              0
+Download completed.
+
+===== LOADER VALIDATION =====
+File size: 602588 bytes
+/home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin: ELF 64-bit LSB executable, ARM aarch64, version 1 (SYSV), statically linked, no section header
+2a2123157b81d78701a54822305749d751d789e1cd83c15cea5bf891efab30e0  /home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Machine:                           AArch64
+
+===== EDL TOOL VALIDATION =====
+Repository: /home/hawk/duo_forensics/recovery_probe/bkerler-edl
+Python:     /home/hawk/duo_forensics/recovery_probe/venv/bin/python
+Script:     /home/hawk/duo_forensics/recovery_probe/bkerler-edl/edl.py
+
+===== CHECKING DEVICE EDL MODE =====
+Bus 001 Device 044: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+
+===== READ-ONLY FIREHOSE / GPT TEST =====
+No partition write or erase commands will be issued.
+Qualcomm Sahara / Firehose Client V3.62 (c) B.Kerler 2018-2025.
+main - Using loader /home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin ...
+main - Waiting for the device
+main - Device detected :)
+sahara - Protocol version: 2, Version supported: 1
+main - Mode detected: sahara
+sahara - 
+Version 0x2
+------------------------
+HWID:              0x001750e100000000 (MSM_ID:0x001750e1,OEM_ID:0x0000,MODEL_ID:0x0000)
+CPU detected:      "nicobar_IoT_modem"
+PK_HASH:           0xd40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87
+Serial:            0x63b30b6d
+
+sahara - Protocol version: 2, Version supported: 1
+sahara - Uploading loader /home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin ...
+sahara - 64-Bit mode detected.
+sahara - Loader successfully uploaded.
+main - Trying to connect to firehose loader ...
+firehose - INFO: Binary build date: Oct 13 2022 @ 18:19:54
+firehose - INFO: Binary build date: Oct 13 2022 @ 18:19:54 
+firehose - INFO: Chip serial num: 1672678253 (0x63b30b6d)
+firehose - INFO: Supported Functions (14):
+firehose - INFO: program
+firehose - INFO: read
+firehose - INFO: nop
+firehose - INFO: patch
+firehose - INFO: configure
+firehose - INFO: setbootablestoragedrive
+firehose - INFO: erase
+firehose - INFO: power
+firehose - INFO: firmwarewrite
+firehose - INFO: getstorageinfo
+firehose - INFO: benchmark
+firehose - INFO: emmc
+firehose - INFO: ufs
+firehose - INFO: fixgpt
+firehose - INFO: End of supported functions 14
+firehose_client
+firehose_client - [LIB]: [33mNo --memory option set, we assume "UFS" as default ..., if it fails, try using "--memory" with "UFS","NAND" or "spinor" instead ![0m
+firehose
+firehose - [LIB]: [33mCouldn't detect MaxPayloadSizeFromTargetinBytes[0m
+firehose
+firehose - [LIB]: [33mCouldn't detect TargetName[0m
+firehose - TargetName=Unknown
+firehose - MemoryName=UFS
+firehose - Version=1
+firehose - Trying to read first storage sector...
+firehose - Running configure...
+firehose
+firehose - [LIB]: [33mMemory type UFS doesn't seem to match (Failed to init). Trying to use eMMC instead.[0m
+firehose
+firehose - [LIB]: [33mCouldn't detect MaxPayloadSizeFromTargetinBytes[0m
+firehose
+firehose - [LIB]: [33mCouldn't detect TargetName[0m
+firehose - TargetName=Unknown
+firehose - MemoryName=eMMC
+firehose - Version=1
+firehose - Trying to read first storage sector...
+firehose - Running configure...
+firehose
+firehose - [LIB]: [33mCouldn't detect MaxPayloadSizeFromTargetinBytes[0m
+firehose
+firehose - [LIB]: [33mCouldn't detect TargetName[0m
+firehose - TargetName=Unknown
+firehose - MemoryName=eMMC
+firehose - Version=1
+firehose - Trying to read first storage sector...
+firehose - Running configure...
+firehose - Storage report:
+firehose - total_blocks:244285440
+firehose - block_size:512
+firehose - page_size:512
+firehose - num_physical:4
+firehose - manufacturer_id:144
+firehose - serial_num:4010781202
+firehose - fw_version:858796080
+firehose - mem_type:eMMC
+firehose - prod_name:hDEaP3
+firehose_client - Supported functions:
+-----------------
+program,read,nop,patch,configure,setbootablestoragedrive,erase,power,firmwarewrite,getstorageinfo,benchmark,emmc,ufs,fixgpt
+
+Parsing Lun 0:
+
+GPT Table:
+-------------
+modemst1:            Offset 0x0000000000005000, Length 0x0000000000400000, Flags 0x0000000000000000, UUID 8f4162ea-1084-687a-6578-1014d1f61b87, Type 0xebbeadaf, Active False
+modemst2:            Offset 0x0000000000405000, Length 0x0000000000400000, Flags 0x0000000000000000, UUID 3604e266-2a6f-fe22-4899-203f273ef68d, Type 0xa288b1f, Active False
+fsg:                 Offset 0x0000000004000000, Length 0x0000000000400000, Flags 0x1000000000000000, UUID ba96facd-f5e3-8106-ede1-72b178e84849, Type 0x638ff8e2, Active False
+fsc:                 Offset 0x0000000008000000, Length 0x0000000000020000, Flags 0x0000000000000000, UUID ed5aef71-aa5e-b3ca-e965-4de57b3c8eca, Type 0x57b90a16, Active False
+nvdata1:             Offset 0x0000000008020000, Length 0x0000000000180000, Flags 0x0000000000000000, UUID f77dc7d3-d9d6-0949-4948-383a3cb47de2, Type 0x97745aba, Active False
+nvdata2:             Offset 0x00000000081a0000, Length 0x0000000000180000, Flags 0x0000000000000000, UUID 2e331b21-507c-7c69-83f9-49d604ea0452, Type 0x97745aba, Active False
+reserve1:            Offset 0x0000000008320000, Length 0x0000000000400000, Flags 0x0000000000000000, UUID f7716b06-3626-b3a8-ffea-f50711218827, Type 0x5af99321, Active False
+reserve2:            Offset 0x0000000008720000, Length 0x0000000000400000, Flags 0x0000000000000000, UUID 6b4bc0bd-bd38-f03d-29f3-53e63dbc8c0f, Type 0x5af99321, Active False
+persist:             Offset 0x0000000008b20000, Length 0x0000000002000000, Flags 0x0000000000000000, UUID ecc7998f-9297-fded-e4cc-d22c9e3b6897, Type 0x6c95e238, Active False
+qpdata1:             Offset 0x000000000ab20000, Length 0x0000000004000000, Flags 0x0000000000000000, UUID 23078930-1f2c-1145-3511-57ed8247457e, Type 0x5af80123, Active False
+qpdata2:             Offset 0x000000000eb20000, Length 0x0000000000a00000, Flags 0x0000000000000000, UUID b416446b-7be5-0900-2cdc-c8158b19a67a, Type 0x5af99321, Active False
+modem_a:             Offset 0x000000000f520000, Length 0x000000000b400000, Flags 0x007f000000000000, UUID 92388933-af3f-cbce-0812-b12ffd9ab0fa, Type EFI_BASIC_DATA, Active True
+modem_b:             Offset 0x000000001a920000, Length 0x000000000b400000, Flags 0x00fb000000000000, UUID 335708ee-32ca-2d6b-0ffb-8bfe3ec630aa, Type 0x77036cd4, Active False
+bluetooth_a:         Offset 0x0000000025d20000, Length 0x0000000000100000, Flags 0x007f000000000000, UUID bd19b55b-82ae-5791-cbaa-26b27e11fb28, Type 0x6cb747f1, Active True
+bluetooth_b:         Offset 0x0000000025e20000, Length 0x0000000000100000, Flags 0x00fb000000000000, UUID d41195eb-2797-db79-2fa4-d76478241884, Type 0x77036cd4, Active False
+splash:              Offset 0x0000000025f20000, Length 0x0000000002000000, Flags 0x0000000000000000, UUID a7e7e795-0696-372e-fee0-7e92c88d6d52, Type 0xad99f201, Active False
+imagefv_a:           Offset 0x0000000027f20000, Length 0x0000000002000000, Flags 0x007f000000000001, UUID 394159d2-33d2-b24f-153c-54dd0a93b652, Type 0x17911177, Active True
+imagefv_b:           Offset 0x0000000029f20000, Length 0x0000000002000000, Flags 0x00fb000000000001, UUID fb031b6f-2597-fd8a-80d2-3e267fa647bf, Type 0x77036cd4, Active False
+apdp:                Offset 0x000000002bf20000, Length 0x0000000000040000, Flags 0x0000000000000000, UUID a9993b73-8e2e-b58d-2ea0-ca1edc153b02, Type 0xe6e98da2, Active False
+catecontentfv:       Offset 0x000000002bf60000, Length 0x0000000000100000, Flags 0x0000000000000000, UUID de5ff8fc-7064-9889-9fa0-63a286151386, Type 0xe12d830b, Active False
+catefv:              Offset 0x000000002c060000, Length 0x0000000000080000, Flags 0x0000000000000000, UUID 20746d72-6914-9832-525a-d085346a05f1, Type 0x80c23c26, Active False
+cateloader:          Offset 0x000000002c0e0000, Length 0x0000000000200000, Flags 0x0000000000000000, UUID 279d9522-eeca-5521-d462-36048526f3f3, Type 0xaa9a5c4c, Active False
+ddr:                 Offset 0x000000002c2e0000, Length 0x0000000000100000, Flags 0x0000000000000000, UUID c3cdac88-3752-a7fb-7c42-68bbb98c47f6, Type 0x20a0c19c, Active False
+dip:                 Offset 0x000000002c3e0000, Length 0x0000000000100000, Flags 0x0000000000000000, UUID 4fc42ab1-423d-88e0-87c5-aac66106777b, Type 0x4114b077, Active False
+frp:                 Offset 0x000000002c4e0000, Length 0x0000000000080000, Flags 0x0000000000000000, UUID aae080b0-adbe-9215-da51-3a5de2b1e596, Type 0x91b72d4d, Active False
+keystore:            Offset 0x000000002c560000, Length 0x0000000000080000, Flags 0x0000000000000000, UUID b464c402-e8f6-f12e-d244-a4b3223d4ed9, Type 0xde7d4029, Active False
+limits:              Offset 0x000000002c5e0000, Length 0x0000000000001000, Flags 0x0000000000000000, UUID db0b786d-4bcf-b2cd-2100-c078f7bd6e32, Type 0x10a0c19c, Active False
+mdtpsecapp_a:        Offset 0x000000002c5e1000, Length 0x0000000000400000, Flags 0x007f000000000000, UUID 121f06ed-bfe8-e4ab-934b-23cb0bdc1618, Type 0xea02d680, Active True
+mdtpsecapp_b:        Offset 0x000000002c9e1000, Length 0x0000000000400000, Flags 0x00fb000000000000, UUID efe22bc1-55f9-64be-7a75-789865696d2f, Type 0x77036cd4, Active False
+mdtp_a:              Offset 0x000000002cde1000, Length 0x0000000002000000, Flags 0x007f000000000000, UUID 51583a99-17bf-c77b-e914-ba3eea1b3d90, Type 0x3878408a, Active True
+mdtp_b:              Offset 0x000000002ede1000, Length 0x0000000002000000, Flags 0x00fb000000000000, UUID 7fc1aa32-6650-ef24-3474-cf5f3c71eff9, Type 0x77036cd4, Active False
+multiimgoem:         Offset 0x0000000030de1000, Length 0x0000000000008000, Flags 0x0000000000000000, UUID 30a7de0b-8c84-fd50-4304-f2a8bda07f8d, Type 0xe126a436, Active False
+multiimgqti:         Offset 0x0000000030de9000, Length 0x0000000000008000, Flags 0x0000000000000000, UUID 0fec0219-9cb0-2d95-71c3-baf175b84f71, Type 0x846c6f05, Active False
+secdata:             Offset 0x0000000030df1000, Length 0x0000000000006400, Flags 0x0000000000000000, UUID 7d277cd5-3bd7-0d47-d077-4d751db0bec7, Type 0x76cfc7ef, Active False
+spunvm:              Offset 0x0000000030df8000, Length 0x0000000000800000, Flags 0x0000000000000000, UUID aa93dea8-c67d-6d25-a277-3a234a4d1302, Type 0xe42e2b4c, Active False
+ssd:                 Offset 0x00000000315f8000, Length 0x0000000000002000, Flags 0x0000000000000000, UUID 61010f15-c99f-e2e4-234c-001368cf6738, Type 0x2c86e742, Active False
+toolsfv:             Offset 0x00000000315fa000, Length 0x0000000000100000, Flags 0x0000000000000000, UUID d54e5b7b-a04b-43d3-9ec6-350cbfab3fc3, Type 0x97745aba, Active False
+uefivarstore:        Offset 0x00000000316fa000, Length 0x0000000000080000, Flags 0x0000000000000000, UUID 9738f7ce-fd3a-38b3-20bc-94c51a57297a, Type 0x165bd6bc, Active False
+cmnlib_a:            Offset 0x000000003177a000, Length 0x0000000000080000, Flags 0x007f000000000000, UUID 0e1e6740-e9c8-e4b3-b84f-530a3aa62d1e, Type 0x73471795, Active True
+cmnlib64_a:          Offset 0x00000000317fa000, Length 0x0000000000080000, Flags 0x007f000000000000, UUID a8576a14-2f6f-80dc-3828-1735c8ea1223, Type 0x8ea64893, Active True
+cmnlib_b:            Offset 0x000000003187a000, Length 0x0000000000080000, Flags 0x00fb000000000000, UUID 5f81903b-0796-e8b4-a20f-65f09087f972, Type 0x77036cd4, Active False
+cmnlib64_b:          Offset 0x00000000318fa000, Length 0x0000000000080000, Flags 0x00fb000000000000, UUID fcef1902-d69a-f36d-2999-ba5e4be2ff8c, Type 0x77036cd4, Active False
+devcfg_a:            Offset 0x000000003197a000, Length 0x0000000000020000, Flags 0x007f000000000000, UUID ce47deac-6049-0975-b9ad-056a567bb37b, Type 0xf65d4b16, Active True
+devcfg_b:            Offset 0x000000003199a000, Length 0x0000000000020000, Flags 0x00fb000000000000, UUID 6e75df49-3d11-15be-c4f1-d86928ea8a78, Type 0x77036cd4, Active False
+devinfo:             Offset 0x00000000319ba000, Length 0x0000000000001000, Flags 0x0000000000000000, UUID 73497758-d4aa-ba39-44e2-de76804be3cd, Type 0x65addcf4, Active False
+dsp_a:               Offset 0x00000000319bb000, Length 0x0000000002000000, Flags 0x007f000000000000, UUID 9bb99830-eca3-7fe1-f201-1953cfcf877b, Type 0x7efe5010, Active True
+dsp_b:               Offset 0x00000000339bb000, Length 0x0000000002000000, Flags 0x00fb000000000000, UUID a8e85f9d-375f-de7c-349e-c4b487d364af, Type 0x77036cd4, Active False
+hyp_a:               Offset 0x00000000359bb000, Length 0x0000000000080000, Flags 0x007f000000000000, UUID f37dde83-5e62-ab1e-495d-3a30df89353e, Type 0xe1a6a689, Active True
+hyp_b:               Offset 0x0000000035a3b000, Length 0x0000000000080000, Flags 0x00fb000000000000, UUID 2dea64a2-c710-c798-e985-07e6ca7dcb18, Type 0x77036cd4, Active False
+keymaster_a:         Offset 0x0000000035abb000, Length 0x0000000000080000, Flags 0x007f000000000000, UUID b915f7ae-6c47-493b-b969-2d9455f38816, Type 0xa11d2a7c, Active True
+keymaster_b:         Offset 0x0000000035b3b000, Length 0x0000000000080000, Flags 0x00fb000000000000, UUID 9b78504a-e30d-ab94-b2ef-ce66600341d1, Type 0x77036cd4, Active False
+logfs:               Offset 0x0000000035bbb000, Length 0x0000000000800000, Flags 0x0000000000000000, UUID 4449f402-8513-f182-363e-214a1df35ad1, Type 0xbc0330eb, Active False
+qupfw_a:             Offset 0x00000000363bb000, Length 0x0000000000010000, Flags 0x007f000000000000, UUID 3e7f5273-a5ab-4365-3125-65c6aa39d03a, Type 0x21d1219f, Active True
+qupfw_b:             Offset 0x00000000363cb000, Length 0x0000000000010000, Flags 0x00fb000000000000, UUID 2e3d37ac-7e25-9f4c-3ff0-9197d93bc700, Type 0x77036cd4, Active False
+rpm_a:               Offset 0x00000000363db000, Length 0x0000000000080000, Flags 0x007f000000000000, UUID 712adabf-af3b-d22a-2d01-2574a3295a34, Type 0x98df793, Active True
+rpm_b:               Offset 0x000000003645b000, Length 0x0000000000080000, Flags 0x00fb000000000000, UUID d815f277-7ff6-1e7f-55a0-343d0524da94, Type 0x77036cd4, Active False
+storsec:             Offset 0x00000000364db000, Length 0x0000000000020000, Flags 0x0000000000000000, UUID 7db7fe13-65b6-2b10-71b1-d7822eac95d5, Type 0x2db45fe, Active False
+tz_a:                Offset 0x00000000364fb000, Length 0x0000000000400000, Flags 0x007f000000000000, UUID 0e32479e-2495-7fd7-0e45-646047319843, Type 0xa053aa7f, Active True
+tz_b:                Offset 0x00000000368fb000, Length 0x0000000000400000, Flags 0x00fb000000000000, UUID befda9d3-e604-7878-8f51-933127214b3c, Type 0x77036cd4, Active False
+uefisecapp_a:        Offset 0x0000000036cfb000, Length 0x0000000000200000, Flags 0x007f000000000000, UUID 5dd29db2-42e5-abcc-e4ba-16b9da86064c, Type 0xbe8a7e08, Active True
+uefisecapp_b:        Offset 0x0000000036efb000, Length 0x0000000000200000, Flags 0x00fb000000000000, UUID 2ac3b2e2-4fba-5a72-00a0-5fc3ee90f03b, Type 0x77036cd4, Active False
+xbl_a:               Offset 0x0000000038000000, Length 0x0000000000380000, Flags 0x107f000000000000, UUID ce4ead6b-c5fc-2728-eef9-1fe662d71275, Type 0xdea0ba2c, Active True
+xbl_b:               Offset 0x0000000038380000, Length 0x0000000000380000, Flags 0x10fb000000000000, UUID c0762d50-1c5a-6896-3126-a90ff9538930, Type 0x77036cd4, Active False
+xbl_config_a:        Offset 0x000000003c000000, Length 0x0000000000020000, Flags 0x007f000000000000, UUID 1ceff720-9b5b-f013-33cd-4274ebdcb4b4, Type 0x5a325ae4, Active True
+xbl_config_b:        Offset 0x000000003c020000, Length 0x0000000000020000, Flags 0x00fb000000000000, UUID 754887cc-f1a6-cb7a-91e7-0569f9d159da, Type 0x77036cd4, Active False
+misc:                Offset 0x000000003c040000, Length 0x0000000000100000, Flags 0x0000000000000000, UUID 8979fff3-70bc-25b7-9cad-5c64bc23fd48, Type 0x82acc91f, Active False
+abl_a:               Offset 0x000000003c140000, Length 0x0000000000100000, Flags 0x007f000000000000, UUID d56c25cf-cdfb-8bc6-abcd-f9ef1c630897, Type 0xbd6928a1, Active True
+abl_b:               Offset 0x000000003c240000, Length 0x0000000000100000, Flags 0x00fb000000000000, UUID 6885479d-1b34-8d49-a37a-1b1bd93c6714, Type 0x77036cd4, Active False
+boot_a:              Offset 0x000000003c340000, Length 0x0000000006000000, Flags 0x0077000000000000, UUID f76c6d9b-8104-9341-fcdd-e547b247fafd, Type 0x20117f86, Active True
+boot_b:              Offset 0x0000000042340000, Length 0x0000000006000000, Flags 0x00f3000000000000, UUID 9cac171d-29df-7670-6a72-31c8e0d36126, Type 0x77036cd4, Active False
+dtbo_a:              Offset 0x0000000048340000, Length 0x0000000001800000, Flags 0x007f000000000000, UUID fc7bc069-5027-79ee-4a82-c10bad89254f, Type 0x24d0d418, Active True
+dtbo_b:              Offset 0x0000000049b40000, Length 0x0000000001800000, Flags 0x00fb000000000000, UUID 3885c2ef-091c-6998-e6b9-540fb631d6f0, Type 0x77036cd4, Active False
+init_boot_a:         Offset 0x000000004b340000, Length 0x0000000000800000, Flags 0x007f000000000000, UUID e63ba506-1b0d-3761-3f55-82a1d9b4a39c, Type 0xe5b0f3f7, Active True
+init_boot_b:         Offset 0x000000004bb40000, Length 0x0000000000800000, Flags 0x00fb000000000000, UUID 4bc2006a-30ca-7b9e-0528-229f312d8c6b, Type 0x77036cd4, Active False
+metadata:            Offset 0x000000004c340000, Length 0x0000000004000000, Flags 0x0000000000000000, UUID 21e5f679-f87b-9233-3c81-b8d7e468f3a2, Type 0x988a98c9, Active False
+recovery_a:          Offset 0x0000000050340000, Length 0x0000000006400000, Flags 0x007f000000000000, UUID cc689fb5-9918-d545-9a0f-081130fed855, Type 0xd504d6db, Active True
+recovery_b:          Offset 0x0000000056740000, Length 0x0000000006400000, Flags 0x00fb000000000000, UUID 5a39d230-077b-a274-9bb0-e1d5bdd248d7, Type 0x352b8083, Active False
+vbmeta_a:            Offset 0x000000005cb40000, Length 0x0000000000010000, Flags 0x007f000000000000, UUID c228813b-e29c-45da-3d17-e20a92d02cc6, Type 0x4b7a15d6, Active True
+vbmeta_b:            Offset 0x000000005cb50000, Length 0x0000000000010000, Flags 0x00fb000000000000, UUID 58c07759-8189-fa57-3150-570e11ea70ee, Type 0x77036cd4, Active False
+vendor_boot_a:       Offset 0x000000005cb60000, Length 0x0000000006000000, Flags 0x007f000000000000, UUID f47cb86b-e792-311f-8979-bae1fa51b7a8, Type 0x6d286a7f, Active True
+vendor_boot_b:       Offset 0x0000000062b60000, Length 0x0000000006000000, Flags 0x00fb000000000000, UUID 6cd93fa3-7206-16c1-48b7-25be39f1220d, Type 0x77036cd4, Active False
+vbmeta_system_a:     Offset 0x0000000068b60000, Length 0x0000000000010000, Flags 0x0004000000000000, UUID 382ee600-5acf-c36f-116c-8e9208471118, Type 0x1344859d, Active True
+vbmeta_system_b:     Offset 0x0000000068b70000, Length 0x0000000000010000, Flags 0x0000000000000000, UUID 9b292e0e-2bd1-fc4b-434a-43e83f3b247e, Type 0xfe3ab853, Active False
+logdump:             Offset 0x0000000068b80000, Length 0x0000000004000000, Flags 0x0000000000000000, UUID 963d07ea-de17-043b-ea43-1e8be01bec3f, Type 0x5af80809, Active False
+rawdump:             Offset 0x000000006cb80000, Length 0x0000000008000000, Flags 0x0000000000000000, UUID 2bf61587-04b7-68b4-f71c-e9dfed6ecf76, Type 0x66c9b323, Active False
+super:               Offset 0x0000000074b80000, Length 0x0000000300000000, Flags 0x0000000000000000, UUID 51a426b4-137c-8761-03ea-724b4eb8b191, Type 0x89a12de1, Active False
+userdata:            Offset 0x0000000374b80000, Length 0x00000019aa47be00, Flags 0x0000000000000000, UUID e08179de-6bd6-f5e3-b4af-be4095a5ecd8, Type 0x1b81e7e6, Active False
+
+Total disk size:0x0000001d1f000000, sectors:0x000000000e8f8000
+
+
+EDL_COMMAND_EXIT_STATUS=0
+
+===== TEST COMPLETE =====
+Report: /home/hawk/duo_forensics/qcs6125_loader_test/REPORT.txt
+No partition writes or erases were requested.
+
+===== NICOBAR / FIREHOSE RECOVERY LOGS =====
+
+----- /home/hawk/duo_forensics/abl_a_firehose_readback.log -----
+Qualcomm Sahara / Firehose Client V3.62 (c) B.Kerler 2018-2025.
+main - Using loader /home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin ...
+main - Waiting for the device
+main - Device detected :)
+sahara - Protocol version: 2, Version supported: 1
+main - Mode detected: sahara
+sahara - 
+Version 0x2
+------------------------
+HWID:              0x001750e100000000 (MSM_ID:0x001750e1,OEM_ID:0x0000,MODEL_ID:0x0000)
+CPU detected:      "nicobar_IoT_modem"
+PK_HASH:           0xd40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87
+Serial:            0x63b30b6d
+
+sahara - Protocol version: 2, Version supported: 1
+sahara - Uploading loader /home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin ...
+sahara - 64-Bit mode detected.
+sahara - Loader successfully uploaded.
+main - Trying to connect to firehose loader ...
+firehose - INFO: Binary build date: Oct 13 2022 @ 18:19:54
+firehose - INFO: Binary build date: Oct 13 2022 @ 18:19:54 
+firehose - INFO: Chip serial num: 1672678253 (0x63b30b6d)
+firehose - INFO: Supported Functions (14):
+firehose - INFO: program
+firehose - INFO: read
+firehose - INFO: nop
+firehose - INFO: patch
+firehose - INFO: configure
+firehose - INFO: setbootablestoragedrive
+firehose - INFO: erase
+firehose - INFO: power
+firehose - INFO: firmwarewrite
+firehose - INFO: getstorageinfo
+firehose - INFO: benchmark
+firehose - INFO: emmc
+firehose - INFO: ufs
+firehose - INFO: fixgpt
+firehose - INFO: End of supported functions 14
+firehose
+firehose - [LIB]: [33mCouldn't detect MaxPayloadSizeFromTargetinBytes[0m
+firehose
+firehose - [LIB]: [33mCouldn't detect TargetName[0m
+firehose - TargetName=Unknown
+firehose - MemoryName=eMMC
+firehose - Version=1
+firehose - Trying to read first storage sector...
+firehose - Running configure...
+firehose - Storage report:
+firehose - total_blocks:244285440
+firehose - block_size:512
+firehose - page_size:512
+firehose - num_physical:4
+firehose - manufacturer_id:144
+firehose - serial_num:4010781202
+firehose - fw_version:858796080
+firehose - mem_type:eMMC
+firehose - prod_name:hDEaP3
+firehose_client - Supported functions:
+-----------------
+program,read,nop,patch,configure,setbootablestoragedrive,erase,power,firmwarewrite,getstorageinfo,benchmark,emmc,ufs,fixgpt
+firehose - 
+Reading from physical partition 0, sector 1968640, sectors 2048
+
+Done |----------|   0.0% Read (Sector 0x0 of 0x800) 0.00 MB/s                 
+Progress: |██████████| 100.0% Read (Sector 0x800 of 0x800, ) 33.98 MB/s       
+Dumped sector 1968640 with sector count 2048 as /home/hawk/duo_forensics/abl_a_firehose_readback.img.
+
+----- /home/hawk/duo_forensics/firehose_abl_write_prep_20261101_235214.txt -----
+===== DUO LITE FIREHOSE ABL WRITE PREPARATION =====
+2026-11-01T23:52:14-05:00
+
+===== USB DEVICE =====
+Bus 001 Device 051: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+
+===== FIREHOSE WORKING DIRECTORY =====
+/home/hawk/duo_forensics/qcs6125_loader_test/REPORT.txt (20722 bytes)
+/home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin (602588 bytes)
+
+===== FIREHOSE PROGRAMMERS =====
+/home/hawk/duo_forensics/recovery_probe/device_backups/prog_firehose_ddr.elf (947952 bytes)
+/home/hawk/duo_forensics/recovery_probe/device_backups/prog_emmc_firehose_Sm6125_ddr.elf (595644 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oneplus/prog_emmc_firehose_8974_oneplusx_peek.mbn (84192 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oppo/prog_firehose_ddr.elf (947952 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/001070e100000000_d40eee56f3194665_prog_firehose_nand_mdm9x05.elf (454688 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_life_ddr_patched_Kamorta.elf (668796 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_lite_lemur_olympicle_rm530n_rm521fg.elf (684032 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_lite_olympicle_rg520n.elf (684032 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_lite_olympicle_rm520fg.elf (684032 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_lite_olympicle_rm520ng.elf (675840 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_nand_mdm9x05LA.elf (456816 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_sdx24_poorwills_em120r.mbn (278400 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_sdx35_rg255c.elf (1386920 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_sdx55_prairie_rm510q.mbn (275840 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_sdx55_quectel.mbn (274304 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_sdx55_rg501q.mbn (276352 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_sdx55_rg502.mbn (275328 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_sdx55_rm502q.mbn (275840 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_sdx7x_pinnaclesle_rm551eg_rm550v.elf (2015016 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/prog_firehose_nand_SARA-R422.elf (446976 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/prog_firehose_nand_SARA-R422M10S.elf (446976 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/prog_firehose_nand_SARA-R422S.elf (446976 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-L6004D.mbn (143860 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-L6804D.mbn (143860 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6001.mbn (143860 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6001D.mbn (143860 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6401.mbn (143860 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6401D.mbn (143860 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6801.mbn (143860 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6801D.mbn (143860 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/prog_nand_firehose_9x06_SARA-R410M.mbn (132332 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/prog_nand_firehose_9x06_SARA-R412M.mbn (132268 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/daisy_prog_emmc_firehose_8953_ddr.mbn (375912 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_ddr.elf (629136 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_lite.elf (628848 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/prog_emmc_firehose_8916_gucci_peek.mbn (89028 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/prog_ufs_firehose_sm6250_ddr.elf (683644 bytes)
+/home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/rosy_prog_emmc_firehose_8953_ddr.mbn (381672 bytes)
+
+===== BACKUP FILES =====
+backup_report.txt (2433 bytes) /home/hawk/duo_forensics/recovery_backups_20261102/backup_report.txt
+abl_a.img (1048576 bytes) /home/hawk/duo_forensics/recovery_backups_20261102/abl_a.img
+abl_b.img (1048576 bytes) /home/hawk/duo_forensics/recovery_backups_20261102/abl_b.img
+devinfo.img (4096 bytes) /home/hawk/duo_forensics/recovery_backups_20261102/devinfo.img
+misc_backup_report.txt (1049 bytes) /home/hawk/duo_forensics/recovery_backups_20261102/misc_backup_report.txt
+misc.img (1048576 bytes) /home/hawk/duo_forensics/recovery_backups_20261102/misc.img
+
+===== AVAILABLE FIREHOSE CLIENTS =====
+
+===== PREVIOUS FIREHOSE COMMAND HISTORY =====
+--- /home/hawk/.bash_history ---
+    ' 2>&1;      echo;     echo "===== 11. EXISTING LOCAL DEVICE TREE / BOOT ARTIFACTS =====";     for DIR in "$HOME/duo_research_agent" "$HOME/duo_forensics" "$HOME/duo_edl"; do         if [ -d "$DIR" ]; then             find "$DIR" -maxdepth 4 -type f                 \( -iname '*.dtb' -o -iname '*.dtbo' -o -iname '*.dts'                 -o -iname '*gpio*' -o -iname '*pinctrl*'                 -o -iname '*boot*config*' \) -printf '%p (%s bytes)\n' 2>/dev/null;         fi;     done;      echo;     echo "===== 12. INTERPRETATION LIMITATIONS =====";     echo "A live pinctrl state does not necessarily reveal the physical boot strap.";     echo "A Linux device-tree property does not prove what PBL sampled at power-on.";     echo "The 0x41 register value must be decoded against the exact QCS6125 register definition.";     echo "No conclusion about removable-media boot is made by this collection alone.";     echo;     echo "===== END OF REPORT =====";  } 2>&1 | tee "$REPORT"
+    ' 2>&1;      echo;     echo "===== 11. EXISTING LOCAL DEVICE TREE / BOOT ARTIFACTS =====";     for DIR in "$HOME/duo_research_agent" "$HOME/duo_forensics" "$HOME/duo_edl"; do         if [ -d "$DIR" ]; then             find "$DIR" -maxdepth 4 -type f                 \( -iname '*.dtb' -o -iname '*.dtbo' -o -iname '*.dts'                 -o -iname '*gpio*' -o -iname '*pinctrl*'                 -o -iname '*boot*config*' \) -printf '%p (%s bytes)\n' 2>/dev/null;         fi;     done;      echo;     echo "===== 12. INTERPRETATION LIMITATIONS =====";     echo "A live pinctrl state does not necessarily reveal the physical boot strap.";     echo "A Linux device-tree property does not prove what PBL sampled at power-on.";     echo "The 0x41 register value must be decoded against the exact QCS6125 register definition.";     echo "No conclusion about removable-media boot is made by this collection alone.";     echo;     echo "===== END OF REPORT =====";  } 2>&1 | tee "$REPORT"
+
+===== EXISTING FIREHOSE SCRIPTS AND LOGS =====
+/home/hawk/duo_forensics/abl_binary_comparison_20261102/comparison_report.txt
+/home/hawk/duo_forensics/abl_decision_audit_20261101_234721.txt
+/home/hawk/duo_forensics/abl_decision_audit_20261101_234754.txt
+/home/hawk/duo_forensics/abl_segment_analysis_20261102/segment_report.txt
+/home/hawk/duo_forensics/abl_source_audit/DUO_ABL_SOURCE_AUDIT.txt
+/home/hawk/duo_forensics/abl_source_audit/duolinux/out/abl/backup_abl.sh
+/home/hawk/duo_forensics/abl_source_audit/duolinux/out/abl/flash_abl.sh
+/home/hawk/duo_forensics/abl_source_audit/duolinux/out/abl/README.txt
+/home/hawk/duo_forensics/abl_source_audit/duolinux/out/abl/restore_backup_abl.sh
+/home/hawk/duo_forensics/abl_source_audit/duolinux/out/duo_finish2.sh
+/home/hawk/duo_forensics/abl_source_audit/duolinux/out/duo_finish3.sh
+/home/hawk/duo_forensics/abl_source_audit/duolinux/out/duo_finish.sh
+/home/hawk/duo_forensics/abl_source_audit/duolinux/out/duo_flash_both.sh
+/home/hawk/duo_forensics/abl_source_audit/duolinux/out/duo_flat.sh
+/home/hawk/duo_forensics/abl_source_audit/duolinux/out/duo_report.sh
+/home/hawk/duo_forensics/abl_source_audit/duolinux/out/duo_verify_flash.sh
+/home/hawk/duo_forensics/abl_source_audit/duolinux/out/flash_abl.sh
+/home/hawk/duo_forensics/abl_source_audit/duolinux/out/probe.sh
+/home/hawk/duo_forensics/abl_source_audit/duolinux/out/README.txt
+/home/hawk/duo_forensics/devinfo_settings_audit_20261102/settings_report.txt
+/home/hawk/duo_forensics/duo_abl_binary_comparison_20261101_232807.txt
+/home/hawk/duo_forensics/duolinux_abl_reference_20261101_232538.txt
+/home/hawk/duo_forensics/duolinux_sd_boot_audit_20261101_233316.txt
+/home/hawk/duo_forensics/duolinux_sd_implementation_20261101_233519.txt
+/home/hawk/duo_forensics/fastboot_getvar_all.txt
+/home/hawk/duo_forensics/firehose_abl_write_prep_20261101_235214.txt
+/home/hawk/duo_forensics/offline_bootloader_analysis_20261102/analysis_report.txt
+/home/hawk/duo_forensics/openabl_decision_review_20261102/source_review.txt
+/home/hawk/duo_forensics/qcs6125_loader_test/REPORT.txt
+/home/hawk/duo_forensics/recovery_backups_20261102/backup_report.txt
+/home/hawk/duo_forensics/recovery_backups_20261102/misc_backup_report.txt
+/home/hawk/duo_forensics/recovery_probe/NICOBAR_DEBUG_RETRY.txt
+/home/hawk/duo_forensics/recovery_probe/NICOBAR_EXACT_PROGRAMMER_PROBE.txt
+/home/hawk/duo_forensics/recovery_probe/NICOBAR_FIREHOSE_RETRY.txt
+/home/hawk/duo_forensics/recovery_probe/nicobar_gpt_output.txt
+/home/hawk/duo_forensics/recovery_probe/RECOVERY_PROBE.txt
+/home/hawk/duo_forensics/rocknix_v1.2_source_20261102/rocknix-abl/update.sh
+
+----- /home/hawk/duo_edl/edl/README.md -----
+# Qualcomm Sahara / Firehose Attack Client / Diag Tools
+(c) B. Kerler 2018-2026
+Licensed under GPLv3 license.
+
+# Be aware that if you use anything from this repository in any (including) compiled form, you need to opensource your code as well !
+# Violating against the GPLv3 license will enforce me to stop developing these opensource tools.
+
+## Why
+
+- Because we'd like to flexible dump smartphones
+- Because attacking firehose is kewl
+- Because memory dumping helps to find issues :)
+
+## QC Sahara V3 Support (Fixed in this fork)
+
+This fork fixes the issue where Sahara V3 protocol cannot read chip information (MSM_ID, OEM_ID, MODEL_ID) on newer Qualcomm devices.
+
+### Problem
+As mentioned in the original README:
+> For newer QC phones, loader autodetection doesn't work anymore as the Sahara loader doesn't offer a way to read the pkhash anymore
+
+**Root Cause**: Sahara V3 devices no longer respond to `cmd=0x03` (OEM_PK_HASH_READ) and `cmd=0x02` (MSM_HW_ID_READ).
+
+### Solution
+Use `cmd=0x0A` (CHIP_ID_V3_READ) to read extended chip information for V3 devices.
+
+#### V3 Extended Info Data Structure
+| Offset | Size | Description |
+|--------|------|-------------|
+| 0-3 | 4 bytes | Chip Identifier V3 |
+| 36-39 | 4 bytes | MSM_ID |
+| 40-41 | 2 bytes | OEM_ID |
+| 42-43 | 2 bytes | MODEL_ID |
+| 44-45 | 2 bytes | Alternative OEM_ID (if offset 40 is 0) |
+
+### Changes
+- Added `SAHARA_EXEC_CMD_READ_CHIP_ID_V3` (0x0A) command constant in `sahara_defs.py`
+- Added `cmdexec_get_chip_id_v3()` method to read and parse V3 extended info
+- Modified `cmd_info()` to use V3 extended info when version >= 3
+- **Try to read PK_HASH on V3 devices** (may still work on some devices)
+- Enabled loader autodetection for V3 devices via HWID/MSM_ID/PKHash matching
+- Construct V1/V2 compatible HWID format for loader database lookup
+- Improved V3 output format for better readability
+
+#### V3 Output Example
+```
+Reading Chip Info : OK
+- Sahara version  : 3
+- Chip Serial Number : 4971f38f
+- Chip Identifier V3 : 5a040000
+- MSM HWID : 0x28c0e1 | model_id:0xa012 | oem_id:0051 OPPO
+- OEM PKHASH : 3cceb55b6d88a0bea0e24d9641500fa239738b42575031188d3aaf92349b3b14
+- HW_ID : 0028c0e10051a012
+```
+
+### Testing
+- Tested on OnePlus/OPPO devices with SM8350, SM8450, SM8550
+- Tested on Xiaomi devices (various Snapdragon platforms)
+- Backward compatible with V1/V2 devices
+
+### Files Changed
+- `edlclient/Library/sahara_defs.py` - Added V3 command constant
+- `edlclient/Library/sahara.py` - Added V3 chip info reading and improved output format
+
+> **Note**: If autodetection still fails, you can use `--loader` option to specify a loader manually.
+  
+### Use LiveDVD (everything ready to go, based on Ubuntu):
+User: user, Password:user (based on Ubuntu 22.04 LTS)
+
+[Live DVD V4](https://www.androidfilehost.com/?fid=15664248565197184488)
+
+[Live DVD V4 Mirror](https://drive.google.com/file/d/10OEw1d-Ul_96MuT3WxQ3iAHoPC4NhM_X/view?usp=sharing)
+
+## Installation
+
+#### Grab files and install
+```
+git clone https://github.com/bkerler/edl
+cd edl
+git submodule update --init --recursive
+pip3 install -r requirements.txt
+```
+
+### Linux (Debian/Ubuntu/Mint/etc): 
+```bash
+# Debian/Ubuntu/Mint/etc
+sudo apt install adb fastboot python3-dev python3-pip liblzma-dev git
+sudo apt purge modemmanager
+# Fedora/CentOS/etc
+sudo dnf install adb fastboot python3-devel python3-pip xz-devel git
+# Arch/Manjaro/etc
+sudo pacman -S android-tools python python-pip git xz
+sudo pacman -R modemmanager
+# Gentoo (run as root!)
+emerge -aq dev-util/android-tools dev-vcs/git dev-python/pip
+
+# For systemd distros
+sudo systemctl stop ModemManager
+sudo systemctl disable ModemManager
+# For OpenRC distros (run as root!)
+rc-update del modemmanager default boot sysinit
+rc-service modemmanager stop
+
+git clone https://github.com/bkerler/edl.git # do NOT use --recurse-submodules
+cd edl
+git submodule update --init --recursive
+
+# Autoinstall (run as root!)
+./autoinstall.sh
+
+# Manual install
+chmod +x ./install-linux-edl-drivers.sh
+bash ./install-linux-edl-drivers.sh
+pip3 install .
+```
+
+If you have SELinux enabled, you may need to set it to permissive mode temporarily to prevent permission issues. SELinux is commonly used by RedHat-like distros (for example, RHEL, Fedora, and CentOS). You can set it to permissive run-time until next boot with `sudo setenforce 0`.
+
+### macOS:
+```bash
+brew install libusb git
+
+git clone https://github.com/bkerler/edl.git
+cd edl
+git submodule update --init --recursive
+pip3 install .
+```
+
+### Windows:
+
+#### Method 1 - Automatic with PowerShell (Windows 10 and later)
+
+1.   Open PowerShell (Not CMD). To do that, right-click on the Windows start menu and select PowerShell or Terminal.
+2.   Copy and paste the code below and press enter
+```
+curl.exe -O https://raw.githubusercontent.com/bkerler/edl/master/install_edl_win10_win11.ps1; .\install_edl_win10_win11.ps1
+```
+
+#### Method 2 - Manual
+#### Install python + git
+- Install Python 3.10 or newer and git
+- If you install python from microsoft store, "python setup.py install" will fail, but that step isn't required.
+- WIN+R ```cmd```
+
+#### Get latest UsbDk 64-Bit
+- Install normal QC 9008 Serial Port driver (or use default Windows COM Port one, make sure no exclamation is seen)
+- Get usbdk installer (.msi) from [here](https://github.com/daynix/UsbDk/releases/) and install it
+- Test on device connect using "UsbDkController -n" if you see a device with pid 0x9008
+- Works fine under Windows 10 and 11 :D
+
+#### Using serial port instead of usb
+With Port autodetection
+```bash
+edl --serial
+```
+
+or Port name
+```bash
+edl --portname \\.\COM1
+```
+
+------------------------------------------------------------------------------------------------------------------------------------
+## Get Loaders
+You should get these automatically if you do a ``` git submodule update --init --recursive ```
+or from [here](https://github.com/bkerler/Loaders)
+
+## Convert own EDL loaders for automatic usage
+
+- Make a subdirectory "newstuff", copy your edl loaders to this subdirectory
+- ```fhloaderparse newstuff Loaders```
+
+- or sniff existing edl tools using Totalphase Beagle 480, set filter to ```filter({'inputs': False, 'usb3': False, 'chirps': False, 'dev': 26, 'usb2resets': False, 'sofs': False, 'ep': 1})```, export to binary file as "sniffeddata.bin" and then use ```beagle_to_loader sniffeddata.bin```
+
+
+## Install EDL loaders
+
+- ```mkdir examples```
+- Copy all your loaders into the examples directory
+- ```fhloaderparse examples Loaders``` -> will autodetect and rename loader structure and copy them to the "Loaders" directory
+- Or rename Loaders manually as "msmid_pkhash[8 bytes].bin" and put them into the Loaders directory
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+## Run EDL (examples)
+
+Your device needs to have a usb pid of 0x9008 in order to make the edl tool work.
+If your device is semi bricked and entered the usb pid 0x900E, there are several options
+to get back the 0x9008 mode :
+
+1. Use a edl cable (Short D+ with GND) and force reboot the phone (either vol up + power pressing for more than 20 seconds or disconnect battery), works with emmc + ufs flash (this will only work if XBL/SBL isn't broken)
+
+2. If emmc flash is used, remove battery, short DAT0 with gnd, connect battery, then remove short.
+
+3. If a ufs flash is used, things are very much more complicated. You will need to open the ufs die and short the clk line on boot, some boards have special test points for that.
+
+4. Some devices have boot config resistors, if you find the right ones you may enforce booting to sdcard instead of flash.
+
+
+### Generic
+
+- ```edl -h``` -> to see help with all options
+- ```edl server --memory=ufs --tcpport=1340``` -> Run TCP/IP server on port 1340, see tcpclient.py for an example client
+- ```edl xml run.xml``` -> To send a xml file run.xml via firehose
+- ```edl reset``` -> To reboot the phone
+- ```edl rawxml <xmlstring>``` -> To send own xml string, example :
+   ```edl rawxml "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><data><response value=\"ACK\" /></data>```
+- ```edl [anycommand] --debugmode``` -> enables Verbose. Do that only when REALLY needed as it will print out everything happening!
+
+### For EMMC Flash
+
+- ```edl printgpt``` -> to print gpt on device with emmc
+- ```edl rf flash.bin``` -> to dump whole flash for device with emmc
+- ```edl rl dumps --skip=userdata --genxml``` -> to dump all partitions to directory dumps for device with emmc and skipping userdata partition, write rawprogram0.xml
+- ```edl rs 0 15 data.bin``` -> to dump 15 sectors from starting sector 0 to file data.bin for device with emmc
+- ```edl rs 0 15 data.bin --skipresponse``` -> to dump 15 sectors from starting sector 0 to file data.bin for device with emmc, ignores missing ACK from phones
+- ```edl r boot_a boot.img``` -> to dump the partition "boot_a" to the filename boot.img for device with emmc
+- ```edl r boot_a,boot_b boot_a.img,boot_b.img``` -> to dump multiple partitions to multiple filenames
+- ```edl footer footer.bin``` -> to dump the crypto footer for Androids with emmc flash
+- ```edl w boot_a boot.img``` -> to write boot.img to the "boot" partition on lun 0 on the device with emmc flash
+- ```edl w gpt gpt.img``` -> to write gpt partition table from gpt.img to the first sector on the device with emmc flash
+
+========== CLIENT VERSION / HELP (NO DEVICE ACCESS) ==========
+Usage:
+    edl.py -h | --help
+    edl.py [--vid=vid] [--pid=pid] [--portname=portname] [--serial]
+    edl.py [--loader=filename] [--memory=memtype] [--portname=portname] [--serial]
+    edl.py [--debugmode] [--portname=portname] [--serial]
+    edl.py [--gpt-num-part-entries=number] [--gpt-part-entry-size=number] [--gpt-part-entry-start-lba=number] [--portname=portname] [--serial]
+    edl.py [--memory=memtype] [--skipstorageinit] [--maxpayload=bytes] [--sectorsize==bytes] [--pagesperblock=number] [--portname=portname] [--serial]
+    edl.py server [--tcpport=portnumber] [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py memorydump [--partitions=partnames] [--debugmode] [--vid=vid] [--pid=pid] [--portname=portname] [--serial] [--serial_number=serial_number]
+    edl.py printgpt [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--loader=filename] [--debugmode]  [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial] [--devicemodel=value]
+    edl.py gpt <directory> [--memory=memtype] [--lun=lun] [--genxml] [--loader=filename]  [--skipresponse] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--pagesperblock=number] [--portname=portname] [--serial] [--devicemodel=value]
+    edl.py r <partitionname> <filename> [--memory=memtype] [--sectorsize==bytes] [--pagesperblock=number] [--lun=lun] [--loader=filename]  [--skipresponse] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial] [--devicemodel=value]
+    edl.py rl <directory> [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--skip=partnames] [--genxml]  [--skipresponse] [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial] [--devicemodel=value]
+    edl.py rf <filename> [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--loader=filename] [--debugmode]  [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial] [--devicemodel=value]
+    edl.py rs <start_sector> <sectors> <filename> [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--memory=memtype] [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial] [--devicemodel=value]
+    edl.py w <partitionname> <filename> [--partitionfilename=filename] [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--skipwrite] [--skipresponse] [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py wl <directory> [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--skip=partnames] [--skipresponse] [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py wf <filename> [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--loader=filename] [--skipresponse] [--debugmode] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py ws <start_sector> <filename> [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--skipwrite] [--skipresponse] [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py e <partitionname> [--memory=memtype] [--skipwrite] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py es <start_sector> <sectors> [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--skipwrite] [--loader=filename] [--skipresponse] [--debugmode] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py ep <partitionname> <sectors> [--memory=memtype] [--skipwrite] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py footer <filename> [--memory=memtype] [--lun=lun] [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py peek <offset> <length> <filename> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]
+    edl.py peekhex <offset> <length> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]
+    edl.py peekdword <offset> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py peekqword <offset> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py memtbl <filename> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py poke <offset> <filename> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py pokehex <offset> <data> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py pokedword <offset> <data> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py pokeqword <offset> <data> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py memcpy <offset> <size> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]
+    edl.py secureboot [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py pbl <filename> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py qfp <filename> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py getstorageinfo [--loader=filename] [--memory=memtype] [--pagesperblock=number] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py setbootablestoragedrive <lun> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py getactiveslot [--memory=memtype] [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py setactiveslot <slot> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py send <command> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py xml <xmlfile> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py rawxml <xmlstring> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py reset [--resetmode=mode] [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--portname=portname] [--serial] [--devicemodel=value]
+    edl.py nop [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial] [--devicemodel=value]
+    edl.py modules <command> <options> [--memory=memtype] [--lun=lun] [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--devicemodel=value] [--portname=portname] [--serial]
+    edl.py provision <xmlfile> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py qfil <rawprogram> <patch> <imagedir> [--loader=filename] [--memory=memtype] [--pagesperblock=number] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
+
+Description:
+    server                      # Run tcp/ip server
+    printgpt                    # Print GPT Table information
+    gpt                         # Save gpt table to given directory
+    r                           # Read flash to filename
+    rl                          # Read all partitions from flash to a directory
+    rf                          # Read whole flash to file
+    rs                          # Read sectors starting at start_sector to filename
+    w                           # Write filename to partition to flash
+    wl                          # Write all files from directory to flash
+    wf                          # Write whole filename to flash
+    ws                          # Write filename to flash at start_sector
+    e                           # Erase partition from flash
+    es                          # Erase sectors at start_sector from flash
+    ep                          # Erase sector count from flash partition
+    footer                      # Read crypto footer from flash
+    peek                        # Dump memory at offset with given length to filename
+    peekhex                     # Dump memory at offset and given length
+    peekdword                   # Dump DWORD at memory offset
+    peekqword                   # Dump QWORD at memory offset
+    memtbl                      # Dump memory table to file
+    poke                        # Write filename to memory at offset to memory
+    pokehex                     # Write hex string data at offset to memory
+    pokedword                   # Write DWORD to memory at offset
+    pokeqword                   # Write QWORD to memory at offset
+    memcpy                      # Copy memory from srcoffset with given size to dstoffset
+    secureboot                  # Print secureboot fields from qfprom fuses
+    pbl                         # Dump primary bootloader to filename
+    qfp                         # Dump QFPROM fuses to filename
+    getstorageinfo              # Print storage info in firehose mode
+    setbootablestoragedrive     # Change bootable storage drive to lun number
+    send                        # Send firehose command
+    xml                         # Send firehose xml file
+    rawxml                      # Send firehose xml raw string
+    reset                       # Send firehose reset command, reset modes: reset, off, edl
+    nop                         # Send firehose nop command
+    modules                     # Enable submodules, for example: "oemunlock enable"
+    setactiveslot               # Set partition as active (Slot A/B)
+    provision                   # UFS provision
+    qfil                        # Write rawprogram xml files
+                                # <rawprogram> : program config xml, such as rawprogram_unsparse.xml or rawprogram*.xml
+                                # <patch> : patch config xml, such as patch0.xml or patch*.xml
+                                # <imagedir> : directory name of image files
+
+Options:
+    --loader=filename                  Use specific EDL loader, disable autodetection [default: None]
+    --vid=vid                          Set usb vendor id used for EDL [default: -1]
+    --pid=pid                          Set usb product id used for EDL [default: -1]
+    --lun=lun                          Set lun to read/write from (UFS memory only)
+    --maxpayload=bytes                 Set the maximum payload for EDL [default: 0x100000]
+    --sectorsize=bytes                 Set default sector size
+    --pagesperblock=number             Set NAND pages per block (firehose configure attribute)
+    --memory=memtype                   Set memory type ("NAND", "eMMC", "UFS", "spinor")
+    --partitionfilename=filename       Set partition table as filename for streaming mode
+    --partitions=partnames             Skip reading partition with names != "partname1,partname2,etc."
+    --skipwrite                        Do not allow any writes to flash (simulate only)
+    --skipresponse                     Do not expect a response from phone on read/write (some Qualcomms)
+    --skipstorageinit                  Skip storage initialisation
+    --debugmode                        Enable verbose mode
+    --gpt-num-part-entries=number      Set GPT entry count [default: 0]
+    --gpt-part-entry-size=number       Set GPT entry size [default: 0]
+    --gpt-part-entry-start-lba=number  Set GPT entry start lba sector [default: 0]
+    --tcpport=portnumber               Set port for tcp server [default: 1340]
+    --skip=partnames                   Skip reading partition with names "partname1,partname2,etc."
+    --genxml                           Generate rawprogram[lun].xml
+    --devicemodel=value                Set device model
+    --portname=portname                Set serial port name (/dev/ttyUSB0 for Linux/MAC; \\.\COM1 for Windows)
+    --serial                           Use serial port (port autodetection)
+    --slot                             Set active slot for setactiveslot [a or b]
+    --resetmode=mode                   Resetmode for reset (poweroff, reset, edl, etc.)
+
+========== INSTALLED PACKAGE VERSION ==========
+Name: edlclient
+Version: 3.62
+Summary: Qualcomm reverse engineering and flashing tools
+Home-page: https://github.com/bkerler/edl
+Author: 
+Author-email: "B. Kerler" <info@revskills.de>
+License: GNU GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
+
+ Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+                            Preamble
+
+  The GNU General Public License is a free, copyleft license for
+software and other kinds of works.
+
+  The licenses for most software and other practical works are designed
+to take away your freedom to share and change the works.  By contrast,
+the GNU General Public License is intended to guarantee your freedom to
+share and change all versions of a program--to make sure it remains free
+software for all its users.  We, the Free Software Foundation, use the
+GNU General Public License for most of our software; it applies also to
+any other work released this way by its authors.  You can apply it to
+your programs, too.
+
+  When we speak of free software, we are referring to freedom, not
+price.  Our General Public Licenses are designed to make sure that you
+have the freedom to distribute copies of free software (and charge for
+them if you wish), that you receive source code or can get it if you
+want it, that you can change the software or use pieces of it in new
+free programs, and that you know you can do these things.
+
+  To protect your rights, we need to prevent others from denying you
+
+INSPECTION ONLY: no USB connection or device commands

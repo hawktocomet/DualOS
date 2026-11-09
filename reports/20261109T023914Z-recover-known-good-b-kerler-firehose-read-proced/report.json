@@ -1,0 +1,19 @@
+{
+  "id": "20261109T023914Z-recover-known-good-b-kerler-firehose-read-proced",
+  "title": "Recover known-good B Kerler Firehose read procedure",
+  "created_utc": "2026-11-09T02:39:14.957937+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-lc",
+    "\nROOT=\"/home/hawk/duo_edl/edl\"\n\necho \"========== SAVED FIREHOSE PROCEDURE ==========\"\nfor F in \\\n  /home/hawk/duo_forensics/firehose_method_minimal.txt \\\n  /home/hawk/duo_forensics/firehose_method_recovery_20261101_235248.txt \\\n  /home/hawk/duo_forensics/abl_a_firehose_readback.log \\\n  /home/hawk/duo_forensics/firehose_abl_write_prep_20261101_235214.txt \\\n  \"$ROOT/README.md\"\ndo\n  if [ -f \"$F\" ]; then\n    echo\n    echo \"----- $F -----\"\n    sed -n \"1,220p\" \"$F\"\n  fi\ndone\n\necho\necho \"========== CLIENT VERSION / HELP (NO DEVICE ACCESS) ==========\"\n\"$ROOT/.venv/bin/edl\" --help 2>&1 | head -n 160\n\necho\necho \"========== INSTALLED PACKAGE VERSION ==========\"\n\"$ROOT/.venv/bin/python\" -m pip show edlclient 2>&1 | head -n 35\n\necho\necho \"INSPECTION ONLY: no USB connection or device commands\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 1.719,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}
