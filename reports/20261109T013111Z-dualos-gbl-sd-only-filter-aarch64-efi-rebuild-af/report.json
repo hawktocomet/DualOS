@@ -1,0 +1,19 @@
+{
+  "id": "20261109T013111Z-dualos-gbl-sd-only-filter-aarch64-efi-rebuild-af",
+  "title": "DualOS GBL SD-only filter AArch64 EFI rebuild after Clippy fix",
+  "created_utc": "2026-11-09T01:31:11.092732+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd \"$HOME/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader\" || exit 2\n./gbl/bazel.sh build \\\n  --extra_toolchains=@gbl//toolchain:all \\\n  @gbl//efi:aarch64_dev\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 15.437,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}

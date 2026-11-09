@@ -1,0 +1,3 @@
+avbtool command: avbtool add_hash_footer --key external/gbl+/signtool/testkeys/testkey_RSA4096.pem --algorithm SHA256_RSA4096 --prop testkey:true --image /tmp/tmpgopm5ck4/gbl.efi --partition_name gbl --dynamic_partition_size --prop authenticode:f21f205c036befad57ba5b4f9302ade186835b48723c43c349c3e6baee4f9ff1
+Authenticode digest (sha256): f21f205c036befad57ba5b4f9302ade186835b48723c43c349c3e6baee4f9ff1
+Signed image written to bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi
