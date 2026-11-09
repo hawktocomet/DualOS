@@ -1,0 +1,243 @@
+===== DEVICE HANDLE DEFINITION =====
+1382-        let tail = self.tail;
+1383-        EfiMemoryAttributesTableIter { descriptor_size, tail }
+1384-    }
+1385-}
+1386-
+1387-/// A type representing a UEFI handle to a UEFI device.
+1388-#[repr(transparent)]
+1389-#[derive(Copy, Clone, Debug, PartialEq)]
+1390:pub struct DeviceHandle(EfiHandle);
+1391-
+1392-impl DeviceHandle {
+1393-    /// Public constructor
+1394-    pub fn new(handle: EfiHandle) -> Self {
+1395-        Self(handle)
+1396-    }
+1397-}
+1398-
+1399-/// `LocatedHandles` holds the array of handles returned by
+1400-/// `BootServices::locate_handle_buffer_by_protocol()` or
+1401-/// `BootServices::locate_handles_by_protocol()`.
+1402-pub enum LocatedHandles<'a> {
+1403-    /// The handle buffer was allocated dynamically and must be explicitly freed.
+1404-    Allocated {
+1405-        /// The handles
+1406-        handles: &'a [DeviceHandle],
+1407-        /// Efi entry
+1408-        efi_entry: &'a EfiEntry,
+1409-    },
+1410-    /// The handle buffer has been borrowed.
+1411-    Borrowed(&'a [DeviceHandle]),
+1412-}
+1413-
+1414-impl<'a> LocatedHandles<'a> {
+1415-    /// SAFETY:
+1416-    /// * `handles` is a non-null dynamically allocated pointer to `len` EfiHandles.
+1417-    /// * No other code has access to `handles` after the call.
+1418-    pub(crate) unsafe fn new_allocated(
+1419-        handles: NonNull<EfiHandle>,
+1420-        len: usize,
+1421-        efi_entry: &'a EfiEntry,
+1422-    ) -> Self {
+1423-        Self::Allocated {
+1424-            // SAFETY:
+1425-            // * It is the caller's responsibility to guarantee that `handles` is a
+
+===== ERROR VARIANTS =====
+gbl/liberror/src/lib.rs:141:pub enum Error {
+gbl/liberror/src/lib.rs:198:    InvalidInput,
+gbl/liberror/src/lib.rs:202:    InvalidState,
+gbl/liberror/src/lib.rs:222:    NotFound,
+gbl/liberror/src/lib.rs:228:    NotUnique,
+gbl/liberror/src/lib.rs:268:        Self::InvalidInput
+gbl/liberror/src/lib.rs:311:        Self::InvalidInput
+gbl/liberror/src/lib.rs:317:        Self::InvalidInput
+gbl/liberror/src/lib.rs:323:        Self::InvalidInput
+gbl/liberror/src/lib.rs:329:        Self::InvalidInput
+gbl/liberror/src/lib.rs:358:            Error::InvalidInput => Self::InvalidInput,
+gbl/liberror/src/lib.rs:359:            Error::InvalidState => Self::InvalidState,
+gbl/liberror/src/lib.rs:392:    (EfiError::InvalidParameter, Error::InvalidInput),
+gbl/liberror/src/lib.rs:396:    (EfiError::NotFound, Error::NotFound),
+gbl/liberror/src/lib.rs:413:    (EfiError::InvalidParameter, Error::FastbootError(fastboot::Error::InvalidInput)),
+gbl/liberror/src/lib.rs:465:            IoError::NoSuchPartition => Self::NotFound,
+gbl/liberror/src/lib.rs:467:            IoError::NoSuchValue => Self::InvalidInput,
+gbl/liberror/src/lib.rs:468:            IoError::InvalidValueSize => Self::InvalidInput,
+gbl/liberror/src/lib.rs:551:            EfiError::from(Error::FastbootError(fastboot::Error::InvalidInput)),
+gbl/liberror/src/lib.rs:560:        assert_eq!(Error::from(EfiError::InvalidParameter), Error::InvalidInput);
+
+===== COMPLETE BLOCK DISCOVERY FUNCTION =====
+        }
+    }
+}
+
+/// The [GblDisk] type in the GBL EFI context.
+pub type EfiGblDisk<'a> =
+    GblDisk<Disk<EfiBlockDeviceIo<'a>, ArrayVec<Option<Box<[u8]>>, 2>>, Gpt<Vec<u8>>>;
+
+/// Finds and returns all EFI devices supporting either EFI_BLOCK_IO or EFI_BLOCK_IO2 protocol.
+#[profile(backend = EfiProfileBackend::new(efi_entry))]
+pub fn find_block_devices(efi_entry: &EfiEntry) -> Result<Vec<EfiGblDisk<'_>>, Error> {
+    let bs = efi_entry.system_table().boot_services();
+    let block_dev_handles = bs.locate_handle_buffer_by_protocol::<BlockIoProtocol>()?;
+    let mut gbl_disks = vec![];
+    // TODO(b/452455989) Buffer size and capacity can be configurable using vendor path.
+    let gpt_buffer_size = gpt_buffer_size(GPT_MAX_NUM_ENTRIES)?;
+    for (idx, handle) in block_dev_handles.handles().iter().enumerate() {
+        match crate::utils::get_device_path(efi_entry, *handle) {
+            Ok(path) => efi_println!(efi_entry, "Block #{idx} path: {path}"),
+            Err(e) => efi_println!(efi_entry, "Block #{idx} path unavailable: {e:?}"),
+        }
+        let block_io = bs.open_protocol::<BlockIoProtocol>(*handle).unwrap();
+        // SAFETY: this code always executes at `EFI_TPL_APPLICATION`.
+        let media = unsafe {
+            block_io.with_lock::<EFI_TPL_APPLICATION, _>(efi_entry, || {
+                // SAFETY: the protocol is locked while we access `media`, we
+                // clone it here for safe access outside the critical section.
+                block_io.media().unwrap().clone()
+            })
+        };
+        if media.logical_partition {
+            continue;
+        }
+        let open_disk = || -> Result<_, Error> {
+            let block_io2 = bs.open_protocol::<BlockIo2Protocol>(*handle).ok();
+            let erase = bs.open_protocol::<EraseBlockProtocol>(*handle).ok();
+            let erase_blocks =
+                erase.as_ref().map(|v| v.erase_length_granularity()).unwrap_or_default();
+            let block_info = BlockInfo {
+                // `block_size` is u32 so can always convert to u64
+                block_size: media.block_size as u64,
+                erase_blocks_num: max(1, erase_blocks).into(),
+                num_blocks: (SafeNum::from(media.last_block) + 1).try_into()?,
+                // `io_align` is u32 so can always convert to u64
+                alignment: max(1, media.io_align as u64),
+            };
+            let disk_io = Disk::new_alloc_scratch(EfiBlockDeviceIo {
+                block_io,
+                block_io2,
+                erase,
+                media_id: media.media_id,
+                block_info,
+            })?;
+            let disk = match bs.open_protocol::<DevicePathProtocol>(*handle) {
+                Ok(dpp) => {
+                    if let Some(device_name) = dpp.gbl_vendor_media_device_path()? {
+                        efi_println!(
+                            efi_entry,
+                            "Block #{idx} raw device vendor-defined name: {device_name:?}"
+                        );
+                        GblDisk::new_raw(disk_io, device_name)?
+                    } else {
+                        GblDisk::new_gpt(disk_io, Gpt::new(vec![0u8; gpt_buffer_size])?)
+                    }
+                }
+                _ => GblDisk::new_gpt(disk_io, Gpt::new(vec![0u8; gpt_buffer_size])?),
+            };
+            match block_on(disk.as_sync()?.sync_gpt()) {
+                Ok(Some(v)) => efi_println!(efi_entry, "Block #{idx} GPT sync result: {v}"),
+                Err(e) => efi_println!(efi_entry, "Block #{idx} error while syncing GPT: {e}"),
+                _ => {}
+            };
+            Ok(disk)
+        };
+        match open_disk() {
+            Ok(disk) => gbl_disks.push(disk),
+            Err(e) => efi_println!(efi_entry, "Block #{idx} failed to open device: {e}"),
+        }
+    }
+    Ok(gbl_disks)
+}
+
+===== ORIGINAL BOOT ENTRYPOINT =====
+#[cfg(not(test))]
+#[allow(clippy::single_component_path_imports)] // Needed for `crate::efi` paths.
+pub(crate) use efi;
+#[cfg(test)]
+pub(crate) use efi_mocks as efi;
+
+#[cfg(not(test))]
+use {
+    crate::{
+        efi_blocks::{find_block_devices, EfiGblDisk},
+        ops::Ops,
+    },
+    cfg_if::cfg_if,
+    core::convert::Infallible,
+    efi::{efi_println, report_error_and_reset, EfiEntry},
+    libbuild_number::{format_build_fingerprint, format_build_vcs_info},
+    libgbl::{Os, Result},
+    utils::loaded_image_path,
+};
+
+#[cfg(not(test))]
+enum TargetOs {
+    Android,
+    #[cfg(feature = "fuchsia")]
+    Fuchsia,
+}
+
+#[cfg(not(test))]
+fn get_target_os(_entry: &EfiEntry, _disks: &[EfiGblDisk]) -> TargetOs {
+    cfg_if! {
+        if #[cfg(feature = "fuchsia")] {
+            let mut buf = [0u8; 1];
+            if _entry
+                .system_table()
+                .runtime_services()
+                .get_variable(&efi::GBL_EFI_VENDOR_GUID, efi::GBL_EFI_OS_BOOT_TARGET_VARNAME, &mut buf)
+                .is_ok()
+            {
+                efi_println!(
+                    _entry,
+                    "`{}` is set. Proceeding as Fuchsia.",
+                    efi::GBL_EFI_OS_BOOT_TARGET_VARNAME
+                );
+                TargetOs::Fuchsia
+            } else if fuchsia_boot::is_fuchsia_gpt(_disks).is_ok() {
+                efi_println!(_entry, "Partition layout looks like Fuchsia. Proceeding as Fuchsia");
+                TargetOs::Fuchsia
+            } else {
+                efi_println!(_entry, "Proceeding as Android");
+                TargetOs::Android
+            }
+        } else {
+            TargetOs::Android
+        }
+    }
+}
+
+/// GBL EFI application logic entry point.
+#[cfg(not(test))]
+pub fn app_main(entry: EfiEntry) -> Result<Infallible> {
+    use libutils::get_sp;
+    efi_println!(entry, "**** Generic Bootloader (GBL) ****");
+    efi_println!(entry, "Fingerprint: {}", format_build_fingerprint!());
+    efi_println!(entry, "VCS info: {}", format_build_vcs_info!());
+    if let Ok(v) = loaded_image_path(&entry) {
+        efi_println!(entry, "Image path: {v}");
+    }
+
+    let disks = find_block_devices(&entry).inspect_err(|e| {
+        report_error_and_reset(&entry, e, efi_types::GBL_EFI_DEBUG_ERROR_TAG_PARTITION)
+    })?;
+    match get_target_os(&entry, &disks) {
+        #[cfg(feature = "fuchsia")]
+        TargetOs::Fuchsia => {
+            let mut load: libgbl::android_boot::BootBuffer =
+                utils::get_boot_buffer(&entry, 128 * 1024 * 1024)?.into();
+            let mut ops = Ops::new(&entry, &disks[..], Some(Os::Fuchsia), get_sp());
+            let images = fuchsia_boot::efi_fuchsia_load(&mut ops, load.scratch())?;
+            drop(disks);
+            fuchsia_boot::efi_fuchsia_boot(entry, images)
+        }
+        TargetOs::Android => {
+            let load = utils::get_boot_buffer(&entry, 256 * 1024 * 1024)?;
+            let mut ops = Ops::new(&entry, &disks[..], Some(Os::Android), get_sp());
+            let (ramdisk, fdt, kernel, remains) =
+                android_boot::efi_android_load(&mut ops, load.into())?;
+            drop(disks);
+            android_boot::efi_android_boot(entry, kernel, ramdisk, fdt, remains)
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "20261109T005638Z-gbl-sd-disk-matcher-final-type-checks",
+  "title": "GBL SD disk matcher final type checks",
+  "created_utc": "2026-11-09T00:56:38.056731+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd bootable/libbootloader || exit 1\n\necho \"===== DEVICE HANDLE DEFINITION =====\"\nrg -n -B 8 -A 35 \"pub struct DeviceHandle|struct DeviceHandle\" gbl/libefi/src/lib.rs\n\necho\necho \"===== ERROR VARIANTS =====\"\nrg -n \"enum Error|NotFound|NotUnique|InvalidInput|InvalidState\" gbl/liberror\n\necho\necho \"===== COMPLETE BLOCK DISCOVERY FUNCTION =====\"\nsed -n \"115,230p\" gbl/efi/src/efi_blocks.rs\n\necho\necho \"===== ORIGINAL BOOT ENTRYPOINT =====\"\ngit show HEAD:gbl/efi/src/lib.rs | sed -n \"45,180p\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.012
+}
