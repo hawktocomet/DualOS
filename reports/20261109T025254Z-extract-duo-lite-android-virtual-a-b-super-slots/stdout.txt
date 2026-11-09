@@ -1,0 +1,5 @@
+========== PRE-EXTRACTION CHECKS ==========
+
+========== EXTRACT METADATA SLOT 0 ==========
+Slot 0 exit code: 64
+ERROR: slot 0 extraction failed; preserving partial output

@@ -1,0 +1,19 @@
+{
+  "id": "20261109T025254Z-extract-duo-lite-android-virtual-a-b-super-slots",
+  "title": "Extract Duo Lite Android Virtual A/B super slots",
+  "created_utc": "2026-11-09T02:52:54.705804+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-lc",
+    "\nIMG=\"/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super.img\"\nROOT=\"/home/hawk/duo_forensics/android_boot_chain_20261102_094334\"\nA=\"$ROOT/super-unpacked/slot0\"\nB=\"$ROOT/super-unpacked/slot1\"\nEXPECTED=12884901888\n\necho \"========== PRE-EXTRACTION CHECKS ==========\"\nif [ ! -f \"$IMG\" ]; then echo \"ERROR: super.img missing\"; exit 20; fi\nif [ \"$(stat -c%s \"$IMG\")\" -ne \"$EXPECTED\" ]; then echo \"ERROR: source image size mismatch\"; exit 21; fi\nif [ -e \"$A\" ] || [ -e \"$B\" ]; then echo \"ERROR: output directory already exists; refusing to overwrite\"; exit 22; fi\nif ! command -v lpunpack >/dev/null 2>&1; then echo \"ERROR: lpunpack unavailable\"; exit 23; fi\n\nmkdir -p \"$A\" \"$B\"\n\necho\necho \"========== EXTRACT METADATA SLOT 0 ==========\"\nlpunpack -S 0 \"$IMG\" \"$A\"\nRC=$?\necho \"Slot 0 exit code: $RC\"\nif [ \"$RC\" -ne 0 ]; then echo \"ERROR: slot 0 extraction failed; preserving partial output\"; exit \"$RC\"; fi\n\necho\necho \"========== EXTRACT METADATA SLOT 1 ==========\"\nlpunpack -S 1 \"$IMG\" \"$B\"\nRC=$?\necho \"Slot 1 exit code: $RC\"\nif [ \"$RC\" -ne 0 ]; then echo \"ERROR: slot 1 extraction failed; preserving partial output\"; exit \"$RC\"; fi\n\necho\necho \"========== EXTRACTED FILE INVENTORY ==========\"\nfind \"$ROOT/super-unpacked\" -maxdepth 2 -type f -printf \"%P %s bytes\\n\" | sort\n\necho\necho \"========== SLOT DIRECTORY SIZES ==========\"\ndu -sh \"$A\" \"$B\"\n\necho\necho \"========== SOURCE IMAGE STILL INTACT ==========\"\nstat -c \"%n %s bytes\" \"$IMG\"\nsha256sum \"$IMG\"\n\necho\necho \"========== REMAINING SPACE ==========\"\ndf -h \"$ROOT\"\n\necho\necho \"SUPER_SLOT_EXTRACTION_COMPLETE\"\n"
+  ],
+  "exit_code": 64,
+  "duration_seconds": 0.024,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? edl_config.json\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}
