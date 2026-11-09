@@ -1,0 +1,13 @@
+{
+  "id": "20261109T021425Z-dualos-sd-boot-loop-target-selection-and-partiti",
+  "title": "DualOS SD boot-loop target selection and partition audit",
+  "created_utc": "2026-11-09T02:14:25.625216+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\necho \"=== TARGET SELECTION IMPLEMENTATION ===\"\nrg -n -C 12 \"fn get_target_os|get_target_os\\\\(|enum.*TargetOs|Android\" \\\n  bootable/libbootloader/gbl/efi/src \\\n  bootable/libbootloader/gbl/libefi/src 2>/dev/null | head -n 260\n\necho\necho \"=== GBL DISK ENUMERATION ===\"\nrg -n -C 8 \"struct EfiGblDisk|impl EfiGblDisk|find_block_devices|logical_partition|partition\" \\\n  bootable/libbootloader/gbl/efi/src/efi_blocks.rs \\\n  bootable/libbootloader/gbl/efi/src 2>/dev/null | head -n 260\n\necho\necho \"=== SD PARTITION TABLE (READ ONLY) ===\"\nlsblk -o NAME,TYPE,SIZE,FSTYPE,LABEL,PARTUUID,PARTTYPE,MOUNTPOINTS /dev/mmcblk0\nsudo sfdisk --dump /dev/mmcblk0 2>&1\necho\necho \"=== FILESYSTEM IDENTITIES ===\"\nsudo blkid /dev/mmcblk0 /dev/mmcblk0p1 2>&1\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.473
+}

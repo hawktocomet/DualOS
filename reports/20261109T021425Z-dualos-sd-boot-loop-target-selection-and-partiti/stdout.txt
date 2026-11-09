@@ -1,0 +1,541 @@
+=== TARGET SELECTION IMPLEMENTATION ===
+bootable/libbootloader/gbl/efi/src/utils.rs:1:// Copyright 2023, The Android Open Source Project
+bootable/libbootloader/gbl/efi/src/utils.rs-2-//
+bootable/libbootloader/gbl/efi/src/utils.rs-3-// Licensed under the Apache License, Version 2.0 (the "License");
+bootable/libbootloader/gbl/efi/src/utils.rs-4-// you may not use this file except in compliance with the License.
+bootable/libbootloader/gbl/efi/src/utils.rs-5-// You may obtain a copy of the License at
+bootable/libbootloader/gbl/efi/src/utils.rs-6-//
+bootable/libbootloader/gbl/efi/src/utils.rs-7-//     http://www.apache.org/licenses/LICENSE-2.0
+bootable/libbootloader/gbl/efi/src/utils.rs-8-//
+bootable/libbootloader/gbl/efi/src/utils.rs-9-// Unless required by applicable law or agreed to in writing, software
+bootable/libbootloader/gbl/efi/src/utils.rs-10-// distributed under the License is distributed on an "AS IS" BASIS,
+bootable/libbootloader/gbl/efi/src/utils.rs-11-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+bootable/libbootloader/gbl/efi/src/utils.rs-12-// See the License for the specific language governing permissions and
+bootable/libbootloader/gbl/efi/src/utils.rs-13-// limitations under the License.
+--
+bootable/libbootloader/gbl/libefi/src/utils.rs:1:// Copyright 2024, The Android Open Source Project
+bootable/libbootloader/gbl/libefi/src/utils.rs-2-//
+bootable/libbootloader/gbl/libefi/src/utils.rs-3-// Licensed under the Apache License, Version 2.0 (the "License");
+bootable/libbootloader/gbl/libefi/src/utils.rs-4-// you may not use this file except in compliance with the License.
+bootable/libbootloader/gbl/libefi/src/utils.rs-5-// You may obtain a copy of the License at
+bootable/libbootloader/gbl/libefi/src/utils.rs-6-//
+bootable/libbootloader/gbl/libefi/src/utils.rs-7-//     http://www.apache.org/licenses/LICENSE-2.0
+bootable/libbootloader/gbl/libefi/src/utils.rs-8-//
+bootable/libbootloader/gbl/libefi/src/utils.rs-9-// Unless required by applicable law or agreed to in writing, software
+bootable/libbootloader/gbl/libefi/src/utils.rs-10-// distributed under the License is distributed on an "AS IS" BASIS,
+bootable/libbootloader/gbl/libefi/src/utils.rs-11-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+bootable/libbootloader/gbl/libefi/src/utils.rs-12-// See the License for the specific language governing permissions and
+bootable/libbootloader/gbl/libefi/src/utils.rs-13-// limitations under the License.
+--
+bootable/libbootloader/gbl/libefi/src/efi_sha_c.h-1-/*
+bootable/libbootloader/gbl/libefi/src/efi_sha_c.h:2: * Copyright (C) 2025 The Android Open Source Project
+bootable/libbootloader/gbl/libefi/src/efi_sha_c.h-3- *
+bootable/libbootloader/gbl/libefi/src/efi_sha_c.h-4- * Licensed under the Apache License, Version 2.0 (the "License");
+bootable/libbootloader/gbl/libefi/src/efi_sha_c.h-5- * you may not use this file except in compliance with the License.
+bootable/libbootloader/gbl/libefi/src/efi_sha_c.h-6- * You may obtain a copy of the License at
+bootable/libbootloader/gbl/libefi/src/efi_sha_c.h-7- *
+bootable/libbootloader/gbl/libefi/src/efi_sha_c.h-8- *     http://www.apache.org/licenses/LICENSE-2.0
+bootable/libbootloader/gbl/libefi/src/efi_sha_c.h-9- *
+bootable/libbootloader/gbl/libefi/src/efi_sha_c.h-10- * Unless required by applicable law or agreed to in writing, software
+bootable/libbootloader/gbl/libefi/src/efi_sha_c.h-11- * distributed under the License is distributed on an "AS IS" BASIS,
+bootable/libbootloader/gbl/libefi/src/efi_sha_c.h-12- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+bootable/libbootloader/gbl/libefi/src/efi_sha_c.h-13- * See the License for the specific language governing permissions and
+bootable/libbootloader/gbl/libefi/src/efi_sha_c.h-14- * limitations under the License.
+--
+bootable/libbootloader/gbl/efi/src/ops.rs:1:// Copyright 2024, The Android Open Source Project
+bootable/libbootloader/gbl/efi/src/ops.rs-2-//
+bootable/libbootloader/gbl/efi/src/ops.rs-3-// Licensed under the Apache License, Version 2.0 (the "License");
+bootable/libbootloader/gbl/efi/src/ops.rs-4-// you may not use this file except in compliance with the License.
+bootable/libbootloader/gbl/efi/src/ops.rs-5-// You may obtain a copy of the License at
+bootable/libbootloader/gbl/efi/src/ops.rs-6-//
+bootable/libbootloader/gbl/efi/src/ops.rs-7-//     http://www.apache.org/licenses/LICENSE-2.0
+bootable/libbootloader/gbl/efi/src/ops.rs-8-//
+bootable/libbootloader/gbl/efi/src/ops.rs-9-// Unless required by applicable law or agreed to in writing, software
+bootable/libbootloader/gbl/efi/src/ops.rs-10-// distributed under the License is distributed on an "AS IS" BASIS,
+bootable/libbootloader/gbl/efi/src/ops.rs-11-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+bootable/libbootloader/gbl/efi/src/ops.rs-12-// See the License for the specific language governing permissions and
+bootable/libbootloader/gbl/efi/src/ops.rs-13-// limitations under the License.
+--
+bootable/libbootloader/gbl/libefi/src/protocol/timestamp.rs:1:// Copyright 2025, The Android Open Source Project
+bootable/libbootloader/gbl/libefi/src/protocol/timestamp.rs-2-//
+bootable/libbootloader/gbl/libefi/src/protocol/timestamp.rs-3-// Licensed under the Apache License, Version 2.0 (the "License");
+bootable/libbootloader/gbl/libefi/src/protocol/timestamp.rs-4-// you may not use this file except in compliance with the License.
+bootable/libbootloader/gbl/libefi/src/protocol/timestamp.rs-5-// You may obtain a copy of the License at
+bootable/libbootloader/gbl/libefi/src/protocol/timestamp.rs-6-//
+bootable/libbootloader/gbl/libefi/src/protocol/timestamp.rs-7-//     http://www.apache.org/licenses/LICENSE-2.0
+bootable/libbootloader/gbl/libefi/src/protocol/timestamp.rs-8-//
+bootable/libbootloader/gbl/libefi/src/protocol/timestamp.rs-9-// Unless required by applicable law or agreed to in writing, software
+bootable/libbootloader/gbl/libefi/src/protocol/timestamp.rs-10-// distributed under the License is distributed on an "AS IS" BASIS,
+bootable/libbootloader/gbl/libefi/src/protocol/timestamp.rs-11-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+bootable/libbootloader/gbl/libefi/src/protocol/timestamp.rs-12-// See the License for the specific language governing permissions and
+bootable/libbootloader/gbl/libefi/src/protocol/timestamp.rs-13-// limitations under the License.
+--
+bootable/libbootloader/gbl/libefi/src/efi_rng_c.rs:1:// Copyright 2026, The Android Open Source Project
+bootable/libbootloader/gbl/libefi/src/efi_rng_c.rs-2-//
+bootable/libbootloader/gbl/libefi/src/efi_rng_c.rs-3-// Licensed under the Apache License, Version 2.0 (the "License");
+bootable/libbootloader/gbl/libefi/src/efi_rng_c.rs-4-// you may not use this file except in compliance with the License.
+bootable/libbootloader/gbl/libefi/src/efi_rng_c.rs-5-// You may obtain a copy of the License at
+bootable/libbootloader/gbl/libefi/src/efi_rng_c.rs-6-//
+bootable/libbootloader/gbl/libefi/src/efi_rng_c.rs-7-//     http://www.apache.org/licenses/LICENSE-2.0
+bootable/libbootloader/gbl/libefi/src/efi_rng_c.rs-8-//
+bootable/libbootloader/gbl/libefi/src/efi_rng_c.rs-9-// Unless required by applicable law or agreed to in writing, software
+bootable/libbootloader/gbl/libefi/src/efi_rng_c.rs-10-// distributed under the License is distributed on an "AS IS" BASIS,
+bootable/libbootloader/gbl/libefi/src/efi_rng_c.rs-11-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+bootable/libbootloader/gbl/libefi/src/efi_rng_c.rs-12-// See the License for the specific language governing permissions and
+bootable/libbootloader/gbl/libefi/src/efi_rng_c.rs-13-// limitations under the License.
+--
+bootable/libbootloader/gbl/libefi/src/efi_avb_test.cpp-1-/*
+bootable/libbootloader/gbl/libefi/src/efi_avb_test.cpp:2: * Copyright (C) 2025 The Android Open Source Project
+bootable/libbootloader/gbl/libefi/src/efi_avb_test.cpp-3- *
+bootable/libbootloader/gbl/libefi/src/efi_avb_test.cpp-4- * Licensed under the Apache License, Version 2.0 (the "License");
+bootable/libbootloader/gbl/libefi/src/efi_avb_test.cpp-5- * you may not use this file except in compliance with the License.
+bootable/libbootloader/gbl/libefi/src/efi_avb_test.cpp-6- * You may obtain a copy of the License at
+bootable/libbootloader/gbl/libefi/src/efi_avb_test.cpp-7- *
+bootable/libbootloader/gbl/libefi/src/efi_avb_test.cpp-8- *     http://www.apache.org/licenses/LICENSE-2.0
+bootable/libbootloader/gbl/libefi/src/efi_avb_test.cpp-9- *
+bootable/libbootloader/gbl/libefi/src/efi_avb_test.cpp-10- * Unless required by applicable law or agreed to in writing, software
+bootable/libbootloader/gbl/libefi/src/efi_avb_test.cpp-11- * distributed under the License is distributed on an "AS IS" BASIS,
+bootable/libbootloader/gbl/libefi/src/efi_avb_test.cpp-12- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+bootable/libbootloader/gbl/libefi/src/efi_avb_test.cpp-13- * See the License for the specific language governing permissions and
+bootable/libbootloader/gbl/libefi/src/efi_avb_test.cpp-14- * limitations under the License.
+--
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_output.rs:1:// Copyright 2024, The Android Open Source Project
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_output.rs-2-//
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_output.rs-3-// Licensed under the Apache License, Version 2.0 (the "License");
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_output.rs-4-// you may not use this file except in compliance with the License.
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_output.rs-5-// You may obtain a copy of the License at
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_output.rs-6-//
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_output.rs-7-//     http://www.apache.org/licenses/LICENSE-2.0
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_output.rs-8-//
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_output.rs-9-// Unless required by applicable law or agreed to in writing, software
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_output.rs-10-// distributed under the License is distributed on an "AS IS" BASIS,
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_output.rs-11-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_output.rs-12-// See the License for the specific language governing permissions and
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_output.rs-13-// limitations under the License.
+--
+bootable/libbootloader/gbl/efi/src/net.rs:1:// Copyright 2024, The Android Open Source Project
+bootable/libbootloader/gbl/efi/src/net.rs-2-//
+bootable/libbootloader/gbl/efi/src/net.rs-3-// Licensed under the Apache License, Version 2.0 (the "License");
+bootable/libbootloader/gbl/efi/src/net.rs-4-// you may not use this file except in compliance with the License.
+bootable/libbootloader/gbl/efi/src/net.rs-5-// You may obtain a copy of the License at
+bootable/libbootloader/gbl/efi/src/net.rs-6-//
+bootable/libbootloader/gbl/efi/src/net.rs-7-//     http://www.apache.org/licenses/LICENSE-2.0
+bootable/libbootloader/gbl/efi/src/net.rs-8-//
+bootable/libbootloader/gbl/efi/src/net.rs-9-// Unless required by applicable law or agreed to in writing, software
+bootable/libbootloader/gbl/efi/src/net.rs-10-// distributed under the License is distributed on an "AS IS" BASIS,
+bootable/libbootloader/gbl/efi/src/net.rs-11-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+bootable/libbootloader/gbl/efi/src/net.rs-12-// See the License for the specific language governing permissions and
+bootable/libbootloader/gbl/efi/src/net.rs-13-// limitations under the License.
+--
+bootable/libbootloader/gbl/libefi/src/allocation.rs:1:// Copyright 2023, The Android Open Source Project
+bootable/libbootloader/gbl/libefi/src/allocation.rs-2-//
+bootable/libbootloader/gbl/libefi/src/allocation.rs-3-// Licensed under the Apache License, Version 2.0 (the "License");
+bootable/libbootloader/gbl/libefi/src/allocation.rs-4-// you may not use this file except in compliance with the License.
+bootable/libbootloader/gbl/libefi/src/allocation.rs-5-// You may obtain a copy of the License at
+bootable/libbootloader/gbl/libefi/src/allocation.rs-6-//
+bootable/libbootloader/gbl/libefi/src/allocation.rs-7-//     http://www.apache.org/licenses/LICENSE-2.0
+bootable/libbootloader/gbl/libefi/src/allocation.rs-8-//
+bootable/libbootloader/gbl/libefi/src/allocation.rs-9-// Unless required by applicable law or agreed to in writing, software
+bootable/libbootloader/gbl/libefi/src/allocation.rs-10-// distributed under the License is distributed on an "AS IS" BASIS,
+bootable/libbootloader/gbl/libefi/src/allocation.rs-11-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+bootable/libbootloader/gbl/libefi/src/allocation.rs-12-// See the License for the specific language governing permissions and
+bootable/libbootloader/gbl/libefi/src/allocation.rs-13-// limitations under the License.
+--
+bootable/libbootloader/gbl/libefi/src/efi_hash_c.rs:1:// Copyright 2025, The Android Open Source Project
+bootable/libbootloader/gbl/libefi/src/efi_hash_c.rs-2-//
+bootable/libbootloader/gbl/libefi/src/efi_hash_c.rs-3-// Licensed under the Apache License, Version 2.0 (the "License");
+bootable/libbootloader/gbl/libefi/src/efi_hash_c.rs-4-// you may not use this file except in compliance with the License.
+bootable/libbootloader/gbl/libefi/src/efi_hash_c.rs-5-// You may obtain a copy of the License at
+bootable/libbootloader/gbl/libefi/src/efi_hash_c.rs-6-//
+bootable/libbootloader/gbl/libefi/src/efi_hash_c.rs-7-//     http://www.apache.org/licenses/LICENSE-2.0
+bootable/libbootloader/gbl/libefi/src/efi_hash_c.rs-8-//
+bootable/libbootloader/gbl/libefi/src/efi_hash_c.rs-9-// Unless required by applicable law or agreed to in writing, software
+bootable/libbootloader/gbl/libefi/src/efi_hash_c.rs-10-// distributed under the License is distributed on an "AS IS" BASIS,
+bootable/libbootloader/gbl/libefi/src/efi_hash_c.rs-11-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+bootable/libbootloader/gbl/libefi/src/efi_hash_c.rs-12-// See the License for the specific language governing permissions and
+bootable/libbootloader/gbl/libefi/src/efi_hash_c.rs-13-// limitations under the License.
+--
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_input.rs:1:// Copyright 2024, The Android Open Source Project
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_input.rs-2-//
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_input.rs-3-// Licensed under the Apache License, Version 2.0 (the "License");
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_input.rs-4-// you may not use this file except in compliance with the License.
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_input.rs-5-// You may obtain a copy of the License at
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_input.rs-6-//
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_input.rs-7-//     http://www.apache.org/licenses/LICENSE-2.0
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_input.rs-8-//
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_input.rs-9-// Unless required by applicable law or agreed to in writing, software
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_input.rs-10-// distributed under the License is distributed on an "AS IS" BASIS,
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_input.rs-11-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_input.rs-12-// See the License for the specific language governing permissions and
+bootable/libbootloader/gbl/libefi/src/protocol/simple_text_input.rs-13-// limitations under the License.
+--
+bootable/libbootloader/gbl/libefi/src/protocol/erase_block.rs:1:// Copyright 2025, The Android Open Source Project
+bootable/libbootloader/gbl/libefi/src/protocol/erase_block.rs-2-//
+bootable/libbootloader/gbl/libefi/src/protocol/erase_block.rs-3-// Licensed under the Apache License, Version 2.0 (the "License");
+bootable/libbootloader/gbl/libefi/src/protocol/erase_block.rs-4-// you may not use this file except in compliance with the License.
+bootable/libbootloader/gbl/libefi/src/protocol/erase_block.rs-5-// You may obtain a copy of the License at
+bootable/libbootloader/gbl/libefi/src/protocol/erase_block.rs-6-//
+bootable/libbootloader/gbl/libefi/src/protocol/erase_block.rs-7-//     http://www.apache.org/licenses/LICENSE-2.0
+bootable/libbootloader/gbl/libefi/src/protocol/erase_block.rs-8-//
+bootable/libbootloader/gbl/libefi/src/protocol/erase_block.rs-9-// Unless required by applicable law or agreed to in writing, software
+bootable/libbootloader/gbl/libefi/src/protocol/erase_block.rs-10-// distributed under the License is distributed on an "AS IS" BASIS,
+bootable/libbootloader/gbl/libefi/src/protocol/erase_block.rs-11-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+bootable/libbootloader/gbl/libefi/src/protocol/erase_block.rs-12-// See the License for the specific language governing permissions and
+bootable/libbootloader/gbl/libefi/src/protocol/erase_block.rs-13-// limitations under the License.
+--
+bootable/libbootloader/gbl/libefi/src/protocol/block_io2.rs:1:// Copyright 2024, The Android Open Source Project
+bootable/libbootloader/gbl/libefi/src/protocol/block_io2.rs-2-//
+bootable/libbootloader/gbl/libefi/src/protocol/block_io2.rs-3-// Licensed under the Apache License, Version 2.0 (the "License");
+bootable/libbootloader/gbl/libefi/src/protocol/block_io2.rs-4-// you may not use this file except in compliance with the License.
+bootable/libbootloader/gbl/libefi/src/protocol/block_io2.rs-5-// You may obtain a copy of the License at
+bootable/libbootloader/gbl/libefi/src/protocol/block_io2.rs-6-//
+bootable/libbootloader/gbl/libefi/src/protocol/block_io2.rs-7-//     http://www.apache.org/licenses/LICENSE-2.0
+bootable/libbootloader/gbl/libefi/src/protocol/block_io2.rs-8-//
+bootable/libbootloader/gbl/libefi/src/protocol/block_io2.rs-9-// Unless required by applicable law or agreed to in writing, software
+bootable/libbootloader/gbl/libefi/src/protocol/block_io2.rs-10-// distributed under the License is distributed on an "AS IS" BASIS,
+bootable/libbootloader/gbl/libefi/src/protocol/block_io2.rs-11-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+bootable/libbootloader/gbl/libefi/src/protocol/block_io2.rs-12-// See the License for the specific language governing permissions and
+bootable/libbootloader/gbl/libefi/src/protocol/block_io2.rs-13-// limitations under the License.
+--
+bootable/libbootloader/gbl/libefi/src/protocol/gbl_efi_boot_control.rs:1:// Copyright 2024, The Android Open Source Project
+bootable/libbootloader/gbl/libefi/src/protocol/gbl_efi_boot_control.rs-2-//
+bootable/libbootloader/gbl/libefi/src/protocol/gbl_efi_boot_control.rs-3-// Licensed under the Apache License, Version 2.0 (the "License");
+bootable/libbootloader/gbl/libefi/src/protocol/gbl_efi_boot_control.rs-4-// you may not use this file except in compliance with the License.
+bootable/libbootloader/gbl/libefi/src/protocol/gbl_efi_boot_control.rs-5-// You may obtain a copy of the License at
+bootable/libbootloader/gbl/libefi/src/protocol/gbl_efi_boot_control.rs-6-//
+bootable/libbootloader/gbl/libefi/src/protocol/gbl_efi_boot_control.rs-7-//     http://www.apache.org/licenses/LICENSE-2.0
+bootable/libbootloader/gbl/libefi/src/protocol/gbl_efi_boot_control.rs-8-//
+bootable/libbootloader/gbl/libefi/src/protocol/gbl_efi_boot_control.rs-9-// Unless required by applicable law or agreed to in writing, software
+bootable/libbootloader/gbl/libefi/src/protocol/gbl_efi_boot_control.rs-10-// distributed under the License is distributed on an "AS IS" BASIS,
+bootable/libbootloader/gbl/libefi/src/protocol/gbl_efi_boot_control.rs-11-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+bootable/libbootloader/gbl/libefi/src/protocol/gbl_efi_boot_control.rs-12-// See the License for the specific language governing permissions and
+bootable/libbootloader/gbl/libefi/src/protocol/gbl_efi_boot_control.rs-13-// limitations under the License.
+--
+bootable/libbootloader/gbl/libefi/src/protocol/simple_network.rs:1:// Copyright 2024, The Android Open Source Project
+bootable/libbootloader/gbl/libefi/src/protocol/simple_network.rs-2-//
+bootable/libbootloader/gbl/libefi/src/protocol/simple_network.rs-3-// Licensed under the Apache License, Version 2.0 (the "License");
+bootable/libbootloader/gbl/libefi/src/protocol/simple_network.rs-4-// you may not use this file except in compliance with the License.
+bootable/libbootloader/gbl/libefi/src/protocol/simple_network.rs-5-// You may obtain a copy of the License at
+bootable/libbootloader/gbl/libefi/src/protocol/simple_network.rs-6-//
+bootable/libbootloader/gbl/libefi/src/protocol/simple_network.rs-7-//     http://www.apache.org/licenses/LICENSE-2.0
+bootable/libbootloader/gbl/libefi/src/protocol/simple_network.rs-8-//
+bootable/libbootloader/gbl/libefi/src/protocol/simple_network.rs-9-// Unless required by applicable law or agreed to in writing, software
+bootable/libbootloader/gbl/libefi/src/protocol/simple_network.rs-10-// distributed under the License is distributed on an "AS IS" BASIS,
+bootable/libbootloader/gbl/libefi/src/protocol/simple_network.rs-11-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+bootable/libbootloader/gbl/libefi/src/protocol/simple_network.rs-12-// See the License for the specific language governing permissions and
+bootable/libbootloader/gbl/libefi/src/protocol/simple_network.rs-13-// limitations under the License.
+--
+bootable/libbootloader/gbl/efi/src/lib.rs-1-#![allow(dead_code)]
+bootable/libbootloader/gbl/efi/src/lib.rs:2:// Copyright 2023, The Android Open Source Project
+bootable/libbootloader/gbl/efi/src/lib.rs-3-//
+bootable/libbootloader/gbl/efi/src/lib.rs-4-// Licensed under the Apache License, Version 2.0 (the "License");
+bootable/libbootloader/gbl/efi/src/lib.rs-5-// you may not use this file except in compliance with the License.
+bootable/libbootloader/gbl/efi/src/lib.rs-6-// You may obtain a copy of the License at
+bootable/libbootloader/gbl/efi/src/lib.rs-7-//
+bootable/libbootloader/gbl/efi/src/lib.rs-8-//     http://www.apache.org/licenses/LICENSE-2.0
+bootable/libbootloader/gbl/efi/src/lib.rs-9-//
+bootable/libbootloader/gbl/efi/src/lib.rs-10-// Unless required by applicable law or agreed to in writing, software
+bootable/libbootloader/gbl/efi/src/lib.rs-11-// distributed under the License is distributed on an "AS IS" BASIS,
+bootable/libbootloader/gbl/efi/src/lib.rs-12-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+bootable/libbootloader/gbl/efi/src/lib.rs-13-// See the License for the specific language governing permissions and
+bootable/libbootloader/gbl/efi/src/lib.rs-14-// limitations under the License.
+bootable/libbootloader/gbl/efi/src/lib.rs-15-
+bootable/libbootloader/gbl/efi/src/lib.rs:16://! This EFI application implements a demo for booting Android/Fuchsia from disk. See
+bootable/libbootloader/gbl/efi/src/lib.rs-17-//! bootable/libbootloader/gbl/README.md for how to run the demo. See comments of
+bootable/libbootloader/gbl/efi/src/lib.rs-18-//! `android_boot:android_boot_demo()` and `fuchsia_boot:fuchsia_boot_demo()` for
+bootable/libbootloader/gbl/efi/src/lib.rs-19-//! supported/unsupported features at the moment.
+bootable/libbootloader/gbl/efi/src/lib.rs-20-
+bootable/libbootloader/gbl/efi/src/lib.rs-21-#![cfg_attr(not(test), no_std)]
+bootable/libbootloader/gbl/efi/src/lib.rs-22-
+bootable/libbootloader/gbl/efi/src/lib.rs-23-// For the `vec!` macro
+bootable/libbootloader/gbl/efi/src/lib.rs-24-#[macro_use]
+bootable/libbootloader/gbl/efi/src/lib.rs-25-extern crate alloc;
+bootable/libbootloader/gbl/efi/src/lib.rs-26-
+bootable/libbootloader/gbl/efi/src/lib.rs-27-mod efi_blocks;
+bootable/libbootloader/gbl/efi/src/lib.rs-28-#[cfg(not(test))]
+--
+bootable/libbootloader/gbl/efi/src/lib.rs-57-        efi_blocks::{find_block_devices, EfiGblDisk},
+bootable/libbootloader/gbl/efi/src/lib.rs-58-        ops::Ops,
+bootable/libbootloader/gbl/efi/src/lib.rs-59-    },
+bootable/libbootloader/gbl/efi/src/lib.rs-60-    cfg_if::cfg_if,
+bootable/libbootloader/gbl/efi/src/lib.rs-61-    core::convert::Infallible,
+
+=== GBL DISK ENUMERATION ===
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-24-        erase_block::EraseBlockProtocol, loaded_image::LoadedImageProtocol, Protocol,
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-25-    },
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-26-    EfiEntry,
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-27-};
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-28-use efi_types::{defs::EFI_TPL_APPLICATION, protocol::block_io::BlockIo as _, tpl::TplLocked};
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-29-use gbl_async::block_on;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-30-use gbl_storage::{gpt_buffer_size, BlockInfo, BlockIo, Disk, Gpt, GPT_MAX_NUM_ENTRIES};
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-31-use liberror::Error;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:32:use libgbl::partition::GblDisk;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-33-use libprofile_macros::profile;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-34-use safemath::SafeNum;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-35-
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-36-/// `EfiBlockDeviceIo` wraps an EFI `BlockIoProtocol` and optionally a `BlockIo2Protocol` and
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-37-/// implements the `BlockIo` interface.
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-38-///
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-39-/// `BlockIoProtocol` is always required and used for implementation of `read_blocks_sync` and
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-40-/// `write_blocks_sync`. When `BlockIo2Protocol` is provided, it will be used to implement
+--
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-123-#[cfg(not(test))]
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-124-fn write_dualos_discovery_report(efi_entry: &EfiEntry, status: &str) {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-125-    let result = crate::diagnostic_fs::write_report(efi_entry, status);
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-126-    efi_println!(efi_entry, "DualOS SD report: {result}");
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-127-}
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-128-
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-129-/// Finds and returns all EFI devices supporting either EFI_BLOCK_IO or EFI_BLOCK_IO2 protocol.
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-130-#[profile(backend = EfiProfileBackend::new(efi_entry))]
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:131:pub fn find_block_devices(efi_entry: &EfiEntry) -> Result<Vec<EfiGblDisk<'_>>, Error> {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-132-    let bs = efi_entry.system_table().boot_services();
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-133-    let block_dev_handles = bs.locate_handle_buffer_by_protocol::<BlockIoProtocol>()?;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-134-
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-135-    // GBL is SD-only: identify the physical disk that contains this EFI image.
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-136-    let loaded_image = bs.open_protocol::<LoadedImageProtocol>(efi_entry.image_handle())?;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:137:    let source_partition = loaded_image.device_handle();
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:138:    let source_path = bs.open_protocol::<DevicePathProtocol>(source_partition)?;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-139-
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:140:    let source_block_io = bs.open_protocol::<BlockIoProtocol>(source_partition)?;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-141-    // SAFETY: this code always executes at EFI_TPL_APPLICATION.
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-142-    let source_media = unsafe {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-143-        source_block_io.with_lock::<EFI_TPL_APPLICATION, _>(efi_entry, || {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-144-            source_block_io.media().unwrap().clone()
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-145-        })
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-146-    };
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:147:    if !source_media.logical_partition {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:148:        let status = "FAIL: loaded-image device handle is not a logical partition";
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-149-        efi_println!(efi_entry, "DUALOS SD-ONLY FILTER: {status}");
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-150-        #[cfg(not(test))]
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-151-        write_dualos_discovery_report(efi_entry, status);
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-152-        return Err(Error::InvalidInput);
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-153-    }
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-154-
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-155-    let mut source_disk_handle = None;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-156-    for handle in block_dev_handles.handles() {
+--
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-167-            Err(_) => continue,
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-168-        };
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-169-        // SAFETY: this code always executes at EFI_TPL_APPLICATION.
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-170-        let candidate_media = unsafe {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-171-            candidate_block_io.with_lock::<EFI_TPL_APPLICATION, _>(efi_entry, || {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-172-                candidate_block_io.media().unwrap().clone()
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-173-            })
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-174-        };
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:175:        if candidate_media.logical_partition {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-176-            continue;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-177-        }
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-178-
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-179-        if source_disk_handle.replace(*handle).is_some() {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:180:            let status = "FAIL: multiple physical parent disks matched the loaded-image partition";
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-181-            efi_println!(efi_entry, "DUALOS SD-ONLY FILTER: {status}");
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-182-            #[cfg(not(test))]
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-183-            write_dualos_discovery_report(efi_entry, status);
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-184-            return Err(Error::InvalidInput);
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-185-        }
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-186-    }
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-187-
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-188-    let source_disk_handle = match source_disk_handle {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-189-        Some(handle) => handle,
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-190-        None => {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:191:            let status = "FAIL: no physical parent disk found for the loaded-image partition";
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-192-            efi_println!(efi_entry, "DUALOS SD-ONLY FILTER: {status}");
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-193-            #[cfg(not(test))]
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-194-            write_dualos_discovery_report(efi_entry, status);
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-195-            return Err(Error::InvalidInput);
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-196-        }
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-197-    };
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-198-
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-199-    let selected_disk_path = crate::utils::get_device_path(efi_entry, source_disk_handle)?;
+--
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-218-        // SAFETY: this code always executes at `EFI_TPL_APPLICATION`.
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-219-        let media = unsafe {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-220-            block_io.with_lock::<EFI_TPL_APPLICATION, _>(efi_entry, || {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-221-                // SAFETY: the protocol is locked while we access `media`, we
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-222-                // clone it here for safe access outside the critical section.
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-223-                block_io.media().unwrap().clone()
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-224-            })
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-225-        };
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:226:        if media.logical_partition {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-227-            continue;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-228-        }
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-229-        let open_disk = || -> Result<_, Error> {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-230-            let block_io2 = bs.open_protocol::<BlockIo2Protocol>(*handle).ok();
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-231-            let erase = bs.open_protocol::<EraseBlockProtocol>(*handle).ok();
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-232-            let erase_blocks =
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-233-                erase.as_ref().map(|v| v.erase_length_granularity()).unwrap_or_default();
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-234-            let block_info = BlockInfo {
+--
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-29-        efi_blocks::EfiGblDisk,
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-30-        fastboot::efi_gbl_fastboot_entry,
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-31-        ops::Ops,
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-32-    },
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-33-    core::convert::Infallible,
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-34-    libgbl::{
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-35-        fuchsia_boot::{zircon_main, LoadedVerifiedZircon},
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-36-        gbl_println,
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs:37:        partition::check_part_unique,
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-38-        GblOps, Result,
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-39-    },
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-40-};
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-41-
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-42-const PAGE_SIZE: u64 = PAGE_SIZE_USIZE as u64;
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-43-
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-44-/// Check if the disk GPT layout is a Fuchsia device layout.
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-45-#[cfg(not(test))]
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-46-pub fn is_fuchsia_gpt(disks: &[EfiGblDisk]) -> Result<()> {
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs:47:    let partitions: &[&[&str]] = &[
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-48-        &["zircon_a", "zircon-a"],
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-49-        &["zircon_b", "zircon-b"],
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-50-        &["zircon_r", "zircon-r"],
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-51-        &["vbmeta_a"],
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-52-        &["vbmeta_b"],
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-53-        &["vbmeta_r"],
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-54-        &["misc", "durable_boot"],
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-55-    ];
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs:56:    if !partitions
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-57-        .iter()
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs:58:        .all(|&partition| partition.iter().any(|v| check_part_unique(disks, v).is_ok()))
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-59-    {
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-60-        return Err(Error::NotFound.into());
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-61-    }
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-62-
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-63-    Ok(())
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-64-}
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-65-
+bootable/libbootloader/gbl/efi/src/fuchsia_boot.rs-66-/// Loads and verifies Fuchsia according to A/B/R.
+--
+bootable/libbootloader/gbl/efi/src/lib.rs-49-#[allow(clippy::single_component_path_imports)] // Needed for `crate::efi` paths.
+bootable/libbootloader/gbl/efi/src/lib.rs-50-pub(crate) use efi;
+bootable/libbootloader/gbl/efi/src/lib.rs-51-#[cfg(test)]
+bootable/libbootloader/gbl/efi/src/lib.rs-52-pub(crate) use efi_mocks as efi;
+bootable/libbootloader/gbl/efi/src/lib.rs-53-
+bootable/libbootloader/gbl/efi/src/lib.rs-54-#[cfg(not(test))]
+bootable/libbootloader/gbl/efi/src/lib.rs-55-use {
+bootable/libbootloader/gbl/efi/src/lib.rs-56-    crate::{
+bootable/libbootloader/gbl/efi/src/lib.rs:57:        efi_blocks::{find_block_devices, EfiGblDisk},
+bootable/libbootloader/gbl/efi/src/lib.rs-58-        ops::Ops,
+bootable/libbootloader/gbl/efi/src/lib.rs-59-    },
+bootable/libbootloader/gbl/efi/src/lib.rs-60-    cfg_if::cfg_if,
+bootable/libbootloader/gbl/efi/src/lib.rs-61-    core::convert::Infallible,
+bootable/libbootloader/gbl/efi/src/lib.rs-62-    efi::{efi_println, report_error_and_reset, EfiEntry},
+bootable/libbootloader/gbl/efi/src/lib.rs-63-    libbuild_number::{format_build_fingerprint, format_build_vcs_info},
+bootable/libbootloader/gbl/efi/src/lib.rs-64-    libgbl::{Os, Result},
+bootable/libbootloader/gbl/efi/src/lib.rs-65-    utils::loaded_image_path,
+--
+bootable/libbootloader/gbl/efi/src/lib.rs-111-    efi_println!(entry, "Only the physical disk containing this EFI image will be considered.");
+bootable/libbootloader/gbl/efi/src/lib.rs-112-    efi_println!(entry, "**** Generic Bootloader (GBL) ****");
+bootable/libbootloader/gbl/efi/src/lib.rs-113-    efi_println!(entry, "Fingerprint: {}", format_build_fingerprint!());
+bootable/libbootloader/gbl/efi/src/lib.rs-114-    efi_println!(entry, "VCS info: {}", format_build_vcs_info!());
+bootable/libbootloader/gbl/efi/src/lib.rs-115-    if let Ok(v) = loaded_image_path(&entry) {
+bootable/libbootloader/gbl/efi/src/lib.rs-116-        efi_println!(entry, "Image path: {v}");
+bootable/libbootloader/gbl/efi/src/lib.rs-117-    }
+bootable/libbootloader/gbl/efi/src/lib.rs-118-
+bootable/libbootloader/gbl/efi/src/lib.rs:119:    let disks = find_block_devices(&entry).inspect_err(|e| {
+bootable/libbootloader/gbl/efi/src/lib.rs-120-        report_error_and_reset(&entry, e, efi_types::GBL_EFI_DEBUG_ERROR_TAG_PARTITION)
+bootable/libbootloader/gbl/efi/src/lib.rs-121-    })?;
+bootable/libbootloader/gbl/efi/src/lib.rs-122-    match get_target_os(&entry, &disks) {
+bootable/libbootloader/gbl/efi/src/lib.rs-123-        #[cfg(feature = "fuchsia")]
+bootable/libbootloader/gbl/efi/src/lib.rs-124-        TargetOs::Fuchsia => {
+bootable/libbootloader/gbl/efi/src/lib.rs-125-            let mut load: libgbl::android_boot::BootBuffer =
+bootable/libbootloader/gbl/efi/src/lib.rs-126-                utils::get_boot_buffer(&entry, 128 * 1024 * 1024)?.into();
+bootable/libbootloader/gbl/efi/src/lib.rs-127-            let mut ops = Ops::new(&entry, &disks[..], Some(Os::Fuchsia), get_sp());
+--
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-24-        erase_block::EraseBlockProtocol, loaded_image::LoadedImageProtocol, Protocol,
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-25-    },
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-26-    EfiEntry,
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-27-};
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-28-use efi_types::{defs::EFI_TPL_APPLICATION, protocol::block_io::BlockIo as _, tpl::TplLocked};
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-29-use gbl_async::block_on;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-30-use gbl_storage::{gpt_buffer_size, BlockInfo, BlockIo, Disk, Gpt, GPT_MAX_NUM_ENTRIES};
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-31-use liberror::Error;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:32:use libgbl::partition::GblDisk;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-33-use libprofile_macros::profile;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-34-use safemath::SafeNum;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-35-
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-36-/// `EfiBlockDeviceIo` wraps an EFI `BlockIoProtocol` and optionally a `BlockIo2Protocol` and
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-37-/// implements the `BlockIo` interface.
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-38-///
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-39-/// `BlockIoProtocol` is always required and used for implementation of `read_blocks_sync` and
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-40-/// `write_blocks_sync`. When `BlockIo2Protocol` is provided, it will be used to implement
+--
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-123-#[cfg(not(test))]
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-124-fn write_dualos_discovery_report(efi_entry: &EfiEntry, status: &str) {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-125-    let result = crate::diagnostic_fs::write_report(efi_entry, status);
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-126-    efi_println!(efi_entry, "DualOS SD report: {result}");
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-127-}
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-128-
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-129-/// Finds and returns all EFI devices supporting either EFI_BLOCK_IO or EFI_BLOCK_IO2 protocol.
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-130-#[profile(backend = EfiProfileBackend::new(efi_entry))]
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:131:pub fn find_block_devices(efi_entry: &EfiEntry) -> Result<Vec<EfiGblDisk<'_>>, Error> {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-132-    let bs = efi_entry.system_table().boot_services();
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-133-    let block_dev_handles = bs.locate_handle_buffer_by_protocol::<BlockIoProtocol>()?;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-134-
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-135-    // GBL is SD-only: identify the physical disk that contains this EFI image.
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-136-    let loaded_image = bs.open_protocol::<LoadedImageProtocol>(efi_entry.image_handle())?;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:137:    let source_partition = loaded_image.device_handle();
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:138:    let source_path = bs.open_protocol::<DevicePathProtocol>(source_partition)?;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-139-
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:140:    let source_block_io = bs.open_protocol::<BlockIoProtocol>(source_partition)?;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-141-    // SAFETY: this code always executes at EFI_TPL_APPLICATION.
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-142-    let source_media = unsafe {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-143-        source_block_io.with_lock::<EFI_TPL_APPLICATION, _>(efi_entry, || {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-144-            source_block_io.media().unwrap().clone()
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-145-        })
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-146-    };
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:147:    if !source_media.logical_partition {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:148:        let status = "FAIL: loaded-image device handle is not a logical partition";
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-149-        efi_println!(efi_entry, "DUALOS SD-ONLY FILTER: {status}");
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-150-        #[cfg(not(test))]
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-151-        write_dualos_discovery_report(efi_entry, status);
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-152-        return Err(Error::InvalidInput);
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-153-    }
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-154-
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-155-    let mut source_disk_handle = None;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-156-    for handle in block_dev_handles.handles() {
+--
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-167-            Err(_) => continue,
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-168-        };
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-169-        // SAFETY: this code always executes at EFI_TPL_APPLICATION.
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-170-        let candidate_media = unsafe {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-171-            candidate_block_io.with_lock::<EFI_TPL_APPLICATION, _>(efi_entry, || {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-172-                candidate_block_io.media().unwrap().clone()
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-173-            })
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-174-        };
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:175:        if candidate_media.logical_partition {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-176-            continue;
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-177-        }
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-178-
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-179-        if source_disk_handle.replace(*handle).is_some() {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:180:            let status = "FAIL: multiple physical parent disks matched the loaded-image partition";
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-181-            efi_println!(efi_entry, "DUALOS SD-ONLY FILTER: {status}");
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-182-            #[cfg(not(test))]
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-183-            write_dualos_discovery_report(efi_entry, status);
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-184-            return Err(Error::InvalidInput);
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-185-        }
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-186-    }
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-187-
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-188-    let source_disk_handle = match source_disk_handle {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-189-        Some(handle) => handle,
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-190-        None => {
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs:191:            let status = "FAIL: no physical parent disk found for the loaded-image partition";
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-192-            efi_println!(efi_entry, "DUALOS SD-ONLY FILTER: {status}");
+bootable/libbootloader/gbl/efi/src/efi_blocks.rs-193-            #[cfg(not(test))]
+
+=== SD PARTITION TABLE (READ ONLY) ===
+NAME        TYPE  SIZE FSTYPE LABEL   PARTUUID                             PARTTYPE                             MOUNTPOINTS
+mmcblk0     disk 59.6G                                                                                          
+└─mmcblk0p1 part 59.6G vfat   GBLTEST 1b806d74-8676-4e78-a90a-9c209e214d81 c12a7328-f81f-11d2-ba4b-00a0c93ec93b /mnt/dualos-check
+label: gpt
+label-id: 9D2FD75B-CD87-4178-B733-9DD45A6A3B7E
+device: /dev/mmcblk0
+unit: sectors
+first-lba: 34
+last-lba: 125042654
+sector-size: 512
+
+/dev/mmcblk0p1 : start=        2048, size=   125038592, type=C12A7328-F81F-11D2-BA4B-00A0C93EC93B, uuid=1B806D74-8676-4E78-A90A-9C209E214D81, name="primary"
+
+=== FILESYSTEM IDENTITIES ===
+/dev/mmcblk0: PTUUID="9d2fd75b-cd87-4178-b733-9dd45a6a3b7e" PTTYPE="gpt"
+/dev/mmcblk0p1: LABEL_FATBOOT="GBLTEST" LABEL="GBLTEST" UUID="DD36-A492" BLOCK_SIZE="512" TYPE="vfat" PARTLABEL="primary" PARTUUID="1b806d74-8676-4e78-a90a-9c209e214d81"
