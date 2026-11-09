@@ -1,0 +1,71 @@
+========== FIREHOSE CLIENT ==========
+-rwxr-xr-x 1 hawk hawk 26K Oct 30 12:25 /home/hawk/duo_edl/edl/edl.py
+-rwxr-xr-x 1 hawk hawk 181 Oct 30 12:28 /home/hawk/duo_edl/edl/.venv/bin/edl
+
+/home/hawk/duo_edl/edl/edl.py:151:args = docopt(__doc__, version='3')
+/home/hawk/duo_edl/edl/edl.py:308:            version = conninfo.get("data").version
+/home/hawk/duo_edl/edl/edl.py:310:            version = 2
+/home/hawk/duo_edl/edl/edl.py:321:                                self.sahara.debug_mode(self.args["--partitions"].split(","), version=version)
+/home/hawk/duo_edl/edl/edl.py:323:                                self.sahara.debug_mode(version=version)
+/home/hawk/duo_edl/edl/edl.py:336:                                    mode = self.sahara.upload_loader(version=version)
+/home/hawk/duo_edl/edl/edl.py:349:                        sahara_info = self.sahara.cmd_info(version=version)
+/home/hawk/duo_edl/edl/edl.py:356:                                mode = self.sahara.upload_loader(version=version)
+
+========== EXACT PROGRAMMER LOADER ==========
+/home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin 602588 bytes
+2a2123157b81d78701a54822305749d751d789e1cd83c15cea5bf891efab30e0  /home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin
+
+========== RAW FIREHOSE PARTITION IMAGES ==========
+65536	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/vbmeta_a.img
+65536	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/vbmeta_b.img
+65536	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/vbmeta_system_a.img
+65536	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/vbmeta_system_b.img
+8388608	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/init_boot_a.img
+8388608	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/init_boot_b.img
+25165824	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/dtbo_a.img
+25165824	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/dtbo_b.img
+100663296	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/boot_a.img
+100663296	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/boot_b.img
+100663296	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/vendor_boot_a.img
+100663296	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/vendor_boot_b.img
+12884901888	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super.img
+
+========== SUPER EXTRACTION OUTPUTS ==========
+438272	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/system_dlkm_a.img
+438272	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/system_dlkm_b.img
+1417216	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/odm_a.img
+1417216	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/odm_b.img
+4251648	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/system_dlkm_b-cow.img
+4255744	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/system_dlkm_a-cow.img
+4263936	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/odm_a-cow.img
+4263936	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/odm_b-cow.img
+5423104	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/vendor_dlkm_b-cow.img
+5976064	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/vendor_dlkm_a-cow.img
+13107200	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/system_ext_a-cow.img
+13107200	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/system_ext_b-cow.img
+22921216	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/product_a-cow.img
+22921216	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/product_b-cow.img
+29478912	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/system_a-cow.img
+30617600	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/vendor_a-cow.img
+30760960	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/vendor_b-cow.img
+69820416	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/vendor_dlkm_b.img
+69824512	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/vendor_dlkm_a.img
+75431936	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/system_b-cow.img
+559923200	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/system_ext_a.img
+559923200	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/system_ext_b.img
+1178329088	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/product_a.img
+1178329088	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/product_b.img
+1591169024	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/system_a.img
+1591169024	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/system_b.img
+1663250432	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot0/vendor_a.img
+1663250432	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super-unpacked-longopt/slot1/vendor_b.img
+
+========== FIREHOSE LOGS AND GPT INVENTORY ==========
+17697	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/gpt_inventory.log
+44272	/home/hawk/duo_forensics/android_boot_chain_20261102_094334/edl_partition_read.log
+
+========== AVAILABLE SPACE ==========
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  238G  115G  117G  50% /home
+
+INVENTORY ONLY: no files modified

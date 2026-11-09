@@ -1,0 +1,19 @@
+{
+  "id": "20261109T030134Z-inventory-duo-lite-firehose-recovery-kit-inputs",
+  "title": "Inventory Duo Lite Firehose recovery kit inputs",
+  "created_utc": "2026-11-09T03:01:34.427167+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-lc",
+    "\nBASE=\"/home/hawk\"\nCHAIN=\"$BASE/duo_forensics/android_boot_chain_20261102_094334\"\nEDL=\"$BASE/duo_edl/edl\"\nLOADER=\"$BASE/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin\"\n\necho \"========== FIREHOSE CLIENT ==========\"\nls -lh \"$EDL/edl.py\" \"$EDL/.venv/bin/edl\" \"$EDL/edlclient/firehose\" 2>/dev/null\necho\ngrep -nE \"version|__version__\" \"$EDL/edl.py\" \"$EDL/edlclient/__init__.py\" 2>/dev/null | head -n 20\n\necho\necho \"========== EXACT PROGRAMMER LOADER ==========\"\nif [ -f \"$LOADER\" ]; then\n  stat -c \"%n %s bytes\" \"$LOADER\"\n  sha256sum \"$LOADER\"\nelse\n  echo \"ERROR: known loader missing\"\nfi\n\necho\necho \"========== RAW FIREHOSE PARTITION IMAGES ==========\"\nfind \"$CHAIN\" -maxdepth 2 -type f \\\n  \\( -name \"*.img\" -o -name \"*.bin\" \\) \\\n  -printf \"%s\\t%p\\n\" | sort -n\n\necho\necho \"========== SUPER EXTRACTION OUTPUTS ==========\"\nfind \"$CHAIN/super-unpacked-longopt\" -type f \\\n  -printf \"%s\\t%p\\n\" 2>/dev/null | sort -n\n\necho\necho \"========== FIREHOSE LOGS AND GPT INVENTORY ==========\"\nfind \"$CHAIN\" -maxdepth 2 -type f \\\n  \\( -iname \"*edl*log*\" -o -iname \"*gpt*\" -o -iname \"*partition*log*\" -o -iname \"*read*log*\" \\) \\\n  -printf \"%s\\t%p\\n\" | sort -n\n\necho\necho \"========== AVAILABLE SPACE ==========\"\ndf -h \"$BASE\"\n\necho\necho \"INVENTORY ONLY: no files modified\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.04,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? edl_config.json\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}
