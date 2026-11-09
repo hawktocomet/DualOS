@@ -1,0 +1,632 @@
+========== FILESYSTEM / ROOT ==========
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  238G  115G  117G  50% /home
+29G	/home/hawk/duo_edl
+95G	/home/hawk/duo_edl
+
+========== TOP-LEVEL DIRECTORY SIZES ==========
+8.0K	/home/hawk/duo_edl/temporary-gcc12-check-shims
+20K	/home/hawk/duo_edl/__pycache__
+48K	/home/hawk/duo_edl/efi_test_build
+80K	/home/hawk/duo_edl/scripts
+424K	/home/hawk/duo_edl/github_audit
+5.6M	/home/hawk/duo_edl/logs
+44M	/home/hawk/duo_edl/migration_work
+49M	/home/hawk/duo_edl/gist_migration_backup_20261103_135803
+63M	/home/hawk/duo_edl/android_boot_analysis
+121M	/home/hawk/duo_edl/new_authorized_dumps
+353M	/home/hawk/duo_edl/build
+1.5G	/home/hawk/duo_edl/FreeABL
+1.8G	/home/hawk/duo_edl/edl
+25G	/home/hawk/duo_edl/reports
+29G	/home/hawk/duo_edl
+
+========== SECOND-LEVEL DIRECTORY SIZES ==========
+32K	/home/hawk/duo_edl/edl/duo_controller_and_dxe_20261031_174331
+32K	/home/hawk/duo_edl/edl/sdcc_protocol_xref_20261031_164552
+36K	/home/hawk/duo_edl/edl/ghidra_abl_scripts
+44K	/home/hawk/duo_edl/edl/sdcc_firmware_inventory_20261031_155758
+44K	/home/hawk/duo_edl/reports/dualos_source_acquisition_and_revision_pinning_20261105_103601
+48K	/home/hawk/duo_edl/efi_test_build
+56K	/home/hawk/duo_edl/edl/sdcc_provider_candidates_20261031_155604
+68K	/home/hawk/duo_edl/edl/duo_slot_mapping_20261031_173056
+80K	/home/hawk/duo_edl/scripts
+92K	/home/hawk/duo_edl/edl/sdcc_correct_guid_20261031_155506
+100K	/home/hawk/duo_edl/edl/qcombds_extract_audit_20261031_162558
+124K	/home/hawk/duo_edl/reports/duolinux_rocknix_source_inventory_20261105_103005
+140K	/home/hawk/duo_edl/edl/edlclient.egg-info
+144K	/home/hawk/duo_edl/edl/duo_controller_and_dxe_fixed_20261031_174542
+152K	/home/hawk/duo_edl/FreeABL/tools
+156K	/home/hawk/duo_edl/FreeABL/test
+216K	/home/hawk/duo_edl/edl/sdcc_slot2_audit_20261031_153327
+220K	/home/hawk/duo_edl/edl/duo_protocol_provider_trace_20261031_172145
+244K	/home/hawk/duo_edl/edl/ghidra_abl_reports
+360K	/home/hawk/duo_edl/reports/dualos_source_audit_evidence_20261105_104132_20261105_104230
+424K	/home/hawk/duo_edl/github_audit
+496K	/home/hawk/duo_edl/reports/reconciliation
+568K	/home/hawk/duo_edl/FreeABL/web
+744K	/home/hawk/duo_edl/edl/sdcc_deep_dive_20261031_153425
+744K	/home/hawk/duo_edl/edl/sdcc_deep_dive_20261031_153525
+1.5M	/home/hawk/duo_edl/android_boot_analysis/dtb_inspection
+2.0M	/home/hawk/duo_edl/build/output
+2.2M	/home/hawk/duo_edl/edl/edlclient
+2.9M	/home/hawk/duo_edl/edl/sdcc_callback_protocol_trace_20261101_080122
+2.9M	/home/hawk/duo_edl/edl/sdcc_controller_mapping_20261101_075235
+2.9M	/home/hawk/duo_edl/edl/sdcc_controller_matrix_20261031_154724
+2.9M	/home/hawk/duo_edl/edl/sdcc_controller_matrix_20261031_154905
+2.9M	/home/hawk/duo_edl/edl/sdcc_enablement_audit_20261031_155047
+2.9M	/home/hawk/duo_edl/edl/sdcc_guid_entrypoint_trace_20261101_080428
+2.9M	/home/hawk/duo_edl/edl/sdcc_recovery_fixed_20261031_230551
+2.9M	/home/hawk/duo_edl/edl/sdcc_secondary_callback_deep_20261101_080639
+2.9M	/home/hawk/duo_edl/edl/sdcc_startup_card_exposure_20261101_075732
+2.9M	/home/hawk/duo_edl/edl/targeted_sdcc_20261031_230259
+3.0M	/home/hawk/duo_edl/edl/qcombds_ghidra_20261031_162703
+3.0M	/home/hawk/duo_edl/edl/qcombds_protocol_provider_20261031_163122
+3.0M	/home/hawk/duo_edl/edl/qcombds_protocol_provider_fixed_20261031_163831
+3.0M	/home/hawk/duo_edl/edl/sdcc_full_provider_audit_20261031_165815
+3.0M	/home/hawk/duo_edl/edl/sdcc_symbol_trace_20261031_154000
+3.1M	/home/hawk/duo_edl/edl/qcombds_callchain_20261031_162847
+3.2M	/home/hawk/duo_edl/edl/duo_sd_boot_10_batches_20261031_220547
+3.2M	/home/hawk/duo_edl/edl/sdcc_platform_dependencies_20261031_154436
+3.3M	/home/hawk/duo_edl/build/initramfs-root
+3.3M	/home/hawk/duo_edl/edl/duo_ghidra_reports
+3.6M	/home/hawk/duo_edl/edl/clock_protocol_provider_20261101_090540
+3.6M	/home/hawk/duo_edl/edl/clock_protocol_provider_20261101_090700
+3.7M	/home/hawk/duo_edl/edl/clock_service_lookup_20261101_090103
+3.9M	/home/hawk/duo_edl/build/downloads
+3.9M	/home/hawk/duo_edl/edl/clock_provider_deep_20261101_085432
+3.9M	/home/hawk/duo_edl/edl/clock_provider_deep_20261101_085655
+3.9M	/home/hawk/duo_edl/edl/duo_boot_protocol_matrix_20261031_170157
+4.2M	/home/hawk/duo_edl/edl/clock_dispatcher_trace_20261101_090330
+4.2M	/home/hawk/duo_edl/edl/sdcc_driver_analysis_20261031_153751
+5.6M	/home/hawk/duo_edl/logs
+6.1M	/home/hawk/duo_edl/build/grub-arm64
+6.4M	/home/hawk/duo_edl/edl/clock_protocol_map_20261101_084342
+6.5M	/home/hawk/duo_edl/edl/clock_table_verified_20261101_084800
+6.5M	/home/hawk/duo_edl/edl/duo_boot_chain_deep_20261031_173640
+6.6M	/home/hawk/duo_edl/edl/clock_method_resolution_20261101_085110
+6.7M	/home/hawk/duo_edl/android_boot_analysis/dtbo_inspection
+7.8M	/home/hawk/duo_edl/android_boot_analysis/vendor_boot
+8.0M	/home/hawk/duo_edl/edl/Drivers
+8.3M	/home/hawk/duo_edl/edl/ghidra_abl_project
+9.9M	/home/hawk/duo_edl/build/alpine-rootfs
+12M	/home/hawk/duo_edl/edl/sdcc_protocol_calltrace_20261101_083801
+13M	/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505
+14M	/home/hawk/duo_edl/edl/sdcc_bootpath_analysis_20261031_161837
+14M	/home/hawk/duo_edl/edl/uefi_module_audit_20261031_153151
+16M	/home/hawk/duo_edl/edl/depex_producer_ghidra_20261101_081911
+19M	/home/hawk/duo_edl/edl/ghidra_project
+25M	/home/hawk/duo_edl/edl/depex_producer_corrected_20261101_082800
+43M	/home/hawk/duo_edl/migration_work/duo-lite-reports
+44M	/home/hawk/duo_edl/migration_work
+48M	/home/hawk/duo_edl/android_boot_analysis/vendor_ramdisk
+48M	/home/hawk/duo_edl/gist_migration_backup_20261103_135803/gists
+49M	/home/hawk/duo_edl/gist_migration_backup_20261103_135803
+54M	/home/hawk/duo_edl/edl/boot_a_unpacked
+55M	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337
+59M	/home/hawk/duo_edl/build/busybox
+63M	/home/hawk/duo_edl/android_boot_analysis
+64M	/home/hawk/duo_edl/edl/full_forensics_20261031_152924
+71M	/home/hawk/duo_edl/build/sdcard-stage
+96M	/home/hawk/duo_edl/edl/new_authorized_dumps
+121M	/home/hawk/duo_edl/new_authorized_dumps
+148M	/home/hawk/duo_edl/edl/.git
+304M	/home/hawk/duo_edl/edl/Loaders
+320M	/home/hawk/duo_edl/edl/build
+353M	/home/hawk/duo_edl/build
+436M	/home/hawk/duo_edl/edl/.venv
+489M	/home/hawk/duo_edl/FreeABL/edk2
+1011M	/home/hawk/duo_edl/FreeABL/.git
+1.5G	/home/hawk/duo_edl/FreeABL
+1.8G	/home/hawk/duo_edl/edl
+1.9G	/home/hawk/duo_edl/reports/duo_sd_boot_parts_20261031_222358
+25G	/home/hawk/duo_edl/reports
+29G	/home/hawk/duo_edl
+
+========== LARGEST FILES: APPARENT VS ALLOCATED ==========
+apparent=  65536.00 MiB allocated=      0.04 MiB  /home/hawk/duo_edl/build/duo-lite-linux-64gb.img
+apparent=   1931.69 MiB allocated=   1931.69 MiB  /home/hawk/duo_edl/reports/duo_boot_protocol_batch_20261031_171337.txt
+apparent=   1931.61 MiB allocated=   1931.61 MiB  /home/hawk/duo_edl/reports/duo_protocol_provider_trace_20261031_172145.txt
+apparent=   1931.57 MiB allocated=   1931.57 MiB  /home/hawk/duo_edl/reports/duo_boot_provider_full_decompilation_20261031_172927.txt
+apparent=   1931.40 MiB allocated=   1931.41 MiB  /home/hawk/duo_edl/reports/duo_sd_slot_failure_trace_20261031_173011.txt
+apparent=   1931.39 MiB allocated=   1931.39 MiB  /home/hawk/duo_edl/reports/duo_slot_mapping_20261031_173056.txt
+apparent=   1931.38 MiB allocated=   1931.39 MiB  /home/hawk/duo_edl/reports/duo_slot_mapping_full_20261031_173303.txt
+apparent=   1931.33 MiB allocated=   1931.33 MiB  /home/hawk/duo_edl/reports/duo_boot_chain_deep_20261031_173640.txt
+apparent=   1930.65 MiB allocated=   1930.65 MiB  /home/hawk/duo_edl/reports/duo_boot_chain_decompilation_and_drivers_20261031_174227.txt
+apparent=   1929.90 MiB allocated=   1929.90 MiB  /home/hawk/duo_edl/reports/duo_controller_and_dxe_20261031_174331.txt
+apparent=   1929.87 MiB allocated=   1929.88 MiB  /home/hawk/duo_edl/reports/duo_controller_and_dxe_fixed_20261031_174542.txt
+apparent=   1929.84 MiB allocated=   1929.84 MiB  /home/hawk/duo_edl/reports/duo_image_recovery_20261031_174936.txt
+apparent=   1928.18 MiB allocated=   1928.18 MiB  /home/hawk/duo_edl/reports/duo_sd_boot_10_batches_20261031_220547.txt
+apparent=   1024.00 MiB allocated=     61.04 MiB  /home/hawk/duo_edl/build/duo-lite-diagnostic.img
+apparent=   1022.00 MiB allocated=     72.22 MiB  /home/hawk/duo_edl/build/duo-lite-boot-partition.img
+apparent=    380.92 MiB allocated=    380.92 MiB  /home/hawk/duo_edl/FreeABL/.git/modules/edk2/modules/CryptoPkg/Library/OpensslLib/openssl/modules/boringssl/objects/pack/pack-2687b51078718a2167894b33ddfcaba74505ac1f.pack
+apparent=    366.13 MiB allocated=    366.13 MiB  /home/hawk/duo_edl/FreeABL/.git/modules/edk2/modules/CryptoPkg/Library/OpensslLib/openssl/objects/pack/pack-5a42f2f5a72de7225fc99a0fc7634d39d0e53f13.pack
+apparent=     96.00 MiB allocated=     96.00 MiB  /home/hawk/duo_edl/new_authorized_dumps/vendor_boot_a.bin
+apparent=     96.00 MiB allocated=     96.00 MiB  /home/hawk/duo_edl/edl/new_authorized_dumps/boot_a.bin
+apparent=     88.04 MiB allocated=     88.04 MiB  /home/hawk/duo_edl/FreeABL/.git/modules/edk2/modules/CryptoPkg/Library/OpensslLib/openssl/modules/pyca.cryptography/objects/pack/pack-d5b0936baafea38d9c45240a923475db1a8007a7.pack
+apparent=     83.37 MiB allocated=     83.37 MiB  /home/hawk/duo_edl/edl/.git/modules/Loaders/objects/pack/pack-520dd09ab6e45cd63d0b0d61c956a09cc94f5dae.pack
+apparent=     77.64 MiB allocated=     77.64 MiB  /home/hawk/duo_edl/FreeABL/.git/modules/edk2/modules/CryptoPkg/Library/OpensslLib/openssl/modules/krb5/objects/pack/pack-5227adf33009a8485dd6eece4328ac6c9421c0ef.pack
+apparent=     63.59 MiB allocated=     63.59 MiB  /home/hawk/duo_edl/edl/.git/objects/pack/pack-29c517167953dcede79319dfae561a895038dabc.pack
+apparent=     63.25 MiB allocated=     63.25 MiB  /home/hawk/duo_edl/build/kernel-recovered.elf
+apparent=     55.56 MiB allocated=     55.57 MiB  /home/hawk/duo_edl/FreeABL/.git/modules/edk2/objects/pack/pack-c1c3da3c8076738859375dead9db1e2d6c7d4587.pack
+apparent=     53.22 MiB allocated=     53.22 MiB  /home/hawk/duo_edl/edl/boot_a_unpacked/kernel
+apparent=     53.22 MiB allocated=     53.22 MiB  /home/hawk/duo_edl/build/sdcard-stage/boot/Image
+apparent=     29.65 MiB allocated=     29.66 MiB  /home/hawk/duo_edl/FreeABL/edk2/QcomModulePkg/Library/OpenDice/boringssl/crypto_test_data.cc
+apparent=     24.00 MiB allocated=     24.00 MiB  /home/hawk/duo_edl/new_authorized_dumps/dtbo_a.bin
+apparent=     23.36 MiB allocated=     23.29 MiB  /home/hawk/duo_edl/android_boot_analysis/vendor_ramdisk/ramdisk.cpio
+apparent=     18.58 MiB allocated=     18.57 MiB  /home/hawk/duo_edl/edl/ghidra_project/DuoBoot.rep/idata/00/~00000000.db/db.10.gbf
+apparent=     16.16 MiB allocated=     16.16 MiB  /home/hawk/duo_edl/edl/fastpwn.exe
+apparent=     15.63 MiB allocated=     15.63 MiB  /home/hawk/duo_edl/FreeABL/.git/modules/edk2/modules/CryptoPkg/Library/OpensslLib/openssl/objects/pack/pack-5a42f2f5a72de7225fc99a0fc7634d39d0e53f13.idx
+apparent=     15.22 MiB allocated=     15.22 MiB  /home/hawk/duo_edl/build/sdcard-stage/EFI/BOOT/BOOTAA64.EFI
+apparent=     13.96 MiB allocated=     13.96 MiB  /home/hawk/duo_edl/edl/fastpwn
+apparent=     13.77 MiB allocated=     13.77 MiB  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/cryptography/hazmat/bindings/_rust.abi3.so
+apparent=      9.16 MiB allocated=      9.16 MiB  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/capstone/lib/libcapstone.so
+apparent=      8.20 MiB allocated=      8.19 MiB  /home/hawk/duo_edl/edl/sdcc_bootpath_analysis_20261031_161837/ghidra_project/Duo_LinuxLoader.efi.rep/idata/00/~00000000.db/db.1.gbf
+apparent=      8.20 MiB allocated=      8.19 MiB  /home/hawk/duo_edl/edl/ghidra_abl_project/ABL.rep/idata/00/~00000000.db/db.12.gbf
+apparent=      7.91 MiB allocated=      7.91 MiB  /home/hawk/duo_edl/FreeABL/edk2/CryptoPkg/Library/OpensslLib/openssl/test/drbg_cavs_data.c
+apparent=      7.08 MiB allocated=      7.08 MiB  /home/hawk/duo_edl/android_boot_analysis/vendor_boot/vendor_ramdisk00
+apparent=      6.91 MiB allocated=      6.91 MiB  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/keystone/libkeystone.so
+apparent=      6.84 MiB allocated=      6.84 MiB  /home/hawk/duo_edl/FreeABL/.git/modules/edk2/modules/CryptoPkg/Library/OpensslLib/openssl/modules/krb5/objects/pack/pack-5227adf33009a8485dd6eece4328ac6c9421c0ef.idx
+apparent=      5.70 MiB allocated=      5.70 MiB  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/xbl_uefi_fd_partial_gzip_001_offset_41ad8.bin
+apparent=      5.70 MiB allocated=      5.70 MiB  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/xbl_a_gzip_001_offset_bab68.bin
+apparent=      5.70 MiB allocated=      5.70 MiB  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/parsed_fv_xbl_uefi_fd_partial_gzip_001_offset_41ad8_8.bin
+apparent=      5.70 MiB allocated=      5.70 MiB  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin
+apparent=      5.62 MiB allocated=      5.62 MiB  /home/hawk/duo_edl/FreeABL/edk2/QcomModulePkg/Library/OpenDice/boringssl/src/ssl/test/runner/hpke/testdata/test-vectors.json
+apparent=      5.62 MiB allocated=      5.62 MiB  /home/hawk/duo_edl/FreeABL/edk2/QcomModulePkg/Library/OpenDice/boringssl/src/crypto/hpke/test-vectors.json
+apparent=      5.59 MiB allocated=      5.59 MiB  /home/hawk/duo_edl/android_boot_analysis/vendor_ramdisk/extracted/lib/modules/msm_drm.ko
+apparent=      5.56 MiB allocated=      5.56 MiB  /home/hawk/duo_edl/FreeABL/edk2/QcomModulePkg/Library/OpenDice/boringssl/src/crypto/cipher_extra/test/nist_cavp/aes_256_gcm.txt
+apparent=      5.53 MiB allocated=      5.53 MiB  /home/hawk/duo_edl/logs/azahar_minimal_image_20261106_202654.log
+apparent=      5.08 MiB allocated=      5.08 MiB  /home/hawk/duo_edl/FreeABL/edk2/QcomModulePkg/Library/OpenDice/boringssl/src/crypto/cipher_extra/test/nist_cavp/aes_128_gcm.txt
+apparent=      5.02 MiB allocated=      5.02 MiB  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/lxml/etree.cpython-314-x86_64-linux-gnu.so
+apparent=      5.01 MiB allocated=      5.02 MiB  /home/hawk/duo_edl/edl/Drivers/Windows/zadig-2.8.exe
+apparent=      4.61 MiB allocated=      4.60 MiB  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/00/~0000000f.db/db.2.gbf
+apparent=      4.59 MiB allocated=      4.58 MiB  /home/hawk/duo_edl/edl/depex_producer_ghidra_20261101_081911/project/DuoDepex.rep/idata/00/~00000004.db/db.1.gbf
+apparent=      4.58 MiB allocated=      4.57 MiB  /home/hawk/duo_edl/edl/depex_producer_corrected_20261101_082800/project/DuoCorrected.rep/idata/00/~00000008.db/db.1.gbf
+apparent=      4.55 MiB allocated=      4.54 MiB  /home/hawk/duo_edl/edl/sdcc_protocol_calltrace_20261101_083801/project/DuoSDCCTrace.rep/idata/00/~00000002.db/db.1.gbf
+apparent=      4.37 MiB allocated=      4.38 MiB  /home/hawk/duo_edl/reports/duo_sd_driver_integration_20261031_145407.txt
+apparent=      4.32 MiB allocated=      4.32 MiB  /home/hawk/duo_edl/build/alpine-rootfs/usr/lib/libcrypto.so.3
+apparent=      4.27 MiB allocated=      4.27 MiB  /home/hawk/duo_edl/reports/duolite-fan-thermal-20261105-071823.txt
+apparent=      4.06 MiB allocated=      4.05 MiB  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/00/~00000000.db/db.1.gbf
+apparent=      3.84 MiB allocated=      3.84 MiB  /home/hawk/duo_edl/build/downloads/alpine-minirootfs-3.24.3-aarch64.tar.gz
+apparent=      3.80 MiB allocated=      3.80 MiB  /home/hawk/duo_edl/FreeABL/.git/modules/edk2/modules/CryptoPkg/Library/OpensslLib/openssl/modules/boringssl/objects/pack/pack-2687b51078718a2167894b33ddfcaba74505ac1f.idx
+apparent=      3.62 MiB allocated=      3.62 MiB  /home/hawk/duo_edl/reports/duo_sdhci_controller_compatibility_20261031_145526.txt
+apparent=      3.61 MiB allocated=      3.60 MiB  /home/hawk/duo_edl/edl/depex_producer_corrected_20261101_082800/project/DuoCorrected.rep/idata/00/~00000003.db/db.1.gbf
+apparent=      3.59 MiB allocated=      3.58 MiB  /home/hawk/duo_edl/edl/depex_producer_ghidra_20261101_081911/project/DuoDepex.rep/idata/00/~00000003.db/db.1.gbf
+apparent=      3.59 MiB allocated=      3.58 MiB  /home/hawk/duo_edl/edl/clock_provider_deep_20261101_085655/project/DuoClockProviderDeep.rep/idata/00/~00000000.db/db.1.gbf
+apparent=      3.59 MiB allocated=      3.58 MiB  /home/hawk/duo_edl/edl/clock_provider_deep_20261101_085432/project/DuoClockProviderDeep.rep/idata/00/~00000000.db/db.1.gbf
+apparent=      3.56 MiB allocated=      3.55 MiB  /home/hawk/duo_edl/edl/clock_method_resolution_20261101_085110/project/DuoClockMethods.rep/idata/00/~00000000.db/db.1.gbf
+apparent=      3.54 MiB allocated=      3.54 MiB  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/nacl/_sodium.abi3.so
+apparent=      3.53 MiB allocated=      3.52 MiB  /home/hawk/duo_edl/edl/sdcc_protocol_calltrace_20261101_083801/project/DuoSDCCTrace.rep/idata/00/~00000000.db/db.1.gbf
+apparent=      3.53 MiB allocated=      3.52 MiB  /home/hawk/duo_edl/edl/sdcc_bootpath_analysis_20261031_161837/ghidra_project/Duo_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_045_4db5dea6-5302-4d1a-8a82-677a683b0d29_sec02_type10.bin.rep/idata/00/~00000000.db/db.1.gbf
+apparent=      3.53 MiB allocated=      3.52 MiB  /home/hawk/duo_edl/edl/depex_producer_ghidra_20261101_081911/project/DuoDepex.rep/idata/00/~00000000.db/db.1.gbf
+apparent=      3.53 MiB allocated=      3.52 MiB  /home/hawk/duo_edl/edl/depex_producer_corrected_20261101_082800/project/DuoCorrected.rep/idata/00/~00000006.db/db.1.gbf
+apparent=      3.53 MiB allocated=      3.52 MiB  /home/hawk/duo_edl/edl/clock_table_verified_20261101_084800/project/DuoClockTable.rep/idata/00/~00000000.db/db.1.gbf
+apparent=      3.53 MiB allocated=      3.52 MiB  /home/hawk/duo_edl/edl/clock_service_lookup_20261101_090103/project/DuoClockServiceLookup.rep/idata/00/~00000000.db/db.1.gbf
+apparent=      3.53 MiB allocated=      3.52 MiB  /home/hawk/duo_edl/edl/clock_protocol_provider_20261101_090700/project/DuoClockProtocolGuid.rep/idata/00/~00000000.db/db.1.gbf
+apparent=      3.53 MiB allocated=      3.52 MiB  /home/hawk/duo_edl/edl/clock_protocol_provider_20261101_090540/project/DuoClockProtocolGuid.rep/idata/00/~00000000.db/db.1.gbf
+apparent=      3.53 MiB allocated=      3.52 MiB  /home/hawk/duo_edl/edl/clock_protocol_map_20261101_084342/project/DuoClockMap.rep/idata/00/~00000000.db/db.1.gbf
+apparent=      3.53 MiB allocated=      3.52 MiB  /home/hawk/duo_edl/edl/clock_dispatcher_trace_20261101_090330/project/DuoClockDispatcherTrace.rep/idata/00/~00000000.db/db.1.gbf
+apparent=      3.50 MiB allocated=      3.50 MiB  /home/hawk/duo_edl/edl/xbl_a.bin
+apparent=      3.04 MiB allocated=      3.04 MiB  /home/hawk/duo_edl/FreeABL/edk2/CryptoPkg/Library/OpensslLib/openssl/pyca-cryptography/vectors/cryptography_vectors/ciphers/AES/GCM/gcmEncryptExtIV256.rsp
+apparent=      3.03 MiB allocated=      3.02 MiB  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/00/~0000000e.db/db.2.gbf
+apparent=      3.03 MiB allocated=      3.03 MiB  /home/hawk/duo_edl/FreeABL/.git/modules/edk2/modules/CryptoPkg/Library/OpensslLib/openssl/modules/pyca.cryptography/objects/pack/pack-d5b0936baafea38d9c45240a923475db1a8007a7.idx
+apparent=      3.02 MiB allocated=      3.00 MiB  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/01/~00000010.db/db.2.gbf
+apparent=      2.97 MiB allocated=      2.98 MiB  /home/hawk/duo_edl/FreeABL/edk2/CryptoPkg/Library/OpensslLib/openssl/pyca-cryptography/vectors/cryptography_vectors/KDF/nist-800-108-KBKDF-CTR.txt
+apparent=      2.94 MiB allocated=      2.94 MiB  /home/hawk/duo_edl/reports/duo_qcom_sdhci_platform_20261031_145644.txt
+apparent=      2.92 MiB allocated=      2.92 MiB  /home/hawk/duo_edl/FreeABL/edk2/CryptoPkg/Library/OpensslLib/openssl/pyca-cryptography/vectors/cryptography_vectors/ciphers/AES/GCM/gcmEncryptExtIV192.rsp
+apparent=      2.89 MiB allocated=      2.88 MiB  /home/hawk/duo_edl/edl/qcombds_protocol_provider_fixed_20261031_163831/project/QcomProtocolProviderAudit.rep/idata/00/~00000000.db/db.1.gbf
+apparent=      2.89 MiB allocated=      2.88 MiB  /home/hawk/duo_edl/edl/qcombds_protocol_provider_20261031_163122/project/QcomProtocolProviderAudit.rep/idata/00/~00000000.db/db.1.gbf
+apparent=      2.89 MiB allocated=      2.88 MiB  /home/hawk/duo_edl/edl/qcombds_ghidra_20261031_162703/project/QcomBds.rep/idata/00/~00000000.db/db.1.gbf
+apparent=      2.89 MiB allocated=      2.88 MiB  /home/hawk/duo_edl/edl/qcombds_callchain_20261031_162847/project/QcomBdsCallchain.rep/idata/00/~00000000.db/db.1.gbf
+apparent=      2.89 MiB allocated=      2.88 MiB  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/01/~00000012.db/db.3.gbf
+apparent=      2.89 MiB allocated=      2.88 MiB  /home/hawk/duo_edl/edl/duo_boot_chain_deep_20261031_173640/ghidra_project/DuoBootDeep.rep/idata/00/~00000001.db/db.1.gbf
+apparent=      2.87 MiB allocated=      2.87 MiB  /home/hawk/duo_edl/edl/Drivers/Windows/libusb-1.0.26-binaries.7z
+apparent=      2.86 MiB allocated=      2.86 MiB  /home/hawk/duo_edl/FreeABL/edk2/CryptoPkg/Library/OpensslLib/openssl/pyca-cryptography/vectors/cryptography_vectors/ciphers/AES/GCM/gcmDecrypt256.rsp
+apparent=      2.84 MiB allocated=      2.83 MiB  /home/hawk/duo_edl/edl/sdcc_callback_protocol_trace_20261101_080122/project/DuoSDCC.rep/idata/00/~00000000.db/db.1.gbf
+apparent=      2.84 MiB allocated=      2.83 MiB  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/00/~0000000d.db/db.3.gbf
+
+========== BUILD IMAGE INVENTORY ==========
+2026-10-30 23:16  2105968 bytes  /home/hawk/duo_edl/build/output/busybox-arm64
+2026-10-30 23:34  66326507 bytes  /home/hawk/duo_edl/build/kernel-recovered.elf
+2026-10-30 23:54  1465096 bytes  /home/hawk/duo_edl/build/duo-diagnostic-initramfs.cpio.gz
+2026-10-30 23:54  1982 bytes  /home/hawk/duo_edl/build/initramfs-root/init
+2026-10-30 23:56  106 bytes  /home/hawk/duo_edl/build/downloads/alpine-minirootfs-3.24.3-aarch64.tar.gz.sha256
+2026-10-30 23:56  4029999 bytes  /home/hawk/duo_edl/build/downloads/alpine-minirootfs-3.24.3-aarch64.tar.gz
+2026-10-30 23:57  368921 bytes  /home/hawk/duo_edl/build/duo-lite-dtb-overlay07.dtb
+2026-10-31 00:02  4 bytes  /home/hawk/duo_edl/build/grub-arm64/debian-binary
+2026-10-31 00:02  7552 bytes  /home/hawk/duo_edl/build/grub-arm64/control.tar.xz
+2026-10-31 00:02  960080 bytes  /home/hawk/duo_edl/build/grub-arm64/data.tar.xz
+2026-10-31 00:02  967824 bytes  /home/hawk/duo_edl/build/grub-arm64/grub-efi-arm64-bin_2.16-1_arm64.deb
+2026-10-31 00:03  68719476736 bytes  /home/hawk/duo_edl/build/duo-lite-linux-64gb.img
+2026-10-31 00:06  1071644672 bytes  /home/hawk/duo_edl/build/duo-lite-boot-partition.img
+2026-10-31 00:06  1073741824 bytes  /home/hawk/duo_edl/build/duo-lite-diagnostic.img
+2026-10-31 15:11  368921 bytes  /home/hawk/duo_edl/build/duo-overlay07-fresh-audit.dtb
+2026-10-31 15:11  518229 bytes  /home/hawk/duo_edl/build/duo-overlay07-fresh-audit.dts
+
+========== REPORT FILE INVENTORY ==========
+2026-10-31 14:13  2009 bytes  /home/hawk/duo_edl/reports/duo_sd_boot_report_3_20261031_141350.txt
+2026-10-31 14:17  231442 bytes  /home/hawk/duo_edl/reports/duo_sd_boot_report_3_20261031_141743.txt
+2026-10-31 14:19  231261 bytes  /home/hawk/duo_edl/reports/duo_sd_boot_report_3_20261031_141918.txt
+2026-10-31 14:43  311602 bytes  /home/hawk/duo_edl/reports/duo_sd_host_driver_investigation_20261031_144348.txt
+2026-10-31 14:45  253748 bytes  /home/hawk/duo_edl/reports/duo_sd_integration_investigation_20261031_144529.txt
+2026-10-31 15:02  185960 bytes  /home/hawk/duo_edl/reports/duo_sdhci_bridge_audit_20261031_150225.txt
+2026-10-31 15:03  148733 bytes  /home/hawk/duo_edl/reports/duo_sdhci_source_audit_20261031_150303.txt
+2026-10-31 15:03  316783 bytes  /home/hawk/duo_edl/reports/duo_qcom_mmc_platform_20261031_150338.txt
+2026-10-31 15:04  278468 bytes  /home/hawk/duo_edl/reports/duo_active_dtbo_sdhc2_20261031_150432.txt
+2026-10-31 15:06  151465 bytes  /home/hawk/duo_edl/reports/duo_dtbo_binary_selection_20261031_150558.txt
+2026-10-31 15:07  105495 bytes  /home/hawk/duo_edl/reports/duo_dtbo_selection_logic_20261031_150722.txt
+2026-10-31 15:08  342445 bytes  /home/hawk/duo_edl/reports/duo_board_identity_20261031_150820.txt
+2026-10-31 15:11  340739 bytes  /home/hawk/duo_edl/reports/duo_board_identity_20261031_151137.txt
+2026-10-31 15:12  3077749 bytes  /home/hawk/duo_edl/reports/duo_qcom_sdhci_platform_20261031_145644.txt
+2026-10-31 15:12  3797803 bytes  /home/hawk/duo_edl/reports/duo_sdhci_controller_compatibility_20261031_145526.txt
+2026-10-31 15:12  4585433 bytes  /home/hawk/duo_edl/reports/duo_sd_driver_integration_20261031_145407.txt
+2026-10-31 15:12  547004 bytes  /home/hawk/duo_edl/reports/duo_platform_identity_provenance_20261031_151239.txt
+2026-10-31 15:14  801404 bytes  /home/hawk/duo_edl/reports/duo_platform_identity_provenance_20261031_151437.txt
+2026-10-31 15:15  806510 bytes  /home/hawk/duo_edl/reports/duo_platform_identity_provenance_20261031_151518.txt
+2026-10-31 15:17  827897 bytes  /home/hawk/duo_edl/reports/duo_platform_identity_provenance_20261031_151734.txt
+2026-10-31 15:20  145655 bytes  /home/hawk/duo_edl/reports/duo_platform_provider_audit_20261031_152013.txt
+2026-10-31 15:20  145655 bytes  /home/hawk/duo_edl/reports/duo_platform_provider_audit_20261031_152043.txt
+2026-10-31 15:20  606 bytes  /home/hawk/duo_edl/reports/.publish_20261031_152013.log
+2026-10-31 15:20  606 bytes  /home/hawk/duo_edl/reports/.publish_20261031_152043.log
+2026-10-31 15:21  1142593 bytes  /home/hawk/duo_edl/reports/duo_platform_provider_gap_20261031_152115.txt
+2026-10-31 15:21  602 bytes  /home/hawk/duo_edl/reports/.publish_20261031_152115.log
+2026-10-31 15:22  610 bytes  /home/hawk/duo_edl/reports/.publish_20261031_152203.log
+2026-10-31 15:22  792723 bytes  /home/hawk/duo_edl/reports/duo_firmware_provider_origin_20261031_152203.txt
+2026-10-31 15:24  181646 bytes  /home/hawk/duo_edl/reports/duo_abl_protocol_provenance_20261031_152425.txt
+2026-10-31 15:24  606 bytes  /home/hawk/duo_edl/reports/.publish_20261031_152425.log
+2026-10-31 15:26  113816 bytes  /home/hawk/duo_edl/reports/duo_abl_xbl_protocol_trace_20261031_152633.txt
+2026-10-31 15:26  602 bytes  /home/hawk/duo_edl/reports/.publish_20261031_152633.log
+2026-10-31 15:27  10181 bytes  /home/hawk/duo_edl/reports/duo_xbl_uefi_fd_extract_20261031_152717.txt
+2026-10-31 15:27  10181 bytes  /home/hawk/duo_edl/reports/duo_xbl_uefi_fd_extract_20261031_152757.txt
+2026-10-31 15:27  588 bytes  /home/hawk/duo_edl/reports/.publish_20261031_152717.log
+2026-10-31 15:28  588 bytes  /home/hawk/duo_edl/reports/.publish_20261031_152757.log
+2026-10-31 15:29  606 bytes  /home/hawk/duo_edl/reports/.publish_20261031_152924.log
+2026-10-31 15:29  623829 bytes  /home/hawk/duo_edl/reports/duo_full_firmware_forensics_20261031_152924.txt
+2026-10-31 15:32  582 bytes  /home/hawk/duo_edl/reports/.publish_20261031_153151.log
+2026-10-31 15:32  836231 bytes  /home/hawk/duo_edl/reports/duo_uefi_module_audit_20261031_153151.txt
+2026-10-31 15:33  104090 bytes  /home/hawk/duo_edl/reports/duo_sdcc_slot2_audit_20261031_153327.txt
+2026-10-31 15:33  578 bytes  /home/hawk/duo_edl/reports/.publish_20261031_153327.log
+2026-10-31 15:34  301782 bytes  /home/hawk/duo_edl/reports/duo_sdcc_deep_dive_20261031_153425.txt
+2026-10-31 15:34  570 bytes  /home/hawk/duo_edl/reports/.publish_20261031_153425.log
+2026-10-31 15:35  302011 bytes  /home/hawk/duo_edl/reports/duo_sdcc_deep_dive_20261031_153525.txt
+2026-10-31 15:35  570 bytes  /home/hawk/duo_edl/reports/.publish_20261031_153525.log
+2026-10-31 15:39  196275 bytes  /home/hawk/duo_edl/reports/duo_sdcc_driver_analysis_20261031_153751.txt
+2026-10-31 15:39  594 bytes  /home/hawk/duo_edl/reports/.publish_20261031_153751.log
+2026-10-31 15:40  45104 bytes  /home/hawk/duo_edl/reports/duo_sdcc_symbol_trace_20261031_154000.txt
+2026-10-31 15:41  580 bytes  /home/hawk/duo_edl/reports/.publish_20261031_154000.log
+2026-10-31 15:45  52070 bytes  /home/hawk/duo_edl/reports/duo_sdcc_platform_dependencies_20261031_154436.txt
+2026-10-31 15:45  616 bytes  /home/hawk/duo_edl/reports/.publish_20261031_154436.log
+2026-10-31 15:46  4728 bytes  /home/hawk/duo_edl/reports/duo_sdcc_controller_matrix_20261031_154634.txt
+2026-10-31 15:46  598 bytes  /home/hawk/duo_edl/reports/.publish_20261031_154634.log
+2026-10-31 15:48  15267 bytes  /home/hawk/duo_edl/reports/duo_sdcc_controller_matrix_20261031_154724.txt
+2026-10-31 15:48  600 bytes  /home/hawk/duo_edl/reports/.publish_20261031_154724.log
+2026-10-31 15:50  44506 bytes  /home/hawk/duo_edl/reports/duo_sdcc_controller_matrix_20261031_154905.txt
+2026-10-31 15:50  600 bytes  /home/hawk/duo_edl/reports/.publish_20261031_154905.log
+2026-10-31 15:51  29000 bytes  /home/hawk/duo_edl/reports/duo_sdcc_enablement_audit_20261031_155047.txt
+2026-10-31 15:51  596 bytes  /home/hawk/duo_edl/reports/.publish_20261031_155047.log
+2026-10-31 15:54  304153 bytes  /home/hawk/duo_edl/reports/duo_sdcc_protocol_provider_20261031_155359.txt
+2026-10-31 15:54  602 bytes  /home/hawk/duo_edl/reports/.publish_20261031_155359.log
+2026-10-31 15:55  136785 bytes  /home/hawk/duo_edl/reports/duo_sdcc_correct_guid_20261031_155506.txt
+2026-10-31 15:55  582 bytes  /home/hawk/duo_edl/reports/.publish_20261031_155506.log
+2026-10-31 15:56  16987 bytes  /home/hawk/duo_edl/reports/duo_sdcc_provider_candidates_20261031_155604.txt
+2026-10-31 15:56  608 bytes  /home/hawk/duo_edl/reports/.publish_20261031_155604.log
+2026-10-31 16:14  40485 bytes  /home/hawk/duo_edl/reports/duo_sdcc_firmware_inventory_20261031_155758.txt
+2026-10-31 16:17  46104 bytes  /home/hawk/duo_edl/reports/duo_sdcc_guid_targeted_20261031_161741.txt
+2026-10-31 16:17  584 bytes  /home/hawk/duo_edl/reports/.publish_20261031_161741.log
+2026-10-31 16:22  35043 bytes  /home/hawk/duo_edl/reports/duo_sdcc_bootpath_analysis_20261031_161837.txt
+2026-10-31 16:22  600 bytes  /home/hawk/duo_edl/reports/.publish_20261031_161837.log
+2026-10-31 16:25  6535 bytes  /home/hawk/duo_edl/reports/duo_qcombds_extract_audit_20261031_162558.txt
+2026-10-31 16:26  594 bytes  /home/hawk/duo_edl/reports/.publish_20261031_162558.log
+2026-10-31 16:27  17996 bytes  /home/hawk/duo_edl/reports/duo_qcombds_ghidra_20261031_162703.txt
+2026-10-31 16:28  568 bytes  /home/hawk/duo_edl/reports/.publish_20261031_162703.log
+2026-10-31 16:29  56213 bytes  /home/hawk/duo_edl/reports/duo_qcombds_callchain_20261031_162847.txt
+2026-10-31 16:29  580 bytes  /home/hawk/duo_edl/reports/.publish_20261031_162847.log
+2026-10-31 16:32  220890 bytes  /home/hawk/duo_edl/reports/duo_qcombds_protocol_provider_20261031_163122.txt
+2026-10-31 16:32  614 bytes  /home/hawk/duo_edl/reports/.publish_20261031_163122.log
+2026-10-31 16:37  18718 bytes  /home/hawk/duo_edl/reports/duo_qcombds_protocol_provider_RECOVERED_20261031_163746.txt
+2026-10-31 16:37  652 bytes  /home/hawk/duo_edl/reports/.publish_recovered_20261031_163746.log
+2026-10-31 16:39  57155 bytes  /home/hawk/duo_edl/reports/duo_qcombds_protocol_provider_fixed_20261031_163831.txt
+2026-10-31 16:39  636 bytes  /home/hawk/duo_edl/reports/.publish_20261031_163831.log
+2026-10-31 16:40  4414 bytes  /home/hawk/duo_edl/reports/duo_sdcc_blockio_provider_20261031_164029.txt
+2026-10-31 16:40  594 bytes  /home/hawk/duo_edl/reports/.publish_20261031_164029.log
+2026-10-31 16:46  582 bytes  /home/hawk/duo_edl/reports/.publish_20261031_164552.log
+2026-10-31 16:46  6118 bytes  /home/hawk/duo_edl/reports/duo_sdcc_protocol_xref_20261031_164552.txt
+2026-10-31 16:59  16511 bytes  /home/hawk/duo_edl/reports/duo_sdcc_full_provider_audit_20261031_165815.txt
+2026-10-31 16:59  608 bytes  /home/hawk/duo_edl/reports/.publish_20261031_165815.log
+2026-10-31 17:10  233 bytes  /home/hawk/duo_edl/reports/.publish_20261031_170157.log
+2026-10-31 17:10  95585 bytes  /home/hawk/duo_edl/reports/duo_boot_protocol_matrix_20261031_170157.txt
+2026-10-31 17:20  588 bytes  /home/hawk/duo_edl/reports/.publish_20261031_171337.log
+2026-10-31 17:26  604 bytes  /home/hawk/duo_edl/reports/.publish_20261031_172145.log
+2026-10-31 17:29  642 bytes  /home/hawk/duo_edl/reports/.publish_20261031_172927.log
+2026-10-31 17:30  590 bytes  /home/hawk/duo_edl/reports/.publish_20261031_173011.log
+2026-10-31 17:32  558 bytes  /home/hawk/duo_edl/reports/.publish_20261031_173056.log
+2026-10-31 17:33  580 bytes  /home/hawk/duo_edl/reports/.publish_20261031_173303.log
+2026-10-31 17:42  658 bytes  /home/hawk/duo_edl/reports/.publish_20261031_174227.log
+2026-10-31 22:03  188275 bytes  /home/hawk/duo_edl/reports/duo_sd_boot_followup_20261031_220259.txt
+2026-10-31 22:03  578 bytes  /home/hawk/duo_edl/reports/publish_20261031_220259.log
+2026-10-31 22:23  2021846192 bytes  /home/hawk/duo_edl/reports/duo_sd_boot_10_batches_20261031_220547.txt
+2026-10-31 22:24  225 bytes  /home/hawk/duo_edl/reports/duo_sd_boot_parts_20261031_222358/publish_part_03.log
+2026-10-31 22:24  392 bytes  /home/hawk/duo_edl/reports/duo_sd_boot_parts_20261031_222358/GIST_INDEX.txt
+2026-10-31 22:24  614 bytes  /home/hawk/duo_edl/reports/duo_sd_boot_parts_20261031_222358/publish_part_01.log
+2026-10-31 22:24  614 bytes  /home/hawk/duo_edl/reports/duo_sd_boot_parts_20261031_222358/publish_part_02.log
+2026-10-31 22:59  140137 bytes  /home/hawk/duo_edl/reports/duo_sd_boot_evidence_20261031_225958.txt
+2026-10-31 23:00  578 bytes  /home/hawk/duo_edl/reports/duo_sd_boot_publish_20261031_225958.log
+2026-10-31 23:01  604 bytes  /home/hawk/duo_edl/reports/duo_sd_boot_targeted_publish_20261031_230154.log
+2026-10-31 23:01  70576 bytes  /home/hawk/duo_edl/reports/duo_sd_boot_targeted_review_20261031_230154.txt
+2026-10-31 23:04  12325 bytes  /home/hawk/duo_edl/reports/duo_sdcc_missing_functions_20261031_230259.txt
+2026-10-31 23:04  13241 bytes  /home/hawk/duo_edl/reports/duo_sdcc_missing_functions_20261031_230259.log
+2026-10-31 23:04  600 bytes  /home/hawk/duo_edl/reports/.publish_sdcc_20261031_230259.log
+2026-10-31 23:07  12637 bytes  /home/hawk/duo_edl/reports/duo_sdcc_recovered_20261031_230551.log
+2026-10-31 23:07  568 bytes  /home/hawk/duo_edl/reports/.publish_sdcc_fixed_20261031_230551.log
+2026-10-31 23:07  57288 bytes  /home/hawk/duo_edl/reports/duo_sdcc_recovered_20261031_230551.txt
+2026-10-31 23:08  2023587129 bytes  /home/hawk/duo_edl/reports/duo_image_recovery_20261031_174936.txt
+2026-10-31 23:08  2023617593 bytes  /home/hawk/duo_edl/reports/duo_controller_and_dxe_fixed_20261031_174542.txt
+2026-10-31 23:08  2023642580 bytes  /home/hawk/duo_edl/reports/duo_controller_and_dxe_20261031_174331.txt
+2026-10-31 23:08  2024432176 bytes  /home/hawk/duo_edl/reports/duo_boot_chain_decompilation_and_drivers_20261031_174227.txt
+2026-10-31 23:08  2025143987 bytes  /home/hawk/duo_edl/reports/duo_boot_chain_deep_20261031_173640.txt
+2026-10-31 23:08  2025202009 bytes  /home/hawk/duo_edl/reports/duo_slot_mapping_full_20261031_173303.txt
+2026-10-31 23:08  2025213829 bytes  /home/hawk/duo_edl/reports/duo_slot_mapping_20261031_173056.txt
+2026-10-31 23:08  2025224795 bytes  /home/hawk/duo_edl/reports/duo_sd_slot_failure_trace_20261031_173011.txt
+2026-10-31 23:08  2025396756 bytes  /home/hawk/duo_edl/reports/duo_boot_provider_full_decompilation_20261031_172927.txt
+2026-10-31 23:08  2025442745 bytes  /home/hawk/duo_edl/reports/duo_protocol_provider_trace_20261031_172145.txt
+2026-10-31 23:08  2025520412 bytes  /home/hawk/duo_edl/reports/duo_boot_protocol_batch_20261031_171337.txt
+2026-11-01 07:53  17523 bytes  /home/hawk/duo_edl/reports/duo_sdcc_controller_mapping_20261101_075235.log
+2026-11-01 07:53  51355 bytes  /home/hawk/duo_edl/reports/duo_sdcc_controller_mapping_20261101_075235.txt
+2026-11-01 07:53  604 bytes  /home/hawk/duo_edl/reports/.publish_controller_mapping_20261101_075235.log
+2026-11-01 07:58  60612 bytes  /home/hawk/duo_edl/reports/duo_sdcc_startup_card_exposure_20261101_075732.txt
+2026-11-01 07:58  616 bytes  /home/hawk/duo_edl/reports/.publish_sdcc_startup_20261101_075732.log
+2026-11-01 08:02  61610 bytes  /home/hawk/duo_edl/reports/duo_sdcc_callback_protocol_trace_20261101_080122.txt
+2026-11-01 08:02  624 bytes  /home/hawk/duo_edl/reports/.publish_sdcc_callback_20261101_080122.log
+2026-11-01 08:05  616 bytes  /home/hawk/duo_edl/reports/.publish_sdcc_guid_20261101_080428.log
+2026-11-01 08:05  65457 bytes  /home/hawk/duo_edl/reports/duo_sdcc_guid_entrypoint_trace_20261101_080428.txt
+2026-11-01 08:07  624 bytes  /home/hawk/duo_edl/reports/.publish_sdcc_secondary_deep_20261101_080639.log
+2026-11-01 08:07  69991 bytes  /home/hawk/duo_edl/reports/duo_sdcc_secondary_callback_deep_20261101_080639.txt
+2026-11-01 08:13  608 bytes  /home/hawk/duo_edl/reports/duo_dxe_dependency_inventory_20261101_081150.publish.log
+2026-11-01 08:14  588 bytes  /home/hawk/duo_edl/reports/duo_dxe_evidence_review_20261101_081403.publish.log
+2026-11-01 08:15  580 bytes  /home/hawk/duo_edl/reports/duo_depex_guid_decode_20261101_081512.publish.log
+2026-11-01 08:16  608 bytes  /home/hawk/duo_edl/reports/duo_depex_protocol_producers_20261101_081627.publish.log
+2026-11-01 08:18  614 bytes  /home/hawk/duo_edl/reports/duo_depex_candidate_module_map_20261101_081810.publish.log
+2026-11-01 08:23  596 bytes  /home/hawk/duo_edl/reports/duo_depex_producer_ghidra_20261101_081911.publish.log
+2026-11-01 08:27  608 bytes  /home/hawk/duo_edl/reports/duo_protocol_producer_census_20261101_082659.publish.log
+2026-11-01 08:35  608 bytes  /home/hawk/duo_edl/reports/duo_depex_producer_corrected_20261101_082800.publish.log
+2026-11-01 08:40  586 bytes  /home/hawk/duo_edl/reports/sdcc_protocol_calltrace_20261101_083801.publish.log
+2026-11-01 08:42  164007 bytes  /home/hawk/duo_edl/reports/sdcc_protocol_calltrace_full_20261101_084218.txt
+2026-11-01 08:42  610 bytes  /home/hawk/duo_edl/reports/sdcc_protocol_calltrace_full_20261101_084218.publish.log
+2026-11-01 08:45  566 bytes  /home/hawk/duo_edl/reports/clock_protocol_map_20261101_084342.publish.log
+2026-11-01 08:49  576 bytes  /home/hawk/duo_edl/reports/clock_table_verified_20261101_084800.publish.log
+2026-11-01 08:52  588 bytes  /home/hawk/duo_edl/reports/clock_method_resolution_20261101_085110.publish.log
+2026-11-01 08:55  218482 bytes  /home/hawk/duo_edl/reports/clock_provider_deep_20261101_085432.txt
+2026-11-01 08:57  218482 bytes  /home/hawk/duo_edl/reports/clock_provider_deep_20261101_085655.txt
+2026-11-01 09:02  123519 bytes  /home/hawk/duo_edl/reports/clock_service_lookup_20261101_090103.txt
+2026-11-01 09:04  621064 bytes  /home/hawk/duo_edl/reports/clock_dispatcher_trace_20261101_090330.txt
+2026-11-01 09:06  10090 bytes  /home/hawk/duo_edl/reports/clock_protocol_provider_20261101_090540.txt
+2026-11-01 09:06  174423 bytes  /home/hawk/duo_edl/reports/clock_table_verified_20261101_084800.txt
+2026-11-01 09:06  191057 bytes  /home/hawk/duo_edl/reports/clock_protocol_map_20261101_084342.txt
+2026-11-01 09:06  210477 bytes  /home/hawk/duo_edl/reports/sdcc_protocol_calltrace_20261101_083801.txt
+2026-11-01 09:06  241088 bytes  /home/hawk/duo_edl/reports/duo_depex_producer_corrected_20261101_082800.txt
+2026-11-01 09:06  267562 bytes  /home/hawk/duo_edl/reports/duo_protocol_producer_census_20261101_082659.txt
+2026-11-01 09:06  287785 bytes  /home/hawk/duo_edl/reports/duo_depex_producer_ghidra_20261101_081911.txt
+2026-11-01 09:06  303946 bytes  /home/hawk/duo_edl/reports/duo_depex_candidate_module_map_20261101_081810.txt
+2026-11-01 09:06  330493 bytes  /home/hawk/duo_edl/reports/duo_depex_protocol_producers_20261101_081627.txt
+2026-11-01 09:06  367307 bytes  /home/hawk/duo_edl/reports/duo_depex_guid_decode_20261101_081512.txt
+2026-11-01 09:06  411087 bytes  /home/hawk/duo_edl/reports/duo_dxe_evidence_review_20261101_081403.txt
+2026-11-01 09:06  442791 bytes  /home/hawk/duo_edl/reports/duo_dxe_dependency_inventory_20261101_081150.txt
+2026-11-01 09:06  469917 bytes  /home/hawk/duo_edl/reports/duo_sdcc_secondary_callback_deep_20261101_080639.log
+2026-11-01 09:06  494384 bytes  /home/hawk/duo_edl/reports/duo_sdcc_guid_entrypoint_trace_20261101_080428.log
+2026-11-01 09:06  527187 bytes  /home/hawk/duo_edl/reports/duo_sdcc_callback_protocol_trace_20261101_080122.log
+2026-11-01 09:06  551606 bytes  /home/hawk/duo_edl/reports/duo_sdcc_startup_card_exposure_20261101_075732.log
+2026-11-01 09:06  73553 bytes  /home/hawk/duo_edl/reports/clock_method_resolution_20261101_085110.txt
+2026-11-01 09:08  10090 bytes  /home/hawk/duo_edl/reports/clock_protocol_provider_20261101_090700.txt
+2026-11-01 09:10  6176 bytes  /home/hawk/duo_edl/reports/dal_environment_protocol_scan_20261101_091049.txt
+2026-11-01 09:11  8737 bytes  /home/hawk/duo_edl/reports/dal_protocol_provider_triage_20261101_091143.txt
+2026-11-01 09:11  8737 bytes  /home/hawk/duo_edl/reports/dal_protocol_provider_triage_20261101_091153.txt
+2026-11-01 09:12  5157 bytes  /home/hawk/duo_edl/reports/dal_guid_code_xrefs_20261101_091244.txt
+2026-11-01 09:13  5157 bytes  /home/hawk/duo_edl/reports/dal_guid_code_xrefs_20261101_091347.txt
+2026-11-01 09:14  6623 bytes  /home/hawk/duo_edl/reports/dal_nonpe_candidate_triage_20261101_091448.txt
+2026-11-01 09:16  4915 bytes  /home/hawk/duo_edl/reports/dal_nested_pe_provider_20261101_091605.txt
+2026-11-01 09:18  2171 bytes  /home/hawk/duo_edl/reports/ffs051_extraction_inspection_20261101_091854.txt
+2026-11-01 09:21  2237 bytes  /home/hawk/duo_edl/reports/sd_protocol_install_map_20261101_092148.txt
+2026-11-01 09:26  2994 bytes  /home/hawk/duo_edl/reports/qcombds_sd_boot_path_20261101_092619.txt
+2026-11-01 09:42  843 bytes  /home/hawk/duo_edl/reports/duo_sd_efi_stage1_20261101_144208.log
+2026-11-01 09:42  9298 bytes  /home/hawk/duo_edl/reports/duo_sd_efi_stage1_20261101_144208.txt
+2026-11-01 09:45  1643 bytes  /home/hawk/duo_edl/reports/duo_sd_efi_stage2_20261101_144524.txt
+2026-11-01 09:45  715 bytes  /home/hawk/duo_edl/reports/duo_sd_efi_stage2_20261101_144524.log
+2026-11-01 09:50  502 bytes  /home/hawk/duo_edl/reports/duo_sd_efi_stage3_20261101_145002.txt
+2026-11-01 09:50  6184 bytes  /home/hawk/duo_edl/reports/duo_sd_efi_stage3_20261101_145002.log
+2026-11-01 09:51  502 bytes  /home/hawk/duo_edl/reports/duo_sd_efi_stage3_20261101_145101.txt
+2026-11-01 09:51  502 bytes  /home/hawk/duo_edl/reports/duo_sd_efi_stage3_20261101_145134.txt
+2026-11-01 09:51  6184 bytes  /home/hawk/duo_edl/reports/duo_sd_efi_stage3_20261101_145101.log
+2026-11-01 09:51  6184 bytes  /home/hawk/duo_edl/reports/duo_sd_efi_stage3_20261101_145134.log
+2026-11-01 09:52  502 bytes  /home/hawk/duo_edl/reports/duo_sd_efi_stage3_20261101_145226.txt
+2026-11-01 09:52  6184 bytes  /home/hawk/duo_edl/reports/duo_sd_efi_stage3_20261101_145226.log
+2026-11-01 09:58  3237 bytes  /home/hawk/duo_edl/reports/duo_sd_card_prepare_20261101_145810.log
+2026-11-01 09:58  632 bytes  /home/hawk/duo_edl/reports/duo_sd_card_prepare_20261101_145810.txt
+2026-11-03 10:17  602 bytes  /home/hawk/duo_edl/reports/dualOS_workstation_baseline_20261103_101744_publish.log
+2026-11-03 10:17  8331 bytes  /home/hawk/duo_edl/reports/dualOS_workstation_baseline_20261103_101744.txt
+2026-11-03 10:19  679 bytes  /home/hawk/duo_edl/reports/reporting_infrastructure_test_20261103_101941/report.md
+2026-11-03 10:19  840 bytes  /home/hawk/duo_edl/reports/reporting_infrastructure_test_20261103_101941/report.json
+2026-11-03 10:20  309 bytes  /home/hawk/duo_edl/reports/automated_publication_test_20261103_102014/publication.json
+2026-11-03 10:20  744 bytes  /home/hawk/duo_edl/reports/automated_publication_test_20261103_102014/report.md
+2026-11-03 10:20  929 bytes  /home/hawk/duo_edl/reports/automated_publication_test_20261103_102014/report.json
+2026-11-04 21:52  120449 bytes  /home/hawk/duo_edl/reports/duolite_deep_audit_20261104_215131.txt
+2026-11-05 07:18  4478750 bytes  /home/hawk/duo_edl/reports/duolite-fan-thermal-20261105-071823.txt
+2026-11-05 07:22  6007 bytes  /home/hawk/duo_edl/reports/duolite-fan-thermal-clean-20261105.txt
+2026-11-05 07:27  5460 bytes  /home/hawk/duo_edl/reports/duolite-fan-timeseries-20261105-072633.txt
+2026-11-05 07:28  7007 bytes  /home/hawk/duo_edl/reports/duolite-fan-mapping-20261105-072848.txt
+2026-11-05 07:33  1428 bytes  /home/hawk/duo_edl/reports/duolite_fan_pwm_mapping_20261105_073345.txt
+2026-11-05 07:34  1427 bytes  /home/hawk/duo_edl/reports/duolite_fan_pwm_mapping_20261105_073345_clean.txt
+2026-11-05 07:35  15721 bytes  /home/hawk/duo_edl/reports/duolite_fan_pwm_detail_20261105_073454.txt
+2026-11-05 07:36  4366 bytes  /home/hawk/duo_edl/reports/duolite_fan_runtime_mapping_20261105_073528.txt
+2026-11-05 09:48  2880947 bytes  /home/hawk/duo_edl/reports/duolite-boot-dt-inspection-20261105-094837.txt
+2026-11-05 09:50  11521 bytes  /home/hawk/duo_edl/reports/duolite-bootloader-detail-20261105-094959.txt
+2026-11-05 09:59  150874 bytes  /home/hawk/duo_edl/reports/reconciliation/repo-tree-20261105-095938.json
+2026-11-05 09:59  91 bytes  /home/hawk/duo_edl/reports/reconciliation/gists-20261105-095938.json
+2026-11-05 10:00  0 bytes  /home/hawk/duo_edl/reports/reconciliation/tree-error-20261105-100007.txt
+2026-11-05 10:00  150874 bytes  /home/hawk/duo_edl/reports/reconciliation/tree-20261105-100007.json
+2026-11-05 10:00  19571 bytes  /home/hawk/duo_edl/reports/reconciliation/gists-corrected.json
+2026-11-05 10:00  25 bytes  /home/hawk/duo_edl/reports/reconciliation/gist-error-20261105-100007.txt
+2026-11-05 10:00  91 bytes  /home/hawk/duo_edl/reports/reconciliation/gists-20261105-100007.json
+2026-11-05 10:01  19571 bytes  /home/hawk/duo_edl/reports/reconciliation/gists-user.json
+2026-11-05 10:04  0 bytes  /home/hawk/duo_edl/reports/reconciliation/tree-current-error.txt
+2026-11-05 10:04  150874 bytes  /home/hawk/duo_edl/reports/reconciliation/tree-current.json
+2026-11-05 10:23  112911 bytes  /home/hawk/duo_edl/reports/duolinux_rocknix_source_inventory_20261105_102336.txt
+2026-11-05 10:30  348 bytes  /home/hawk/duo_edl/reports/duolinux_rocknix_source_inventory_20261105_103005/publication.json
+2026-11-05 10:30  788 bytes  /home/hawk/duo_edl/reports/duolinux_rocknix_source_inventory_20261105_103005/report.md
+2026-11-05 10:30  938 bytes  /home/hawk/duo_edl/reports/duolinux_rocknix_source_inventory_20261105_103005/report.json
+2026-11-05 10:36  1110 bytes  /home/hawk/duo_edl/reports/dualos_source_acquisition_and_revision_pinning_20261105_103601/report.md
+2026-11-05 10:36  1340 bytes  /home/hawk/duo_edl/reports/dualos_source_acquisition_and_revision_pinning_20261105_103601/report.json
+2026-11-05 10:36  16913 bytes  /home/hawk/duo_edl/reports/dualos_source_acquisition_20261105_103532.txt
+2026-11-05 10:36  340 bytes  /home/hawk/duo_edl/reports/dualos_source_acquisition_and_revision_pinning_20261105_103601/publication.json
+2026-11-05 10:41  353949 bytes  /home/hawk/duo_edl/reports/dualos_source_audit_evidence_20261105_104132.txt
+2026-11-05 10:42  1059 bytes  /home/hawk/duo_edl/reports/dualos_source_audit_evidence_20261105_104132_20261105_104230/report.json
+2026-11-05 10:42  343 bytes  /home/hawk/duo_edl/reports/dualos_source_audit_evidence_20261105_104132_20261105_104230/publication.json
+2026-11-05 10:42  874 bytes  /home/hawk/duo_edl/reports/dualos_source_audit_evidence_20261105_104132_20261105_104230/report.md
+2026-11-06 21:45  1189401 bytes  /home/hawk/duo_edl/reports/azahar_build_20261106_144804.md
+
+========== TOP-LEVEL CONTENTS ==========
+d  android_boot_analysis
+d  build
+d  edl
+d  efi_test_build
+d  FreeABL
+d  gist_migration_backup_20261103_135803
+d  github_audit
+d  logs
+d  migration_work
+d  new_authorized_dumps
+d  __pycache__
+d  reports
+d  scripts
+d  temporary-gcc12-check-shims
+f  audit_module_crc.py
+f  backup_all_gists.py
+f  create_secret_gist_replacements.py
+f  migrate_gists.py
+f  preflight_gist_migration.py
+f  run_sd_host_driver_investigation.sh
+f  run_sd_integration_investigation.sh
+f  run_verified_dxe_analysis.sh
+
+========== GIT STATUS ==========
+--- /home/hawk/duo_edl/edl
+## master...origin/master
+?? LinuxLoader.efi
+?? LinuxLoader_strings.txt
+?? Media-
+?? RemovableMedia.
+?? SDCC_NEXT_TARGETS.txt
+?? abl_a.bin
+?? abl_nested_fv.bin
+?? abl_pe_extracted.bin
+?? abl_strings.txt
+?? analyze_xbl.py
+?? boot_a_unpacked/
+?? clock_dispatcher_trace_20261101_090330/
+?? clock_method_resolution_20261101_085110/
+?? clock_protocol_map_20261101_084342/
+?? clock_protocol_provider_20261101_090540/
+?? clock_protocol_provider_20261101_090700/
+?? clock_provider_deep_20261101_085432/
+?? clock_provider_deep_20261101_085655/
+?? clock_service_lookup_20261101_090103/
+?? clock_table_verified_20261101_084800/
+?? depex_producer_corrected_20261101_082800/
+?? depex_producer_ghidra_20261101_081911/
+?? devcfg.bin
+?? duo_boot_chain_deep_20261031_173640/
+?? duo_boot_protocol_batch_20261031_171337/
+?? duo_boot_protocol_matrix_20261031_170157/
+?? duo_controller_and_dxe_20261031_174331/
+?? duo_controller_and_dxe_fixed_20261031_174542/
+?? duo_ghidra_reports/
+1cda1a6
+--- /home/hawk/duo_edl/FreeABL
+## main...origin/main
+63fd0a0
+--- /home/hawk/duo_edl/migration_work/duo-lite-reports
+## main...origin/main
+f2ee40d
+
+========== IMAGE FILE METADATA ==========
+68719476736 bytes  /home/hawk/duo_edl/build/duo-lite-linux-64gb.img
+1073741824 bytes  /home/hawk/duo_edl/build/duo-lite-diagnostic.img
+1071644672 bytes  /home/hawk/duo_edl/build/duo-lite-boot-partition.img
+100663296 bytes  /home/hawk/duo_edl/new_authorized_dumps/vendor_boot_a.bin
+100663296 bytes  /home/hawk/duo_edl/edl/new_authorized_dumps/boot_a.bin
+66326507 bytes  /home/hawk/duo_edl/build/kernel-recovered.elf
+25165824 bytes  /home/hawk/duo_edl/new_authorized_dumps/dtbo_a.bin
+5972552 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/xbl_uefi_fd_partial_gzip_001_offset_41ad8.bin
+5972552 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/xbl_a_gzip_001_offset_bab68.bin
+5972544 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/parsed_fv_xbl_uefi_fd_partial_gzip_001_offset_41ad8_8.bin
+5972544 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin
+3670016 bytes  /home/hawk/duo_edl/edl/xbl_a.bin
+2097152 bytes  /home/hawk/duo_edl/edl/xbl_uefi_fd_partial.bin
+2097152 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/xbl_uefi_fv_filebacked.bin
+2097152 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/xbl_load_segment_16_file_79090_addr_5fc00000.bin
+2097152 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/parsed_fv_xbl_uefi_fv_filebacked_0.bin
+2097152 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/parsed_fv_xbl_load_segment_16_file_79090_addr_5fc00000_0.bin
+2015016 bytes  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_sdx7x_pinnaclesle_rm551eg_rm550v.elf
+2015016 bytes  /home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx7x_pinnaclesle_rm551eg_rm550v.elf
+2015016 bytes  /home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_sdx7x_pinnaclesle_rm551eg_rm550v.elf
+1729799 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/ffs_xbl_uefi_fv_filebacked_0_004_9e21fd93-9c72-4c15-8c4b-e77f1db2d792.bin
+1729799 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/ffs_xbl_load_segment_16_file_79090_addr_5fc00000_0_004_9e21fd93-9c72-4c15-8c4b-e77f1db2d792.bin
+1729775 bytes  /home/hawk/duo_edl/edl/uefi_module_audit_20261031_153151/ffs_parsed_fv_xbl_load_segment_16_file_79090_addr_5fc00000_0.bin_004_9e21fd93-9c72-4c15-8c4b-e77f1db2d792.bin
+1729771 bytes  /home/hawk/duo_edl/edl/uefi_module_audit_20261031_153151/ffs_parsed_fv_xbl_load_segment_16_file_79090_addr_5fc00000_0.bin_004_9e21fd93-9c72-4c15-8c4b-e77f1db2d792_sec01_type02.bin
+1729771 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/sec_xbl_uefi_fv_filebacked_0_004_01_type02.bin
+1729771 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/sec_xbl_load_segment_16_file_79090_addr_5fc00000_0_004_01_type02.bin
+1715044 bytes  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000020000_467f3020c4cc788d_fhprg.bin
+1715044 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000020000_467f3020c4cc788d_fhprg.bin
+1715044 bytes  /home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000020000_467f3020c4cc788d_fhprg.bin
+1697740 bytes  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/0000000000030000_467f3020c4cc788d_fhprg_8E_noauth.bin
+1697740 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/0000000000030000_467f3020c4cc788d_fhprg_8E_noauth.bin
+1697740 bytes  /home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/0000000000030000_467f3020c4cc788d_fhprg_8E_noauth.bin
+1682276 bytes  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/lenovo_motorola/0000000002e80000_467f3020c4cc788d_fhprg.bin
+1682276 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0000000002e80000_467f3020c4cc788d_fhprg.bin
+1682276 bytes  /home/hawk/duo_edl/edl/build/lib/Loaders/lenovo_motorola/0000000002e80000_467f3020c4cc788d_fhprg.bin
+1639936 bytes  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/model_generic/apq8016/0000000000000000_d58522cd602a501c_fhprg.bin
+1639936 bytes  /home/hawk/duo_edl/edl/Loaders/qualcomm/model_generic/apq8016/0000000000000000_d58522cd602a501c_fhprg.bin
+1639936 bytes  /home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/model_generic/apq8016/0000000000000000_d58522cd602a501c_fhprg.bin
+1579840 bytes  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/nothing/000b80e100020000_467f3020c4cc788d_fhprg.bin
+1579840 bytes  /home/hawk/duo_edl/edl/Loaders/nothing/000b80e100020000_467f3020c4cc788d_fhprg.bin
+1579840 bytes  /home/hawk/duo_edl/edl/build/lib/Loaders/nothing/000b80e100020000_467f3020c4cc788d_fhprg.bin
+1558180 bytes  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000030000_467f3020c4cc788d_fhprg.bin
+1558180 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000030000_467f3020c4cc788d_fhprg.bin
+1558180 bytes  /home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000030000_467f3020c4cc788d_fhprg.bin
+1553396 bytes  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/zte/0000000000030000_467f3020c4cc788d_fhprg.bin
+1553396 bytes  /home/hawk/duo_edl/edl/Loaders/zte/0000000000030000_467f3020c4cc788d_fhprg.bin
+1553396 bytes  /home/hawk/duo_edl/edl/build/lib/Loaders/zte/0000000000030000_467f3020c4cc788d_fhprg.bin
+1546780 bytes  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/oneplus/0000000000020000_467f3020c4cc788d_fhprg_op10pro.bin
+1546780 bytes  /home/hawk/duo_edl/edl/Loaders/oneplus/0000000000020000_467f3020c4cc788d_fhprg_op10pro.bin
+1546780 bytes  /home/hawk/duo_edl/edl/build/lib/Loaders/oneplus/0000000000020000_467f3020c4cc788d_fhprg_op10pro.bin
+1542620 bytes  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/lenovo_motorola/001870e102e80000_467f3020c4cc788d_fhprg.bin
+1542620 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/001870e102e80000_467f3020c4cc788d_fhprg.bin
+1542620 bytes  /home/hawk/duo_edl/edl/build/lib/Loaders/lenovo_motorola/001870e102e80000_467f3020c4cc788d_fhprg.bin
+1386920 bytes  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_sdx35_rg255c.elf
+1386920 bytes  /home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx35_rg255c.elf
+1386920 bytes  /home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_sdx35_rg255c.elf
+1048576 bytes  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/LG/009400e100310000_b5baca995aec012d_fhprg.bin
+1048576 bytes  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/LG/000c30e100310000_e746e34f737403f4_fhprg.bin
+1048576 bytes  /home/hawk/duo_edl/edl/Loaders/LG/009400e100310000_b5baca995aec012d_fhprg.bin
+1048576 bytes  /home/hawk/duo_edl/edl/Loaders/LG/000c30e100310000_e746e34f737403f4_fhprg.bin
+1048576 bytes  /home/hawk/duo_edl/edl/build/lib/Loaders/LG/009400e100310000_b5baca995aec012d_fhprg.bin
+1048576 bytes  /home/hawk/duo_edl/edl/build/lib/Loaders/LG/000c30e100310000_e746e34f737403f4_fhprg.bin
+1048576 bytes  /home/hawk/duo_edl/edl/abl_a.bin
+1011056 bytes  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/001920E100200000_4A14C27B518909E1_fhprg.elf
+1011056 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/001920E100200000_4A14C27B518909E1_fhprg.elf
+1011056 bytes  /home/hawk/duo_edl/edl/build/lib/Loaders/samsung/001920E100200000_4A14C27B518909E1_fhprg.elf
+984720 bytes  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_fbbe8b4ecf70b56c_fhprg.bin
+984720 bytes  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_c233729767656b6e_fhprg.bin
+984720 bytes  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_614c3cb6fe8bfee0_fhprg.bin
+984720 bytes  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_585960a380533c2c_fhprg.bin
+984720 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_fbbe8b4ecf70b56c_fhprg.bin
+984720 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_c233729767656b6e_fhprg.bin
+984720 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_614c3cb6fe8bfee0_fhprg.bin
+984720 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_585960a380533c2c_fhprg.bin
+984720 bytes  /home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_fbbe8b4ecf70b56c_fhprg.bin
+984720 bytes  /home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_c233729767656b6e_fhprg.bin
+984720 bytes  /home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_614c3cb6fe8bfee0_fhprg.bin
+984720 bytes  /home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_585960a380533c2c_fhprg.bin
+980616 bytes  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_d6bd96b0682ee88a_fhprg.bin
+980616 bytes  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_adc06624e8eb216d_fhprg.bin
+
+READ ONLY: no files moved, deleted, or modified

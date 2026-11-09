@@ -1,0 +1,13 @@
+{
+  "id": "20261109T031311Z-inspect-duo-edl-storage-and-cleanup-candidates",
+  "title": "Inspect Duo EDL storage and cleanup candidates",
+  "created_utc": "2026-11-09T03:13:11.552493+00:00",
+  "cwd": "/home/hawk",
+  "command": [
+    "bash",
+    "-lc",
+    "\nROOT=\"/home/hawk/duo_edl\"\n\necho \"========== FILESYSTEM / ROOT ==========\"\ndf -h \"$ROOT\"\ndu -sh \"$ROOT\"\ndu -sh --apparent-size \"$ROOT\"\necho\n\necho \"========== TOP-LEVEL DIRECTORY SIZES ==========\"\ndu -x -h --max-depth=1 \"$ROOT\" 2>/dev/null | sort -h\necho\n\necho \"========== SECOND-LEVEL DIRECTORY SIZES ==========\"\ndu -x -h --max-depth=2 \"$ROOT\" 2>/dev/null | sort -h | tail -n 100\necho\n\necho \"========== LARGEST FILES: APPARENT VS ALLOCATED ==========\"\nfind \"$ROOT\" -xdev -type f -printf \"%s\\t%b\\t%p\\n\" 2>/dev/null |\n  sort -nr -k1,1 | head -n 100 |\n  awk -F \"\\t\" '{\n    printf \"apparent=%10.2f MiB allocated=%10.2f MiB  %s\\n\",\n      $1/1048576, ($2*512)/1048576, $3\n  }'\necho\n\necho \"========== BUILD IMAGE INVENTORY ==========\"\nfind \"$ROOT/build\" -maxdepth 2 -type f \\\n  -printf \"%TY-%Tm-%Td %TH:%TM  %s bytes  %p\\n\" 2>/dev/null | sort\necho\n\necho \"========== REPORT FILE INVENTORY ==========\"\nfind \"$ROOT/reports\" -maxdepth 2 -type f \\\n  -printf \"%TY-%Tm-%Td %TH:%TM  %s bytes  %p\\n\" 2>/dev/null | sort\necho\n\necho \"========== TOP-LEVEL CONTENTS ==========\"\nfind \"$ROOT\" -mindepth 1 -maxdepth 1 \\\n  -printf \"%y  %f\\n\" | sort\necho\n\necho \"========== GIT STATUS ==========\"\nfor R in \"$ROOT/edl\" \"$ROOT/FreeABL\" \"$ROOT/migration_work/duo-lite-reports\"; do\n  if [ -d \"$R/.git\" ]; then\n    echo \"--- $R\"\n    git -C \"$R\" status --short --branch 2>&1 | head -n 30\n    git -C \"$R\" rev-parse --short HEAD 2>/dev/null\n  fi\ndone\necho\n\necho \"========== IMAGE FILE METADATA ==========\"\nfind \"$ROOT\" -xdev -type f \\\n  \\( -name \"*.img\" -o -name \"*.raw\" -o -name \"*.bin\" -o -name \"*.elf\" \\) \\\n  -printf \"%s bytes  %p\\n\" 2>/dev/null | sort -nr | head -n 80\necho\n\necho \"READ ONLY: no files moved, deleted, or modified\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 1.309
+}
