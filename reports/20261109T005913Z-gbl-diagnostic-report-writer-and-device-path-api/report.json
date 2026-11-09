@@ -1,0 +1,13 @@
+{
+  "id": "20261109T005913Z-gbl-diagnostic-report-writer-and-device-path-api",
+  "title": "GBL diagnostic report writer and device path APIs",
+  "created_utc": "2026-11-09T00:59:13.716690+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd bootable/libbootloader || exit 1\n\necho \"===== EXISTING DIAGNOSTIC FILE WRITER =====\"\nif [ -f gbl/efi/src/diagnostic_fs.rs ]; then\n    sed -n \"1,280p\" gbl/efi/src/diagnostic_fs.rs\nelse\n    echo \"MISSING: diagnostic_fs.rs\"\nfi\n\necho\necho \"===== LOADED IMAGE AND DEVICE PATH HELPERS =====\"\nsed -n \"1,115p\" gbl/efi/src/utils.rs\nsed -n \"1,125p\" gbl/libefi/src/protocol/device_path.rs\nsed -n \"1,100p\" gbl/libefi/src/protocol/loaded_image.rs\n\necho\necho \"===== BLOCK IO PROTOCOL AND MEDIA ACCESS =====\"\nrg -n -B 8 -A 35 \"pub struct BlockIoProtocol|impl.*BlockIoProtocol|fn media\\\\(\" gbl/libefi/src\n\necho\necho \"===== DIAGNOSTIC FILESYSTEM REFERENCES =====\"\nrg -n \"write_report|SimpleFileSystem|FileProtocol|open_volume|write\\\\(\" gbl/efi/src gbl/libefi/src\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.014
+}
