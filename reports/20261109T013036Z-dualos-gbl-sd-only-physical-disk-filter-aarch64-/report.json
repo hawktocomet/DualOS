@@ -1,0 +1,13 @@
+{
+  "id": "20261109T013036Z-dualos-gbl-sd-only-physical-disk-filter-aarch64-",
+  "title": "DualOS GBL SD-only physical disk filter AArch64 EFI build",
+  "created_utc": "2026-11-09T01:30:36.572514+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd \"$HOME/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader\" || exit 2\n\n./gbl/bazel.sh build \\\n  --extra_toolchains=@gbl//toolchain:all \\\n  @gbl//efi:aarch64_dev\n"
+  ],
+  "exit_code": 1,
+  "duration_seconds": 1.483
+}

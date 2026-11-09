@@ -1,0 +1,39 @@
+Computing main repo mapping: 
+Loading: 
+Loading: 0 packages loaded
+Analyzing: target @@gbl+//efi:aarch64_dev (0 packages loaded, 0 targets configured)
+Analyzing: target @@gbl+//efi:aarch64_dev (0 packages loaded, 0 targets configured)
+
+INFO: From BazelWorkspaceStatusAction stable-status.txt:
+BUILD_BRANCH=gbl-mainline
+BUILD_NUMBER=eng.hawk.2026-11-08
+BUILD_REVISION=2392920e8324-dirty
+INFO: Analyzed target @@gbl+//efi:aarch64_dev (0 packages loaded, 0 targets configured).
+ERROR: /home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/external/gbl+/libefi/BUILD:28:13: Clippy @@gbl+//libefi:libefi failed: (Exit 1): process_wrapper failed: error executing Clippy command (from aspects [@@gbl+//toolchain:clippy.bzl%gbl_clippy_aspect] on rust_library rule target @@gbl+//libefi:libefi) bazel-out/k8-opt-exec/bin/external/rules_rust+/util/process_wrapper/process_wrapper --subst 'pwd=${pwd}' --touch-file bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libefi/libefi.clippy.ok -- ... (remaining 134 arguments skipped)
+
+Use --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging
+error: unsafe block missing a safety comment
+  --> external/gbl+/libefi/src/protocol/device_path.rs:96:32
+   |
+96 |         let mut parent_nodes = unsafe { EfiDevicePathNodeIter::new(self.interface_ptr()) };
+   |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: consider adding a safety comment on the preceding line
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#undocumented_unsafe_blocks
+   = note: requested on the command line with `-D clippy::undocumented-unsafe-blocks`
+
+error: unsafe block missing a safety comment
+  --> external/gbl+/libefi/src/protocol/device_path.rs:97:31
+   |
+97 |         let mut child_nodes = unsafe { EfiDevicePathNodeIter::new(other.interface_ptr()) };
+   |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: consider adding a safety comment on the preceding line
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#undocumented_unsafe_blocks
+
+error: aborting due to 2 previous errors
+
+Use --verbose_failures to see the command lines of failed build steps.
+INFO: Elapsed time: 1.409s, Critical Path: 1.18s
+INFO: 3 processes: 5 action cache hit, 3 internal.
+ERROR: Build did NOT complete successfully
