@@ -1,0 +1,19 @@
+{
+  "id": "20261109T023559Z-duo-lite-firehose-command-syntax-verification",
+  "title": "Duo Lite Firehose command syntax verification",
+  "created_utc": "2026-11-09T02:35:59.288768+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-lc",
+    "\necho \"========== PRIOR EDL REPORT SCRIPT ==========\"\nif [ -f /home/hawk/duo_edl_report_2.sh ]; then\n  grep -nEi -C 5 \"edl|firehose|read|dump|sector|partition\" \\\n    /home/hawk/duo_edl_report_2.sh\nelse\n  echo \"Not found\"\nfi\n\necho\necho \"========== EDL CLIENT LOCATIONS ==========\"\nfind /home/hawk/duo_edl /home/hawk/duo_forensics \\\n  -maxdepth 7 -type f \\\n  \\( -name \"edl.py\" -o -name \"edl\" -o -name \"firehose.py\" \\) \\\n  -printf \"%p\\n\" 2>/dev/null | sort -u\n\necho\necho \"========== ORIGINAL READ LOG COMMAND CONTEXT ==========\"\ngrep -RniE -m 30 \\\n  \"Dumped sector 1972736|edl.*r |edl.*read|read.*sector\" \\\n  /home/hawk/duo_forensics /home/hawk/duo_edl \\\n  --include=\"*.sh\" --include=\"*.py\" --include=\"*.txt\" \\\n  --include=\"*.log\" 2>/dev/null\n\necho\necho \"INSPECTION COMPLETE; NOTHING EXECUTED\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 5.774,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}
