@@ -1,0 +1,18 @@
+{
+  "id": "20261109T014014Z-dualos-restore-android-boot-flow-and-add-sd-only",
+  "title": "DualOS restore Android boot flow and add SD-only discovery reporting",
+  "created_utc": "2026-11-09T01:40:14.726853+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "python3",
+    "-"
+  ],
+  "exit_code": 1,
+  "duration_seconds": 0.043,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}
