@@ -1,0 +1,19 @@
+{
+  "id": "20261109T023139Z-duo-lite-cross-archive-partition-artifact-invent",
+  "title": "Duo Lite cross-archive partition artifact inventory",
+  "created_utc": "2026-11-09T02:31:39.800179+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-lc",
+    "\nROOTS=(\n  /home/hawk/duolite-abl-backup\n  /home/hawk/duolite-dt\n  /home/hawk/duo_sd_backups\n  /home/hawk/duo_sd_boot_handoff\n  /home/hawk/duo_forensics\n  /home/hawk/duo_edl\n)\n\nfor ROOT in \"${ROOTS[@]}\"; do\n  echo\n  echo \"========== $ROOT ==========\"\n  if [ ! -e \"$ROOT\" ]; then\n    echo \"NOT FOUND\"\n    continue\n  fi\n\n  find \"$ROOT\" -maxdepth 5 -type f \\\n    \\( -size +8M -o \\\n       -iname \"*.xml\" -o -iname \"*.gpt\" -o \\\n       -iname \"*.bin\" -o -iname \"*.img\" -o \\\n       -iname \"*.mbn\" -o -iname \"*.elf\" -o \\\n       -iname \"*partition*\" -o -iname \"*rawprogram*\" -o \\\n       -iname \"*backup*\" -o -iname \"*manifest*\" \\) \\\n    -printf \"%s bytes  %p\\n\" 2>/dev/null |\n    sort -nr | head -n 250\ndone\n\necho\necho \"========== ARCHIVE FILE ==========\"\nif [ -f /home/hawk/duo-analysis-focused.tar.gz ]; then\n  tar -tzf /home/hawk/duo-analysis-focused.tar.gz 2>/dev/null |\n    grep -Ei \"partition|rawprogram|patch[0-9]|gpt|boot_[ab]|system|vendor|vbmeta|super|backup\" |\n    head -n 200\nfi\n\necho\necho \"INVENTORY COMPLETE; NO FILES MODIFIED\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 1.244,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}

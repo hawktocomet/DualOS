@@ -1,0 +1,620 @@
+
+========== /home/hawk/duolite-abl-backup ==========
+822 bytes  /home/hawk/duolite-abl-backup/backup_abl.sh
+
+========== /home/hawk/duolite-dt ==========
+13220864 bytes  /home/hawk/duolite-dt/dt.tar
+
+========== /home/hawk/duo_sd_backups ==========
+NOT FOUND
+
+========== /home/hawk/duo_sd_boot_handoff ==========
+3670016 bytes  /home/hawk/duo_sd_boot_handoff/xbl_a.bin
+1048576 bytes  /home/hawk/duo_sd_boot_handoff/abl_a.bin
+131072 bytes  /home/hawk/duo_sd_boot_handoff/xbl_config_a.bin
+
+========== /home/hawk/duo_forensics ==========
+670573368 bytes  /home/hawk/duo_forensics/recovery_probe/RECOVERY_PROBE.txt
+670557663 bytes  /home/hawk/duo_forensics/recovery_probe/NICOBAR_EXACT_PROGRAMMER_PROBE.txt
+670553163 bytes  /home/hawk/duo_forensics/recovery_probe/NICOBAR_DEBUG_RETRY.txt
+670535745 bytes  /home/hawk/duo_forensics/recovery_probe/NICOBAR_FIREHOSE_RETRY.txt
+669651435 bytes  /home/hawk/duo_forensics/firehose_method_recovery_20261101_235248.txt
+101816909 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018.tar.gz
+100663296 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/vendor_boot_b.img
+100663296 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/vendor_boot_a.img
+100663296 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/boot_b.img
+100663296 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/boot_a.img
+55802368 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/boot_b/kernel
+55802368 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/boot_a/kernel
+43497925 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/framework/framework.jar
+31314191 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/packages/com.android.systemui/SystemUI.apk
+25165824 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/dtbo_b.img
+25165824 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/dtbo_a.img
+24499968 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/vendor_boot_a/ramdisk.cpio
+24497152 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/vendor_boot_b/ramdisk.cpio
+21571837 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/framework/services.jar
+16949248 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/fastpwn.exe
+16525388 bytes  /home/hawk/duo_forensics/abl_source_audit/OpenABL/Assets/SourceHanSansSC-Normal.otf
+14638096 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/fastpwn
+10893088 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/binaries/system_lib64/_system_lib64_libhwui.so
+10893088 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/binaries/core/_system_lib64_libhwui.so
+8388608 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/init_boot_b.img
+8388608 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/init_boot_a.img
+6250873 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_sw43404_amoled_video_mode_dsi_boe_panel_with_DSC.xml
+6250873 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_sw43404_amoled_cmd_mode_dsi_boe_panel_with_DSC.xml
+6250873 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_sw43404_amoled_boe_fhd_panel_with_DSC.xml
+2015016 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_sdx7x_pinnaclesle_rm551eg_rm550v.elf
+1715044 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000020000_467f3020c4cc788d_fhprg.bin
+1697740 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/0000000000030000_467f3020c4cc788d_fhprg_8E_noauth.bin
+1682276 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0000000002e80000_467f3020c4cc788d_fhprg.bin
+1579840 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/nothing/000b80e100020000_467f3020c4cc788d_fhprg.bin
+1558180 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000030000_467f3020c4cc788d_fhprg.bin
+1553396 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/zte/0000000000030000_467f3020c4cc788d_fhprg.bin
+1546780 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oneplus/0000000000020000_467f3020c4cc788d_fhprg_op10pro.bin
+1542620 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/001870e102e80000_467f3020c4cc788d_fhprg.bin
+1453422 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_Sharp_fhd_video_mode_qsync_dsi_panel.xml
+1453422 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_Sharp_fhd_cmd_mode_qsync_dsi_panel.xml
+1453422 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_Sharp_2k_video_mode_qsync_dsi_panel.xml
+1453422 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_Sharp_2k_cmd_mode_qsync_dsi_panel.xml
+1453422 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_sharp_1080p_cmd_mode_dsi_panel.xml
+1453422 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_rm69299_amoled_fhd_video_mode_dsi_visionox_panel.xml
+1453422 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_rm69299_amoled_fhd_cmd_mode_dsi_visionox_panel.xml
+1453422 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_r66451_amoled_video_mode_dsi_visionox_90HZ_panel_with_DSC.xml
+1453422 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_r66451_amoled_video_mode_dsi_visionox_60HZ_panel_with_DSC.xml
+1453422 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_r66451_amoled_video_mode_dsi_visionox_120HZ_panel_with_DSC.xml
+1453422 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_r66451_amoled_cmd_mode_dsi_visionox_panel_with_DSC.xml
+1453422 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_r66451_amoled_cmd_mode_dsi_visionox_90HZ_panel_with_DSC.xml
+1453422 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_r66451_amoled_cmd_mode_dsi_visionox_60HZ_panel_with_DSC.xml
+1453422 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_r66451_amoled_cmd_mode_dsi_visionox_120HZ_panel_with_DSC.xml
+1453422 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_nt35695b_truly_fhd_command_mode_dsi_panel.xml
+1453379 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_Sharp_4k_video_mode_dsc_dsi_panel.xml
+1453379 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_Sharp_4k_cmd_mode_dsc_dsi_panel.xml
+1453379 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_nt35597_video_mode_dsi_truly_panel_with_DSC.xml
+1453379 bytes  /home/hawk/duo_forensics/DUO_FORENSICS_20261005_075018/configs/_vendor_etc_qdcm_calib_data_nt35597_cmd_mode_dsi_truly_panel_with_DSC.xml
+1386920 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_sdx35_rg255c.elf
+1048576 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/LG/009400e100310000_b5baca995aec012d_fhprg.bin
+1048576 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/LG/000c30e100310000_e746e34f737403f4_fhprg.bin
+1048576 bytes  /home/hawk/duo_forensics/recovery_backups_20261102/misc.img
+1048576 bytes  /home/hawk/duo_forensics/recovery_backups_20261102/abl_b.img
+1048576 bytes  /home/hawk/duo_forensics/recovery_backups_20261102/abl_a.img
+1048576 bytes  /home/hawk/duo_forensics/abl_update_20261102/abl_a_before_update.img
+1048576 bytes  /home/hawk/duo_forensics/abl_update_20261102/abl_a_after_update.img
+1048576 bytes  /home/hawk/duo_forensics/abl_a_firehose_readback.img
+1048576 bytes  /home/hawk/duo_forensics/abl_a_after_rocknix_write.img
+1011056 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/001920E100200000_4A14C27B518909E1_fhprg.elf
+984720 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_fbbe8b4ecf70b56c_fhprg.bin
+984720 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_c233729767656b6e_fhprg.bin
+984720 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_614c3cb6fe8bfee0_fhprg.bin
+984720 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_585960a380533c2c_fhprg.bin
+980616 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_d6bd96b0682ee88a_fhprg.bin
+980616 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_adc06624e8eb216d_fhprg.bin
+980616 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_57221a57066a14e0_fhprg.bin
+976504 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oneplus/001350e100514d67_a26bc25799770106_fhprg_op9.bin
+974256 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oppo/0000000000510000_adec891ca335ff17_fhprg.bin
+964232 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/zte/0000000000040000_37c0cdff175f238e_fhprg.bin
+958304 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/001920e102e80000_ab8c46a42f23e5c0_fhprg.bin
+956040 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/zte/0000000000040000_0c7b0b08967bf024_fhprg.bin
+950480 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/nothing/001920e101cf0000_fa2836525c2aad8a_fhprg.bin
+947952 bytes  /home/hawk/duo_forensics/recovery_probe/device_backups/prog_firehose_ddr.elf
+947952 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oppo/prog_firehose_ddr.elf
+923360 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/001350e102e80000_61a5edda27fb2850_fhprg.bin
+780752 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_320ecd66fba7f9b1_fhprg.bin
+773720 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0000000000400000_356d5d5e9b67b6f8_fhprg.bin
+765552 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oneplus/0000000000515198_2354228eebcbc203_fhprg_op_n10tmo.bin
+765440 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oneplus/0013f0e100515198_2354228eebcbc203_fhprg_op_n10.bin
+759536 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0013f0e102e80000_628be3f403d0c67a_fhprg.bin
+759504 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0000000000000000_bdaf51b59ba21d8a_fhprg.bin
+744768 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/000a50e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+742848 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_ecdb07230e7294df_fhprg.bin
+742848 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_59cd3adfeeaf8f87_fhprg.bin
+740576 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oneplus/000a50e100514985_2acf3a85fde334e2_fhprg_op7t.bin
+738256 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_3dc5046245345178_fhprg.bin
+738048 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_a0da75f4d371356f_fhprg.bin
+737984 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_91c8c704d7fe059c_fhprg.bin
+737424 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_7e8ac4ee8d27363b_fhprg.bin
+737232 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_371ab117a61d3a6b_fhprg.bin
+737088 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_b6c0a48e991a5d86_fhprg.bin
+737056 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_18f91cb107db16e7_fhprg.bin
+736896 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_bf7bae5174035818_fhprg.bin
+725088 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/000a50e100200000_3fd28b75e2557c5d_fhprg.bin
+725024 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/000a50e100200000_0b5b6478293ddf9c_fhprg.bin
+724832 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/000a50e100200000_ab28f20cfb2bd9fe_fhprg.bin
+724832 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/000a50e100200000_45d5b07d5a34cd8c_fhprg_2.bin
+724832 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/000a50e100200000_3b0b67354f55dde5_fhprg_2.bin
+722796 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oneplus/0000000000510000_22f415bec935e3cb_fhprg_op_n30.bin
+722128 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/asus_wingtech/6004000000010000_c924a35f39ce1cdd_fhprg.bin
+721824 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/000a50e100200000_45d5b07d5a34cd8c_fhprg.bin
+721824 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/000a50e100200000_3b0b67354f55dde5_fhprg.bin
+721592 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/meizu/0000000000000000_bdaf51b59ba21d8a_fhprg_peek.bin
+721000 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/zte/000a50e100040000_776c7351dc296c9f_fhprg_zte_neva.bin
+718356 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/meizu/000db0e100010000_cd55540dcb175cc8_fhprg.bin
+718352 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/000c30e102e80000_140f82e9f7117235_fhprg.bin
+716392 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/asus_wingtech/000a50e100290025_7e5acfff90370967_fhprg_zs660kl.bin
+716216 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/zte/000a50e100040000_f6207f99a510c6d2_fhprg.bin
+715264 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oneplus/000c30e100514d6d_7c15a98db4e70963_fhprg_op8_op8tmo_op8t_op8ttmo.bin
+714448 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/000c30e100720000_1bebe3863a6781db_fhprg.bin
+711648 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/000c30e100400000_8eac5d78102fad7d_fhprg.bin
+711396 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/000b80e100200000_bd0eb2e36a4b2881_fhprg_sc8180xp.bin
+710044 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oppo/0000000000510000_22f415bec935e3cb_fhprg_rmx3471_695_SM6375.bin
+709808 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/LG/000a50e100310000_e746e34f737403f4_fhprg_lg_g8x.bin
+709644 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0000000002e80000_3fa6dafcf252b033_fhprg.bin
+709136 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/000c30e100000000_503b13f78c1e5374_fhprg.bin
+708256 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0000000002e80000_c494ed638cda0460_fhprg.bin
+706512 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/000a50e100000000_f7251caba930a62b_fhprg.bin
+705452 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0000000001a30000_67c29701b13fa130_fhprg.bin
+702544 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/vivo/6004000000010000_2c0a52ffbd8db687_fhprg.bin
+701560 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/vivo/0000000000730003_a7df36ffd7ab557c_fhprg_vivo_pd2020.bin
+701440 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oppo/0000000000514d6d_7c15a98db4e70963_fhprg.bin
+700712 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/000000000040000a_8c4fbf35c0157a63_fhprg_thinksmart_view_plus.bin
+700576 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/zte/0000000000040000_dff7dda29c8c49b1_fhprg.bin
+700416 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oneplus/0011e0e100515141_e5d0b832cebbf1c6_fhprg_opnord.bin
+698328 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_4c0bf2437898c38e_fhprg.bin
+697928 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0016f0e102e80000_a51a1c2e4a5ec0f8_fhprg.bin
+695952 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/asus_wingtech/0000000000290026_38c9de55ae9e87f4_fhprg.bin
+695676 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oppo/0000000000510000_401e4aff39a09344_fhprg.bin
+695268 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/000db0e100010000_13d7a19aeb74fb1c_fhprg.bin
+695268 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/000930e100010000_13d7a19aeb74fb1c_fhprg.bin
+694196 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/huawei/0000000001a40003_1816101f1302cf63_fhprg.bin
+693304 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/000910e100010000_13d7a19aeb74fb1c_fhprg.bin
+692944 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/asus_wingtech/000a50e10029003c_ec70ff124179a138_fhprg_asus_zs630kl.bin
+691820 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/a525f_bitc.elf
+691584 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/hisense_agm/0016f0e100430000_4352b3bfeac440ca_fhprg.bin
+691584 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/hisense_agm/0016f0e100000000_d9357db88795b5a8_fhprg.bin
+684961 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/vivo/6000000000010000_2c0a52ffbd8db687_fhprg_vivo_dual_1813.bin
+684804 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/LG/0011e0e100310000_1030cd12ce708f29_fhprg.bin
+684032 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_lite_olympicle_rm520fg.elf
+684032 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_lite_olympicle_rg520n.elf
+684032 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_lite_lemur_olympicle_rm530n_rm521fg.elf
+684032 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/001990e100040000_d9357db88795b5a8_fhprg_sdx62_lemur_rm520n_gl.bin
+683905 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/zte/6000000000010000_0b83c6390385506b_fhprg.bin
+683644 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/prog_ufs_firehose_sm6250_ddr.elf
+683532 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0011e0e102e80000_628be3f403d0c67a_fhprg.bin
+682968 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0000000002e80000_223641bb5921654e_fhprg.bin
+682193 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/blackshark/0008b0e100010000_acb465293769a1c7_fhprg.bin
+681569 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/nokia_foxconn/6000000000010000_441e29fd115cd937_fhprg.bin
+680769 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oneplus/0008b0e10051459b_dd7c5f2e53176bee_fhprg_op6t.bin
+680769 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lyf/0008b0e100010000_dd7c5f2e53176bee_fhprg.bin
+680417 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/zte/0008b0e100010000_6c1ed0375298d9a4_fhprg.bin
+680316 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/000e60e102e80000_0910896970477138_fhprg.bin
+679724 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/001b80e100000000_503b13f78c1e5374_fhprg.bin
+679612 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/zte/0000000000040000_73fd3619a74ac619_fhprg.bin
+679088 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/LG/000c30e100310000_1030cd12ce708f29_fhprg.bin
+678764 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/000e60e100200000_94ec9a24b79bcc83_fhprg.bin
+675840 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_lite_olympicle_rm520ng.elf
+674769 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/asus_wingtech/6000000000010000_1e5d0b2a695a7275_fhprg.bin
+668796 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/quectel/prog_firehose_life_ddr_patched_Kamorta.elf
+666737 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/LG/6000000000010000_1030cd12ce708f29_fhprg.bin
+666737 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/LG/0008b0e100310000_1030cd12ce708f29_fhprg.bin
+666241 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/000b70e100200000_620d3430ed21af31_fhprg.bin
+660865 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0008b0e100010000_a20f3e22ee2a58da_fhprg_peek.bin
+660620 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/0014d0e100720000_1bebe3863a6781db_fhprg.bin
+660620 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/0014d0e100000000_1bebe3863a6781db_fhprg.bin
+660620 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/001360e100720000_1bebe3863a6781db_fhprg_redmi9t.bin
+658820 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_27fe520d8259d21a_fhprg.bin
+658644 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/000950e100200000_27fe520d8259d21a_fhprg.bin
+658644 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_b64fa0e813ee4321_fhprg.bin
+658001 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0008b0e100010000_82ddd92611bdfac8_fhprg.bin
+657532 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0000000000720000_1bebe3863a6781db_fhprg_edlauth.bin
+657520 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/001b80e102e80000_8b2d1c830d9d8576_fhprg_moto_g52.bin
+655857 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/6000000000010000_289c7c57d81c8efa_fhprg_peek.bin
+654124 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/000950e102e80000_0910896970477138_fhprg.bin
+650156 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0000000002e80000_f68487e8e9537646_fhprg.bin
+646144 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oneplus/0000000000515192_37cf317812121fed_fhprg_opn100.bin
+641424 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/meitu/0008c0e100010000_c0806e891f7d5537_fhprg.bin
+640980 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/000950e102e80000_f68487e8e9537646_fhprg.bin
+638204 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0000000000200000_57d5a124fe695106_fhprg.bin
+637316 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/vivo/000950e100730003_a7df36ffd7ab557c_fhprg.bin
+636796 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/001360e102e80000_5adc6039dcb297d4_fhprg.bin
+636672 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/asus_wingtech/3006000000010000_e5e07a6beb0800fa_fhprg_peek.bin
+634672 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/000ba0e100720000_57158eaf1814d78f_fhprg_redmi7.bin
+634672 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0008c0e100010000_a7b8b82545a98eca_fhprg_edlauth.bin
+634384 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/asus_wingtech/3006000000010000_cd47cd2fd76e812d_fhprg_peek.bin
+632736 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/0008c0e100010000_a7b8b82545a98eca_fhprg_peek.bin
+631936 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/vivo/3006000000010000_f188b3bc5198fb41_fhprg_peek.bin
+631776 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/nokia_foxconn/3006000000010000_7fe240ddea200f42_fhprg_peek.bin
+631232 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/sonim/0008c0e100010000_1b55c83cc1c00f4f_fhprg_peek.bin
+631232 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/meizu/0008c0e100010000_fd27e15ff63fdd68_fhprg.bin
+631120 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/sharp/3006000000010000_07046415532823b0_fhprg_peek.bin
+630480 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/0005e0e100010000_a7b8b82545a98eca_fhprg_peek_mi_a2.bin
+629168 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/asus_wingtech/3006000000010000_7cd366ef83a08283_fhprg.bin
+629136 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_ddr.elf
+628848 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_lite.elf
+628752 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/nokia_foxconn/3006000000010000_b14a27de186e77c9_fhprg.bin
+627520 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/meizu/3006000000010000_9e7f8ef2d5f16d8c_fhprg_e3_peek.bin
+627088 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/3006000000010000_0374637d23c4e2ee_fhprg.bin
+613884 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0010a0e102e80000_99cbafe8b2bba0da_fhprg.bin
+609484 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0000000002e80000_abbcc86fe393b13d_fhprg.bin
+607088 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/zte/3006000000010000_158d0f5f0552472f_fhprg_peek.bin
+606912 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0008c0e100010000_982b2ece2e68f82c_fhprg_peek.bin
+606464 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0008c0e100010000_f8ab20526358c4fa_fhprg.bin
+606400 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0008c0e100010000_172aff6024730ca1_fhprg.bin
+606384 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0008c0e100010000_982b2ece2e68f82c_fhprg.bin
+605328 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/0005e0e100010000_997d54715aadfd8d_fhprg_peek.bin
+605168 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/3002000000010000_feba74e5d4d6eea5_fhprg_peek.bin
+605152 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/samsung/3002000000010000_57ee29c2f04c283b_fhprg_peek.bin
+602588 bytes  /home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin
+600192 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oneplus/0005e0e12a7041db_de7a7d5af049e2a6_fhprg_peek_op5.bin
+598764 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0000000002e80000_974359c4290cac7f_fhprg.bin
+598729 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oppo/3006000000010000_82446e2f29ccb297_fhprg_peek.bin
+597616 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/000930e100010000_a7b8b82545a98eca_fhprg_peek.bin
+597616 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/0005e0e100010000_a7b8b82545a98eca_fhprg_peek.bin
+597248 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/LG/3002000000010000_2cf7619a278d2607_fhprg_peek.bin
+597168 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/hydrogen/0005e0e100010000_d6ab87bc95c89389_fhprg.bin
+596240 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/nokia_foxconn/3002000000010000_7fe240ddea200f42_fhprg.bin
+595644 bytes  /home/hawk/duo_forensics/recovery_probe/device_backups/prog_emmc_firehose_Sm6125_ddr.elf
+595644 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/0010a0e100720000_1bebe3863a6781db_fhprg.bin
+594444 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0000000000000000_6ea05341813ecdf0_fhprg.bin
+589388 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0010a0e102e80000_974359c4290cac7f_fhprg.bin
+581328 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/xiaomi/000930e100720000_a7b8b82545a98eca_fhprg_peek.bin
+578784 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/zte/3002000000010000_55dbeb4e90521155_fhprg_peek.bin
+558096 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0005e0e100010000_f8ab20526358c4fa_fhprg_peek.bin
+557328 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0005e0e100010000_f8ab20526358c4fa_fhprg.bin
+557200 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/lenovo_motorola/0005e0e100010000_d1e8fa656b6a744e_fhprg.bin
+532480 bytes  /home/hawk/duo_forensics/abl_update_20261102/abl_signed-SM6115_20261101.elf
+525214 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/alf_sbl_easyflash_SARA-R520M10-02B.elf
+525214 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/alf_sbl_easyflash_SARA-R520-02B.elf
+496472 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/alf_sbl_easyflash_SARA-R510S-01B.elf
+496472 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/alf_sbl_easyflash_SARA-R510M8S-01B.elf
+496472 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/alf_sbl_easyflash_SARA-R500S_01.elf
+496472 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/alf_sbl_easyflash_SARA-R500E.elf
+495124 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/alf_sbl_easyflash_SARA-R510S-00B.elf
+495124 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/alf_sbl_easyflash_SARA-R510M8S-00B.elf
+495124 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/ublox/alf_sbl_easyflash_SARA-R500S.elf
+489200 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/TCL/009470e100420040_81a18d4dbc0d381d_fhprg_peek.bin
+484984 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/LG/0005f0e100310000_2cf7619a278d2607_fhprg_peek.bin
+474944 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/vivo/009470e100000000_da758fd52632ba66_fhprg_peek.bin
+474624 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl/Loaders/oneplus/0005f0e12a703db9_c0c66e278fe81226_fhprg_peek_op3t.bin
+
+========== /home/hawk/duo_edl ==========
+68719476736 bytes  /home/hawk/duo_edl/build/duo-lite-linux-64gb.img
+2025520412 bytes  /home/hawk/duo_edl/reports/duo_boot_protocol_batch_20261031_171337.txt
+2025442745 bytes  /home/hawk/duo_edl/reports/duo_protocol_provider_trace_20261031_172145.txt
+2025396756 bytes  /home/hawk/duo_edl/reports/duo_boot_provider_full_decompilation_20261031_172927.txt
+2025224795 bytes  /home/hawk/duo_edl/reports/duo_sd_slot_failure_trace_20261031_173011.txt
+2025213829 bytes  /home/hawk/duo_edl/reports/duo_slot_mapping_20261031_173056.txt
+2025202009 bytes  /home/hawk/duo_edl/reports/duo_slot_mapping_full_20261031_173303.txt
+2025143987 bytes  /home/hawk/duo_edl/reports/duo_boot_chain_deep_20261031_173640.txt
+2024432176 bytes  /home/hawk/duo_edl/reports/duo_boot_chain_decompilation_and_drivers_20261031_174227.txt
+2023642580 bytes  /home/hawk/duo_edl/reports/duo_controller_and_dxe_20261031_174331.txt
+2023617593 bytes  /home/hawk/duo_edl/reports/duo_controller_and_dxe_fixed_20261031_174542.txt
+2023587129 bytes  /home/hawk/duo_edl/reports/duo_image_recovery_20261031_174936.txt
+2021846192 bytes  /home/hawk/duo_edl/reports/duo_sd_boot_10_batches_20261031_220547.txt
+1073741824 bytes  /home/hawk/duo_edl/build/duo-lite-diagnostic.img
+1071644672 bytes  /home/hawk/duo_edl/build/duo-lite-boot-partition.img
+100663296 bytes  /home/hawk/duo_edl/new_authorized_dumps/vendor_boot_a.bin
+100663296 bytes  /home/hawk/duo_edl/edl/new_authorized_dumps/boot_a.bin
+66679402 bytes  /home/hawk/duo_edl/edl/.git/objects/pack/pack-29c517167953dcede79319dfae561a895038dabc.pack
+66326507 bytes  /home/hawk/duo_edl/build/kernel-recovered.elf
+55802368 bytes  /home/hawk/duo_edl/edl/boot_a_unpacked/kernel
+55802368 bytes  /home/hawk/duo_edl/build/sdcard-stage/boot/Image
+25165824 bytes  /home/hawk/duo_edl/new_authorized_dumps/dtbo_a.bin
+24499968 bytes  /home/hawk/duo_edl/android_boot_analysis/vendor_ramdisk/ramdisk.cpio
+16949248 bytes  /home/hawk/duo_edl/edl/fastpwn.exe
+15958016 bytes  /home/hawk/duo_edl/build/sdcard-stage/EFI/BOOT/BOOTAA64.EFI
+14638096 bytes  /home/hawk/duo_edl/edl/fastpwn
+5972552 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/xbl_uefi_fd_partial_gzip_001_offset_41ad8.bin
+5972552 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/xbl_a_gzip_001_offset_bab68.bin
+5972544 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/parsed_fv_xbl_uefi_fd_partial_gzip_001_offset_41ad8_8.bin
+5972544 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin
+3670016 bytes  /home/hawk/duo_edl/edl/xbl_a.bin
+2097152 bytes  /home/hawk/duo_edl/edl/xbl_uefi_fd_partial.bin
+2097152 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/xbl_uefi_fv_filebacked.bin
+2097152 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/xbl_load_segment_16_file_79090_addr_5fc00000.bin
+2097152 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/parsed_fv_xbl_uefi_fv_filebacked_0.bin
+2097152 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/parsed_fv_xbl_load_segment_16_file_79090_addr_5fc00000_0.bin
+2015016 bytes  /home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx7x_pinnaclesle_rm551eg_rm550v.elf
+1729799 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/ffs_xbl_uefi_fv_filebacked_0_004_9e21fd93-9c72-4c15-8c4b-e77f1db2d792.bin
+1729799 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/ffs_xbl_load_segment_16_file_79090_addr_5fc00000_0_004_9e21fd93-9c72-4c15-8c4b-e77f1db2d792.bin
+1729775 bytes  /home/hawk/duo_edl/edl/uefi_module_audit_20261031_153151/ffs_parsed_fv_xbl_load_segment_16_file_79090_addr_5fc00000_0.bin_004_9e21fd93-9c72-4c15-8c4b-e77f1db2d792.bin
+1729771 bytes  /home/hawk/duo_edl/edl/uefi_module_audit_20261031_153151/ffs_parsed_fv_xbl_load_segment_16_file_79090_addr_5fc00000_0.bin_004_9e21fd93-9c72-4c15-8c4b-e77f1db2d792_sec01_type02.bin
+1729771 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/sec_xbl_uefi_fv_filebacked_0_004_01_type02.bin
+1729771 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/sec_xbl_load_segment_16_file_79090_addr_5fc00000_0_004_01_type02.bin
+1715044 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000020000_467f3020c4cc788d_fhprg.bin
+1697740 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/0000000000030000_467f3020c4cc788d_fhprg_8E_noauth.bin
+1682276 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0000000002e80000_467f3020c4cc788d_fhprg.bin
+1579840 bytes  /home/hawk/duo_edl/edl/Loaders/nothing/000b80e100020000_467f3020c4cc788d_fhprg.bin
+1558180 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000030000_467f3020c4cc788d_fhprg.bin
+1553396 bytes  /home/hawk/duo_edl/edl/Loaders/zte/0000000000030000_467f3020c4cc788d_fhprg.bin
+1546780 bytes  /home/hawk/duo_edl/edl/Loaders/oneplus/0000000000020000_467f3020c4cc788d_fhprg_op10pro.bin
+1542620 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/001870e102e80000_467f3020c4cc788d_fhprg.bin
+1386920 bytes  /home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx35_rg255c.elf
+1048576 bytes  /home/hawk/duo_edl/edl/Loaders/LG/009400e100310000_b5baca995aec012d_fhprg.bin
+1048576 bytes  /home/hawk/duo_edl/edl/Loaders/LG/000c30e100310000_e746e34f737403f4_fhprg.bin
+1048576 bytes  /home/hawk/duo_edl/edl/abl_a.bin
+1011056 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/001920E100200000_4A14C27B518909E1_fhprg.elf
+984720 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_fbbe8b4ecf70b56c_fhprg.bin
+984720 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_c233729767656b6e_fhprg.bin
+984720 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_614c3cb6fe8bfee0_fhprg.bin
+984720 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_585960a380533c2c_fhprg.bin
+980616 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_d6bd96b0682ee88a_fhprg.bin
+980616 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_adc06624e8eb216d_fhprg.bin
+980616 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_57221a57066a14e0_fhprg.bin
+976504 bytes  /home/hawk/duo_edl/edl/Loaders/oneplus/001350e100514d67_a26bc25799770106_fhprg_op9.bin
+974256 bytes  /home/hawk/duo_edl/edl/Loaders/oppo/0000000000510000_adec891ca335ff17_fhprg.bin
+969280 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/001590e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+964232 bytes  /home/hawk/duo_edl/edl/Loaders/zte/0000000000040000_37c0cdff175f238e_fhprg.bin
+958304 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/001920e102e80000_ab8c46a42f23e5c0_fhprg.bin
+956040 bytes  /home/hawk/duo_edl/edl/Loaders/zte/0000000000040000_0c7b0b08967bf024_fhprg.bin
+950480 bytes  /home/hawk/duo_edl/edl/Loaders/nothing/001920e101cf0000_fa2836525c2aad8a_fhprg.bin
+947952 bytes  /home/hawk/duo_edl/edl/Loaders/oppo/prog_firehose_ddr.elf
+923360 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/001350e102e80000_61a5edda27fb2850_fhprg.bin
+780752 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_320ecd66fba7f9b1_fhprg.bin
+773720 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0000000000400000_356d5d5e9b67b6f8_fhprg.bin
+768016 bytes  /home/hawk/duo_edl/edl/Loaders/oneplus/broken/0000000000515198_2354228eebcbc203_fhprg_op_nordce.bin
+765552 bytes  /home/hawk/duo_edl/edl/Loaders/oneplus/0000000000515198_2354228eebcbc203_fhprg_op_n10tmo.bin
+765440 bytes  /home/hawk/duo_edl/edl/Loaders/oneplus/0013f0e100515198_2354228eebcbc203_fhprg_op_n10.bin
+759536 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0013f0e102e80000_628be3f403d0c67a_fhprg.bin
+759504 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0000000000000000_bdaf51b59ba21d8a_fhprg.bin
+744768 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/000a50e100720000_1bebe3863a6781db_fhprg_sdm855_edlauth_xiaomi.bin
+744768 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/000a50e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+742848 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_ecdb07230e7294df_fhprg.bin
+742848 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_59cd3adfeeaf8f87_fhprg.bin
+740576 bytes  /home/hawk/duo_edl/edl/Loaders/oneplus/000a50e100514985_2acf3a85fde334e2_fhprg_op7t.bin
+738256 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_3dc5046245345178_fhprg.bin
+738048 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_a0da75f4d371356f_fhprg.bin
+737984 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_91c8c704d7fe059c_fhprg.bin
+737424 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_7e8ac4ee8d27363b_fhprg.bin
+737232 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_371ab117a61d3a6b_fhprg.bin
+737088 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_b6c0a48e991a5d86_fhprg.bin
+737056 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_18f91cb107db16e7_fhprg.bin
+736896 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_bf7bae5174035818_fhprg.bin
+728096 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/0000000000720000_1bebe3863a6781db_fhprg_edlauth_peek.bin
+725088 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/000a50e100200000_3fd28b75e2557c5d_fhprg.bin
+725024 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/000a50e100200000_0b5b6478293ddf9c_fhprg.bin
+724832 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/000a50e100200000_ab28f20cfb2bd9fe_fhprg.bin
+724832 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/000a50e100200000_45d5b07d5a34cd8c_fhprg_2.bin
+724832 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/000a50e100200000_3b0b67354f55dde5_fhprg_2.bin
+724800 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/000a50e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+722796 bytes  /home/hawk/duo_edl/edl/Loaders/oneplus/0000000000510000_22f415bec935e3cb_fhprg_op_n30.bin
+722160 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/000db0e100720000_c924a35f39ce1cdd_fhprg_edlauth.bin
+722160 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/000910e100720000_c924a35f39ce1cdd_fhprg_edlauth.bin
+722128 bytes  /home/hawk/duo_edl/edl/Loaders/asus_wingtech/6004000000010000_c924a35f39ce1cdd_fhprg.bin
+721824 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/000a50e100200000_45d5b07d5a34cd8c_fhprg.bin
+721824 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/000a50e100200000_3b0b67354f55dde5_fhprg.bin
+721592 bytes  /home/hawk/duo_edl/edl/Loaders/meizu/0000000000000000_bdaf51b59ba21d8a_fhprg_peek.bin
+721000 bytes  /home/hawk/duo_edl/edl/Loaders/zte/000a50e100040000_776c7351dc296c9f_fhprg_zte_neva.bin
+720705 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/0008b0e100010000_c924a35f39ce1cdd_fhprg_edlauth.bin
+719652 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/0008b0e100720000_c924a35f39ce1cdd_fhprg_edlauth_poco_f1.bin
+718356 bytes  /home/hawk/duo_edl/edl/Loaders/meizu/000db0e100010000_cd55540dcb175cc8_fhprg.bin
+718352 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/000c30e102e80000_140f82e9f7117235_fhprg.bin
+716392 bytes  /home/hawk/duo_edl/edl/Loaders/asus_wingtech/000a50e100290025_7e5acfff90370967_fhprg_zs660kl.bin
+716216 bytes  /home/hawk/duo_edl/edl/Loaders/zte/000a50e100040000_f6207f99a510c6d2_fhprg.bin
+715264 bytes  /home/hawk/duo_edl/edl/Loaders/oneplus/000c30e100514d6d_7c15a98db4e70963_fhprg_op8_op8tmo_op8t_op8ttmo.bin
+714448 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/000c30e100720000_1bebe3863a6781db_fhprg.bin
+711648 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/000c30e100400000_8eac5d78102fad7d_fhprg.bin
+711396 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/000b80e100200000_bd0eb2e36a4b2881_fhprg_sc8180xp.bin
+710044 bytes  /home/hawk/duo_edl/edl/Loaders/oppo/0000000000510000_22f415bec935e3cb_fhprg_rmx3471_695_SM6375.bin
+709808 bytes  /home/hawk/duo_edl/edl/Loaders/LG/000a50e100310000_e746e34f737403f4_fhprg_lg_g8x.bin
+709644 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0000000002e80000_3fa6dafcf252b033_fhprg.bin
+709136 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/000c30e100000000_503b13f78c1e5374_fhprg.bin
+708256 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0000000002e80000_c494ed638cda0460_fhprg.bin
+706512 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/000a50e100000000_f7251caba930a62b_fhprg.bin
+705452 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0000000001a30000_67c29701b13fa130_fhprg.bin
+702544 bytes  /home/hawk/duo_edl/edl/Loaders/vivo/6004000000010000_2c0a52ffbd8db687_fhprg.bin
+701560 bytes  /home/hawk/duo_edl/edl/Loaders/vivo/0000000000730003_a7df36ffd7ab557c_fhprg_vivo_pd2020.bin
+701440 bytes  /home/hawk/duo_edl/edl/Loaders/oppo/0000000000514d6d_7c15a98db4e70963_fhprg.bin
+700712 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/000000000040000a_8c4fbf35c0157a63_fhprg_thinksmart_view_plus.bin
+700576 bytes  /home/hawk/duo_edl/edl/Loaders/zte/0000000000040000_dff7dda29c8c49b1_fhprg.bin
+700416 bytes  /home/hawk/duo_edl/edl/Loaders/oneplus/0011e0e100515141_e5d0b832cebbf1c6_fhprg_opnord.bin
+699192 bytes  /home/hawk/duo_edl/edl/Loaders/oneplus/broken/0000000000515152_07b00c8737956b3d_fhprg_dre8t.bin
+698328 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_4c0bf2437898c38e_fhprg.bin
+697928 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0016f0e102e80000_a51a1c2e4a5ec0f8_fhprg.bin
+695952 bytes  /home/hawk/duo_edl/edl/Loaders/asus_wingtech/0000000000290026_38c9de55ae9e87f4_fhprg.bin
+695676 bytes  /home/hawk/duo_edl/edl/Loaders/oppo/0000000000510000_401e4aff39a09344_fhprg.bin
+695268 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/000db0e100010000_13d7a19aeb74fb1c_fhprg.bin
+695268 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/000930e100010000_13d7a19aeb74fb1c_fhprg.bin
+694196 bytes  /home/hawk/duo_edl/edl/Loaders/huawei/0000000001a40003_1816101f1302cf63_fhprg.bin
+693304 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/000910e100010000_13d7a19aeb74fb1c_fhprg.bin
+692944 bytes  /home/hawk/duo_edl/edl/Loaders/asus_wingtech/000a50e10029003c_ec70ff124179a138_fhprg_asus_zs630kl.bin
+691820 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/a525f_bitc.elf
+691584 bytes  /home/hawk/duo_edl/edl/Loaders/hisense_agm/0016f0e100430000_4352b3bfeac440ca_fhprg.bin
+691584 bytes  /home/hawk/duo_edl/edl/Loaders/hisense_agm/0016f0e100000000_d9357db88795b5a8_fhprg.bin
+684961 bytes  /home/hawk/duo_edl/edl/Loaders/vivo/6000000000010000_2c0a52ffbd8db687_fhprg_vivo_dual_1813.bin
+684804 bytes  /home/hawk/duo_edl/edl/Loaders/LG/0011e0e100310000_1030cd12ce708f29_fhprg.bin
+684032 bytes  /home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_lite_olympicle_rm520fg.elf
+684032 bytes  /home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_lite_olympicle_rg520n.elf
+684032 bytes  /home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_lite_lemur_olympicle_rm530n_rm521fg.elf
+684032 bytes  /home/hawk/duo_edl/edl/Loaders/quectel/001990e100040000_d9357db88795b5a8_fhprg_sdx62_lemur_rm520n_gl.bin
+683905 bytes  /home/hawk/duo_edl/edl/Loaders/zte/6000000000010000_0b83c6390385506b_fhprg.bin
+683644 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/prog_ufs_firehose_sm6250_ddr.elf
+683532 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0011e0e102e80000_628be3f403d0c67a_fhprg.bin
+682968 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0000000002e80000_223641bb5921654e_fhprg.bin
+682193 bytes  /home/hawk/duo_edl/edl/Loaders/blackshark/0008b0e100010000_acb465293769a1c7_fhprg.bin
+681569 bytes  /home/hawk/duo_edl/edl/Loaders/nokia_foxconn/6000000000010000_441e29fd115cd937_fhprg.bin
+680769 bytes  /home/hawk/duo_edl/edl/Loaders/oneplus/0008b0e10051459b_dd7c5f2e53176bee_fhprg_op6t.bin
+680769 bytes  /home/hawk/duo_edl/edl/Loaders/lyf/0008b0e100010000_dd7c5f2e53176bee_fhprg.bin
+680417 bytes  /home/hawk/duo_edl/edl/Loaders/zte/0008b0e100010000_6c1ed0375298d9a4_fhprg.bin
+680316 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/000e60e102e80000_0910896970477138_fhprg.bin
+679724 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/001b80e100000000_503b13f78c1e5374_fhprg.bin
+679612 bytes  /home/hawk/duo_edl/edl/Loaders/zte/0000000000040000_73fd3619a74ac619_fhprg.bin
+679088 bytes  /home/hawk/duo_edl/edl/Loaders/LG/000c30e100310000_1030cd12ce708f29_fhprg.bin
+678764 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/000e60e100200000_94ec9a24b79bcc83_fhprg.bin
+675840 bytes  /home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_lite_olympicle_rm520ng.elf
+674769 bytes  /home/hawk/duo_edl/edl/Loaders/asus_wingtech/6000000000010000_1e5d0b2a695a7275_fhprg.bin
+672252 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/000e60e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+669552 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/0008c0e100720000_a7b8b82545a98eca_fhprg_edlauth.bin
+669168 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/0008c0e100010000_f8ab20526358c4fa_fhprg_edlauth_peek.bin
+668796 bytes  /home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_life_ddr_patched_Kamorta.elf
+666737 bytes  /home/hawk/duo_edl/edl/Loaders/LG/6000000000010000_1030cd12ce708f29_fhprg.bin
+666737 bytes  /home/hawk/duo_edl/edl/Loaders/LG/0008b0e100310000_1030cd12ce708f29_fhprg.bin
+666241 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/000b70e100200000_620d3430ed21af31_fhprg.bin
+662004 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/000950e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+660865 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0008b0e100010000_a20f3e22ee2a58da_fhprg_peek.bin
+660620 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/0014d0e100720000_1bebe3863a6781db_fhprg.bin
+660620 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/0014d0e100000000_1bebe3863a6781db_fhprg.bin
+660620 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/001360e100720000_1bebe3863a6781db_fhprg_redmi9t.bin
+658820 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_27fe520d8259d21a_fhprg.bin
+658644 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/000950e100200000_27fe520d8259d21a_fhprg.bin
+658644 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_b64fa0e813ee4321_fhprg.bin
+658001 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0008b0e100010000_82ddd92611bdfac8_fhprg.bin
+657532 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0000000000720000_1bebe3863a6781db_fhprg_edlauth.bin
+657520 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/001b80e102e80000_8b2d1c830d9d8576_fhprg_moto_g52.bin
+655857 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/6000000000010000_289c7c57d81c8efa_fhprg_peek.bin
+654124 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/000950e102e80000_0910896970477138_fhprg.bin
+650156 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0000000002e80000_f68487e8e9537646_fhprg.bin
+646144 bytes  /home/hawk/duo_edl/edl/Loaders/oneplus/0000000000515192_37cf317812121fed_fhprg_opn100.bin
+641424 bytes  /home/hawk/duo_edl/edl/Loaders/meitu/0008c0e100010000_c0806e891f7d5537_fhprg.bin
+640980 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/000950e102e80000_f68487e8e9537646_fhprg.bin
+638204 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_57d5a124fe695106_fhprg.bin
+637316 bytes  /home/hawk/duo_edl/edl/Loaders/vivo/000950e100730003_a7df36ffd7ab557c_fhprg.bin
+636796 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/001360e102e80000_5adc6039dcb297d4_fhprg.bin
+636672 bytes  /home/hawk/duo_edl/edl/Loaders/asus_wingtech/3006000000010000_e5e07a6beb0800fa_fhprg_peek.bin
+634672 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/000ba0e100720000_57158eaf1814d78f_fhprg_redmi7.bin
+634672 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0008c0e100010000_a7b8b82545a98eca_fhprg_edlauth.bin
+634384 bytes  /home/hawk/duo_edl/edl/Loaders/asus_wingtech/3006000000010000_cd47cd2fd76e812d_fhprg_peek.bin
+632736 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/0008c0e100010000_a7b8b82545a98eca_fhprg_peek.bin
+631936 bytes  /home/hawk/duo_edl/edl/Loaders/vivo/3006000000010000_f188b3bc5198fb41_fhprg_peek.bin
+631776 bytes  /home/hawk/duo_edl/edl/Loaders/nokia_foxconn/3006000000010000_7fe240ddea200f42_fhprg_peek.bin
+631232 bytes  /home/hawk/duo_edl/edl/Loaders/sonim/0008c0e100010000_1b55c83cc1c00f4f_fhprg_peek.bin
+631232 bytes  /home/hawk/duo_edl/edl/Loaders/meizu/0008c0e100010000_fd27e15ff63fdd68_fhprg.bin
+631120 bytes  /home/hawk/duo_edl/edl/Loaders/sharp/3006000000010000_07046415532823b0_fhprg_peek.bin
+630480 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/0005e0e100010000_a7b8b82545a98eca_fhprg_peek_mi_a2.bin
+629168 bytes  /home/hawk/duo_edl/edl/Loaders/asus_wingtech/3006000000010000_7cd366ef83a08283_fhprg.bin
+629136 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_ddr.elf
+628848 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_lite.elf
+628752 bytes  /home/hawk/duo_edl/edl/Loaders/nokia_foxconn/3006000000010000_b14a27de186e77c9_fhprg.bin
+627520 bytes  /home/hawk/duo_edl/edl/Loaders/meizu/3006000000010000_9e7f8ef2d5f16d8c_fhprg_e3_peek.bin
+627088 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/3006000000010000_0374637d23c4e2ee_fhprg.bin
+613884 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0010a0e102e80000_99cbafe8b2bba0da_fhprg.bin
+609484 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0000000002e80000_abbcc86fe393b13d_fhprg.bin
+607088 bytes  /home/hawk/duo_edl/edl/Loaders/zte/3006000000010000_158d0f5f0552472f_fhprg_peek.bin
+606912 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0008c0e100010000_982b2ece2e68f82c_fhprg_peek.bin
+606464 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0008c0e100010000_f8ab20526358c4fa_fhprg.bin
+606400 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0008c0e100010000_172aff6024730ca1_fhprg.bin
+606384 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0008c0e100010000_982b2ece2e68f82c_fhprg.bin
+605328 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/0005e0e100010000_997d54715aadfd8d_fhprg_peek.bin
+605168 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/3002000000010000_feba74e5d4d6eea5_fhprg_peek.bin
+605152 bytes  /home/hawk/duo_edl/edl/Loaders/samsung/3002000000010000_57ee29c2f04c283b_fhprg_peek.bin
+600192 bytes  /home/hawk/duo_edl/edl/Loaders/oneplus/0005e0e12a7041db_de7a7d5af049e2a6_fhprg_peek_op5.bin
+598764 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0000000002e80000_974359c4290cac7f_fhprg.bin
+598729 bytes  /home/hawk/duo_edl/edl/Loaders/oppo/3006000000010000_82446e2f29ccb297_fhprg_peek.bin
+597616 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/000930e100010000_a7b8b82545a98eca_fhprg_peek.bin
+597616 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/0005e0e100010000_a7b8b82545a98eca_fhprg_peek.bin
+597248 bytes  /home/hawk/duo_edl/edl/Loaders/LG/3002000000010000_2cf7619a278d2607_fhprg_peek.bin
+597168 bytes  /home/hawk/duo_edl/edl/Loaders/hydrogen/0005e0e100010000_d6ab87bc95c89389_fhprg.bin
+596240 bytes  /home/hawk/duo_edl/edl/Loaders/nokia_foxconn/3002000000010000_7fe240ddea200f42_fhprg.bin
+595644 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/0010a0e100720000_1bebe3863a6781db_fhprg.bin
+594444 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0000000000000000_6ea05341813ecdf0_fhprg.bin
+589388 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0010a0e102e80000_974359c4290cac7f_fhprg.bin
+581328 bytes  /home/hawk/duo_edl/edl/Loaders/xiaomi/000930e100720000_a7b8b82545a98eca_fhprg_peek.bin
+578784 bytes  /home/hawk/duo_edl/edl/Loaders/zte/3002000000010000_55dbeb4e90521155_fhprg_peek.bin
+558096 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0005e0e100010000_f8ab20526358c4fa_fhprg_peek.bin
+557328 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0005e0e100010000_f8ab20526358c4fa_fhprg.bin
+557200 bytes  /home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0005e0e100010000_d1e8fa656b6a744e_fhprg.bin
+525214 bytes  /home/hawk/duo_edl/edl/Loaders/ublox/alf_sbl_easyflash_SARA-R520M10-02B.elf
+525214 bytes  /home/hawk/duo_edl/edl/Loaders/ublox/alf_sbl_easyflash_SARA-R520-02B.elf
+512200 bytes  /home/hawk/duo_edl/edl/abl_nested_fv.bin
+512000 bytes  /home/hawk/duo_edl/edl/abl_pe_extracted.bin
+501226 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/ffs_xbl_uefi_fd_partial_gzip_001_offset_41ad8_8_076_a91d838e-a5fa-4138-825d-455e23030794.bin
+501226 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/ffs_xbl_a_gzip_001_offset_bab68_8_076_a91d838e-a5fa-4138-825d-455e23030794.bin
+501202 bytes  /home/hawk/duo_edl/edl/uefi_module_audit_20261031_153151/ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_076_a91d838e-a5fa-4138-825d-455e23030794.bin
+501174 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/sec_xbl_uefi_fd_partial_gzip_001_offset_41ad8_8_076_02_type19.bin
+501174 bytes  /home/hawk/duo_edl/edl/full_forensics_20261031_152924/sec_xbl_a_gzip_001_offset_bab68_8_076_02_type19.bin
+496472 bytes  /home/hawk/duo_edl/edl/Loaders/ublox/alf_sbl_easyflash_SARA-R510S-01B.elf
+496472 bytes  /home/hawk/duo_edl/edl/Loaders/ublox/alf_sbl_easyflash_SARA-R510M8S-01B.elf
+496472 bytes  /home/hawk/duo_edl/edl/Loaders/ublox/alf_sbl_easyflash_SARA-R500S_01.elf
+496472 bytes  /home/hawk/duo_edl/edl/Loaders/ublox/alf_sbl_easyflash_SARA-R500E.elf
+495124 bytes  /home/hawk/duo_edl/edl/Loaders/ublox/alf_sbl_easyflash_SARA-R510S-00B.elf
+495124 bytes  /home/hawk/duo_edl/edl/Loaders/ublox/alf_sbl_easyflash_SARA-R510M8S-00B.elf
+
+========== ARCHIVE FILE ==========
+logs/logcat_system
+binaries/vendor_lib64/
+binaries/vendor_lib64/file_list
+binaries/vendor_lib64/_vendor_lib64_android.hardware.graphics.composer2.1.so
+binaries/vendor_lib64/_vendor_lib64_android.hardware.graphics.composer2.2.so
+binaries/vendor_lib64/_vendor_lib64_android.hardware.graphics.composer2.3.so
+binaries/vendor_lib64/_vendor_lib64_android.hardware.graphics.composer2.4.so
+binaries/vendor_lib64/_vendor_lib64_android.hardware.power1.0.so
+binaries/vendor_lib64/_vendor_lib64_android.hardware.power1.1.so
+binaries/vendor_lib64/_vendor_lib64_android.hardware.power1.2.so
+binaries/vendor_lib64/_vendor_lib64_android.hidl.allocator1.0.so
+binaries/vendor_lib64/_vendor_lib64_egl_eglSubDriverAndroid.so
+binaries/vendor_lib64/_vendor_lib64_egl_libEGL_adreno.so
+binaries/vendor_lib64/_vendor_lib64_egl_libGLESv1_CM_adreno.so
+binaries/vendor_lib64/_vendor_lib64_egl_libGLESv2_adreno.so
+binaries/vendor_lib64/_vendor_lib64_egl_libVkLayer_ADRENO_qprofiler.so
+binaries/vendor_lib64/_vendor_lib64_egl_libq3dtools_adreno.so
+binaries/vendor_lib64/_vendor_lib64_egl_libq3dtools_esx.so
+binaries/vendor_lib64/_vendor_lib64_hw_android.hardware.graphics.mapper4.0-impl-qti-display.so
+binaries/vendor_lib64/_vendor_lib64_hw_gralloc.default.so
+binaries/vendor_lib64/_vendor_lib64_hw_power.default.so
+binaries/vendor_lib64/_vendor_lib64_hw_vendor.qti.hardware.wifidisplaysession1.0-impl.so
+binaries/vendor_lib64/_vendor_lib64_hw_vulkan.adreno.so
+binaries/vendor_lib64/_vendor_lib64_libadreno_app_profiles.so
+binaries/vendor_lib64/_vendor_lib64_libadreno_utils.so
+binaries/vendor_lib64/_vendor_lib64_libdisplayconfig.qti.so
+binaries/vendor_lib64/_vendor_lib64_libdisplaydebug.so
+binaries/vendor_lib64/_vendor_lib64_libdisplayqos.so
+binaries/vendor_lib64/_vendor_lib64_libdisplayskuutils.so
+binaries/vendor_lib64/_vendor_lib64_libgpu_tonemapper.so
+binaries/vendor_lib64/_vendor_lib64_libgpudataproducer.so
+binaries/vendor_lib64/_vendor_lib64_libgralloc.qti.so
+binaries/vendor_lib64/_vendor_lib64_libgralloccore.so
+binaries/vendor_lib64/_vendor_lib64_libgrallocutils.so
+binaries/vendor_lib64/_vendor_lib64_libpdmapper.so
+binaries/vendor_lib64/_vendor_lib64_libperfconfig.so
+binaries/vendor_lib64/_vendor_lib64_libperfgluelayer.so
+binaries/vendor_lib64/_vendor_lib64_libperfioctl.so
+binaries/vendor_lib64/_vendor_lib64_libqdutils.so
+binaries/vendor_lib64/_vendor_lib64_libqservice.so
+binaries/vendor_lib64/_vendor_lib64_libqti-perfd-client.so
+binaries/vendor_lib64/_vendor_lib64_libqti-perfd.so
+binaries/vendor_lib64/_vendor_lib64_libsdm-color.so
+binaries/vendor_lib64/_vendor_lib64_libsdm-colormgr-algo.so
+binaries/vendor_lib64/_vendor_lib64_libsdm-disp-vndapis.so
+binaries/vendor_lib64/_vendor_lib64_libsdmcore.so
+binaries/vendor_lib64/_vendor_lib64_libsdmextension.so
+binaries/vendor_lib64/_vendor_lib64_libsdmutils.so
+binaries/vendor_lib64/_vendor_lib64_libwfddisplayconfig_vendor.so
+binaries/vendor_lib64/_vendor_lib64_vendor.display.color1.0.so
+binaries/vendor_lib64/_vendor_lib64_vendor.display.color1.1.so
+binaries/vendor_lib64/_vendor_lib64_vendor.display.color1.2.so
+binaries/vendor_lib64/_vendor_lib64_vendor.display.color1.3.so
+binaries/vendor_lib64/_vendor_lib64_vendor.display.color1.4.so
+binaries/vendor_lib64/_vendor_lib64_vendor.display.color1.5.so
+binaries/vendor_lib64/_vendor_lib64_vendor.display.config1.0.so
+binaries/vendor_lib64/_vendor_lib64_vendor.display.config1.1.so
+binaries/vendor_lib64/_vendor_lib64_vendor.display.config1.10.so
+binaries/vendor_lib64/_vendor_lib64_vendor.display.config1.11.so
+binaries/vendor_lib64/_vendor_lib64_vendor.display.config1.2.so
+binaries/vendor_lib64/_vendor_lib64_vendor.display.config1.3.so
+binaries/vendor_lib64/_vendor_lib64_vendor.display.config1.4.so
+binaries/vendor_lib64/_vendor_lib64_vendor.display.config1.5.so
+binaries/vendor_lib64/_vendor_lib64_vendor.display.config1.6.so
+binaries/vendor_lib64/_vendor_lib64_vendor.display.config1.7.so
+binaries/vendor_lib64/_vendor_lib64_vendor.display.config1.8.so
+binaries/vendor_lib64/_vendor_lib64_vendor.display.config1.9.so
+binaries/vendor_lib64/_vendor_lib64_vendor.display.config2.0.so
+binaries/vendor_lib64/_vendor_lib64_vendor.display.postproc1.0.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.esepowermanager1.0.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.display.allocator1.0.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.display.allocator3.0.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.display.allocator4.0.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.display.composer1.0.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.display.composer2.0.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.display.composer3.0.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.display.config-V1-ndk.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.display.config-V2-ndk.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.display.config-V3-ndk.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.display.config-V4-ndk.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.display.config-V5-ndk.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.display.config-V6-ndk.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.display.mapper1.0.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.display.mapper1.1.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.display.mapper2.0.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.display.mapper3.0.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.display.mapper4.0.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.display.mapperextensions1.0.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.display.mapperextensions1.1.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.perf2.0.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.perf2.1.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.perf2.2.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.perf2.3.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.qdutils_disp1.0.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.wifidisplaysession1.0.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.wifidisplaysessionl1.0-halimpl.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.hardware.wigig.netperftuner1.0.so
+binaries/vendor_lib64/_vendor_lib64_vendor.qti.power.pasrmanager1.0.so
+
+INVENTORY COMPLETE; NO FILES MODIFIED
