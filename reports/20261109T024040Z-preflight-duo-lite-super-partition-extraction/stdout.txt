@@ -1,0 +1,211 @@
+========== CLIENT HELP ==========
+Usage:
+    edl.py -h | --help
+    edl.py [--vid=vid] [--pid=pid] [--portname=portname] [--serial]
+    edl.py [--loader=filename] [--memory=memtype] [--portname=portname] [--serial]
+    edl.py [--debugmode] [--portname=portname] [--serial]
+    edl.py [--gpt-num-part-entries=number] [--gpt-part-entry-size=number] [--gpt-part-entry-start-lba=number] [--portname=portname] [--serial]
+    edl.py [--memory=memtype] [--skipstorageinit] [--maxpayload=bytes] [--sectorsize==bytes] [--pagesperblock=number] [--portname=portname] [--serial]
+    edl.py server [--tcpport=portnumber] [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py memorydump [--partitions=partnames] [--debugmode] [--vid=vid] [--pid=pid] [--portname=portname] [--serial] [--serial_number=serial_number]
+    edl.py printgpt [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--loader=filename] [--debugmode]  [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial] [--devicemodel=value]
+    edl.py gpt <directory> [--memory=memtype] [--lun=lun] [--genxml] [--loader=filename]  [--skipresponse] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--pagesperblock=number] [--portname=portname] [--serial] [--devicemodel=value]
+    edl.py r <partitionname> <filename> [--memory=memtype] [--sectorsize==bytes] [--pagesperblock=number] [--lun=lun] [--loader=filename]  [--skipresponse] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial] [--devicemodel=value]
+    edl.py rl <directory> [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--skip=partnames] [--genxml]  [--skipresponse] [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial] [--devicemodel=value]
+    edl.py rf <filename> [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--loader=filename] [--debugmode]  [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial] [--devicemodel=value]
+    edl.py rs <start_sector> <sectors> <filename> [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--memory=memtype] [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial] [--devicemodel=value]
+    edl.py w <partitionname> <filename> [--partitionfilename=filename] [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--skipwrite] [--skipresponse] [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py wl <directory> [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--skip=partnames] [--skipresponse] [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py wf <filename> [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--loader=filename] [--skipresponse] [--debugmode] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py ws <start_sector> <filename> [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--skipwrite] [--skipresponse] [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py e <partitionname> [--memory=memtype] [--skipwrite] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py es <start_sector> <sectors> [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--skipwrite] [--loader=filename] [--skipresponse] [--debugmode] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py ep <partitionname> <sectors> [--memory=memtype] [--skipwrite] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py footer <filename> [--memory=memtype] [--lun=lun] [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py peek <offset> <length> <filename> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]
+    edl.py peekhex <offset> <length> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]
+    edl.py peekdword <offset> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py peekqword <offset> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py memtbl <filename> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py poke <offset> <filename> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py pokehex <offset> <data> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py pokedword <offset> <data> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py pokeqword <offset> <data> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py memcpy <offset> <size> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]
+    edl.py secureboot [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py pbl <filename> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py qfp <filename> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
+    edl.py getstorageinfo [--loader=filename] [--memory=memtype] [--pagesperblock=number] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py setbootablestoragedrive <lun> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py getactiveslot [--memory=memtype] [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py setactiveslot <slot> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py send <command> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py xml <xmlfile> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py rawxml <xmlstring> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py reset [--resetmode=mode] [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--portname=portname] [--serial] [--devicemodel=value]
+    edl.py nop [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial] [--devicemodel=value]
+    edl.py modules <command> <options> [--memory=memtype] [--lun=lun] [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--devicemodel=value] [--portname=portname] [--serial]
+    edl.py provision <xmlfile> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py qfil <rawprogram> <patch> <imagedir> [--loader=filename] [--memory=memtype] [--pagesperblock=number] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
+
+Description:
+    server                      # Run tcp/ip server
+    printgpt                    # Print GPT Table information
+    gpt                         # Save gpt table to given directory
+    r                           # Read flash to filename
+    rl                          # Read all partitions from flash to a directory
+    rf                          # Read whole flash to file
+    rs                          # Read sectors starting at start_sector to filename
+    w                           # Write filename to partition to flash
+    wl                          # Write all files from directory to flash
+    wf                          # Write whole filename to flash
+    ws                          # Write filename to flash at start_sector
+    e                           # Erase partition from flash
+    es                          # Erase sectors at start_sector from flash
+    ep                          # Erase sector count from flash partition
+    footer                      # Read crypto footer from flash
+    peek                        # Dump memory at offset with given length to filename
+    peekhex                     # Dump memory at offset and given length
+    peekdword                   # Dump DWORD at memory offset
+    peekqword                   # Dump QWORD at memory offset
+    memtbl                      # Dump memory table to file
+    poke                        # Write filename to memory at offset to memory
+    pokehex                     # Write hex string data at offset to memory
+    pokedword                   # Write DWORD to memory at offset
+    pokeqword                   # Write QWORD to memory at offset
+    memcpy                      # Copy memory from srcoffset with given size to dstoffset
+    secureboot                  # Print secureboot fields from qfprom fuses
+    pbl                         # Dump primary bootloader to filename
+    qfp                         # Dump QFPROM fuses to filename
+    getstorageinfo              # Print storage info in firehose mode
+    setbootablestoragedrive     # Change bootable storage drive to lun number
+    send                        # Send firehose command
+    xml                         # Send firehose xml file
+    rawxml                      # Send firehose xml raw string
+    reset                       # Send firehose reset command, reset modes: reset, off, edl
+    nop                         # Send firehose nop command
+    modules                     # Enable submodules, for example: "oemunlock enable"
+    setactiveslot               # Set partition as active (Slot A/B)
+    provision                   # UFS provision
+    qfil                        # Write rawprogram xml files
+                                # <rawprogram> : program config xml, such as rawprogram_unsparse.xml or rawprogram*.xml
+                                # <patch> : patch config xml, such as patch0.xml or patch*.xml
+                                # <imagedir> : directory name of image files
+
+Options:
+    --loader=filename                  Use specific EDL loader, disable autodetection [default: None]
+    --vid=vid                          Set usb vendor id used for EDL [default: -1]
+    --pid=pid                          Set usb product id used for EDL [default: -1]
+    --lun=lun                          Set lun to read/write from (UFS memory only)
+    --maxpayload=bytes                 Set the maximum payload for EDL [default: 0x100000]
+    --sectorsize=bytes                 Set default sector size
+    --pagesperblock=number             Set NAND pages per block (firehose configure attribute)
+    --memory=memtype                   Set memory type ("NAND", "eMMC", "UFS", "spinor")
+    --partitionfilename=filename       Set partition table as filename for streaming mode
+    --partitions=partnames             Skip reading partition with names != "partname1,partname2,etc."
+    --skipwrite                        Do not allow any writes to flash (simulate only)
+    --skipresponse                     Do not expect a response from phone on read/write (some Qualcomms)
+    --skipstorageinit                  Skip storage initialisation
+    --debugmode                        Enable verbose mode
+    --gpt-num-part-entries=number      Set GPT entry count [default: 0]
+    --gpt-part-entry-size=number       Set GPT entry size [default: 0]
+    --gpt-part-entry-start-lba=number  Set GPT entry start lba sector [default: 0]
+    --tcpport=portnumber               Set port for tcp server [default: 1340]
+    --skip=partnames                   Skip reading partition with names "partname1,partname2,etc."
+    --genxml                           Generate rawprogram[lun].xml
+    --devicemodel=value                Set device model
+    --portname=portname                Set serial port name (/dev/ttyUSB0 for Linux/MAC; \\.\COM1 for Windows)
+    --serial                           Use serial port (port autodetection)
+    --slot                             Set active slot for setactiveslot [a or b]
+    --resetmode=mode                   Resetmode for reset (poweroff, reset, edl, etc.)
+
+========== MEMORY TYPE SUPPORT ==========
+/home/hawk/duo_edl/edl/edlclient/Config/qualcomm_config.py:564:class memory_type:
+/home/hawk/duo_edl/edl/edlclient/Library/Modules/generic.py:117:                        if self.args["--memory"].lower() == "emmc":
+/home/hawk/duo_edl/edl/edlclient/Library/Modules/init.py:160:                            if self.args["--memory"].lower() == "emmc":
+/home/hawk/duo_edl/edl/edlclient/Library/firehose.py:175:        MemoryName = "eMMC"
+/home/hawk/duo_edl/edl/edlclient/Library/firehose.py:883:        if self.cfg.MemoryName.lower() == "ufs":
+/home/hawk/duo_edl/edl/edlclient/Library/firehose.py:892:            if self.cfg.MemoryName.lower() == "emmc":
+/home/hawk/duo_edl/edl/edlclient/Library/firehose.py:912:        "MemoryName=\"eMMC\" MaxPayloadSizeFromTargetInBytes=\"4096\" MaxPayloadSizeToTargetInBytes=\"1048576\" " \
+/home/hawk/duo_edl/edl/edlclient/Library/firehose.py:937:                if "Not support configure MemoryName eMMC" in line:
+/home/hawk/duo_edl/edl/edlclient/Library/firehose.py:939:                    self.cfg.MemoryName = "UFS"
+/home/hawk/duo_edl/edl/edlclient/Library/firehose.py:1000:                    field["MemoryName"] = "eMMC"
+/home/hawk/duo_edl/edl/edlclient/Library/firehose.py:1052:                            "Memory type eMMC doesn't seem to match (Failed to init). Trying to use NAND instead.")
+/home/hawk/duo_edl/edl/edlclient/Library/firehose.py:1057:                            "Memory type eMMC doesn't seem to match (Failed to init). Trying to use UFS instead.")
+/home/hawk/duo_edl/edl/edlclient/Library/firehose.py:1058:                        self.cfg.MemoryName = "UFS"
+/home/hawk/duo_edl/edl/edlclient/Library/firehose.py:1062:                            "Memory type UFS doesn't seem to match (Failed to init). Trying to use eMMC instead.")
+/home/hawk/duo_edl/edl/edlclient/Library/firehose.py:1063:                        self.cfg.MemoryName = "eMMC"
+/home/hawk/duo_edl/edl/edlclient/Library/firehose.py:1266:            self.cfg.MemoryName = "UFS"
+/home/hawk/duo_edl/edl/edlclient/Library/firehose.py:1343:                        self.cfg.MemoryName = "ufs"
+/home/hawk/duo_edl/edl/edlclient/Library/firehose_client.py:20:from edlclient.Config.qualcomm_config import memory_type
+/home/hawk/duo_edl/edl/edlclient/Library/firehose_client.py:88:                        if self.target_name in memory_type.preferred_memory:
+/home/hawk/duo_edl/edl/edlclient/Library/firehose_client.py:89:                            type = memory_type.preferred_memory[self.target_name]
+/home/hawk/duo_edl/edl/edlclient/Library/firehose_client.py:90:                            if type == memory_type.nand:
+/home/hawk/duo_edl/edl/edlclient/Library/firehose_client.py:92:                            if type == memory_type.spinor:
+/home/hawk/duo_edl/edl/edlclient/Library/firehose_client.py:94:                            elif type == memory_type.emmc:
+/home/hawk/duo_edl/edl/edlclient/Library/firehose_client.py:95:                                self.cfg.MemoryName = "eMMC"
+/home/hawk/duo_edl/edl/edlclient/Library/firehose_client.py:96:                            elif type == memory_type.ufs:
+/home/hawk/duo_edl/edl/edlclient/Library/firehose_client.py:97:                                self.cfg.MemoryName = "UFS"
+/home/hawk/duo_edl/edl/edlclient/Library/firehose_client.py:100:                                         "--memory\" with \"UFS\",\"NAND\" or \"spinor\" instead !")
+/home/hawk/duo_edl/edl/edlclient/Library/firehose_client.py:107:                    "No --memory option set, we assume \"UFS\" as default ..., if it fails, try using \"--memory\" " +
+/home/hawk/duo_edl/edl/edlclient/Library/firehose_client.py:109:                self.cfg.MemoryName = "UFS"
+/home/hawk/duo_edl/edl/edlclient/Library/firehose_client.py:112:                    "No --memory option set, we assume \"eMMC\" as default ..., if it fails, try using \"--memory\" " +
+/home/hawk/duo_edl/edl/edlclient/Library/firehose_client.py:114:                self.cfg.MemoryName = "eMMC"
+/home/hawk/duo_edl/edl/edlclient/Library/firehose_client.py:161:        if self.cfg.MemoryName.lower() == "ufs":
+/home/hawk/duo_edl/edl/edlclient/Library/firehose_client.py:271:                            if self.cfg.MemoryName == "emmc":
+/home/hawk/duo_edl/edl/edlclient/Library/firehose_client.py:737:                                if self.cfg.MemoryName == "emmc":
+/home/hawk/duo_edl/edl/edlclient/Tools/Config/qualcomm_config.py:564:class memory_type:
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/Modules/generic.py:117:                        if self.args["--memory"].lower() == "emmc":
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/Modules/init.py:160:                            if self.args["--memory"].lower() == "emmc":
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose.py:175:        MemoryName = "eMMC"
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose.py:883:        if self.cfg.MemoryName.lower() == "ufs":
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose.py:892:            if self.cfg.MemoryName.lower() == "emmc":
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose.py:912:        "MemoryName=\"eMMC\" MaxPayloadSizeFromTargetInBytes=\"4096\" MaxPayloadSizeToTargetInBytes=\"1048576\" " \
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose.py:937:                if "Not support configure MemoryName eMMC" in line:
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose.py:939:                    self.cfg.MemoryName = "UFS"
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose.py:1000:                    field["MemoryName"] = "eMMC"
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose.py:1052:                            "Memory type eMMC doesn't seem to match (Failed to init). Trying to use NAND instead.")
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose.py:1057:                            "Memory type eMMC doesn't seem to match (Failed to init). Trying to use UFS instead.")
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose.py:1058:                        self.cfg.MemoryName = "UFS"
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose.py:1062:                            "Memory type UFS doesn't seem to match (Failed to init). Trying to use eMMC instead.")
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose.py:1063:                        self.cfg.MemoryName = "eMMC"
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose.py:1266:            self.cfg.MemoryName = "UFS"
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose.py:1343:                        self.cfg.MemoryName = "ufs"
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose_client.py:20:from edlclient.Config.qualcomm_config import memory_type
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose_client.py:88:                        if self.target_name in memory_type.preferred_memory:
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose_client.py:89:                            type = memory_type.preferred_memory[self.target_name]
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose_client.py:90:                            if type == memory_type.nand:
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose_client.py:92:                            if type == memory_type.spinor:
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose_client.py:94:                            elif type == memory_type.emmc:
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose_client.py:95:                                self.cfg.MemoryName = "eMMC"
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose_client.py:96:                            elif type == memory_type.ufs:
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose_client.py:97:                                self.cfg.MemoryName = "UFS"
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose_client.py:100:                                         "--memory\" with \"UFS\",\"NAND\" or \"spinor\" instead !")
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose_client.py:107:                    "No --memory option set, we assume \"UFS\" as default ..., if it fails, try using \"--memory\" " +
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose_client.py:109:                self.cfg.MemoryName = "UFS"
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose_client.py:112:                    "No --memory option set, we assume \"eMMC\" as default ..., if it fails, try using \"--memory\" " +
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose_client.py:114:                self.cfg.MemoryName = "eMMC"
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose_client.py:161:        if self.cfg.MemoryName.lower() == "ufs":
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose_client.py:271:                            if self.cfg.MemoryName == "emmc":
+/home/hawk/duo_edl/edl/edlclient/Tools/Library/firehose_client.py:737:                                if self.cfg.MemoryName == "emmc":
+/home/hawk/duo_edl/edl/edlclient/edl.py:111:    --memory=memtype                   Set memory type ("NAND", "eMMC", "UFS", "spinor")
+/home/hawk/duo_edl/edl/edlclient/edl.py:393:                self.args["--memory"] = 'ufs'
+/home/hawk/duo_edl/edl/edl.py:111:    --memory=memtype                   Set memory type ("NAND", "eMMC", "UFS", "spinor")
+/home/hawk/duo_edl/edl/edl.py:393:                self.args["--memory"] = 'ufs'
+
+========== LOADER ==========
+-rw-r--r-- 1 hawk hawk 589K Nov  1 23:05 /home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin
+2a2123157b81d78701a54822305749d751d789e1cd83c15cea5bf891efab30e0  /home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin
+
+========== OUTPUT CAPACITY ==========
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  238G  103G  129G  45% /home
+Output path is clear: /home/hawk/duo_forensics/android_boot_chain_20261102_094334/super.img
+
+========== EXPECTED READ ==========
+LUN: 0
+Start sector: 3824640
+Sector count: 25165824
+Sector size: 512 bytes
+Expected image size: 12884901888 bytes (12 GiB)
+PREFLIGHT ONLY: no USB/device access and no partition read

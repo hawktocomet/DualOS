@@ -1,0 +1,19 @@
+{
+  "id": "20261109T024040Z-preflight-duo-lite-super-partition-extraction",
+  "title": "Preflight Duo Lite super partition extraction",
+  "created_utc": "2026-11-09T02:40:40.357470+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-lc",
+    "\nEDL=\"/home/hawk/duo_edl/edl/.venv/bin/edl\"\nROOT=\"/home/hawk/duo_edl/edl\"\nLOADER=\"/home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin\"\nOUT=\"/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super.img\"\n\necho \"========== CLIENT HELP ==========\"\n\"$EDL\" --help 2>&1 | head -n 180\n\necho\necho \"========== MEMORY TYPE SUPPORT ==========\"\ngrep -RniE -m 30 \"memory.*(emmc|ufs)|emmc.*memory|choices=.*memory|memory_type\" \\\n  \"$ROOT/edlclient\" \"$ROOT/edl.py\" 2>/dev/null\n\necho\necho \"========== LOADER ==========\"\nif [ -f \"$LOADER\" ]; then\n  ls -lh \"$LOADER\"\n  sha256sum \"$LOADER\"\nelse\n  echo \"ERROR: expected loader missing\"\nfi\n\necho\necho \"========== OUTPUT CAPACITY ==========\"\nmkdir -p \"$(dirname \"$OUT\")\"\ndf -h \"$(dirname \"$OUT\")\"\nif [ -e \"$OUT\" ]; then\n  echo \"WARNING: output already exists; it will not be overwritten\"\n  ls -lh \"$OUT\"\nelse\n  echo \"Output path is clear: $OUT\"\nfi\n\necho\necho \"========== EXPECTED READ ==========\"\necho \"LUN: 0\"\necho \"Start sector: 3824640\"\necho \"Sector count: 25165824\"\necho \"Sector size: 512 bytes\"\necho \"Expected image size: 12884901888 bytes (12 GiB)\"\necho \"PREFLIGHT ONLY: no USB/device access and no partition read\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.239,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}
