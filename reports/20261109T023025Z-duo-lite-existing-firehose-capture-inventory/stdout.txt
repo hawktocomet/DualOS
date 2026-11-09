@@ -1,0 +1,1410 @@
+=== CAPTURE ROOT ===
+/home/hawk/duo_edl/edl
+
+=== DIRECTORY STRUCTURE ===
+/home/hawk/duo_edl/edl
+/home/hawk/duo_edl/edl/android_boot_analysis
+/home/hawk/duo_edl/edl/android_boot_analysis/vendor_boot
+/home/hawk/duo_edl/edl/boot_a_unpacked
+/home/hawk/duo_edl/edl/build
+/home/hawk/duo_edl/edl/build/bdist.linux-x86_64
+/home/hawk/duo_edl/edl/build/lib
+/home/hawk/duo_edl/edl/build/lib/edlclient
+/home/hawk/duo_edl/edl/build/lib/Example
+/home/hawk/duo_edl/edl/build/lib/Loaders
+/home/hawk/duo_edl/edl/clock_dispatcher_trace_20261101_090330
+/home/hawk/duo_edl/edl/clock_dispatcher_trace_20261101_090330/project
+/home/hawk/duo_edl/edl/clock_dispatcher_trace_20261101_090330/project/DuoClockDispatcherTrace.rep
+/home/hawk/duo_edl/edl/clock_dispatcher_trace_20261101_090330/scripts
+/home/hawk/duo_edl/edl/clock_method_resolution_20261101_085110
+/home/hawk/duo_edl/edl/clock_method_resolution_20261101_085110/ghidra_scripts
+/home/hawk/duo_edl/edl/clock_method_resolution_20261101_085110/project
+/home/hawk/duo_edl/edl/clock_method_resolution_20261101_085110/project/DuoClockMethods.rep
+/home/hawk/duo_edl/edl/clock_protocol_map_20261101_084342
+/home/hawk/duo_edl/edl/clock_protocol_map_20261101_084342/ghidra_scripts
+/home/hawk/duo_edl/edl/clock_protocol_map_20261101_084342/project
+/home/hawk/duo_edl/edl/clock_protocol_map_20261101_084342/project/DuoClockMap.rep
+/home/hawk/duo_edl/edl/clock_protocol_provider_20261101_090540
+/home/hawk/duo_edl/edl/clock_protocol_provider_20261101_090540/project
+/home/hawk/duo_edl/edl/clock_protocol_provider_20261101_090540/project/DuoClockProtocolGuid.rep
+/home/hawk/duo_edl/edl/clock_protocol_provider_20261101_090540/scripts
+/home/hawk/duo_edl/edl/clock_protocol_provider_20261101_090700
+/home/hawk/duo_edl/edl/clock_protocol_provider_20261101_090700/project
+/home/hawk/duo_edl/edl/clock_protocol_provider_20261101_090700/project/DuoClockProtocolGuid.rep
+/home/hawk/duo_edl/edl/clock_protocol_provider_20261101_090700/scripts
+/home/hawk/duo_edl/edl/clock_provider_deep_20261101_085432
+/home/hawk/duo_edl/edl/clock_provider_deep_20261101_085432/project
+/home/hawk/duo_edl/edl/clock_provider_deep_20261101_085432/project/DuoClockProviderDeep.rep
+/home/hawk/duo_edl/edl/clock_provider_deep_20261101_085432/scripts
+/home/hawk/duo_edl/edl/clock_provider_deep_20261101_085655
+/home/hawk/duo_edl/edl/clock_provider_deep_20261101_085655/project
+/home/hawk/duo_edl/edl/clock_provider_deep_20261101_085655/project/DuoClockProviderDeep.rep
+/home/hawk/duo_edl/edl/clock_provider_deep_20261101_085655/scripts
+/home/hawk/duo_edl/edl/clock_service_lookup_20261101_090103
+/home/hawk/duo_edl/edl/clock_service_lookup_20261101_090103/project
+/home/hawk/duo_edl/edl/clock_service_lookup_20261101_090103/project/DuoClockServiceLookup.rep
+/home/hawk/duo_edl/edl/clock_service_lookup_20261101_090103/scripts
+/home/hawk/duo_edl/edl/clock_table_verified_20261101_084800
+/home/hawk/duo_edl/edl/clock_table_verified_20261101_084800/ghidra_scripts
+/home/hawk/duo_edl/edl/clock_table_verified_20261101_084800/project
+/home/hawk/duo_edl/edl/clock_table_verified_20261101_084800/project/DuoClockTable.rep
+/home/hawk/duo_edl/edl/depex_producer_corrected_20261101_082800
+/home/hawk/duo_edl/edl/depex_producer_corrected_20261101_082800/ghidra_scripts
+/home/hawk/duo_edl/edl/depex_producer_corrected_20261101_082800/project
+/home/hawk/duo_edl/edl/depex_producer_corrected_20261101_082800/project/DuoCorrected.rep
+/home/hawk/duo_edl/edl/depex_producer_ghidra_20261101_081911
+/home/hawk/duo_edl/edl/depex_producer_ghidra_20261101_081911/ghidra_scripts
+/home/hawk/duo_edl/edl/depex_producer_ghidra_20261101_081911/project
+/home/hawk/duo_edl/edl/depex_producer_ghidra_20261101_081911/project/DuoDepex.rep
+/home/hawk/duo_edl/edl/Drivers
+/home/hawk/duo_edl/edl/Drivers/Windows
+/home/hawk/duo_edl/edl/duo_boot_chain_deep_20261031_173640
+/home/hawk/duo_edl/edl/duo_boot_chain_deep_20261031_173640/ghidra_project
+/home/hawk/duo_edl/edl/duo_boot_chain_deep_20261031_173640/ghidra_project/DuoBootDeep.rep
+/home/hawk/duo_edl/edl/duo_boot_chain_deep_20261031_173640/ghidra_scripts
+/home/hawk/duo_edl/edl/duo_boot_chain_deep_20261031_173640/results
+/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337
+/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/pe
+/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project
+/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep
+/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results
+/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/scripts
+/home/hawk/duo_edl/edl/duo_boot_protocol_matrix_20261031_170157
+/home/hawk/duo_edl/edl/duo_boot_protocol_matrix_20261031_170157/pe
+/home/hawk/duo_edl/edl/duo_boot_protocol_matrix_20261031_170157/projects
+/home/hawk/duo_edl/edl/duo_boot_protocol_matrix_20261031_170157/scripts
+/home/hawk/duo_edl/edl/duo_controller_and_dxe_20261031_174331
+/home/hawk/duo_edl/edl/duo_controller_and_dxe_20261031_174331/ghidra_projects
+/home/hawk/duo_edl/edl/duo_controller_and_dxe_20261031_174331/ghidra_scripts
+/home/hawk/duo_edl/edl/duo_controller_and_dxe_20261031_174331/results
+/home/hawk/duo_edl/edl/duo_controller_and_dxe_fixed_20261031_174542
+/home/hawk/duo_edl/edl/duo_controller_and_dxe_fixed_20261031_174542/projects
+/home/hawk/duo_edl/edl/duo_controller_and_dxe_fixed_20261031_174542/projects/DXE_039
+/home/hawk/duo_edl/edl/duo_controller_and_dxe_fixed_20261031_174542/projects/DXE_040
+/home/hawk/duo_edl/edl/duo_controller_and_dxe_fixed_20261031_174542/projects/DXE_041
+/home/hawk/duo_edl/edl/duo_controller_and_dxe_fixed_20261031_174542/projects/DXE_043
+/home/hawk/duo_edl/edl/duo_controller_and_dxe_fixed_20261031_174542/projects/SDCC_CONTROLLER
+/home/hawk/duo_edl/edl/duo_controller_and_dxe_fixed_20261031_174542/results
+/home/hawk/duo_edl/edl/duo_ghidra_reports
+/home/hawk/duo_edl/edl/duo_ghidra_reports/__pycache__
+/home/hawk/duo_edl/edl/duo_image_recovery_20261031_174936
+/home/hawk/duo_edl/edl/duo_protocol_provider_trace_20261031_172145
+/home/hawk/duo_edl/edl/duo_protocol_provider_trace_20261031_172145/results
+/home/hawk/duo_edl/edl/duo_protocol_provider_trace_20261031_172145/scripts
+/home/hawk/duo_edl/edl/duo_sd_boot_10_batches_20261031_220547
+/home/hawk/duo_edl/edl/duo_sd_boot_10_batches_20261031_220547/ghidra_project
+/home/hawk/duo_edl/edl/duo_sd_boot_10_batches_20261031_220547/ghidra_project/SDCC_FULL.rep
+/home/hawk/duo_edl/edl/duo_sd_slot_failure_trace_20261031_173011
+/home/hawk/duo_edl/edl/duo_sd_slot_failure_trace_20261031_173011/results
+/home/hawk/duo_edl/edl/duo_sd_slot_failure_trace_20261031_173011/scripts
+/home/hawk/duo_edl/edl/duo_slot_mapping_20261031_173056
+/home/hawk/duo_edl/edl/duo_slot_mapping_20261031_173056/results
+/home/hawk/duo_edl/edl/duo_slot_mapping_20261031_173056/scripts
+/home/hawk/duo_edl/edl/edlclient
+/home/hawk/duo_edl/edl/edlclient/Config
+/home/hawk/duo_edl/edl/edlclient/Config/__pycache__
+/home/hawk/duo_edl/edl/edlclient.egg-info
+/home/hawk/duo_edl/edl/edlclient/Library
+/home/hawk/duo_edl/edl/edlclient/Library/Connection
+/home/hawk/duo_edl/edl/edlclient/Library/Modules
+/home/hawk/duo_edl/edl/edlclient/Library/__pycache__
+/home/hawk/duo_edl/edl/edlclient/Library/TestFiles
+/home/hawk/duo_edl/edl/edlclient/__pycache__
+/home/hawk/duo_edl/edl/edlclient/Tools
+/home/hawk/duo_edl/edl/edlclient/Windows
+/home/hawk/duo_edl/edl/Example
+/home/hawk/duo_edl/edl/Example/Library
+/home/hawk/duo_edl/edl/full_forensics_20261031_152924
+/home/hawk/duo_edl/edl/ghidra_abl_project
+/home/hawk/duo_edl/edl/ghidra_abl_project/ABL.rep
+/home/hawk/duo_edl/edl/ghidra_abl_project/ABL.rep/idata
+/home/hawk/duo_edl/edl/ghidra_abl_project/ABL.rep/user
+/home/hawk/duo_edl/edl/ghidra_abl_project/ABL.rep/versioned
+/home/hawk/duo_edl/edl/ghidra_abl_reports
+/home/hawk/duo_edl/edl/ghidra_abl_scripts
+/home/hawk/duo_edl/edl/ghidra_project
+/home/hawk/duo_edl/edl/ghidra_project/DuoBoot.rep
+/home/hawk/duo_edl/edl/ghidra_project/DuoBoot.rep/idata
+/home/hawk/duo_edl/edl/ghidra_project/DuoBoot.rep/user
+/home/hawk/duo_edl/edl/ghidra_project/DuoBoot.rep/versioned
+/home/hawk/duo_edl/edl/ghidra_scripts
+/home/hawk/duo_edl/edl/ghidra_scripts/__pycache__
+/home/hawk/duo_edl/edl/.git
+/home/hawk/duo_edl/edl/.git/hooks
+/home/hawk/duo_edl/edl/.github
+/home/hawk/duo_edl/edl/.github/workflows
+/home/hawk/duo_edl/edl/.git/info
+/home/hawk/duo_edl/edl/.git/logs
+/home/hawk/duo_edl/edl/.git/logs/refs
+/home/hawk/duo_edl/edl/.git/modules
+/home/hawk/duo_edl/edl/.git/modules/Loaders
+/home/hawk/duo_edl/edl/.git/objects
+/home/hawk/duo_edl/edl/.git/objects/info
+/home/hawk/duo_edl/edl/.git/objects/pack
+/home/hawk/duo_edl/edl/.git/refs
+/home/hawk/duo_edl/edl/.git/refs/heads
+/home/hawk/duo_edl/edl/.git/refs/remotes
+/home/hawk/duo_edl/edl/.git/refs/tags
+/home/hawk/duo_edl/edl/Loaders
+/home/hawk/duo_edl/edl/Loaders/amazon
+/home/hawk/duo_edl/edl/Loaders/asus_wingtech
+/home/hawk/duo_edl/edl/Loaders/blackberry
+/home/hawk/duo_edl/edl/Loaders/blackphone
+/home/hawk/duo_edl/edl/Loaders/blackshark
+/home/hawk/duo_edl/edl/Loaders/cyanogen
+/home/hawk/duo_edl/edl/Loaders/f10q
+/home/hawk/duo_edl/edl/Loaders/fancymaker
+/home/hawk/duo_edl/edl/Loaders/gionee
+/home/hawk/duo_edl/edl/Loaders/GM
+/home/hawk/duo_edl/edl/Loaders/haier
+/home/hawk/duo_edl/edl/Loaders/hisense_agm
+/home/hawk/duo_edl/edl/Loaders/HuaQin
+/home/hawk/duo_edl/edl/Loaders/huawei
+/home/hawk/duo_edl/edl/Loaders/hydrogen
+/home/hawk/duo_edl/edl/Loaders/lenovo_motorola
+/home/hawk/duo_edl/edl/Loaders/letv
+/home/hawk/duo_edl/edl/Loaders/LG
+/home/hawk/duo_edl/edl/Loaders/light
+/home/hawk/duo_edl/edl/Loaders/longcheer
+/home/hawk/duo_edl/edl/Loaders/lyf
+/home/hawk/duo_edl/edl/Loaders/megafone
+/home/hawk/duo_edl/edl/Loaders/meitu
+/home/hawk/duo_edl/edl/Loaders/meizu
+/home/hawk/duo_edl/edl/Loaders/micromax
+/home/hawk/duo_edl/edl/Loaders/microsoft
+/home/hawk/duo_edl/edl/Loaders/mmx
+/home/hawk/duo_edl/edl/Loaders/nokia_foxconn
+/home/hawk/duo_edl/edl/Loaders/nothing
+/home/hawk/duo_edl/edl/Loaders/oneplus
+/home/hawk/duo_edl/edl/Loaders/oneplus/broken
+/home/hawk/duo_edl/edl/Loaders/ontim
+/home/hawk/duo_edl/edl/Loaders/oppo
+/home/hawk/duo_edl/edl/Loaders/qmc
+/home/hawk/duo_edl/edl/Loaders/qualcomm
+/home/hawk/duo_edl/edl/Loaders/qualcomm/factory
+/home/hawk/duo_edl/edl/Loaders/qualcomm/model_generic
+/home/hawk/duo_edl/edl/Loaders/qualcomm/patched
+/home/hawk/duo_edl/edl/Loaders/quectel
+/home/hawk/duo_edl/edl/Loaders/samsung
+/home/hawk/duo_edl/edl/Loaders/sharp
+/home/hawk/duo_edl/edl/Loaders/smartisan
+/home/hawk/duo_edl/edl/Loaders/sonim
+/home/hawk/duo_edl/edl/Loaders/sony
+/home/hawk/duo_edl/edl/Loaders/TCL
+/home/hawk/duo_edl/edl/Loaders/tplink
+/home/hawk/duo_edl/edl/Loaders/ublox
+/home/hawk/duo_edl/edl/Loaders/unknown
+/home/hawk/duo_edl/edl/Loaders/vivo
+/home/hawk/duo_edl/edl/Loaders/xiaomi
+/home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth
+/home/hawk/duo_edl/edl/Loaders/yulong_coolpad
+/home/hawk/duo_edl/edl/Loaders/zte
+/home/hawk/duo_edl/edl/new_authorized_dumps
+/home/hawk/duo_edl/edl/__pycache__
+/home/hawk/duo_edl/edl/qcombds_callchain_20261031_162847
+/home/hawk/duo_edl/edl/qcombds_callchain_20261031_162847/project
+/home/hawk/duo_edl/edl/qcombds_callchain_20261031_162847/project/QcomBdsCallchain.rep
+/home/hawk/duo_edl/edl/qcombds_callchain_20261031_162847/scripts
+/home/hawk/duo_edl/edl/qcombds_extract_audit_20261031_162558
+/home/hawk/duo_edl/edl/qcombds_ghidra_20261031_162703
+/home/hawk/duo_edl/edl/qcombds_ghidra_20261031_162703/project
+/home/hawk/duo_edl/edl/qcombds_ghidra_20261031_162703/project/QcomBds.rep
+/home/hawk/duo_edl/edl/qcombds_ghidra_20261031_162703/scripts
+/home/hawk/duo_edl/edl/qcombds_protocol_provider_20261031_163041
+/home/hawk/duo_edl/edl/qcombds_protocol_provider_20261031_163041/project
+/home/hawk/duo_edl/edl/qcombds_protocol_provider_20261031_163041/scripts
+/home/hawk/duo_edl/edl/qcombds_protocol_provider_20261031_163122
+/home/hawk/duo_edl/edl/qcombds_protocol_provider_20261031_163122/project
+/home/hawk/duo_edl/edl/qcombds_protocol_provider_20261031_163122/project/QcomProtocolProviderAudit.rep
+/home/hawk/duo_edl/edl/qcombds_protocol_provider_20261031_163122/scripts
+/home/hawk/duo_edl/edl/qcombds_protocol_provider_fixed_20261031_163831
+/home/hawk/duo_edl/edl/qcombds_protocol_provider_fixed_20261031_163831/project
+/home/hawk/duo_edl/edl/qcombds_protocol_provider_fixed_20261031_163831/project/QcomProtocolProviderAudit.rep
+/home/hawk/duo_edl/edl/qcombds_protocol_provider_fixed_20261031_163831/scripts
+/home/hawk/duo_edl/edl/sdcc_blockio_provider_20261031_164029
+/home/hawk/duo_edl/edl/sdcc_bootpath_analysis_20261031_161837
+/home/hawk/duo_edl/edl/sdcc_bootpath_analysis_20261031_161837/ghidra_project
+/home/hawk/duo_edl/edl/sdcc_bootpath_analysis_20261031_161837/ghidra_project/Duo_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_043_907125c0-a5f1-11e3-a3fe-a3198b49350c_sec01_type10.bin.rep
+/home/hawk/duo_edl/edl/sdcc_bootpath_analysis_20261031_161837/ghidra_project/Duo_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_045_4db5dea6-5302-4d1a-8a82-677a683b0d29_sec02_type10.bin.rep
+/home/hawk/duo_edl/edl/sdcc_bootpath_analysis_20261031_161837/ghidra_project/Duo_LinuxLoader.efi.rep
+/home/hawk/duo_edl/edl/sdcc_callback_protocol_trace_20261101_080122
+/home/hawk/duo_edl/edl/sdcc_callback_protocol_trace_20261101_080122/ghidra_scripts
+/home/hawk/duo_edl/edl/sdcc_callback_protocol_trace_20261101_080122/project
+/home/hawk/duo_edl/edl/sdcc_callback_protocol_trace_20261101_080122/project/DuoSDCC.rep
+/home/hawk/duo_edl/edl/sdcc_controller_mapping_20261101_075235
+/home/hawk/duo_edl/edl/sdcc_controller_mapping_20261101_075235/ghidra_scripts
+/home/hawk/duo_edl/edl/sdcc_controller_mapping_20261101_075235/project
+/home/hawk/duo_edl/edl/sdcc_controller_mapping_20261101_075235/project/DuoSDCC.rep
+/home/hawk/duo_edl/edl/sdcc_controller_matrix_20261031_154634
+/home/hawk/duo_edl/edl/sdcc_controller_matrix_20261031_154724
+/home/hawk/duo_edl/edl/sdcc_controller_matrix_20261031_154724/project
+/home/hawk/duo_edl/edl/sdcc_controller_matrix_20261031_154724/project/DuoSdccMatrix.rep
+/home/hawk/duo_edl/edl/sdcc_controller_matrix_20261031_154905
+/home/hawk/duo_edl/edl/sdcc_controller_matrix_20261031_154905/project
+/home/hawk/duo_edl/edl/sdcc_controller_matrix_20261031_154905/project/DuoSdccMatrix.rep
+/home/hawk/duo_edl/edl/sdcc_correct_guid_20261031_155506
+/home/hawk/duo_edl/edl/sdcc_deep_dive_20261031_153425
+/home/hawk/duo_edl/edl/sdcc_deep_dive_20261031_153525
+/home/hawk/duo_edl/edl/sdcc_driver_analysis_20261031_153751
+/home/hawk/duo_edl/edl/sdcc_driver_analysis_20261031_153751/ghidra_project
+/home/hawk/duo_edl/edl/sdcc_driver_analysis_20261031_153751/ghidra_project/DuoSdcc.rep
+/home/hawk/duo_edl/edl/sdcc_enablement_audit_20261031_155047
+/home/hawk/duo_edl/edl/sdcc_enablement_audit_20261031_155047/project
+/home/hawk/duo_edl/edl/sdcc_enablement_audit_20261031_155047/project/DuoSdccEnablement.rep
+/home/hawk/duo_edl/edl/sdcc_firmware_inventory_20261031_155758
+/home/hawk/duo_edl/edl/sdcc_firmware_inventory_20261031_155758/candidates
+/home/hawk/duo_edl/edl/sdcc_firmware_inventory_20261031_155758/extracted
+/home/hawk/duo_edl/edl/sdcc_full_provider_audit_20261031_165815
+/home/hawk/duo_edl/edl/sdcc_full_provider_audit_20261031_165815/project
+/home/hawk/duo_edl/edl/sdcc_full_provider_audit_20261031_165815/project/SdccProviderAudit.rep
+/home/hawk/duo_edl/edl/sdcc_full_provider_audit_20261031_165815/scripts
+/home/hawk/duo_edl/edl/sdcc_guid_entrypoint_trace_20261101_080428
+/home/hawk/duo_edl/edl/sdcc_guid_entrypoint_trace_20261101_080428/ghidra_scripts
+/home/hawk/duo_edl/edl/sdcc_guid_entrypoint_trace_20261101_080428/project
+/home/hawk/duo_edl/edl/sdcc_guid_entrypoint_trace_20261101_080428/project/DuoSDCC.rep
+/home/hawk/duo_edl/edl/sdcc_platform_dependencies_20261031_154436
+/home/hawk/duo_edl/edl/sdcc_platform_dependencies_20261031_154436/project
+/home/hawk/duo_edl/edl/sdcc_platform_dependencies_20261031_154436/project/DuoSdccDependencies.rep
+/home/hawk/duo_edl/edl/sdcc_protocol_calltrace_20261101_083801
+/home/hawk/duo_edl/edl/sdcc_protocol_calltrace_20261101_083801/ghidra_scripts
+/home/hawk/duo_edl/edl/sdcc_protocol_calltrace_20261101_083801/project
+/home/hawk/duo_edl/edl/sdcc_protocol_calltrace_20261101_083801/project/DuoSDCCTrace.rep
+/home/hawk/duo_edl/edl/sdcc_protocol_provider_20261031_155359
+/home/hawk/duo_edl/edl/sdcc_protocol_xref_20261031_164552
+/home/hawk/duo_edl/edl/sdcc_protocol_xref_20261031_164552/project
+/home/hawk/duo_edl/edl/sdcc_protocol_xref_20261031_164552/project/SdccProtocolXref.rep
+/home/hawk/duo_edl/edl/sdcc_protocol_xref_20261031_164552/scripts
+/home/hawk/duo_edl/edl/sdcc_provider_candidates_20261031_155604
+/home/hawk/duo_edl/edl/sdcc_provider_candidates_20261031_155604/project_a
+/home/hawk/duo_edl/edl/sdcc_provider_candidates_20261031_155604/project_a/ProviderA.rep
+/home/hawk/duo_edl/edl/sdcc_provider_candidates_20261031_155604/project_b
+/home/hawk/duo_edl/edl/sdcc_provider_candidates_20261031_155604/project_b/ProviderB.rep
+/home/hawk/duo_edl/edl/sdcc_recovery_fixed_20261031_230551
+/home/hawk/duo_edl/edl/sdcc_recovery_fixed_20261031_230551/ghidra_scripts
+/home/hawk/duo_edl/edl/sdcc_recovery_fixed_20261031_230551/project
+/home/hawk/duo_edl/edl/sdcc_recovery_fixed_20261031_230551/project/DuoSDCC.rep
+/home/hawk/duo_edl/edl/sdcc_secondary_callback_deep_20261101_080639
+/home/hawk/duo_edl/edl/sdcc_secondary_callback_deep_20261101_080639/ghidra_scripts
+/home/hawk/duo_edl/edl/sdcc_secondary_callback_deep_20261101_080639/project
+/home/hawk/duo_edl/edl/sdcc_secondary_callback_deep_20261101_080639/project/DuoSDCC.rep
+/home/hawk/duo_edl/edl/sdcc_slot2_audit_20261031_153327
+/home/hawk/duo_edl/edl/sdcc_startup_card_exposure_20261101_075732
+/home/hawk/duo_edl/edl/sdcc_startup_card_exposure_20261101_075732/ghidra_scripts
+/home/hawk/duo_edl/edl/sdcc_startup_card_exposure_20261101_075732/project
+/home/hawk/duo_edl/edl/sdcc_startup_card_exposure_20261101_075732/project/DuoSDCC.rep
+/home/hawk/duo_edl/edl/sdcc_symbol_trace_20261031_154000
+/home/hawk/duo_edl/edl/sdcc_symbol_trace_20261031_154000/ghidra_project
+/home/hawk/duo_edl/edl/sdcc_symbol_trace_20261031_154000/ghidra_project/DuoSdccTrace.rep
+/home/hawk/duo_edl/edl/targeted_sdcc_20261031_230259
+/home/hawk/duo_edl/edl/targeted_sdcc_20261031_230259/ghidra_scripts
+/home/hawk/duo_edl/edl/targeted_sdcc_20261031_230259/project
+/home/hawk/duo_edl/edl/targeted_sdcc_20261031_230259/project/DuoSDCC.rep
+/home/hawk/duo_edl/edl/uefi_module_audit_20261031_153151
+/home/hawk/duo_edl/edl/.venv
+/home/hawk/duo_edl/edl/.venv/bin
+/home/hawk/duo_edl/edl/.venv/include
+/home/hawk/duo_edl/edl/.venv/lib
+/home/hawk/duo_edl/edl/.venv/lib/python3.14
+/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505
+/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/projects
+/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/projects/Duo_DiskIoDxe_20261031_215505.rep
+/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/projects/Duo_FatDxe_20261031_215505.rep
+/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/projects/Duo_FvSimpleFileSystemDxe_20261031_215505.rep
+/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/projects/Duo_PartitionDxe_20261031_215505.rep
+/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/projects/Duo_SDCC_20261031_215505.rep
+
+=== CAPTURE FILES (largest first, up to 300) ===
+100663296	/home/hawk/duo_edl/edl/new_authorized_dumps/boot_a.bin
+87419396	/home/hawk/duo_edl/edl/.git/modules/Loaders/objects/pack/pack-520dd09ab6e45cd63d0b0d61c956a09cc94f5dae.pack
+66679402	/home/hawk/duo_edl/edl/.git/objects/pack/pack-29c517167953dcede79319dfae561a895038dabc.pack
+55802368	/home/hawk/duo_edl/edl/boot_a_unpacked/kernel
+19480576	/home/hawk/duo_edl/edl/ghidra_project/DuoBoot.rep/idata/00/~00000000.db/db.10.gbf
+16949248	/home/hawk/duo_edl/edl/fastpwn.exe
+14638096	/home/hawk/duo_edl/edl/fastpwn
+14434376	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/cryptography/hazmat/bindings/_rust.abi3.so
+9600600	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/capstone/lib/libcapstone.so
+8601600	/home/hawk/duo_edl/edl/sdcc_bootpath_analysis_20261031_161837/ghidra_project/Duo_LinuxLoader.efi.rep/idata/00/~00000000.db/db.1.gbf
+8601600	/home/hawk/duo_edl/edl/ghidra_abl_project/ABL.rep/idata/00/~00000000.db/db.12.gbf
+7245394	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/keystone/libkeystone.so
+5972552	/home/hawk/duo_edl/edl/full_forensics_20261031_152924/xbl_uefi_fd_partial_gzip_001_offset_41ad8.bin
+5972552	/home/hawk/duo_edl/edl/full_forensics_20261031_152924/xbl_a_gzip_001_offset_bab68.bin
+5972544	/home/hawk/duo_edl/edl/full_forensics_20261031_152924/parsed_fv_xbl_uefi_fd_partial_gzip_001_offset_41ad8_8.bin
+5972544	/home/hawk/duo_edl/edl/full_forensics_20261031_152924/parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin
+5264368	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/lxml/etree.cpython-314-x86_64-linux-gnu.so
+5256264	/home/hawk/duo_edl/edl/Drivers/Windows/zadig-2.8.exe
+4833280	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/00/~0000000f.db/db.2.gbf
+4816896	/home/hawk/duo_edl/edl/depex_producer_ghidra_20261101_081911/project/DuoDepex.rep/idata/00/~00000004.db/db.1.gbf
+4800512	/home/hawk/duo_edl/edl/depex_producer_corrected_20261101_082800/project/DuoCorrected.rep/idata/00/~00000008.db/db.1.gbf
+4767744	/home/hawk/duo_edl/edl/sdcc_protocol_calltrace_20261101_083801/project/DuoSDCCTrace.rep/idata/00/~00000002.db/db.1.gbf
+4259840	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/00/~00000000.db/db.1.gbf
+3784704	/home/hawk/duo_edl/edl/depex_producer_corrected_20261101_082800/project/DuoCorrected.rep/idata/00/~00000003.db/db.1.gbf
+3768320	/home/hawk/duo_edl/edl/depex_producer_ghidra_20261101_081911/project/DuoDepex.rep/idata/00/~00000003.db/db.1.gbf
+3768320	/home/hawk/duo_edl/edl/clock_provider_deep_20261101_085655/project/DuoClockProviderDeep.rep/idata/00/~00000000.db/db.1.gbf
+3768320	/home/hawk/duo_edl/edl/clock_provider_deep_20261101_085432/project/DuoClockProviderDeep.rep/idata/00/~00000000.db/db.1.gbf
+3735552	/home/hawk/duo_edl/edl/clock_method_resolution_20261101_085110/project/DuoClockMethods.rep/idata/00/~00000000.db/db.1.gbf
+3714848	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/nacl/_sodium.abi3.so
+3702784	/home/hawk/duo_edl/edl/sdcc_protocol_calltrace_20261101_083801/project/DuoSDCCTrace.rep/idata/00/~00000000.db/db.1.gbf
+3702784	/home/hawk/duo_edl/edl/sdcc_bootpath_analysis_20261031_161837/ghidra_project/Duo_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_045_4db5dea6-5302-4d1a-8a82-677a683b0d29_sec02_type10.bin.rep/idata/00/~00000000.db/db.1.gbf
+3702784	/home/hawk/duo_edl/edl/depex_producer_ghidra_20261101_081911/project/DuoDepex.rep/idata/00/~00000000.db/db.1.gbf
+3702784	/home/hawk/duo_edl/edl/depex_producer_corrected_20261101_082800/project/DuoCorrected.rep/idata/00/~00000006.db/db.1.gbf
+3702784	/home/hawk/duo_edl/edl/clock_table_verified_20261101_084800/project/DuoClockTable.rep/idata/00/~00000000.db/db.1.gbf
+3702784	/home/hawk/duo_edl/edl/clock_service_lookup_20261101_090103/project/DuoClockServiceLookup.rep/idata/00/~00000000.db/db.1.gbf
+3702784	/home/hawk/duo_edl/edl/clock_protocol_provider_20261101_090700/project/DuoClockProtocolGuid.rep/idata/00/~00000000.db/db.1.gbf
+3702784	/home/hawk/duo_edl/edl/clock_protocol_provider_20261101_090540/project/DuoClockProtocolGuid.rep/idata/00/~00000000.db/db.1.gbf
+3702784	/home/hawk/duo_edl/edl/clock_protocol_map_20261101_084342/project/DuoClockMap.rep/idata/00/~00000000.db/db.1.gbf
+3702784	/home/hawk/duo_edl/edl/clock_dispatcher_trace_20261101_090330/project/DuoClockDispatcherTrace.rep/idata/00/~00000000.db/db.1.gbf
+3670016	/home/hawk/duo_edl/edl/xbl_a.bin
+3178496	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/00/~0000000e.db/db.2.gbf
+3162112	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/01/~00000010.db/db.2.gbf
+3031040	/home/hawk/duo_edl/edl/qcombds_protocol_provider_fixed_20261031_163831/project/QcomProtocolProviderAudit.rep/idata/00/~00000000.db/db.1.gbf
+3031040	/home/hawk/duo_edl/edl/qcombds_protocol_provider_20261031_163122/project/QcomProtocolProviderAudit.rep/idata/00/~00000000.db/db.1.gbf
+3031040	/home/hawk/duo_edl/edl/qcombds_ghidra_20261031_162703/project/QcomBds.rep/idata/00/~00000000.db/db.1.gbf
+3031040	/home/hawk/duo_edl/edl/qcombds_callchain_20261031_162847/project/QcomBdsCallchain.rep/idata/00/~00000000.db/db.1.gbf
+3031040	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/01/~00000012.db/db.3.gbf
+3031040	/home/hawk/duo_edl/edl/duo_boot_chain_deep_20261031_173640/ghidra_project/DuoBootDeep.rep/idata/00/~00000001.db/db.1.gbf
+3006894	/home/hawk/duo_edl/edl/Drivers/Windows/libusb-1.0.26-binaries.7z
+2981888	/home/hawk/duo_edl/edl/sdcc_callback_protocol_trace_20261101_080122/project/DuoSDCC.rep/idata/00/~00000000.db/db.1.gbf
+2981888	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/00/~0000000d.db/db.3.gbf
+2965504	/home/hawk/duo_edl/edl/sdcc_recovery_fixed_20261031_230551/project/DuoSDCC.rep/idata/00/~00000000.db/db.1.gbf
+2949120	/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/projects/Duo_SDCC_20261031_215505.rep/idata/00/~00000000.db/db.1.gbf
+2949120	/home/hawk/duo_edl/edl/targeted_sdcc_20261031_230259/project/DuoSDCC.rep/idata/00/~00000000.db/db.1.gbf
+2949120	/home/hawk/duo_edl/edl/sdcc_symbol_trace_20261031_154000/ghidra_project/DuoSdccTrace.rep/idata/00/~00000000.db/db.1.gbf
+2949120	/home/hawk/duo_edl/edl/sdcc_startup_card_exposure_20261101_075732/project/DuoSDCC.rep/idata/00/~00000000.db/db.1.gbf
+2949120	/home/hawk/duo_edl/edl/sdcc_secondary_callback_deep_20261101_080639/project/DuoSDCC.rep/idata/00/~00000000.db/db.1.gbf
+2949120	/home/hawk/duo_edl/edl/sdcc_protocol_calltrace_20261101_083801/project/DuoSDCCTrace.rep/idata/00/~00000001.db/db.1.gbf
+2949120	/home/hawk/duo_edl/edl/sdcc_platform_dependencies_20261031_154436/project/DuoSdccDependencies.rep/idata/00/~00000000.db/db.1.gbf
+2949120	/home/hawk/duo_edl/edl/sdcc_guid_entrypoint_trace_20261101_080428/project/DuoSDCC.rep/idata/00/~00000000.db/db.1.gbf
+2949120	/home/hawk/duo_edl/edl/sdcc_full_provider_audit_20261031_165815/project/SdccProviderAudit.rep/idata/00/~00000000.db/db.1.gbf
+2949120	/home/hawk/duo_edl/edl/sdcc_enablement_audit_20261031_155047/project/DuoSdccEnablement.rep/idata/00/~00000000.db/db.1.gbf
+2949120	/home/hawk/duo_edl/edl/sdcc_driver_analysis_20261031_153751/ghidra_project/DuoSdcc.rep/idata/00/~00000000.db/db.1.gbf
+2949120	/home/hawk/duo_edl/edl/sdcc_controller_matrix_20261031_154905/project/DuoSdccMatrix.rep/idata/00/~00000000.db/db.1.gbf
+2949120	/home/hawk/duo_edl/edl/sdcc_controller_matrix_20261031_154724/project/DuoSdccMatrix.rep/idata/00/~00000000.db/db.1.gbf
+2949120	/home/hawk/duo_edl/edl/sdcc_controller_mapping_20261101_075235/project/DuoSDCC.rep/idata/00/~00000000.db/db.1.gbf
+2949120	/home/hawk/duo_edl/edl/duo_sd_boot_10_batches_20261031_220547/ghidra_project/SDCC_FULL.rep/idata/00/~00000000.db/db.1.gbf
+2949120	/home/hawk/duo_edl/edl/duo_boot_chain_deep_20261031_173640/ghidra_project/DuoBootDeep.rep/idata/00/~00000000.db/db.1.gbf
+2949120	/home/hawk/duo_edl/edl/depex_producer_corrected_20261101_082800/project/DuoCorrected.rep/idata/00/~00000007.db/db.1.gbf
+2949120	/home/hawk/duo_edl/edl/clock_table_verified_20261101_084800/project/DuoClockTable.rep/idata/00/~00000001.db/db.1.gbf
+2949120	/home/hawk/duo_edl/edl/clock_protocol_map_20261101_084342/project/DuoClockMap.rep/idata/00/~00000001.db/db.1.gbf
+2949120	/home/hawk/duo_edl/edl/clock_method_resolution_20261101_085110/project/DuoClockMethods.rep/idata/00/~00000001.db/db.1.gbf
+2916920	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/lxml/objectify.cpython-314-x86_64-linux-gnu.so
+2916352	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/01/~00000013.db/db.2.gbf
+2916352	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/01/~00000011.db/db.1.gbf
+2670592	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/00/~00000007.db/db.1.gbf
+2506752	/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/projects/Duo_FatDxe_20261031_215505.rep/idata/00/~00000000.db/db.1.gbf
+2506752	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/00/~0000000a.db/db.1.gbf
+2457600	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/00/~0000000c.db/db.1.gbf
+2457600	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/00/~00000005.db/db.1.gbf
+2441216	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/00/~00000006.db/db.1.gbf
+2441216	/home/hawk/duo_edl/edl/depex_producer_corrected_20261101_082800/project/DuoCorrected.rep/idata/00/~00000004.db/db.1.gbf
+2392064	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/00/~00000003.db/db.1.gbf
+2392064	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/00/~00000002.db/db.1.gbf
+2260992	/home/hawk/duo_edl/edl/depex_producer_corrected_20261101_082800/project/DuoCorrected.rep/idata/00/~00000000.db/db.1.gbf
+2195456	/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/projects/Duo_FvSimpleFileSystemDxe_20261031_215505.rep/idata/00/~00000000.db/db.1.gbf
+2195456	/home/hawk/duo_edl/edl/sdcc_bootpath_analysis_20261031_161837/ghidra_project/Duo_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_043_907125c0-a5f1-11e3-a3fe-a3198b49350c_sec01_type10.bin.rep/idata/00/~00000000.db/db.1.gbf
+2195456	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/00/~0000000b.db/db.1.gbf
+2097152	/home/hawk/duo_edl/edl/xbl_uefi_fd_partial.bin
+2097152	/home/hawk/duo_edl/edl/full_forensics_20261031_152924/xbl_uefi_fv_filebacked.bin
+2097152	/home/hawk/duo_edl/edl/full_forensics_20261031_152924/xbl_load_segment_16_file_79090_addr_5fc00000.bin
+2097152	/home/hawk/duo_edl/edl/full_forensics_20261031_152924/parsed_fv_xbl_uefi_fv_filebacked_0.bin
+2097152	/home/hawk/duo_edl/edl/full_forensics_20261031_152924/parsed_fv_xbl_load_segment_16_file_79090_addr_5fc00000_0.bin
+2097152	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/00/~00000004.db/db.1.gbf
+2080768	/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/projects/Duo_PartitionDxe_20261031_215505.rep/idata/00/~00000000.db/db.1.gbf
+2080768	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/00/~00000009.db/db.1.gbf
+2031616	/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/projects/Duo_DiskIoDxe_20261031_215505.rep/idata/00/~00000000.db/db.1.gbf
+2031616	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/00/~00000008.db/db.1.gbf
+2015232	/home/hawk/duo_edl/edl/depex_producer_ghidra_20261101_081911/project/DuoDepex.rep/idata/00/~00000002.db/db.1.gbf
+2015232	/home/hawk/duo_edl/edl/depex_producer_corrected_20261101_082800/project/DuoCorrected.rep/idata/00/~00000002.db/db.1.gbf
+2015016	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_sdx7x_pinnaclesle_rm551eg_rm550v.elf
+2015016	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx7x_pinnaclesle_rm551eg_rm550v.elf
+2015016	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_sdx7x_pinnaclesle_rm551eg_rm550v.elf
+1998848	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project/DuoBootProtocolMatrix.rep/idata/00/~00000001.db/db.1.gbf
+1986389	/home/hawk/duo_edl/edl/duo_ghidra_reports/relevant_decompilation.c
+1949696	/home/hawk/duo_edl/edl/depex_producer_ghidra_20261101_081911/project/DuoDepex.rep/idata/00/~00000001.db/db.1.gbf
+1949696	/home/hawk/duo_edl/edl/depex_producer_corrected_20261101_082800/project/DuoCorrected.rep/idata/00/~00000001.db/db.1.gbf
+1867776	/home/hawk/duo_edl/edl/depex_producer_corrected_20261101_082800/project/DuoCorrected.rep/idata/00/~00000005.db/db.1.gbf
+1729799	/home/hawk/duo_edl/edl/full_forensics_20261031_152924/ffs_xbl_uefi_fv_filebacked_0_004_9e21fd93-9c72-4c15-8c4b-e77f1db2d792.bin
+1729799	/home/hawk/duo_edl/edl/full_forensics_20261031_152924/ffs_xbl_load_segment_16_file_79090_addr_5fc00000_0_004_9e21fd93-9c72-4c15-8c4b-e77f1db2d792.bin
+1729775	/home/hawk/duo_edl/edl/uefi_module_audit_20261031_153151/ffs_parsed_fv_xbl_load_segment_16_file_79090_addr_5fc00000_0.bin_004_9e21fd93-9c72-4c15-8c4b-e77f1db2d792.bin
+1729771	/home/hawk/duo_edl/edl/uefi_module_audit_20261031_153151/ffs_parsed_fv_xbl_load_segment_16_file_79090_addr_5fc00000_0.bin_004_9e21fd93-9c72-4c15-8c4b-e77f1db2d792_sec01_type02.bin
+1729771	/home/hawk/duo_edl/edl/full_forensics_20261031_152924/sec_xbl_uefi_fv_filebacked_0_004_01_type02.bin
+1729771	/home/hawk/duo_edl/edl/full_forensics_20261031_152924/sec_xbl_load_segment_16_file_79090_addr_5fc00000_0_004_01_type02.bin
+1715044	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000020000_467f3020c4cc788d_fhprg.bin
+1715044	/home/hawk/duo_edl/edl/Loaders/samsung/0000000000020000_467f3020c4cc788d_fhprg.bin
+1715044	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000020000_467f3020c4cc788d_fhprg.bin
+1697740	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/0000000000030000_467f3020c4cc788d_fhprg_8E_noauth.bin
+1697740	/home/hawk/duo_edl/edl/Loaders/xiaomi/0000000000030000_467f3020c4cc788d_fhprg_8E_noauth.bin
+1697740	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/0000000000030000_467f3020c4cc788d_fhprg_8E_noauth.bin
+1682276	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/lenovo_motorola/0000000002e80000_467f3020c4cc788d_fhprg.bin
+1682276	/home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0000000002e80000_467f3020c4cc788d_fhprg.bin
+1682276	/home/hawk/duo_edl/edl/build/lib/Loaders/lenovo_motorola/0000000002e80000_467f3020c4cc788d_fhprg.bin
+1639936	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/model_generic/apq8016/0000000000000000_d58522cd602a501c_fhprg.bin
+1639936	/home/hawk/duo_edl/edl/Loaders/qualcomm/model_generic/apq8016/0000000000000000_d58522cd602a501c_fhprg.bin
+1639936	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/model_generic/apq8016/0000000000000000_d58522cd602a501c_fhprg.bin
+1579840	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/nothing/000b80e100020000_467f3020c4cc788d_fhprg.bin
+1579840	/home/hawk/duo_edl/edl/Loaders/nothing/000b80e100020000_467f3020c4cc788d_fhprg.bin
+1579840	/home/hawk/duo_edl/edl/build/lib/Loaders/nothing/000b80e100020000_467f3020c4cc788d_fhprg.bin
+1558180	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000030000_467f3020c4cc788d_fhprg.bin
+1558180	/home/hawk/duo_edl/edl/Loaders/samsung/0000000000030000_467f3020c4cc788d_fhprg.bin
+1558180	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000030000_467f3020c4cc788d_fhprg.bin
+1553396	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/zte/0000000000030000_467f3020c4cc788d_fhprg.bin
+1553396	/home/hawk/duo_edl/edl/Loaders/zte/0000000000030000_467f3020c4cc788d_fhprg.bin
+1553396	/home/hawk/duo_edl/edl/build/lib/Loaders/zte/0000000000030000_467f3020c4cc788d_fhprg.bin
+1546780	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/oneplus/0000000000020000_467f3020c4cc788d_fhprg_op10pro.bin
+1546780	/home/hawk/duo_edl/edl/Loaders/oneplus/0000000000020000_467f3020c4cc788d_fhprg_op10pro.bin
+1546780	/home/hawk/duo_edl/edl/build/lib/Loaders/oneplus/0000000000020000_467f3020c4cc788d_fhprg_op10pro.bin
+1542620	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/lenovo_motorola/001870e102e80000_467f3020c4cc788d_fhprg.bin
+1542620	/home/hawk/duo_edl/edl/Loaders/lenovo_motorola/001870e102e80000_467f3020c4cc788d_fhprg.bin
+1542620	/home/hawk/duo_edl/edl/build/lib/Loaders/lenovo_motorola/001870e102e80000_467f3020c4cc788d_fhprg.bin
+1386920	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_sdx35_rg255c.elf
+1386920	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx35_rg255c.elf
+1386920	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_sdx35_rg255c.elf
+1341168	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Crypto/PublicKey/_ec_nat.abi3.so
+1232496	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Crypto/PublicKey/_ec_nat_bmi2_adx.abi3.so
+1048576	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/LG/009400e100310000_b5baca995aec012d_fhprg.bin
+1048576	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/LG/000c30e100310000_e746e34f737403f4_fhprg.bin
+1048576	/home/hawk/duo_edl/edl/Loaders/LG/009400e100310000_b5baca995aec012d_fhprg.bin
+1048576	/home/hawk/duo_edl/edl/Loaders/LG/000c30e100310000_e746e34f737403f4_fhprg.bin
+1048576	/home/hawk/duo_edl/edl/build/lib/Loaders/LG/009400e100310000_b5baca995aec012d_fhprg.bin
+1048576	/home/hawk/duo_edl/edl/build/lib/Loaders/LG/000c30e100310000_e746e34f737403f4_fhprg.bin
+1048576	/home/hawk/duo_edl/edl/abl_a.bin
+1011056	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/001920E100200000_4A14C27B518909E1_fhprg.elf
+1011056	/home/hawk/duo_edl/edl/Loaders/samsung/001920E100200000_4A14C27B518909E1_fhprg.elf
+1011056	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/001920E100200000_4A14C27B518909E1_fhprg.elf
+984720	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_fbbe8b4ecf70b56c_fhprg.bin
+984720	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_c233729767656b6e_fhprg.bin
+984720	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_614c3cb6fe8bfee0_fhprg.bin
+984720	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_585960a380533c2c_fhprg.bin
+984720	/home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_fbbe8b4ecf70b56c_fhprg.bin
+984720	/home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_c233729767656b6e_fhprg.bin
+984720	/home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_614c3cb6fe8bfee0_fhprg.bin
+984720	/home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_585960a380533c2c_fhprg.bin
+984720	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_fbbe8b4ecf70b56c_fhprg.bin
+984720	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_c233729767656b6e_fhprg.bin
+984720	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_614c3cb6fe8bfee0_fhprg.bin
+984720	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_585960a380533c2c_fhprg.bin
+980616	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_d6bd96b0682ee88a_fhprg.bin
+980616	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_adc06624e8eb216d_fhprg.bin
+980616	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_57221a57066a14e0_fhprg.bin
+980616	/home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_d6bd96b0682ee88a_fhprg.bin
+980616	/home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_adc06624e8eb216d_fhprg.bin
+980616	/home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_57221a57066a14e0_fhprg.bin
+980616	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_d6bd96b0682ee88a_fhprg.bin
+980616	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_adc06624e8eb216d_fhprg.bin
+980616	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_57221a57066a14e0_fhprg.bin
+976504	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/oneplus/001350e100514d67_a26bc25799770106_fhprg_op9.bin
+976504	/home/hawk/duo_edl/edl/Loaders/oneplus/001350e100514d67_a26bc25799770106_fhprg_op9.bin
+976504	/home/hawk/duo_edl/edl/build/lib/Loaders/oneplus/001350e100514d67_a26bc25799770106_fhprg_op9.bin
+974256	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/oppo/0000000000510000_adec891ca335ff17_fhprg.bin
+974256	/home/hawk/duo_edl/edl/Loaders/oppo/0000000000510000_adec891ca335ff17_fhprg.bin
+974256	/home/hawk/duo_edl/edl/build/lib/Loaders/oppo/0000000000510000_adec891ca335ff17_fhprg.bin
+969280	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/EDLAuth/001590e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+969280	/home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/001590e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+969280	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/EDLAuth/001590e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+968088	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Cryptodome/PublicKey/_ec_ws.abi3.so
+964232	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/zte/0000000000040000_37c0cdff175f238e_fhprg.bin
+964232	/home/hawk/duo_edl/edl/Loaders/zte/0000000000040000_37c0cdff175f238e_fhprg.bin
+964232	/home/hawk/duo_edl/edl/build/lib/Loaders/zte/0000000000040000_37c0cdff175f238e_fhprg.bin
+958304	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/lenovo_motorola/001920e102e80000_ab8c46a42f23e5c0_fhprg.bin
+958304	/home/hawk/duo_edl/edl/Loaders/lenovo_motorola/001920e102e80000_ab8c46a42f23e5c0_fhprg.bin
+958304	/home/hawk/duo_edl/edl/build/lib/Loaders/lenovo_motorola/001920e102e80000_ab8c46a42f23e5c0_fhprg.bin
+956040	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/zte/0000000000040000_0c7b0b08967bf024_fhprg.bin
+956040	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/factory/sm8350/firehoseRM6R.elf
+956040	/home/hawk/duo_edl/edl/Loaders/zte/0000000000040000_0c7b0b08967bf024_fhprg.bin
+956040	/home/hawk/duo_edl/edl/Loaders/qualcomm/factory/sm8350/firehoseRM6R.elf
+956040	/home/hawk/duo_edl/edl/build/lib/Loaders/zte/0000000000040000_0c7b0b08967bf024_fhprg.bin
+956040	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/factory/sm8350/firehoseRM6R.elf
+950480	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/nothing/001920e101cf0000_fa2836525c2aad8a_fhprg.bin
+950480	/home/hawk/duo_edl/edl/Loaders/nothing/001920e101cf0000_fa2836525c2aad8a_fhprg.bin
+950480	/home/hawk/duo_edl/edl/build/lib/Loaders/nothing/001920e101cf0000_fa2836525c2aad8a_fhprg.bin
+947952	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/oppo/prog_firehose_ddr.elf
+947952	/home/hawk/duo_edl/edl/Loaders/oppo/prog_firehose_ddr.elf
+947952	/home/hawk/duo_edl/edl/build/lib/Loaders/oppo/prog_firehose_ddr.elf
+930037	/home/hawk/duo_edl/edl/sdcc_driver_analysis_20261031_153751/driver_disassembly.txt
+923360	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/lenovo_motorola/001350e102e80000_61a5edda27fb2850_fhprg.bin
+923360	/home/hawk/duo_edl/edl/Loaders/lenovo_motorola/001350e102e80000_61a5edda27fb2850_fhprg.bin
+923360	/home/hawk/duo_edl/edl/build/lib/Loaders/lenovo_motorola/001350e102e80000_61a5edda27fb2850_fhprg.bin
+906696	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pylzma.cpython-314-x86_64-linux-gnu.so
+865848	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/_jpype.cpython-314-x86_64-linux-gnu.so
+780752	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_320ecd66fba7f9b1_fhprg.bin
+780752	/home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_320ecd66fba7f9b1_fhprg.bin
+780752	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_320ecd66fba7f9b1_fhprg.bin
+773720	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/lenovo_motorola/0000000000400000_356d5d5e9b67b6f8_fhprg.bin
+773720	/home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0000000000400000_356d5d5e9b67b6f8_fhprg.bin
+773720	/home/hawk/duo_edl/edl/build/lib/Loaders/lenovo_motorola/0000000000400000_356d5d5e9b67b6f8_fhprg.bin
+768016	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/oneplus/broken/0000000000515198_2354228eebcbc203_fhprg_op_nordce.bin
+768016	/home/hawk/duo_edl/edl/Loaders/oneplus/broken/0000000000515198_2354228eebcbc203_fhprg_op_nordce.bin
+768016	/home/hawk/duo_edl/edl/build/lib/Loaders/oneplus/broken/0000000000515198_2354228eebcbc203_fhprg_op_nordce.bin
+765552	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/oneplus/0000000000515198_2354228eebcbc203_fhprg_op_n10tmo.bin
+765552	/home/hawk/duo_edl/edl/Loaders/oneplus/0000000000515198_2354228eebcbc203_fhprg_op_n10tmo.bin
+765552	/home/hawk/duo_edl/edl/build/lib/Loaders/oneplus/0000000000515198_2354228eebcbc203_fhprg_op_n10tmo.bin
+765440	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/oneplus/0013f0e100515198_2354228eebcbc203_fhprg_op_n10.bin
+765440	/home/hawk/duo_edl/edl/Loaders/oneplus/0013f0e100515198_2354228eebcbc203_fhprg_op_n10.bin
+765440	/home/hawk/duo_edl/edl/build/lib/Loaders/oneplus/0013f0e100515198_2354228eebcbc203_fhprg_op_n10.bin
+760645	/home/hawk/duo_edl/edl/sdcc_deep_dive_20261031_153525/sdcc_disassembly.txt
+760645	/home/hawk/duo_edl/edl/sdcc_deep_dive_20261031_153425/sdcc_disassembly.txt
+759536	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/lenovo_motorola/0013f0e102e80000_628be3f403d0c67a_fhprg.bin
+759536	/home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0013f0e102e80000_628be3f403d0c67a_fhprg.bin
+759536	/home/hawk/duo_edl/edl/build/lib/Loaders/lenovo_motorola/0013f0e102e80000_628be3f403d0c67a_fhprg.bin
+759504	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/lenovo_motorola/0000000000000000_bdaf51b59ba21d8a_fhprg.bin
+759504	/home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0000000000000000_bdaf51b59ba21d8a_fhprg.bin
+759504	/home/hawk/duo_edl/edl/build/lib/Loaders/lenovo_motorola/0000000000000000_bdaf51b59ba21d8a_fhprg.bin
+747064	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Crypto/PublicKey/_mlkem.abi3.so
+744768	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/EDLAuth/000a50e100720000_1bebe3863a6781db_fhprg_sdm855_edlauth_xiaomi.bin
+744768	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/lenovo_motorola/000a50e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+744768	/home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/000a50e100720000_1bebe3863a6781db_fhprg_sdm855_edlauth_xiaomi.bin
+744768	/home/hawk/duo_edl/edl/Loaders/lenovo_motorola/000a50e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+744768	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/EDLAuth/000a50e100720000_1bebe3863a6781db_fhprg_sdm855_edlauth_xiaomi.bin
+744768	/home/hawk/duo_edl/edl/build/lib/Loaders/lenovo_motorola/000a50e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+742848	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_ecdb07230e7294df_fhprg.bin
+742848	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_59cd3adfeeaf8f87_fhprg.bin
+742848	/home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_ecdb07230e7294df_fhprg.bin
+742848	/home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_59cd3adfeeaf8f87_fhprg.bin
+742848	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_ecdb07230e7294df_fhprg.bin
+742848	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_59cd3adfeeaf8f87_fhprg.bin
+740576	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/oneplus/000a50e100514985_2acf3a85fde334e2_fhprg_op7t.bin
+740576	/home/hawk/duo_edl/edl/Loaders/oneplus/000a50e100514985_2acf3a85fde334e2_fhprg_op7t.bin
+740576	/home/hawk/duo_edl/edl/build/lib/Loaders/oneplus/000a50e100514985_2acf3a85fde334e2_fhprg_op7t.bin
+738256	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_3dc5046245345178_fhprg.bin
+738256	/home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_3dc5046245345178_fhprg.bin
+738256	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_3dc5046245345178_fhprg.bin
+738048	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_a0da75f4d371356f_fhprg.bin
+738048	/home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_a0da75f4d371356f_fhprg.bin
+738048	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_a0da75f4d371356f_fhprg.bin
+737984	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_91c8c704d7fe059c_fhprg.bin
+737984	/home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_91c8c704d7fe059c_fhprg.bin
+737984	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_91c8c704d7fe059c_fhprg.bin
+737424	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_7e8ac4ee8d27363b_fhprg.bin
+737424	/home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_7e8ac4ee8d27363b_fhprg.bin
+737424	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_7e8ac4ee8d27363b_fhprg.bin
+737232	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_371ab117a61d3a6b_fhprg.bin
+737232	/home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_371ab117a61d3a6b_fhprg.bin
+737232	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_371ab117a61d3a6b_fhprg.bin
+737088	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_b6c0a48e991a5d86_fhprg.bin
+737088	/home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_b6c0a48e991a5d86_fhprg.bin
+737088	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_b6c0a48e991a5d86_fhprg.bin
+737056	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_18f91cb107db16e7_fhprg.bin
+737056	/home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_18f91cb107db16e7_fhprg.bin
+737056	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_18f91cb107db16e7_fhprg.bin
+736896	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/0000000000200000_bf7bae5174035818_fhprg.bin
+736896	/home/hawk/duo_edl/edl/Loaders/samsung/0000000000200000_bf7bae5174035818_fhprg.bin
+736896	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/0000000000200000_bf7bae5174035818_fhprg.bin
+734508	/home/hawk/duo_edl/edl/xbl_analysis.txt
+729496	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Crypto/PublicKey/_mldsa.abi3.so
+728096	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/EDLAuth/0000000000720000_1bebe3863a6781db_fhprg_edlauth_peek.bin
+728096	/home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/0000000000720000_1bebe3863a6781db_fhprg_edlauth_peek.bin
+728096	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/EDLAuth/0000000000720000_1bebe3863a6781db_fhprg_edlauth_peek.bin
+725088	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/000a50e100200000_3fd28b75e2557c5d_fhprg.bin
+725088	/home/hawk/duo_edl/edl/Loaders/samsung/000a50e100200000_3fd28b75e2557c5d_fhprg.bin
+725088	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/000a50e100200000_3fd28b75e2557c5d_fhprg.bin
+725024	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/000a50e100200000_0b5b6478293ddf9c_fhprg.bin
+725024	/home/hawk/duo_edl/edl/Loaders/samsung/000a50e100200000_0b5b6478293ddf9c_fhprg.bin
+725024	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/000a50e100200000_0b5b6478293ddf9c_fhprg.bin
+724832	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/000a50e100200000_ab28f20cfb2bd9fe_fhprg.bin
+724832	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/000a50e100200000_45d5b07d5a34cd8c_fhprg_2.bin
+724832	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/000a50e100200000_3b0b67354f55dde5_fhprg_2.bin
+724832	/home/hawk/duo_edl/edl/Loaders/samsung/000a50e100200000_ab28f20cfb2bd9fe_fhprg.bin
+724832	/home/hawk/duo_edl/edl/Loaders/samsung/000a50e100200000_45d5b07d5a34cd8c_fhprg_2.bin
+724832	/home/hawk/duo_edl/edl/Loaders/samsung/000a50e100200000_3b0b67354f55dde5_fhprg_2.bin
+724832	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/000a50e100200000_ab28f20cfb2bd9fe_fhprg.bin
+724832	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/000a50e100200000_45d5b07d5a34cd8c_fhprg_2.bin
+724832	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/000a50e100200000_3b0b67354f55dde5_fhprg_2.bin
+724800	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/EDLAuth/000a50e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+724800	/home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/000a50e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+724800	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/EDLAuth/000a50e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+722796	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/oneplus/0000000000510000_22f415bec935e3cb_fhprg_op_n30.bin
+722796	/home/hawk/duo_edl/edl/Loaders/oneplus/0000000000510000_22f415bec935e3cb_fhprg_op_n30.bin
+722796	/home/hawk/duo_edl/edl/build/lib/Loaders/oneplus/0000000000510000_22f415bec935e3cb_fhprg_op_n30.bin
+
+=== PARTITION / FIREHOSE / GPT METADATA CANDIDATES ===
+11671	/home/hawk/duo_edl/edl/abl_strings.txt
+240963	/home/hawk/duo_edl/edl/build/lib/edlclient/Config/nvitems.xml
+50259	/home/hawk/duo_edl/edl/build/lib/edlclient/Library/firehose_client.py
+82369	/home/hawk/duo_edl/edl/build/lib/edlclient/Library/firehose.py
+50259	/home/hawk/duo_edl/edl/build/lib/edlclient/Tools/Library/firehose_client.py
+82369	/home/hawk/duo_edl/edl/build/lib/edlclient/Tools/Library/firehose.py
+84192	/home/hawk/duo_edl/edl/build/lib/Loaders/oneplus/prog_emmc_firehose_8974_oneplusx_peek.mbn
+947952	/home/hawk/duo_edl/edl/build/lib/Loaders/oppo/prog_firehose_ddr.elf
+314	/home/hawk/duo_edl/edl/build/lib/Loaders/putyourloadersinhere.txt
+698312	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/factory/mannar/prog_firehose_lite.elf
+132016	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/factory/mdm9x07/000480e100000000_cc3153a80293939b_fhprg_9x07.mbn
+121020	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/factory/prog_spinor_firehose_qca4020_lite_m4_threadx.mbn
+121020	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/factory/qca4020/prog_spinor_firehose_qca4020_lite_m4_threadx.mbn
+956040	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/factory/sm8350/firehoseRM6R.elf
+703948	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/factory/strait/prog_firehose_lite.elf
+454688	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/model_generic/mdm9x05/001070e100000000_d40eee56f3194665_prog_firehose_nand_mdm9x05.elf
+456816	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/model_generic/mdm9x5x/000320e100000000_cc3153a80293939b_fhprg_nand_sim7080.elf
+603348	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/model_generic/qcm2290/001860e100000000_d9357db88795b5a8_Qcm2290_ddr_fhprg.elf
+273920	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_fibucom.bin
+274304	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_pinsu_r200c_r200s.mbn
+273792	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_quectel_em20_rg502.bin
+226816	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_zte_mc801av.bin
+98040	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/patched/mdm9x06/org/quectel/ENPRG9x06_bg96.mbn
+98184	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/patched/mdm9x06/org/quectel/NPRG9x06_bg96.mbn
+95952	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/patched/mdm9x07/org/sim7600/ENPRG9x07.mbn
+96372	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/patched/mdm9x07/org/sim7600/NPRG9x07.mbn
+12959	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/patched/mdm9x07/patch_nprg.py
+104360	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/patched/mdm9x6x/org/Foxconn_T77W968/enprg9x65.mbn
+99704	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/patched/mdm9x6x/org/Foxconn_T77W968/nprg9x65.mbn
+106760	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/patched/mdm9x6x/org/Quectel/enprg9x65.mbn
+106216	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/patched/mdm9x6x/org/Quectel/nprg9x65.mbn
+454688	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/001070e100000000_d40eee56f3194665_prog_firehose_nand_mdm9x05.elf
+668796	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_life_ddr_patched_Kamorta.elf
+684032	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_lite_lemur_olympicle_rm530n_rm521fg.elf
+684032	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_lite_olympicle_rg520n.elf
+684032	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_lite_olympicle_rm520fg.elf
+675840	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_lite_olympicle_rm520ng.elf
+456816	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_nand_mdm9x05LA.elf
+278400	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_sdx24_poorwills_em120r.mbn
+1386920	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_sdx35_rg255c.elf
+275840	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_sdx55_prairie_rm510q.mbn
+274304	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_sdx55_quectel.mbn
+276352	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_sdx55_rg501q.mbn
+275328	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_sdx55_rg502.mbn
+275840	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_sdx55_rm502q.mbn
+2015016	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_sdx7x_pinnaclesle_rm551eg_rm550v.elf
+1011056	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/001920E100200000_4A14C27B518909E1_fhprg.elf
+691820	/home/hawk/duo_edl/edl/build/lib/Loaders/samsung/a525f_bitc.elf
+496472	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/alf_sbl_easyflash_SARA-R500E.elf
+496472	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/alf_sbl_easyflash_SARA-R500S_01.elf
+495124	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/alf_sbl_easyflash_SARA-R500S.elf
+495124	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/alf_sbl_easyflash_SARA-R510M8S-00B.elf
+496472	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/alf_sbl_easyflash_SARA-R510M8S-01B.elf
+495124	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/alf_sbl_easyflash_SARA-R510S-00B.elf
+496472	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/alf_sbl_easyflash_SARA-R510S-01B.elf
+525214	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/alf_sbl_easyflash_SARA-R520-02B.elf
+525214	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/alf_sbl_easyflash_SARA-R520M10-02B.elf
+446976	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_firehose_nand_SARA-R422.elf
+446976	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_firehose_nand_SARA-R422M10S.elf
+446976	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_firehose_nand_SARA-R422S.elf
+143860	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_nand_firehose_9x06_LARA-L6004D.mbn
+143860	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_nand_firehose_9x06_LARA-L6804D.mbn
+143860	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6001D.mbn
+143860	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6001.mbn
+143860	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6401D.mbn
+143860	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6401.mbn
+143860	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6801D.mbn
+143860	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6801.mbn
+132332	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_nand_firehose_9x06_SARA-R410M.mbn
+132268	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_nand_firehose_9x06_SARA-R412M.mbn
+375912	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/daisy_prog_emmc_firehose_8953_ddr.mbn
+629136	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_ddr.elf
+628848	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_lite.elf
+37916	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/mprg8626_armani.mbn
+42544	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/mprg8974_cancro.mbn
+42544	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/mprg8974_virgo.mbn
+89028	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/prog_emmc_firehose_8916_gucci_peek.mbn
+683644	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/prog_ufs_firehose_sm6250_ddr.elf
+381672	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/rosy_prog_emmc_firehose_8953_ddr.mbn
+0	/home/hawk/duo_edl/edl/clock_dispatcher_trace_20261101_090330/project/DuoClockDispatcherTrace.gpr
+687634	/home/hawk/duo_edl/edl/duo_boot_chain_deep_20261031_173640/results/filesystem_driver_scan.txt
+26724	/home/hawk/duo_edl/edl/duo_boot_chain_deep_20261031_173640/results/qcombds_deep.txt
+53948	/home/hawk/duo_edl/edl/duo_boot_chain_deep_20261031_173640/results/sdcc_deep.txt
+33009	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_003_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_003_d6a2cb7f-6a18-4e2f-b43b-9920a733700a.bin.txt
+6517	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_006_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_006_f80697e9-7fd6-4665-8646-88e33ef71dfc.bin.txt
+6952	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_009_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_009_a25f5839-4d55-428f-8f0b-5ce1d565f53e.bin.txt
+23263	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_011_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_011_6925fad3-e243-4b69-ad61-3f978c8abc60.bin.txt
+6952	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_016_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_016_2b0ecdce-01ae-446e-9ffd-c4217de0340f.bin.txt
+1507	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_023_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_023_9b680fce-ad6b-4f3a-b60b-f59899003443.bin.txt
+6952	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_029_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_029_90a49afd-422f-08ae-9611-e788d3804845.bin.txt
+14392	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_037_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_037_e43128a8-8692-42b6-8afa-676158578d18.bin.txt
+7564	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_039_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_039_6b38f7b4-ad98-40e9-9093-aca2b5a253c4.bin.txt
+14468	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_040_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_040_1fa1f39e-feff-4aae-bd7b-38a070a3b609.bin.txt
+4700	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_041_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_041_961578fe-b6b7-44c3-af35-6bc705cd2b1f.bin.txt
+666	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_043_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_043_907125c0-a5f1-11e3-a3fe-a3198b49350c.bin.txt
+9425	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_048_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_048_569ea0de-b557-4043-84cf-01103fe516e5.bin.txt
+18141	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_051_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_051_f10f76db-42c1-533f-34a8-69be24653110.bin.txt
+14169	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_052_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_052_0d35cd8e-97ea-4f9a-96af-0f0d89f76567.bin.txt
+20379	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_054_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_054_4138022f-06c7-4f79-9c94-7e33b511a4e7.bin.txt
+18615	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_059_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_059_4bce7f36-428e-4393-99e3-7e0844404dba.bin.txt
+6006	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_064_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_064_94f8a6a7-dc34-4101-88c1-99179cceae83.bin.txt
+47547	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_071_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_071_5a50aa81-c3ae-4608-a0e3-41a2e69baf94.bin.txt
+9867	/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_072_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_072_1d317734-4083-47c6-83ea-e3a42f2a6bff.bin.txt
+32735	/home/hawk/duo_edl/edl/duo_ghidra_reports/audit_summary.txt
+77079	/home/hawk/duo_edl/edl/duo_ghidra_reports/CONFIG_INIT_TARGETED.txt
+60754	/home/hawk/duo_edl/edl/duo_ghidra_reports/CONSOLIDATED_SD_BOOT_AUDIT.txt
+397627	/home/hawk/duo_edl/edl/duo_ghidra_reports/SD_BOOT_DEEP_ANALYSIS.txt
+7885	/home/hawk/duo_edl/edl/duo_ghidra_reports/string_report.txt
+26408	/home/hawk/duo_edl/edl/duo_protocol_provider_trace_20261031_172145/results/module_051_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_051_f10f76db-42c1-533f-34a8-69be24653110.bin.txt
+17632	/home/hawk/duo_edl/edl/duo_protocol_provider_trace_20261031_172145/results/module_052_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_052_0d35cd8e-97ea-4f9a-96af-0f0d89f76567.bin.txt
+26771	/home/hawk/duo_edl/edl/duo_protocol_provider_trace_20261031_172145/results/module_054_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_054_4138022f-06c7-4f79-9c94-7e33b511a4e7.bin.txt
+23583	/home/hawk/duo_edl/edl/duo_protocol_provider_trace_20261031_172145/results/module_059_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_059_4bce7f36-428e-4393-99e3-7e0844404dba.bin.txt
+51773	/home/hawk/duo_edl/edl/duo_protocol_provider_trace_20261031_172145/results/module_071_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_071_5a50aa81-c3ae-4608-a0e3-41a2e69baf94.bin.txt
+12258	/home/hawk/duo_edl/edl/duo_protocol_provider_trace_20261031_172145/results/module_072_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_072_1d317734-4083-47c6-83ea-e3a42f2a6bff.bin.txt
+354990	/home/hawk/duo_edl/edl/duo_sd_boot_10_batches_20261031_220547/051_SDCC_ALL_FUNCTIONS.txt
+21714	/home/hawk/duo_edl/edl/duo_slot_mapping_20261031_173056/results/module_051_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_051_f10f76db-42c1-533f-34a8-69be24653110.bin.txt
+19630	/home/hawk/duo_edl/edl/duo_slot_mapping_20261031_173056/results/module_071_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_071_5a50aa81-c3ae-4608-a0e3-41a2e69baf94.bin.txt
+240963	/home/hawk/duo_edl/edl/edlclient/Config/nvitems.xml
+1	/home/hawk/duo_edl/edl/edlclient.egg-info/dependency_links.txt
+332	/home/hawk/duo_edl/edl/edlclient.egg-info/entry_points.txt
+151	/home/hawk/duo_edl/edl/edlclient.egg-info/requires.txt
+64498	/home/hawk/duo_edl/edl/edlclient.egg-info/SOURCES.txt
+34	/home/hawk/duo_edl/edl/edlclient.egg-info/top_level.txt
+50259	/home/hawk/duo_edl/edl/edlclient/Library/firehose_client.py
+82369	/home/hawk/duo_edl/edl/edlclient/Library/firehose.py
+54573	/home/hawk/duo_edl/edl/edlclient/Library/__pycache__/firehose_client.cpython-314.pyc
+93314	/home/hawk/duo_edl/edl/edlclient/Library/__pycache__/firehose.cpython-314.pyc
+387	/home/hawk/duo_edl/edl/edl_config.json
+102	/home/hawk/duo_edl/edl/Example/benchmark.xml
+478	/home/hawk/duo_edl/edl/.git/hooks/applypatch-msg.sample
+424	/home/hawk/duo_edl/edl/.git/hooks/pre-applypatch.sample
+478	/home/hawk/duo_edl/edl/.git/modules/Loaders/hooks/applypatch-msg.sample
+424	/home/hawk/duo_edl/edl/.git/modules/Loaders/hooks/pre-applypatch.sample
+66731	/home/hawk/duo_edl/edl/LinuxLoader_strings.txt
+84192	/home/hawk/duo_edl/edl/Loaders/oneplus/prog_emmc_firehose_8974_oneplusx_peek.mbn
+947952	/home/hawk/duo_edl/edl/Loaders/oppo/prog_firehose_ddr.elf
+314	/home/hawk/duo_edl/edl/Loaders/putyourloadersinhere.txt
+698312	/home/hawk/duo_edl/edl/Loaders/qualcomm/factory/mannar/prog_firehose_lite.elf
+132016	/home/hawk/duo_edl/edl/Loaders/qualcomm/factory/mdm9x07/000480e100000000_cc3153a80293939b_fhprg_9x07.mbn
+121020	/home/hawk/duo_edl/edl/Loaders/qualcomm/factory/prog_spinor_firehose_qca4020_lite_m4_threadx.mbn
+121020	/home/hawk/duo_edl/edl/Loaders/qualcomm/factory/qca4020/prog_spinor_firehose_qca4020_lite_m4_threadx.mbn
+956040	/home/hawk/duo_edl/edl/Loaders/qualcomm/factory/sm8350/firehoseRM6R.elf
+703948	/home/hawk/duo_edl/edl/Loaders/qualcomm/factory/strait/prog_firehose_lite.elf
+454688	/home/hawk/duo_edl/edl/Loaders/qualcomm/model_generic/mdm9x05/001070e100000000_d40eee56f3194665_prog_firehose_nand_mdm9x05.elf
+456816	/home/hawk/duo_edl/edl/Loaders/qualcomm/model_generic/mdm9x5x/000320e100000000_cc3153a80293939b_fhprg_nand_sim7080.elf
+603348	/home/hawk/duo_edl/edl/Loaders/qualcomm/model_generic/qcm2290/001860e100000000_d9357db88795b5a8_Qcm2290_ddr_fhprg.elf
+273920	/home/hawk/duo_edl/edl/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_fibucom.bin
+274304	/home/hawk/duo_edl/edl/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_pinsu_r200c_r200s.mbn
+273792	/home/hawk/duo_edl/edl/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_quectel_em20_rg502.bin
+226816	/home/hawk/duo_edl/edl/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_zte_mc801av.bin
+98040	/home/hawk/duo_edl/edl/Loaders/qualcomm/patched/mdm9x06/org/quectel/ENPRG9x06_bg96.mbn
+98184	/home/hawk/duo_edl/edl/Loaders/qualcomm/patched/mdm9x06/org/quectel/NPRG9x06_bg96.mbn
+95952	/home/hawk/duo_edl/edl/Loaders/qualcomm/patched/mdm9x07/org/sim7600/ENPRG9x07.mbn
+96372	/home/hawk/duo_edl/edl/Loaders/qualcomm/patched/mdm9x07/org/sim7600/NPRG9x07.mbn
+12959	/home/hawk/duo_edl/edl/Loaders/qualcomm/patched/mdm9x07/patch_nprg.py
+104360	/home/hawk/duo_edl/edl/Loaders/qualcomm/patched/mdm9x6x/org/Foxconn_T77W968/enprg9x65.mbn
+99704	/home/hawk/duo_edl/edl/Loaders/qualcomm/patched/mdm9x6x/org/Foxconn_T77W968/nprg9x65.mbn
+106760	/home/hawk/duo_edl/edl/Loaders/qualcomm/patched/mdm9x6x/org/Quectel/enprg9x65.mbn
+106216	/home/hawk/duo_edl/edl/Loaders/qualcomm/patched/mdm9x6x/org/Quectel/nprg9x65.mbn
+454688	/home/hawk/duo_edl/edl/Loaders/quectel/001070e100000000_d40eee56f3194665_prog_firehose_nand_mdm9x05.elf
+668796	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_life_ddr_patched_Kamorta.elf
+684032	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_lite_lemur_olympicle_rm530n_rm521fg.elf
+684032	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_lite_olympicle_rg520n.elf
+684032	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_lite_olympicle_rm520fg.elf
+675840	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_lite_olympicle_rm520ng.elf
+456816	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_nand_mdm9x05LA.elf
+278400	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx24_poorwills_em120r.mbn
+1386920	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx35_rg255c.elf
+275840	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx55_prairie_rm510q.mbn
+274304	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx55_quectel.mbn
+276352	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx55_rg501q.mbn
+275328	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx55_rg502.mbn
+275840	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx55_rm502q.mbn
+2015016	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx7x_pinnaclesle_rm551eg_rm550v.elf
+1011056	/home/hawk/duo_edl/edl/Loaders/samsung/001920E100200000_4A14C27B518909E1_fhprg.elf
+691820	/home/hawk/duo_edl/edl/Loaders/samsung/a525f_bitc.elf
+496472	/home/hawk/duo_edl/edl/Loaders/ublox/alf_sbl_easyflash_SARA-R500E.elf
+496472	/home/hawk/duo_edl/edl/Loaders/ublox/alf_sbl_easyflash_SARA-R500S_01.elf
+495124	/home/hawk/duo_edl/edl/Loaders/ublox/alf_sbl_easyflash_SARA-R500S.elf
+495124	/home/hawk/duo_edl/edl/Loaders/ublox/alf_sbl_easyflash_SARA-R510M8S-00B.elf
+496472	/home/hawk/duo_edl/edl/Loaders/ublox/alf_sbl_easyflash_SARA-R510M8S-01B.elf
+495124	/home/hawk/duo_edl/edl/Loaders/ublox/alf_sbl_easyflash_SARA-R510S-00B.elf
+496472	/home/hawk/duo_edl/edl/Loaders/ublox/alf_sbl_easyflash_SARA-R510S-01B.elf
+525214	/home/hawk/duo_edl/edl/Loaders/ublox/alf_sbl_easyflash_SARA-R520-02B.elf
+525214	/home/hawk/duo_edl/edl/Loaders/ublox/alf_sbl_easyflash_SARA-R520M10-02B.elf
+446976	/home/hawk/duo_edl/edl/Loaders/ublox/prog_firehose_nand_SARA-R422.elf
+446976	/home/hawk/duo_edl/edl/Loaders/ublox/prog_firehose_nand_SARA-R422M10S.elf
+446976	/home/hawk/duo_edl/edl/Loaders/ublox/prog_firehose_nand_SARA-R422S.elf
+143860	/home/hawk/duo_edl/edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-L6004D.mbn
+143860	/home/hawk/duo_edl/edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-L6804D.mbn
+143860	/home/hawk/duo_edl/edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6001D.mbn
+143860	/home/hawk/duo_edl/edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6001.mbn
+143860	/home/hawk/duo_edl/edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6401D.mbn
+143860	/home/hawk/duo_edl/edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6401.mbn
+143860	/home/hawk/duo_edl/edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6801D.mbn
+143860	/home/hawk/duo_edl/edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6801.mbn
+132332	/home/hawk/duo_edl/edl/Loaders/ublox/prog_nand_firehose_9x06_SARA-R410M.mbn
+132268	/home/hawk/duo_edl/edl/Loaders/ublox/prog_nand_firehose_9x06_SARA-R412M.mbn
+375912	/home/hawk/duo_edl/edl/Loaders/xiaomi/daisy_prog_emmc_firehose_8953_ddr.mbn
+629136	/home/hawk/duo_edl/edl/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_ddr.elf
+628848	/home/hawk/duo_edl/edl/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_lite.elf
+37916	/home/hawk/duo_edl/edl/Loaders/xiaomi/mprg8626_armani.mbn
+42544	/home/hawk/duo_edl/edl/Loaders/xiaomi/mprg8974_cancro.mbn
+42544	/home/hawk/duo_edl/edl/Loaders/xiaomi/mprg8974_virgo.mbn
+89028	/home/hawk/duo_edl/edl/Loaders/xiaomi/prog_emmc_firehose_8916_gucci_peek.mbn
+683644	/home/hawk/duo_edl/edl/Loaders/xiaomi/prog_ufs_firehose_sm6250_ddr.elf
+381672	/home/hawk/duo_edl/edl/Loaders/xiaomi/rosy_prog_emmc_firehose_8953_ddr.mbn
+158	/home/hawk/duo_edl/edl/qcombds_protocol_provider_fixed_20261031_163831/guid_hits.txt
+196	/home/hawk/duo_edl/edl/requirements.txt
+33917	/home/hawk/duo_edl/edl/sdcc_controller_matrix_20261031_154905/controller_matrix.txt
+93176	/home/hawk/duo_edl/edl/sdcc_correct_guid_20261031_155506/correct_guid_matches.txt
+760645	/home/hawk/duo_edl/edl/sdcc_deep_dive_20261031_153425/sdcc_disassembly.txt
+760645	/home/hawk/duo_edl/edl/sdcc_deep_dive_20261031_153525/sdcc_disassembly.txt
+930037	/home/hawk/duo_edl/edl/sdcc_driver_analysis_20261031_153751/driver_disassembly.txt
+394	/home/hawk/duo_edl/edl/sdcc_driver_analysis_20261031_153751/driver_sections.txt
+16746	/home/hawk/duo_edl/edl/sdcc_driver_analysis_20261031_153751/driver_strings.txt
+393548	/home/hawk/duo_edl/edl/sdcc_driver_analysis_20261031_153751/sdcc_decompiled.txt
+18446	/home/hawk/duo_edl/edl/sdcc_enablement_audit_20261031_155047/enablement_audit.txt
+19067	/home/hawk/duo_edl/edl/SDCC_NEXT_TARGETS.txt
+306075	/home/hawk/duo_edl/edl/sdcc_platform_dependencies_20261031_154436/sdcc_dependencies.txt
+1155	/home/hawk/duo_edl/edl/sdcc_platform_dependencies_20261031_154436/string_offsets.txt
+1182	/home/hawk/duo_edl/edl/sdcc_protocol_provider_20261031_155359/guid_binary_matches.txt
+157	/home/hawk/duo_edl/edl/sdcc_symbol_trace_20261031_154000/embedded_pdb_path.txt
+65862	/home/hawk/duo_edl/edl/sdcc_symbol_trace_20261031_154000/sdcc_focused_trace.txt
+7	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/bcrypt-5.0.0.dist-info/top_level.txt
+1687	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/capstone-5.0.9.dist-info/LICENSE.TXT
+9	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/capstone-5.0.9.dist-info/top_level.txt
+8	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/certifi-2026.10.23.dist-info/top_level.txt
+132	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/cffi-2.1.1.dist-info/entry_points.txt
+19	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/cffi-2.1.1.dist-info/top_level.txt
+65	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/charset_normalizer-3.5.2.dist-info/entry_points.txt
+19	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/charset_normalizer-3.5.2.dist-info/top_level.txt
+1491	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/colorama-0.4.6.dist-info/licenses/LICENSE.txt
+10	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/configparser-7.3.0.dist-info/top_level.txt
+45685	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/cryptography-50.0.2.dist-info/sboms/cryptography-rust.cyclonedx.json
+1206	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/cryptography-50.0.2.dist-info/sboms/sbom.json
+7	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/docopt-0.6.2.dist-info/top_level.txt
+56	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient-3.62.dist-info/direct_url.json
+332	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient-3.62.dist-info/entry_points.txt
+34	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient-3.62.dist-info/top_level.txt
+240963	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Config/nvitems.xml
+50259	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Library/firehose_client.py
+82369	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Library/firehose.py
+54608	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Library/__pycache__/firehose_client.cpython-314.pyc
+93349	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Library/__pycache__/firehose.cpython-314.pyc
+50259	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Tools/Library/firehose_client.py
+82369	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Tools/Library/firehose.py
+54614	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Tools/Library/__pycache__/firehose_client.cpython-314.pyc
+93355	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Tools/Library/__pycache__/firehose.cpython-314.pyc
+9	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/exscript-2.6.32.dist-info/top_level.txt
+88	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/future-1.0.0.dist-info/entry_points.txt
+1075	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/future-1.0.0.dist-info/LICENSE.txt
+38	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/future-1.0.0.dist-info/top_level.txt
+38	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/idna-3.20.dist-info/entry_points.txt
+81	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/invoke-3.0.3.dist-info/entry_points.txt
+7	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/invoke-3.0.3.dist-info/top_level.txt
+136	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/jpype1-1.5.2.dist-info/entry_points.txt
+17	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/jpype1-1.5.2.dist-info/top_level.txt
+1682	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/keystone_engine-0.9.2.dist-info/LICENSE.TXT
+9	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/keystone_engine-0.9.2.dist-info/top_level.txt
+84192	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/oneplus/prog_emmc_firehose_8974_oneplusx_peek.mbn
+947952	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/oppo/prog_firehose_ddr.elf
+314	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/putyourloadersinhere.txt
+698312	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/factory/mannar/prog_firehose_lite.elf
+132016	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/factory/mdm9x07/000480e100000000_cc3153a80293939b_fhprg_9x07.mbn
+121020	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/factory/prog_spinor_firehose_qca4020_lite_m4_threadx.mbn
+121020	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/factory/qca4020/prog_spinor_firehose_qca4020_lite_m4_threadx.mbn
+956040	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/factory/sm8350/firehoseRM6R.elf
+703948	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/factory/strait/prog_firehose_lite.elf
+454688	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/model_generic/mdm9x05/001070e100000000_d40eee56f3194665_prog_firehose_nand_mdm9x05.elf
+456816	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/model_generic/mdm9x5x/000320e100000000_cc3153a80293939b_fhprg_nand_sim7080.elf
+603348	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/model_generic/qcm2290/001860e100000000_d9357db88795b5a8_Qcm2290_ddr_fhprg.elf
+273920	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_fibucom.bin
+274304	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_pinsu_r200c_r200s.mbn
+273792	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_quectel_em20_rg502.bin
+226816	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_zte_mc801av.bin
+98040	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/patched/mdm9x06/org/quectel/ENPRG9x06_bg96.mbn
+98184	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/patched/mdm9x06/org/quectel/NPRG9x06_bg96.mbn
+95952	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/patched/mdm9x07/org/sim7600/ENPRG9x07.mbn
+96372	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/patched/mdm9x07/org/sim7600/NPRG9x07.mbn
+12959	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/patched/mdm9x07/patch_nprg.py
+18641	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/patched/mdm9x07/__pycache__/patch_nprg.cpython-314.pyc
+104360	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/patched/mdm9x6x/org/Foxconn_T77W968/enprg9x65.mbn
+99704	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/patched/mdm9x6x/org/Foxconn_T77W968/nprg9x65.mbn
+106760	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/patched/mdm9x6x/org/Quectel/enprg9x65.mbn
+106216	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/patched/mdm9x6x/org/Quectel/nprg9x65.mbn
+454688	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/001070e100000000_d40eee56f3194665_prog_firehose_nand_mdm9x05.elf
+668796	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_life_ddr_patched_Kamorta.elf
+684032	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_lite_lemur_olympicle_rm530n_rm521fg.elf
+684032	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_lite_olympicle_rg520n.elf
+684032	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_lite_olympicle_rm520fg.elf
+675840	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_lite_olympicle_rm520ng.elf
+456816	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_nand_mdm9x05LA.elf
+278400	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_sdx24_poorwills_em120r.mbn
+1386920	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_sdx35_rg255c.elf
+275840	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_sdx55_prairie_rm510q.mbn
+274304	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_sdx55_quectel.mbn
+276352	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_sdx55_rg501q.mbn
+275328	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_sdx55_rg502.mbn
+275840	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_sdx55_rm502q.mbn
+2015016	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_sdx7x_pinnaclesle_rm551eg_rm550v.elf
+1011056	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/001920E100200000_4A14C27B518909E1_fhprg.elf
+691820	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/samsung/a525f_bitc.elf
+496472	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/alf_sbl_easyflash_SARA-R500E.elf
+496472	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/alf_sbl_easyflash_SARA-R500S_01.elf
+495124	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/alf_sbl_easyflash_SARA-R500S.elf
+495124	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/alf_sbl_easyflash_SARA-R510M8S-00B.elf
+496472	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/alf_sbl_easyflash_SARA-R510M8S-01B.elf
+495124	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/alf_sbl_easyflash_SARA-R510S-00B.elf
+496472	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/alf_sbl_easyflash_SARA-R510S-01B.elf
+525214	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/alf_sbl_easyflash_SARA-R520-02B.elf
+525214	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/alf_sbl_easyflash_SARA-R520M10-02B.elf
+446976	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_firehose_nand_SARA-R422.elf
+446976	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_firehose_nand_SARA-R422M10S.elf
+446976	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_firehose_nand_SARA-R422S.elf
+143860	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_nand_firehose_9x06_LARA-L6004D.mbn
+143860	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_nand_firehose_9x06_LARA-L6804D.mbn
+143860	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6001D.mbn
+143860	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6001.mbn
+143860	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6401D.mbn
+143860	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6401.mbn
+143860	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6801D.mbn
+143860	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6801.mbn
+132332	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_nand_firehose_9x06_SARA-R410M.mbn
+132268	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_nand_firehose_9x06_SARA-R412M.mbn
+375912	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/daisy_prog_emmc_firehose_8953_ddr.mbn
+629136	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_ddr.elf
+628848	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_lite.elf
+37916	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/mprg8626_armani.mbn
+42544	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/mprg8974_cancro.mbn
+42544	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/mprg8974_virgo.mbn
+89028	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/prog_emmc_firehose_8916_gucci_peek.mbn
+683644	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/prog_ufs_firehose_sm6250_ddr.elf
+381672	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/rosy_prog_emmc_firehose_8953_ddr.mbn
+6221	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/lxml-6.1.3.dist-info/licenses/LICENSES.txt
+1507	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/lxml-6.1.3.dist-info/licenses/LICENSE.txt
+5	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/lxml-6.1.3.dist-info/top_level.txt
+3310	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/readme.txt
+9	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/paramiko-4.0.0.dist-info/top_level.txt
+8	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/passlib-1.7.4.dist-info/top_level.txt
+13117	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/passlib/_data/wordsets/bip39.txt
+62144	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/passlib/_data/wordsets/eff_long.txt
+10778	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/passlib/_data/wordsets/eff_prefixed.txt
+7180	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/passlib/_data/wordsets/eff_short.txt
+84	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip-26.2.1.dist-info/entry_points.txt
+12139	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip-26.2.1.dist-info/licenses/AUTHORS.txt
+1093	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip-26.2.1.dist-info/licenses/LICENSE.txt
+558	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip-26.2.1.dist-info/licenses/src/pip/_vendor/cachecontrol/LICENSE.txt
+14531	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip-26.2.1.dist-info/licenses/src/pip/_vendor/distlib/LICENSE.txt
+1093	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip-26.2.1.dist-info/licenses/src/pip/_vendor/urllib3/LICENSE.txt
+5319	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip/_vendor/bom.cdx.json
+558	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol/LICENSE.txt
+14531	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip/_vendor/distlib/LICENSE.txt
+1093	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip/_vendor/urllib3/LICENSE.txt
+317	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip/_vendor/vendor.txt
+10	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pycparser-3.12.dist-info/top_level.txt
+7	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pycryptodome-4.2.0.dist-info/top_level.txt
+11	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pycryptodomex-3.24.1.dist-info/top_level.txt
+97	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pyghidra-3.1.0.dist-info/entry_points.txt
+9	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pyghidra-3.1.0.dist-info/top_level.txt
+15	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pylzma-0.6.1.dist-info/top_level.txt
+823	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pynacl-1.6.2.dist-info/licenses/licenses/LICENSE.libsodium.txt
+13	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pynacl-1.6.2.dist-info/top_level.txt
+112	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pyserial-3.5.dist-info/entry_points.txt
+1647	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pyserial-3.5.dist-info/metadata.json
+7	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pyserial-3.5.dist-info/top_level.txt
+4	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pyusb-1.3.1.dist-info/top_level.txt
+50	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/qrcode-8.2.dist-info/entry_points.txt
+9	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/requests-2.34.2.dist-info/top_level.txt
+1093	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/urllib3-2.8.0.dist-info/licenses/LICENSE.txt
+110	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/wheel-0.48.0.dist-info/entry_points.txt
+1107	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/wheel-0.48.0.dist-info/licenses/LICENSE.txt
+173485	/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/039_DiskIoDxe.txt
+9013	/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/040_PartitionDxe.ghidra.log
+173373	/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/040_PartitionDxe.txt
+252036	/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/041_FatDxe.txt
+212331	/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/043_FvSimpleFileSystemDxe.txt
+36134	/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/051_SDCC.txt
+0	/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/projects/Duo_PartitionDxe_20261031_215505.gpr
+10130	/home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/REPORT.txt
+734508	/home/hawk/duo_edl/edl/xbl_analysis.txt
+
+=== EXISTING DUMP DIRECTORY ===
+100663296	/home/hawk/duo_edl/edl/new_authorized_dumps/boot_a.bin
+
+=== METADATA SHA256 ===
+ff4a7a2b5040c8ba9376737bd74654a058084ef18530da6fd17a5eb44d123f7c  /home/hawk/duo_edl/edl/abl_strings.txt
+ca924af83e939f28f4d376fef7ab7c84a283ce02dcff8eb1baad43ad03352d06  /home/hawk/duo_edl/edl/build/lib/edlclient/Config/nvitems.xml
+f5f01f7c922291393a429df9217e051fe6fedfee19c9bf17e7bc80c3a502cd97  /home/hawk/duo_edl/edl/build/lib/Loaders/putyourloadersinhere.txt
+0b75ea25229e2824a06de7e8f6a9a2705a22f6f68cb9d72ec358690f5f312abb  /home/hawk/duo_edl/edl/duo_boot_chain_deep_20261031_173640/results/filesystem_driver_scan.txt
+303e3f6bccf79dbabe901416dd3246c94040f95f7faead35d81240d7ce704901  /home/hawk/duo_edl/edl/duo_boot_chain_deep_20261031_173640/results/qcombds_deep.txt
+00af2866f67e0a8f79425d85e40bf87bb70c9559ed6a9755f309714ebdf85b02  /home/hawk/duo_edl/edl/duo_boot_chain_deep_20261031_173640/results/sdcc_deep.txt
+c1dbac929f91d16eaaa35c7b528e9159814c38efc4ff66fbf7f671372da3fdd4  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_003_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_003_d6a2cb7f-6a18-4e2f-b43b-9920a733700a.bin.txt
+39a772987e9660a960f3f47662dce44174cb4a8ff8b2c529098821a308eba24a  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_006_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_006_f80697e9-7fd6-4665-8646-88e33ef71dfc.bin.txt
+0eaaf878d7a6fb3fef2afc0853f138c87f04289c89781c7854cd5ab3d2af5ce6  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_009_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_009_a25f5839-4d55-428f-8f0b-5ce1d565f53e.bin.txt
+1b50e42b4e1e3d04f26c84b1749feb1de23b4a03784dd680b79d3d28715e937c  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_011_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_011_6925fad3-e243-4b69-ad61-3f978c8abc60.bin.txt
+1523a57603c11d264ffb7d9b5bf33f3b93486cf1762d7f1b81ce62362779cc16  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_016_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_016_2b0ecdce-01ae-446e-9ffd-c4217de0340f.bin.txt
+dee5fb064636d5c4cdfddac8343f93bbe73dd1097c398c0cc9e6a5ce4fdd7420  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_023_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_023_9b680fce-ad6b-4f3a-b60b-f59899003443.bin.txt
+dbc74672e7fdae53b78814c7c4410008082b52ede21832e57a2c339d7cc62c84  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_029_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_029_90a49afd-422f-08ae-9611-e788d3804845.bin.txt
+91237c844ac6aa215d36a899052a083a8ff95d4016daf358e44fbcfe07201037  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_037_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_037_e43128a8-8692-42b6-8afa-676158578d18.bin.txt
+5d1121faa37d4d141807e067bd49fcb3f0d42e8d4c3d0f8ec1f8d255d9bd80ea  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_039_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_039_6b38f7b4-ad98-40e9-9093-aca2b5a253c4.bin.txt
+bd1b366e13564754ef4e09888a406c049771f0a87cee1d698c525fffcce3607f  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_040_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_040_1fa1f39e-feff-4aae-bd7b-38a070a3b609.bin.txt
+bc33eb17779584bd36cb2f31c188fec4761f871d049ad2e17504ca1a46c4f8cf  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_041_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_041_961578fe-b6b7-44c3-af35-6bc705cd2b1f.bin.txt
+a64002384b9c748586e28cf8090e61c27940b0358a17f828f1ea59a2381762f7  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_043_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_043_907125c0-a5f1-11e3-a3fe-a3198b49350c.bin.txt
+8e7c5b4200d83169dc1d89934927910c230ff25c1032d0c813615ca45b0a8f3a  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_048_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_048_569ea0de-b557-4043-84cf-01103fe516e5.bin.txt
+8d3f346da500bbc2213132b5e6399ddd7d8c3b83552f6b6a51fe06985a366a1a  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_051_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_051_f10f76db-42c1-533f-34a8-69be24653110.bin.txt
+e960d43bde82cd9c2d4529c6da022c106620dd0ba1d93ce37d001ef636fa3a80  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_052_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_052_0d35cd8e-97ea-4f9a-96af-0f0d89f76567.bin.txt
+a9c3f10dc164a814db6b7b125ca51512308911d9b17fcfaaa77c6cd16d713957  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_054_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_054_4138022f-06c7-4f79-9c94-7e33b511a4e7.bin.txt
+08d64a9e75f77605d2440116ea4da49b62b8a276f4c52748b52f2dad56ac3a69  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_059_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_059_4bce7f36-428e-4393-99e3-7e0844404dba.bin.txt
+3d8571f4a2d629a19145991d1795f4ae19cf6bc84209c18554320d827212a418  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_064_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_064_94f8a6a7-dc34-4101-88c1-99179cceae83.bin.txt
+5c8030128d10352ce5068409455ab2103e28964debe2cb97ca8154ec0bcaa180  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_071_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_071_5a50aa81-c3ae-4608-a0e3-41a2e69baf94.bin.txt
+6c4fc3f35b6de56c5baf95f8fa2ce8504b5605272d8e79f2f0c43d9fa951f7d9  /home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/results/module_072_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_072_1d317734-4083-47c6-83ea-e3a42f2a6bff.bin.txt
+3ffe16b2ff4b0474f7d61fc9b71036419abf85ee3c219a519a2b642ee89b24f6  /home/hawk/duo_edl/edl/duo_ghidra_reports/audit_summary.txt
+0ffeb9b77b286998d14e1d5c256508829b07777d0db71d8b63dea4f0d32e6dae  /home/hawk/duo_edl/edl/duo_ghidra_reports/CONFIG_INIT_TARGETED.txt
+add547f43cca60e0f12a62a32e14742716859b73e49e62a86d395dbf2f37f07f  /home/hawk/duo_edl/edl/duo_ghidra_reports/CONSOLIDATED_SD_BOOT_AUDIT.txt
+1cef4c6a68fdf9337e28d1e180dde95140af514cf45fa9dd8866477d7bec526a  /home/hawk/duo_edl/edl/duo_ghidra_reports/SD_BOOT_DEEP_ANALYSIS.txt
+b519a1fc89e8f0510a5a697ed1d96dd8ca87b61fe4261c4d557d55b1cb225cde  /home/hawk/duo_edl/edl/duo_ghidra_reports/string_report.txt
+43955190fa7a5c573e69b95fd90d9a33ef26e3f7184de22d30613fc0f4075fe3  /home/hawk/duo_edl/edl/duo_protocol_provider_trace_20261031_172145/results/module_051_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_051_f10f76db-42c1-533f-34a8-69be24653110.bin.txt
+c7ddbdbcfb3eb63400a4ff15b5e49c2e30eb0b4184fa45538edf9c32abe1d79b  /home/hawk/duo_edl/edl/duo_protocol_provider_trace_20261031_172145/results/module_052_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_052_0d35cd8e-97ea-4f9a-96af-0f0d89f76567.bin.txt
+2a1126e77f58bfd5ffe15828a1a05d5ac81dd5c13d00dccab2e947bd4dc903e8  /home/hawk/duo_edl/edl/duo_protocol_provider_trace_20261031_172145/results/module_054_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_054_4138022f-06c7-4f79-9c94-7e33b511a4e7.bin.txt
+1653b247308de2b18497e12e41b7c7ee2c1f59e1c9c06de0a479bfff0cbaff47  /home/hawk/duo_edl/edl/duo_protocol_provider_trace_20261031_172145/results/module_059_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_059_4bce7f36-428e-4393-99e3-7e0844404dba.bin.txt
+408ff82766d4fad9866a79dd65fc4f944c5cbaced0589330bacbd198cdad72a7  /home/hawk/duo_edl/edl/duo_protocol_provider_trace_20261031_172145/results/module_071_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_071_5a50aa81-c3ae-4608-a0e3-41a2e69baf94.bin.txt
+0147b2b7c618ffb8e24c81ed80a3ec9eb6b2703bc4501bd39840d8b67ea6b05c  /home/hawk/duo_edl/edl/duo_protocol_provider_trace_20261031_172145/results/module_072_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_072_1d317734-4083-47c6-83ea-e3a42f2a6bff.bin.txt
+82708fc2cec38fe2a980d8fdd54f4ff9d49f59dfeb6d10f1ceb04d530a9fe154  /home/hawk/duo_edl/edl/duo_sd_boot_10_batches_20261031_220547/051_SDCC_ALL_FUNCTIONS.txt
+f24b9fa80c9d49d38a938ef052aeb4d050cd8fb861658931cc51b6f878b8c30b  /home/hawk/duo_edl/edl/duo_slot_mapping_20261031_173056/results/module_051_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_051_f10f76db-42c1-533f-34a8-69be24653110.bin.txt
+4147505a899f5133fe2b46515e7d161a77d53f7d844462e2c503913f0f510107  /home/hawk/duo_edl/edl/duo_slot_mapping_20261031_173056/results/module_071_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_071_5a50aa81-c3ae-4608-a0e3-41a2e69baf94.bin.txt
+ca924af83e939f28f4d376fef7ab7c84a283ce02dcff8eb1baad43ad03352d06  /home/hawk/duo_edl/edl/edlclient/Config/nvitems.xml
+01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b  /home/hawk/duo_edl/edl/edlclient.egg-info/dependency_links.txt
+1072b9568029d88b96c8b4be003732d3ca1bc5684b7ed551e9beb67d73bb43e2  /home/hawk/duo_edl/edl/edlclient.egg-info/entry_points.txt
+9f81768f933cf9da925aad2264632fae69320f83de2e4089af3059c6e1a9c750  /home/hawk/duo_edl/edl/edlclient.egg-info/requires.txt
+50aeef2f4b37cea80a312571748b4b257e08d0812c43aa2af557c84ef566cbd8  /home/hawk/duo_edl/edl/edlclient.egg-info/SOURCES.txt
+893f7ed42e8e5022b013eefc17ab61a593578504097203795456652d1fac5127  /home/hawk/duo_edl/edl/edlclient.egg-info/top_level.txt
+ff99b0dabdf89bee2333aa1b885de65b288e285176130ac480a708847747d7fb  /home/hawk/duo_edl/edl/edl_config.json
+653dec317e8d495d1dd53e3ed9c380a122f7dd80b3232e494676bd0a74e1af64  /home/hawk/duo_edl/edl/Example/benchmark.xml
+179bcc1b4461a3411c0e8cacb5ec2abb33feda7089b5026cd90273caf08e00cd  /home/hawk/duo_edl/edl/LinuxLoader_strings.txt
+f5f01f7c922291393a429df9217e051fe6fedfee19c9bf17e7bc80c3a502cd97  /home/hawk/duo_edl/edl/Loaders/putyourloadersinhere.txt
+e55d6172bf8c45606c4526eb630a4fae6bd2110e2414dfa80c26994733656d7f  /home/hawk/duo_edl/edl/qcombds_protocol_provider_fixed_20261031_163831/guid_hits.txt
+d5e11f974951f0c45be97ddc8955d8e922be15ef9f74b2493e417ef6d44d2406  /home/hawk/duo_edl/edl/requirements.txt
+e91b102066c76e61a008e497a7a114a7d7a8398bf6830c9b7249654a3e02631d  /home/hawk/duo_edl/edl/sdcc_controller_matrix_20261031_154905/controller_matrix.txt
+3f916fe75418ea12f64b12b5ab97ea4e76a24bac0b75a4611b489b3ef85c04e0  /home/hawk/duo_edl/edl/sdcc_correct_guid_20261031_155506/correct_guid_matches.txt
+e7f113c6f3152b8f48ac865bb16e42e91cd77c51e17e165c0c2dd89d9aa20b28  /home/hawk/duo_edl/edl/sdcc_deep_dive_20261031_153425/sdcc_disassembly.txt
+e7f113c6f3152b8f48ac865bb16e42e91cd77c51e17e165c0c2dd89d9aa20b28  /home/hawk/duo_edl/edl/sdcc_deep_dive_20261031_153525/sdcc_disassembly.txt
+b55a3fe326642c0cd3b8208ab326f097f13d4ab33f3bb60a7e4775cb76d21d8c  /home/hawk/duo_edl/edl/sdcc_driver_analysis_20261031_153751/driver_disassembly.txt
+86d339ea10938035dc4a37e735b9b229059c50645be910ceee5c9e17705a9757  /home/hawk/duo_edl/edl/sdcc_driver_analysis_20261031_153751/driver_sections.txt
+800c33c16d385efb57b74d438a0cdf2e29cc4cba94b7b3b01d8c6b5d3db8a692  /home/hawk/duo_edl/edl/sdcc_driver_analysis_20261031_153751/driver_strings.txt
+e805d6d7a6cd26570474fcd206974ddae20d4f30cd27146dec6c46ce7dd469ee  /home/hawk/duo_edl/edl/sdcc_driver_analysis_20261031_153751/sdcc_decompiled.txt
+844f0b48990b3b646e17648d1be929146653dc65ab14e5af69584a0609f2ffb0  /home/hawk/duo_edl/edl/sdcc_enablement_audit_20261031_155047/enablement_audit.txt
+ef814aad3ec80ac9fcdadaad4ff0dbf9cf52b3f7a9d8a28d92684974a6163953  /home/hawk/duo_edl/edl/SDCC_NEXT_TARGETS.txt
+1ad59fde94807ca467ffd567ff6f81bb16ebe40b63b962fa420354762df31379  /home/hawk/duo_edl/edl/sdcc_platform_dependencies_20261031_154436/sdcc_dependencies.txt
+e0d7a1b375e167cce22d5131614d12f1092c4539824e76469e4ae92d71f95996  /home/hawk/duo_edl/edl/sdcc_platform_dependencies_20261031_154436/string_offsets.txt
+49288255814071507da97c0fedded2eb0466f6a1867aa7b345271737b7053ea1  /home/hawk/duo_edl/edl/sdcc_protocol_provider_20261031_155359/guid_binary_matches.txt
+696dc5b089cc7a585f6c2de1f97d82dd01ba22f0a55cd17ac10a08372e0d8233  /home/hawk/duo_edl/edl/sdcc_symbol_trace_20261031_154000/embedded_pdb_path.txt
+4e42e67c1fbe50b8d9a81ea2aa6f259e24129580db9a6ad0a0d17c9a534be4e9  /home/hawk/duo_edl/edl/sdcc_symbol_trace_20261031_154000/sdcc_focused_trace.txt
+06447fa81cc36d2bb270ccc7584d6fcd7adf61e700cd456642ce86d82ba4a8d2  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/bcrypt-5.0.0.dist-info/top_level.txt
+65e9ed46a59976eda8f5bd1ea79a680dea38dd299c760bc9a8d87a764ef5029b  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/capstone-5.0.9.dist-info/LICENSE.TXT
+56c1f96e71b2e141ae32eee253f90d7a19cb2d9be56d940a76af5b90617100a2  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/capstone-5.0.9.dist-info/top_level.txt
+28cbb8bd409fb232eb90f6d235d81d7a44bea552730402453bffe723c345ebe5  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/certifi-2026.10.23.dist-info/top_level.txt
+a6b6108011f8e27050fe5269bba88c8051b414697880d3b0b6fbe3a03a0b001c  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/cffi-2.1.1.dist-info/entry_points.txt
+ac4ed6477ad97cd2b1588f7e8e7ea1b0708097b303901f859ae41bc568c57a14  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/cffi-2.1.1.dist-info/top_level.txt
+0034932ab91767786174e5458ba0dc5041d0452d317f10c813fa44cf8c0b2170  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/charset_normalizer-3.5.2.dist-info/entry_points.txt
+ec04b2cde3ebf3fc6e65626c9ea263201b7257cbe1128d30042bf530f4518b74  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/charset_normalizer-3.5.2.dist-info/top_level.txt
+cac35c02686e5d04a5a7140bfb3b36e73aed496656e891102e428886d7930318  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/colorama-0.4.6.dist-info/licenses/LICENSE.txt
+7068da2cc3a8051d452b4029a23b73595995893b49ec91882bf1f05e212cbed5  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/configparser-7.3.0.dist-info/top_level.txt
+8fa299053f3da6ff2c5b85ce2b34bfc2870e2ea17c5a8629dea5b8285cd1d654  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/cryptography-50.0.2.dist-info/sboms/cryptography-rust.cyclonedx.json
+90a9c8d03d95672422f4e7c611fb6d35d1a7c5fed98d032d9dc57d8965e239e6  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/cryptography-50.0.2.dist-info/sboms/sbom.json
+c40bcbdb2c1339d2dd7bcc314d5c9ed76f7d8fae5874addc339f7adf0372e525  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/docopt-0.6.2.dist-info/top_level.txt
+911984891f243b592f549d2ae9ccce60dbf489782b2c520b7745868c6a101a43  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient-3.62.dist-info/direct_url.json
+1072b9568029d88b96c8b4be003732d3ca1bc5684b7ed551e9beb67d73bb43e2  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient-3.62.dist-info/entry_points.txt
+893f7ed42e8e5022b013eefc17ab61a593578504097203795456652d1fac5127  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient-3.62.dist-info/top_level.txt
+ca924af83e939f28f4d376fef7ab7c84a283ce02dcff8eb1baad43ad03352d06  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Config/nvitems.xml
+b033dfbbbfb833d86d1161f722201b66f97d63ec3f479fbbe0960d7f87b9b485  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/exscript-2.6.32.dist-info/top_level.txt
+53d2ed3fad0a48d5e88f9f26cd5e536e8b41177ef58135b3acaaf32481fcd0ac  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/future-1.0.0.dist-info/entry_points.txt
+beba04103c3a9fff928b59c77d5fbeb03a3e4bd0d7ac3d1e1f8994a21e30ee3b  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/future-1.0.0.dist-info/LICENSE.txt
+0d3d02ddacf681bfae25a8fe7ecd21e16c076252550e9d04bcb76e775cb9672c  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/future-1.0.0.dist-info/top_level.txt
+ec7de718e1daa778e72c4e5eeeaed8c2bf55abc6b107b5888f9f82ff8376be1c  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/idna-3.20.dist-info/entry_points.txt
+7f3ee50cf8a9c3f5759e7ba4e3508dc5aef7f5d06927c4cef5ca4ab945d50cfb  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/invoke-3.0.3.dist-info/entry_points.txt
+6654e501531df25ce7dec5f20210918b42cdb2509ab00eeb96e7111eaf70efdc  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/invoke-3.0.3.dist-info/top_level.txt
+4e576c76a542a65e670b0f05f5e8194cf8c9631f80ff315f68bc80285fb4c0e8  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/jpype1-1.5.2.dist-info/entry_points.txt
+385c488a7d6f161f82a6cc92de11864b0a7d36c5147ff0a05b390c8909835d39  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/jpype1-1.5.2.dist-info/top_level.txt
+1cb7d9695461374058b850ef33377c70d8f9c20642b95a96f057ff519e283a1d  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/keystone_engine-0.9.2.dist-info/LICENSE.TXT
+5d2f4369b6e3ad83724634292e223c9f54624fee695770513bb08b48283af196  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/keystone_engine-0.9.2.dist-info/top_level.txt
+f5f01f7c922291393a429df9217e051fe6fedfee19c9bf17e7bc80c3a502cd97  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/putyourloadersinhere.txt
+388fa99f3bde4447cd5a4cbb114037be026854db6cfe89e112691c1d8abdcf3c  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/lxml-6.1.3.dist-info/licenses/LICENSES.txt
+8fc2b568133516e46845d2147917adeee1648e70ae9ab5ed6c5417afef4ce855  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/lxml-6.1.3.dist-info/licenses/LICENSE.txt
+3630fdf3cc2a68aab9d769ec84d74bb7eb83c6c8e4a78061e759ba37e76152b9  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/lxml-6.1.3.dist-info/top_level.txt
+3862e216cc2e2c9116e443d828e7a86aeb8224512d55aea3cb3044d4e70923df  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/readme.txt
+47d9fe78273fd64c750e78a317b1a59a6f87ebb93d8d4cf9ae6d98a0f2fc9f9e  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/paramiko-4.0.0.dist-info/top_level.txt
+040f716c9a4b75a4f1aaf61b2a28189cc424ce9f3e510afa4b89b79414e4c73c  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/passlib-1.7.4.dist-info/top_level.txt
+24ce42c2fd4a95c1b86bbee9bce1e1cf255bd0022e19bab6bd591afd68b7efdb  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/passlib/_data/wordsets/bip39.txt
+6d557f0693958fb5e650b68b5bee585eb82cf4da32965505c789e924743bc522  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/passlib/_data/wordsets/eff_long.txt
+7aa57a4d3ecf6581729992bad9575bacdebf7c28378af2aec6a50f11aec326f5  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/passlib/_data/wordsets/eff_prefixed.txt
+36ecca49e4fa20ca84b176c32f2e9c82f98f446585190e75f9879a95c08247bf  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/passlib/_data/wordsets/eff_short.txt
+5617fcb34218817dfb9ad778bc62fbdc13dcc5d2a7a9e0853f3079f9ddf4c7ca  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip-26.2.1.dist-info/entry_points.txt
+4eb1fb1705e2def898e81bcba19c3aac80620d27ba3569d6a6df7b4629d1b5c2  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip-26.2.1.dist-info/licenses/AUTHORS.txt
+634300a669d49aeae65b12c6c48c924c51a4cdf3d1ff086dc3456dc8bcaa2104  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip-26.2.1.dist-info/licenses/LICENSE.txt
+86eeee87be2a43f3ff1f56496f451f69243926f025fedbb033666c304c4c161b  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip-26.2.1.dist-info/licenses/src/pip/_vendor/cachecontrol/LICENSE.txt
+808e10c8a6ab8deb149ff9b3fb19f447a808094606d712a9ca57fead3552599d  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip-26.2.1.dist-info/licenses/src/pip/_vendor/distlib/LICENSE.txt
+130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip-26.2.1.dist-info/licenses/src/pip/_vendor/urllib3/LICENSE.txt
+797e200aa7fff16fad9fb2deeaece50a2b2bec623eb6c3759176eee6cee19328  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip/_vendor/bom.cdx.json
+86eeee87be2a43f3ff1f56496f451f69243926f025fedbb033666c304c4c161b  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol/LICENSE.txt
+808e10c8a6ab8deb149ff9b3fb19f447a808094606d712a9ca57fead3552599d  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip/_vendor/distlib/LICENSE.txt
+130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip/_vendor/urllib3/LICENSE.txt
+3df0c9601bfa2e0dca23cc574a4f900a4d7fdad060ab203fab8354350ed93320  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pip/_vendor/vendor.txt
+73e94f712ef82fff0aa07ec813a3d0179a1fca2ad140d57856191b48520f7963  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pycparser-3.12.dist-info/top_level.txt
+f96db04ed9317354273d43d1a816746ccc2b843f31443d771c8a1b157fb00ceb  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pycryptodome-4.2.0.dist-info/top_level.txt
+78753d6ac7ba8a7d5948112d4c3a65edfc083c838de369dba99d6e153c9c731b  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pycryptodomex-3.24.1.dist-info/top_level.txt
+055c5c45e60e01d6264991b84dca68e47341da617fdb5cba15940b37df6234c0  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pyghidra-3.1.0.dist-info/entry_points.txt
+f7d7054bb647f20115da11655b03208c0833b3a7e9752e45bb52a4eeea8ed6a1  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pyghidra-3.1.0.dist-info/top_level.txt
+cbb3a8dead76f24e49d2de922b8177f8e73629508dd62747c8784aa2b5235bea  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pylzma-0.6.1.dist-info/top_level.txt
+508a76d186356c0dd807a670ef510964f8724557024796a2c426c6c0e19ab683  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pynacl-1.6.2.dist-info/licenses/licenses/LICENSE.libsodium.txt
+c1f744388fc6d912339b3b0cca1a6a3f5ec7521e8972a8bdf6da3d6872c4b25a  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pynacl-1.6.2.dist-info/top_level.txt
+f80437a159889fbaed5b90e1d0eba9f741ead2a90894c8fbf6a1a674321793d5  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pyserial-3.5.dist-info/entry_points.txt
+b39ac55f140a2fd4173b750c5d1998a0c5c6450b7696897aeeb7ffeb84b5bf5d  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pyserial-3.5.dist-info/metadata.json
+1528df5875b0f958cf884a8e86db5b88ff85f0e1e7fa58a2c6ad7028bd9f58e0  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pyserial-3.5.dist-info/top_level.txt
+bd40397fe8fdda8c4f9d447f5db0a83a8c69a415be74ff1f78e0fb06654c32d1  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/pyusb-1.3.1.dist-info/top_level.txt
+8e891806b519fd27f56ceec5704e77888847627d4227dfdae52a214c86b238ff  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/qrcode-8.2.dist-info/entry_points.txt
+7cc4959877dbe6b6c63a8eb1bfe3bfb545fa8fe5b28b1b2c13e4a7c1c0d1c4d4  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/requests-2.34.2.dist-info/top_level.txt
+130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/urllib3-2.8.0.dist-info/licenses/LICENSE.txt
+24976d480193bcc2db2244d565400cbc628edfd16d59f09517c9a9fcd1fa7b88  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/wheel-0.48.0.dist-info/entry_points.txt
+30c23618679108f3e8ea1d2a658c7ca417bdfc891c98ef1a89fa4ff0c9828654  /home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/wheel-0.48.0.dist-info/licenses/LICENSE.txt
+61a3cd7423fed509209aa4e4155eb9b4e4ae52c6ad01970d7696db9b8d70a8e0  /home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/039_DiskIoDxe.txt
+44b3c426fa12326b153c7c875eb8f2349ab54d73b3eb0f1880fe09b8ae6d364b  /home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/040_PartitionDxe.txt
+d9d9a98e458835a0047bc3e6b40eb49c096c4ea47d558e647b848aec532fb441  /home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/041_FatDxe.txt
+684af1c2b8f5af8e32fb7f50437916ec53e9be8f5c8c036f19c477df505d8e5b  /home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/043_FvSimpleFileSystemDxe.txt
+063fd1f74db4862bf54ac97d3e1bc142c9173eff1019b58794341ddee3c9ea34  /home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/051_SDCC.txt
+6ced3133f383579eb2bcde1eda26bc22d3ab9fb436301e783c815fa1caf10284  /home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/REPORT.txt
+4dcd0bc86b0a98ce89e013acce5d8dc6ead4fe0085d336c49d2b9fe59f123ee0  /home/hawk/duo_edl/edl/xbl_analysis.txt
+
+=== DEVICE / EDL TOOLING FILES ===
+25601	/home/hawk/duo_edl/edl/build/lib/edlclient/edl.py
+50259	/home/hawk/duo_edl/edl/build/lib/edlclient/Library/firehose_client.py
+82369	/home/hawk/duo_edl/edl/build/lib/edlclient/Library/firehose.py
+3485	/home/hawk/duo_edl/edl/build/lib/edlclient/Library/loader_db.py
+1811	/home/hawk/duo_edl/edl/build/lib/edlclient/Tools/beagle_to_loader.py
+21634	/home/hawk/duo_edl/edl/build/lib/edlclient/Tools/fhloaderparse.py
+50259	/home/hawk/duo_edl/edl/build/lib/edlclient/Tools/Library/firehose_client.py
+82369	/home/hawk/duo_edl/edl/build/lib/edlclient/Tools/Library/firehose.py
+3485	/home/hawk/duo_edl/edl/build/lib/edlclient/Tools/Library/loader_db.py
+2098	/home/hawk/duo_edl/edl/build/lib/edlclient/Tools/txt_to_loader.py
+657532	/home/hawk/duo_edl/edl/build/lib/Loaders/lenovo_motorola/0000000000720000_1bebe3863a6781db_fhprg_edlauth.bin
+634672	/home/hawk/duo_edl/edl/build/lib/Loaders/lenovo_motorola/0008c0e100010000_a7b8b82545a98eca_fhprg_edlauth.bin
+744768	/home/hawk/duo_edl/edl/build/lib/Loaders/lenovo_motorola/000a50e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+84192	/home/hawk/duo_edl/edl/build/lib/Loaders/oneplus/prog_emmc_firehose_8974_oneplusx_peek.mbn
+947952	/home/hawk/duo_edl/edl/build/lib/Loaders/oppo/prog_firehose_ddr.elf
+314	/home/hawk/duo_edl/edl/build/lib/Loaders/putyourloadersinhere.txt
+698312	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/factory/mannar/prog_firehose_lite.elf
+121020	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/factory/prog_spinor_firehose_qca4020_lite_m4_threadx.mbn
+121020	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/factory/qca4020/prog_spinor_firehose_qca4020_lite_m4_threadx.mbn
+956040	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/factory/sm8350/firehoseRM6R.elf
+703948	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/factory/strait/prog_firehose_lite.elf
+454688	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/model_generic/mdm9x05/001070e100000000_d40eee56f3194665_prog_firehose_nand_mdm9x05.elf
+273920	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_fibucom.bin
+274304	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_pinsu_r200c_r200s.mbn
+273792	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_quectel_em20_rg502.bin
+226816	/home/hawk/duo_edl/edl/build/lib/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_zte_mc801av.bin
+454688	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/001070e100000000_d40eee56f3194665_prog_firehose_nand_mdm9x05.elf
+668796	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_life_ddr_patched_Kamorta.elf
+684032	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_lite_lemur_olympicle_rm530n_rm521fg.elf
+684032	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_lite_olympicle_rg520n.elf
+684032	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_lite_olympicle_rm520fg.elf
+675840	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_lite_olympicle_rm520ng.elf
+456816	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_nand_mdm9x05LA.elf
+278400	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_sdx24_poorwills_em120r.mbn
+1386920	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_sdx35_rg255c.elf
+275840	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_sdx55_prairie_rm510q.mbn
+274304	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_sdx55_quectel.mbn
+276352	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_sdx55_rg501q.mbn
+275328	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_sdx55_rg502.mbn
+275840	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_sdx55_rm502q.mbn
+2015016	/home/hawk/duo_edl/edl/build/lib/Loaders/quectel/prog_firehose_sdx7x_pinnaclesle_rm551eg_rm550v.elf
+446976	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_firehose_nand_SARA-R422.elf
+446976	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_firehose_nand_SARA-R422M10S.elf
+446976	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_firehose_nand_SARA-R422S.elf
+143860	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_nand_firehose_9x06_LARA-L6004D.mbn
+143860	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_nand_firehose_9x06_LARA-L6804D.mbn
+143860	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6001D.mbn
+143860	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6001.mbn
+143860	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6401D.mbn
+143860	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6401.mbn
+143860	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6801D.mbn
+143860	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6801.mbn
+132332	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_nand_firehose_9x06_SARA-R410M.mbn
+132268	/home/hawk/duo_edl/edl/build/lib/Loaders/ublox/prog_nand_firehose_9x06_SARA-R412M.mbn
+375912	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/daisy_prog_emmc_firehose_8953_ddr.mbn
+728096	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/EDLAuth/0000000000720000_1bebe3863a6781db_fhprg_edlauth_peek.bin
+399176	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/EDLAuth/000460e100000000_57158eaf1814d78f_fhprg_edlauth_peek.bin
+720705	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/EDLAuth/0008b0e100010000_c924a35f39ce1cdd_fhprg_edlauth.bin
+719652	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/EDLAuth/0008b0e100720000_c924a35f39ce1cdd_fhprg_edlauth_poco_f1.bin
+669168	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/EDLAuth/0008c0e100010000_f8ab20526358c4fa_fhprg_edlauth_peek.bin
+669552	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/EDLAuth/0008c0e100720000_a7b8b82545a98eca_fhprg_edlauth.bin
+722160	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/EDLAuth/000910e100720000_c924a35f39ce1cdd_fhprg_edlauth.bin
+662004	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/EDLAuth/000950e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+724800	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/EDLAuth/000a50e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+744768	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/EDLAuth/000a50e100720000_1bebe3863a6781db_fhprg_sdm855_edlauth_xiaomi.bin
+445280	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/EDLAuth/000ba0e100720000_57158eaf1814d78f_fhprg_edlauth_peek.bin
+460632	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/EDLAuth/000bf0e100720000_57158eaf1814d78f_fhprg_edlauth_peek.bin
+722160	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/EDLAuth/000db0e100720000_c924a35f39ce1cdd_fhprg_edlauth.bin
+672252	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/EDLAuth/000e60e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+969280	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/EDLAuth/001590e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+629136	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_ddr.elf
+628848	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_lite.elf
+89028	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/prog_emmc_firehose_8916_gucci_peek.mbn
+683644	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/prog_ufs_firehose_sm6250_ddr.elf
+381672	/home/hawk/duo_edl/edl/build/lib/Loaders/xiaomi/rosy_prog_emmc_firehose_8953_ddr.mbn
+692	/home/hawk/duo_edl/edl/Drivers/51-edl.rules
+50	/home/hawk/duo_edl/edl/edl.bat
+50259	/home/hawk/duo_edl/edl/edlclient/Library/firehose_client.py
+82369	/home/hawk/duo_edl/edl/edlclient/Library/firehose.py
+3485	/home/hawk/duo_edl/edl/edlclient/Library/loader_db.py
+54573	/home/hawk/duo_edl/edl/edlclient/Library/__pycache__/firehose_client.cpython-314.pyc
+93314	/home/hawk/duo_edl/edl/edlclient/Library/__pycache__/firehose.cpython-314.pyc
+5025	/home/hawk/duo_edl/edl/edlclient/Library/__pycache__/loader_db.cpython-314.pyc
+30401	/home/hawk/duo_edl/edl/edlclient/__pycache__/edl.cpython-314.pyc
+1811	/home/hawk/duo_edl/edl/edlclient/Tools/beagle_to_loader.py
+21634	/home/hawk/duo_edl/edl/edlclient/Tools/fhloaderparse.py
+2098	/home/hawk/duo_edl/edl/edlclient/Tools/txt_to_loader.py
+387	/home/hawk/duo_edl/edl/edl_config.json
+25601	/home/hawk/duo_edl/edl/edl.py
+127	/home/hawk/duo_edl/edl/fhloaderparse.py
+3463	/home/hawk/duo_edl/edl/install_edl_win10_win11.ps1
+430	/home/hawk/duo_edl/edl/install-linux-edl-drivers.sh
+512000	/home/hawk/duo_edl/edl/LinuxLoader.efi
+66731	/home/hawk/duo_edl/edl/LinuxLoader_strings.txt
+657532	/home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0000000000720000_1bebe3863a6781db_fhprg_edlauth.bin
+634672	/home/hawk/duo_edl/edl/Loaders/lenovo_motorola/0008c0e100010000_a7b8b82545a98eca_fhprg_edlauth.bin
+744768	/home/hawk/duo_edl/edl/Loaders/lenovo_motorola/000a50e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+84192	/home/hawk/duo_edl/edl/Loaders/oneplus/prog_emmc_firehose_8974_oneplusx_peek.mbn
+947952	/home/hawk/duo_edl/edl/Loaders/oppo/prog_firehose_ddr.elf
+314	/home/hawk/duo_edl/edl/Loaders/putyourloadersinhere.txt
+698312	/home/hawk/duo_edl/edl/Loaders/qualcomm/factory/mannar/prog_firehose_lite.elf
+121020	/home/hawk/duo_edl/edl/Loaders/qualcomm/factory/prog_spinor_firehose_qca4020_lite_m4_threadx.mbn
+121020	/home/hawk/duo_edl/edl/Loaders/qualcomm/factory/qca4020/prog_spinor_firehose_qca4020_lite_m4_threadx.mbn
+956040	/home/hawk/duo_edl/edl/Loaders/qualcomm/factory/sm8350/firehoseRM6R.elf
+703948	/home/hawk/duo_edl/edl/Loaders/qualcomm/factory/strait/prog_firehose_lite.elf
+454688	/home/hawk/duo_edl/edl/Loaders/qualcomm/model_generic/mdm9x05/001070e100000000_d40eee56f3194665_prog_firehose_nand_mdm9x05.elf
+273920	/home/hawk/duo_edl/edl/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_fibucom.bin
+274304	/home/hawk/duo_edl/edl/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_pinsu_r200c_r200s.mbn
+273792	/home/hawk/duo_edl/edl/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_quectel_em20_rg502.bin
+226816	/home/hawk/duo_edl/edl/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_zte_mc801av.bin
+454688	/home/hawk/duo_edl/edl/Loaders/quectel/001070e100000000_d40eee56f3194665_prog_firehose_nand_mdm9x05.elf
+668796	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_life_ddr_patched_Kamorta.elf
+684032	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_lite_lemur_olympicle_rm530n_rm521fg.elf
+684032	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_lite_olympicle_rg520n.elf
+684032	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_lite_olympicle_rm520fg.elf
+675840	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_lite_olympicle_rm520ng.elf
+456816	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_nand_mdm9x05LA.elf
+278400	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx24_poorwills_em120r.mbn
+1386920	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx35_rg255c.elf
+275840	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx55_prairie_rm510q.mbn
+274304	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx55_quectel.mbn
+276352	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx55_rg501q.mbn
+275328	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx55_rg502.mbn
+275840	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx55_rm502q.mbn
+2015016	/home/hawk/duo_edl/edl/Loaders/quectel/prog_firehose_sdx7x_pinnaclesle_rm551eg_rm550v.elf
+446976	/home/hawk/duo_edl/edl/Loaders/ublox/prog_firehose_nand_SARA-R422.elf
+446976	/home/hawk/duo_edl/edl/Loaders/ublox/prog_firehose_nand_SARA-R422M10S.elf
+446976	/home/hawk/duo_edl/edl/Loaders/ublox/prog_firehose_nand_SARA-R422S.elf
+143860	/home/hawk/duo_edl/edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-L6004D.mbn
+143860	/home/hawk/duo_edl/edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-L6804D.mbn
+143860	/home/hawk/duo_edl/edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6001D.mbn
+143860	/home/hawk/duo_edl/edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6001.mbn
+143860	/home/hawk/duo_edl/edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6401D.mbn
+143860	/home/hawk/duo_edl/edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6401.mbn
+143860	/home/hawk/duo_edl/edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6801D.mbn
+143860	/home/hawk/duo_edl/edl/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6801.mbn
+132332	/home/hawk/duo_edl/edl/Loaders/ublox/prog_nand_firehose_9x06_SARA-R410M.mbn
+132268	/home/hawk/duo_edl/edl/Loaders/ublox/prog_nand_firehose_9x06_SARA-R412M.mbn
+375912	/home/hawk/duo_edl/edl/Loaders/xiaomi/daisy_prog_emmc_firehose_8953_ddr.mbn
+728096	/home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/0000000000720000_1bebe3863a6781db_fhprg_edlauth_peek.bin
+399176	/home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/000460e100000000_57158eaf1814d78f_fhprg_edlauth_peek.bin
+720705	/home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/0008b0e100010000_c924a35f39ce1cdd_fhprg_edlauth.bin
+719652	/home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/0008b0e100720000_c924a35f39ce1cdd_fhprg_edlauth_poco_f1.bin
+669168	/home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/0008c0e100010000_f8ab20526358c4fa_fhprg_edlauth_peek.bin
+669552	/home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/0008c0e100720000_a7b8b82545a98eca_fhprg_edlauth.bin
+722160	/home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/000910e100720000_c924a35f39ce1cdd_fhprg_edlauth.bin
+662004	/home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/000950e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+724800	/home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/000a50e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+744768	/home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/000a50e100720000_1bebe3863a6781db_fhprg_sdm855_edlauth_xiaomi.bin
+445280	/home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/000ba0e100720000_57158eaf1814d78f_fhprg_edlauth_peek.bin
+460632	/home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/000bf0e100720000_57158eaf1814d78f_fhprg_edlauth_peek.bin
+722160	/home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/000db0e100720000_c924a35f39ce1cdd_fhprg_edlauth.bin
+672252	/home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/000e60e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+969280	/home/hawk/duo_edl/edl/Loaders/xiaomi/EDLAuth/001590e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+629136	/home/hawk/duo_edl/edl/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_ddr.elf
+628848	/home/hawk/duo_edl/edl/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_lite.elf
+89028	/home/hawk/duo_edl/edl/Loaders/xiaomi/prog_emmc_firehose_8916_gucci_peek.mbn
+683644	/home/hawk/duo_edl/edl/Loaders/xiaomi/prog_ufs_firehose_sm6250_ddr.elf
+381672	/home/hawk/duo_edl/edl/Loaders/xiaomi/rosy_prog_emmc_firehose_8953_ddr.mbn
+8804	/home/hawk/duo_edl/edl/sdcc_bootpath_analysis_20261031_161837/ghidra_LinuxLoader.efi.log
+7319	/home/hawk/duo_edl/edl/sdcc_bootpath_analysis_20261031_161837/ghidra_LinuxLoader.efi.stdout
+0	/home/hawk/duo_edl/edl/sdcc_bootpath_analysis_20261031_161837/ghidra_project/Duo_LinuxLoader.efi.gpr
+202	/home/hawk/duo_edl/edl/.venv/bin/beagle_to_loader
+181	/home/hawk/duo_edl/edl/.venv/bin/edl
+199	/home/hawk/duo_edl/edl/.venv/bin/fhloaderparse
+8522	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Cryptodome/SelfTest/loader.py
+8940	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Cryptodome/SelfTest/__pycache__/loader.cpython-314.pyc
+7664	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Crypto/SelfTest/loader.py
+9830	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Crypto/SelfTest/__pycache__/loader.cpython-314.pyc
+25601	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/edl.py
+50259	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Library/firehose_client.py
+82369	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Library/firehose.py
+3485	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Library/loader_db.py
+54608	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Library/__pycache__/firehose_client.cpython-314.pyc
+93349	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Library/__pycache__/firehose.cpython-314.pyc
+5060	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Library/__pycache__/loader_db.cpython-314.pyc
+30436	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/__pycache__/edl.cpython-314.pyc
+1811	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Tools/beagle_to_loader.py
+21634	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Tools/fhloaderparse.py
+50259	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Tools/Library/firehose_client.py
+82369	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Tools/Library/firehose.py
+3485	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Tools/Library/loader_db.py
+54614	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Tools/Library/__pycache__/firehose_client.cpython-314.pyc
+93355	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Tools/Library/__pycache__/firehose.cpython-314.pyc
+5066	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Tools/Library/__pycache__/loader_db.cpython-314.pyc
+2176	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Tools/__pycache__/beagle_to_loader.cpython-314.pyc
+27635	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Tools/__pycache__/fhloaderparse.cpython-314.pyc
+2642	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Tools/__pycache__/txt_to_loader.cpython-314.pyc
+2098	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/edlclient/Tools/txt_to_loader.py
+6010	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/invoke/loader.py
+8145	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/invoke/__pycache__/loader.cpython-314.pyc
+2061	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/invoke/vendor/yaml/loader.py
+3738	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/invoke/vendor/yaml/__pycache__/loader.cpython-314.pyc
+657532	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/lenovo_motorola/0000000000720000_1bebe3863a6781db_fhprg_edlauth.bin
+634672	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/lenovo_motorola/0008c0e100010000_a7b8b82545a98eca_fhprg_edlauth.bin
+744768	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/lenovo_motorola/000a50e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+84192	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/oneplus/prog_emmc_firehose_8974_oneplusx_peek.mbn
+947952	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/oppo/prog_firehose_ddr.elf
+314	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/putyourloadersinhere.txt
+698312	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/factory/mannar/prog_firehose_lite.elf
+121020	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/factory/prog_spinor_firehose_qca4020_lite_m4_threadx.mbn
+121020	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/factory/qca4020/prog_spinor_firehose_qca4020_lite_m4_threadx.mbn
+956040	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/factory/sm8350/firehoseRM6R.elf
+703948	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/factory/strait/prog_firehose_lite.elf
+454688	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/model_generic/mdm9x05/001070e100000000_d40eee56f3194665_prog_firehose_nand_mdm9x05.elf
+273920	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_fibucom.bin
+274304	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_pinsu_r200c_r200s.mbn
+273792	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_quectel_em20_rg502.bin
+226816	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/qualcomm/model_generic/sdx55/prog_firehose_sdx55_zte_mc801av.bin
+454688	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/001070e100000000_d40eee56f3194665_prog_firehose_nand_mdm9x05.elf
+668796	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_life_ddr_patched_Kamorta.elf
+684032	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_lite_lemur_olympicle_rm530n_rm521fg.elf
+684032	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_lite_olympicle_rg520n.elf
+684032	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_lite_olympicle_rm520fg.elf
+675840	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_lite_olympicle_rm520ng.elf
+456816	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_nand_mdm9x05LA.elf
+278400	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_sdx24_poorwills_em120r.mbn
+1386920	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_sdx35_rg255c.elf
+275840	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_sdx55_prairie_rm510q.mbn
+274304	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_sdx55_quectel.mbn
+276352	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_sdx55_rg501q.mbn
+275328	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_sdx55_rg502.mbn
+275840	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_sdx55_rm502q.mbn
+2015016	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/quectel/prog_firehose_sdx7x_pinnaclesle_rm551eg_rm550v.elf
+446976	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_firehose_nand_SARA-R422.elf
+446976	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_firehose_nand_SARA-R422M10S.elf
+446976	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_firehose_nand_SARA-R422S.elf
+143860	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_nand_firehose_9x06_LARA-L6004D.mbn
+143860	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_nand_firehose_9x06_LARA-L6804D.mbn
+143860	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6001D.mbn
+143860	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6001.mbn
+143860	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6401D.mbn
+143860	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6401.mbn
+143860	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6801D.mbn
+143860	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_nand_firehose_9x06_LARA-R6801.mbn
+132332	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_nand_firehose_9x06_SARA-R410M.mbn
+132268	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/ublox/prog_nand_firehose_9x06_SARA-R412M.mbn
+375912	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/daisy_prog_emmc_firehose_8953_ddr.mbn
+728096	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/EDLAuth/0000000000720000_1bebe3863a6781db_fhprg_edlauth_peek.bin
+399176	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/EDLAuth/000460e100000000_57158eaf1814d78f_fhprg_edlauth_peek.bin
+720705	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/EDLAuth/0008b0e100010000_c924a35f39ce1cdd_fhprg_edlauth.bin
+719652	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/EDLAuth/0008b0e100720000_c924a35f39ce1cdd_fhprg_edlauth_poco_f1.bin
+669168	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/EDLAuth/0008c0e100010000_f8ab20526358c4fa_fhprg_edlauth_peek.bin
+669552	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/EDLAuth/0008c0e100720000_a7b8b82545a98eca_fhprg_edlauth.bin
+722160	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/EDLAuth/000910e100720000_c924a35f39ce1cdd_fhprg_edlauth.bin
+662004	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/EDLAuth/000950e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+724800	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/EDLAuth/000a50e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+744768	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/EDLAuth/000a50e100720000_1bebe3863a6781db_fhprg_sdm855_edlauth_xiaomi.bin
+445280	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/EDLAuth/000ba0e100720000_57158eaf1814d78f_fhprg_edlauth_peek.bin
+460632	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/EDLAuth/000bf0e100720000_57158eaf1814d78f_fhprg_edlauth_peek.bin
+722160	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/EDLAuth/000db0e100720000_c924a35f39ce1cdd_fhprg_edlauth.bin
+672252	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/EDLAuth/000e60e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+969280	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/EDLAuth/001590e100720000_1bebe3863a6781db_fhprg_edlauth.bin
+629136	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_ddr.elf
+628848	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_lite.elf
+89028	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/prog_emmc_firehose_8916_gucci_peek.mbn
+683644	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/prog_ufs_firehose_sm6250_ddr.elf
+381672	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/Loaders/xiaomi/rosy_prog_emmc_firehose_8953_ddr.mbn
+5790	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/lxml/docloader.pxi
+7536	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/usb/libloader.py
+6644	/home/hawk/duo_edl/edl/.venv/lib/python3.14/site-packages/usb/__pycache__/libloader.cpython-314.pyc
+
+=== INVENTORY COMPLETE; NO DEVICE ACCESS OR WRITES PERFORMED ===

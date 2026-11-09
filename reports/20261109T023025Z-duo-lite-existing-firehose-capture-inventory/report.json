@@ -1,0 +1,19 @@
+{
+  "id": "20261109T023025Z-duo-lite-existing-firehose-capture-inventory",
+  "title": "Duo Lite existing Firehose capture inventory",
+  "created_utc": "2026-11-09T02:30:25.917471+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-lc",
+    "\nROOT=/home/hawk/duo_edl/edl\n\nprintf \"=== CAPTURE ROOT ===\\n\"\nprintf \"%s\\n\" \"$ROOT\"\nif [ ! -d \"$ROOT\" ]; then\n  echo \"ERROR: capture directory not found\"\n  exit 2\nfi\n\nprintf \"\\n=== DIRECTORY STRUCTURE ===\\n\"\nfind \"$ROOT\" -maxdepth 3 -type d -printf \"%p\\n\" | sort\n\nprintf \"\\n=== CAPTURE FILES (largest first, up to 300) ===\\n\"\nfind \"$ROOT\" -type f -printf \"%s\\t%p\\n\" | sort -nr | head -n 300\n\nprintf \"\\n=== PARTITION / FIREHOSE / GPT METADATA CANDIDATES ===\\n\"\nfind \"$ROOT\" -type f \\( \\\n  -iname \"*.xml\" -o -iname \"*.json\" -o -iname \"*.txt\" \\\n  -o -iname \"*.gpt\" -o -iname \"*partition*\" \\\n  -o -iname \"*firehose*\" -o -iname \"*rawprogram*\" \\\n  -o -iname \"*patch*\" -o -iname \"*prog_*\" \\\n  -o -iname \"*.mbn\" -o -iname \"*.elf\" \\\n\\) -printf \"%s\\t%p\\n\" | sort -k2\n\nprintf \"\\n=== EXISTING DUMP DIRECTORY ===\\n\"\nif [ -d \"$ROOT/new_authorized_dumps\" ]; then\n  find \"$ROOT/new_authorized_dumps\" -maxdepth 2 -type f \\\n    -printf \"%s\\t%p\\n\" | sort -k2\nelse\n  echo \"new_authorized_dumps not found\"\nfi\n\nprintf \"\\n=== METADATA SHA256 ===\\n\"\nfind \"$ROOT\" -type f \\( -iname \"*.xml\" -o -iname \"*.json\" \\\n  -o -iname \"*.txt\" -o -iname \"*.gpt\" \\) -print0 |\n  sort -z | xargs -0 -r sha256sum\n\nprintf \"\\n=== DEVICE / EDL TOOLING FILES ===\\n\"\nfind \"$ROOT\" -type f \\( -iname \"*firehose*\" -o -iname \"*edl*\" \\\n  -o -iname \"*qdl*\" -o -iname \"*loader*\" -o -iname \"*prog_*\" \\) \\\n  -printf \"%s\\t%p\\n\" | sort -k2\n\nprintf \"\\n=== INVENTORY COMPLETE; NO DEVICE ACCESS OR WRITES PERFORMED ===\\n\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.423,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}
