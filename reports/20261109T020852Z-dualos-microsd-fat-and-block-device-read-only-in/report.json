@@ -1,0 +1,13 @@
+{
+  "id": "20261109T020852Z-dualos-microsd-fat-and-block-device-read-only-in",
+  "title": "DualOS microSD FAT and block-device read-only integrity check",
+  "created_utc": "2026-11-09T02:08:52.589954+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\nSD_PART=\"/dev/mmcblk0p1\"\nMNT=\"/mnt/dualos-check\"\n\necho \"=== BLOCK DEVICE TOPOLOGY ===\"\nlsblk -o NAME,TYPE,SIZE,PKNAME,TRAN,RM,FSTYPE,LABEL,PARTUUID,MOUNTPOINTS\n\necho\necho \"=== MOUNT OPTIONS ===\"\nfindmnt -rn -T \"$MNT\" -o SOURCE,FSTYPE,OPTIONS,TARGET\n\necho\necho \"=== RAW DIRECTORY LISTING ===\"\nsudo ls -la \"$MNT\"\nsudo du -ahx \"$MNT\" 2>&1 | head -n 100\n\necho\necho \"=== READ-ONLY FAT CHECK ===\"\nif command -v fsck.fat >/dev/null 2>&1; then\n  sudo fsck.fat -vn \"$SD_PART\"\nelse\n  echo \"fsck.fat unavailable; no filesystem check run.\"\nfi\n\necho\necho \"=== DEVICE IDENTITY ===\"\nsudo blkid \"$SD_PART\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.829
+}

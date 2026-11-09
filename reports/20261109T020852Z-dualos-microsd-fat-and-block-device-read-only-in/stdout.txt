@@ -1,0 +1,53 @@
+=== BLOCK DEVICE TOPOLOGY ===
+NAME        TYPE   SIZE PKNAME  TRAN RM FSTYPE LABEL   PARTUUID                             MOUNTPOINTS
+mmcblk0     disk  59.6G         mmc   0                                                     
+└─mmcblk0p1 part  59.6G mmcblk0 mmc   0 vfat   GBLTEST 1b806d74-8676-4e78-a90a-9c209e214d81 /mnt/dualos-check
+zram0       disk     4G               0 swap   zram0                                        [SWAP]
+nvme0n1     disk 238.5G         nvme  0                                                     
+├─nvme0n1p1 part     1G nvme0n1 nvme  0 vfat           583e44d0-4ff6-4293-9256-8d4918b1690e /boot
+└─nvme0n1p2 part 237.5G nvme0n1 nvme  0 btrfs          22efa329-5a3f-46a8-b827-9f46a76aaace /var/log
+                                                                                            /var/cache/pacman/pkg
+                                                                                            /home
+                                                                                            /
+
+=== MOUNT OPTIONS ===
+/dev/mmcblk0p1 vfat rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro /mnt/dualos-check
+
+=== RAW DIRECTORY LISTING ===
+total 32
+drwxr-xr-x 3 root root 32768 Dec 31  1969 .
+drwxr-xr-x 1 root root   178 Nov  8 16:27 ..
+32K	/mnt/dualos-check
+
+=== READ-ONLY FAT CHECK ===
+fsck.fat 4.2 (2021-01-31)
+Checking we can access the last sector of the filesystem
+There are differences between boot sector and its backup.
+This is mostly harmless. Differences: (offset:original/backup)
+  65:01/00
+  Not automatically fixing this.
+Boot sector contents:
+System ID "mkfs.fat"
+Media byte 0xf8 (hard disk)
+       512 bytes per logical sector
+     32768 bytes per cluster
+        64 reserved sectors
+First FAT starts at byte 32768 (sector 64)
+         2 FATs, 32 bit entries
+   7831552 bytes per FAT (= 15296 sectors)
+Root directory start at cluster 2 (arbitrary size)
+Data area starts at byte 15695872 (sector 30656)
+   1953249 data clusters (64004063232 bytes)
+16 sectors/track, 4 heads
+      2048 hidden sectors
+ 125038592 sectors total
+Checking for unused clusters.
+Dirty bit is set. Fs was not properly unmounted and some data may be corrupt.
+ Automatically removing dirty bit.
+Checking free cluster summary.
+
+Leaving filesystem unchanged.
+/dev/mmcblk0p1: 8 files, 26/1953249 clusters
+
+=== DEVICE IDENTITY ===
+/dev/mmcblk0p1: LABEL_FATBOOT="GBLTEST" LABEL="GBLTEST" UUID="DD36-A492" BLOCK_SIZE="512" TYPE="vfat" PARTLABEL="primary" PARTUUID="1b806d74-8676-4e78-a90a-9c209e214d81"
