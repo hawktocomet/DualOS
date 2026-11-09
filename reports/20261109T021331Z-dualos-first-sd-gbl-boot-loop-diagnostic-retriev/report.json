@@ -1,0 +1,13 @@
+{
+  "id": "20261109T021331Z-dualos-first-sd-gbl-boot-loop-diagnostic-retriev",
+  "title": "DualOS first SD GBL boot-loop diagnostic retrieval",
+  "created_utc": "2026-11-09T02:13:31.271853+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\nPART=\"/dev/mmcblk0p1\"\nMNT=\"/mnt/dualos-check\"\nEXPECTED=\"1b806d74-8676-4e78-a90a-9c209e214d81\"\n\nACTUAL=\"$(sudo blkid -s PARTUUID -o value \"$PART\" 2>/dev/null)\"\necho \"PARTUUID: $ACTUAL\"\n[ \"$ACTUAL\" = \"$EXPECTED\" ] || { echo \"STOP: unexpected SD partition\"; exit 10; }\n\nif mountpoint -q \"$MNT\"; then\n  echo \"STOP: mountpoint is already mounted\"\n  exit 11\nfi\n\nsudo mkdir -p \"$MNT\"\nsudo mount -o ro,nosuid,nodev,noexec \"$PART\" \"$MNT\" || {\n  echo \"STOP: read-only mount failed\"\n  exit 12\n}\n\necho\necho \"=== MOUNT ===\"\nfindmnt -rn -T \"$MNT\" -o SOURCE,FSTYPE,OPTIONS,TARGET\n\necho\necho \"=== DIAGNOSTIC FILES ===\"\nsudo find \"$MNT\" -maxdepth 4 -type f \\\n  \\( -iname \"DUALOS-DIAG.TXT\" -o -iname \"*.log\" \\) \\\n  -printf \"%p (%s bytes)\\n\"\n\necho\necho \"=== DUALOS-DIAG.TXT ===\"\nif sudo test -f \"$MNT/DUALOS-DIAG.TXT\"; then\n  sudo cat \"$MNT/DUALOS-DIAG.TXT\"\nelif sudo test -f \"$MNT/EFI/BOOT/DUALOS-DIAG.TXT\"; then\n  sudo cat \"$MNT/EFI/BOOT/DUALOS-DIAG.TXT\"\nelse\n  echo \"Diagnostic file not found at either expected location.\"\nfi\n\necho\necho \"=== ACTIVE EFI HASH ===\"\nsudo sha256sum \"$MNT/EFI/BOOT/BOOTAA64.EFI\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.716
+}
