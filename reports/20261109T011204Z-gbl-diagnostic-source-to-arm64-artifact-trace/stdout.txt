@@ -1,0 +1,382 @@
+===== CONFIGURED TARGET OUTPUT =====
+lrwxrwxrwx 1 hawk hawk 211 Nov  8 20:06 out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/aarch64_dev/gbl_aarch64_dev.efi -> /home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_signed/gbl_aarch64_dev.efi
+LS_EXIT_CODE=0
+/home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_signed/gbl_aarch64_dev.efi
+READLINK_EXIT_CODE=0
+/home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi
+RESOLVED_EXIT_CODE=0
+mtime=2026-11-08 20:06:40.417653932 -0500 size=155648 type=regular file
+367cb02aa0c3bed854926b595ce1bbe5fb63fa2b52b99596b6b9caa93c1ca145  out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/aarch64_dev/gbl_aarch64_dev.efi
+out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/aarch64_dev/gbl_aarch64_dev.efi: symbolic link to /home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_signed/gbl_aarch64_dev.efi
+
+===== UNDERLYING ARM64 EFI ARTIFACT =====
+2026-11-08 20:06:38.989847547 -0500 84480 out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi
+2cba21f42ccefdb65672d0c53dc1b6a3007ddc97b3f7966234bf4fddc3f28126  out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi
+out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi: PE32+ executable for EFI (application), ARM64, 5 sections
+
+===== DIAGNOSTIC SOURCE COMPILE ACTION =====
+runfiles for @@gbl+//efi:app
+  Mnemonic: RunfilesTree
+  Target: @gbl//efi:app
+  Configuration: k8-fastbuild-ST-1cb3a8a3a143
+  Execution platform: @platforms//host:host
+  ActionKey: 64524680ae352918974e5de22f89166472d4f41ef8c12369e8c62a2141413139
+  Inputs: [bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_new_local_repository+smoltcp/src/config.rs, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++local_repository+zbi/src/firmware/lib/zbi-rs/src/zbi_format.rs, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/arch/aarch64/trace_buffer_size.h, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi.repo_mapping, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi.runfiles/MANIFEST, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libefi_types/src/defs.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/aead.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/aes.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/cipher/aes_cbc.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/cipher/aes_ctr.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/cipher/mod.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/cpace.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/digest.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/ec.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/ecdh.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/ecdsa.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/ed25519.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/hkdf.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/hmac.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/hpke.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/lib.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/macros.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/mem.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/mldsa.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/mlkem.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/pkcs8.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/rand.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/rsa.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/scoped.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/slhdsa.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/test_helpers.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/tls12_prf.rs, external/gbl++gbl_new_local_repository+boringssl/src/rust/bssl-crypto/src/x25519.rs, external/gbl+/efi/src/android_boot.rs, external/gbl+/efi/src/diagnostic_fs.rs, external/gbl+/efi/src/efi_blocks.rs, external/gbl+/efi/src/fastboot.rs, external/gbl+/efi/src/fuchsia_boot.rs, external/gbl+/efi/src/lib.rs, external/gbl+/efi/src/net.rs, external/gbl+/efi/src/ops.rs, external/gbl+/efi/src/utils.rs, external/gbl+/libgbl/src/android_boot/avf.rs, external/gbl+/libgbl/src/android_boot/device_tree.rs, external/gbl+/libgbl/src/android_boot/hasher.rs, external/gbl+/libgbl/src/android_boot/kernel.rs, external/gbl+/libgbl/src/android_boot/load.rs, external/gbl+/libgbl/src/android_boot/mod.rs, external/gbl+/libgbl/src/android_boot/vboot.rs, external/gbl+/libgbl/src/constants.rs, external/gbl+/libgbl/src/decompress.rs, external/gbl+/libgbl/src/device_tree.rs, external/gbl+/libgbl/src/error.rs, external/gbl+/libgbl/src/fastboot/boot_items.rs, external/gbl+/libgbl/src/fastboot/error.rs, external/gbl+/libgbl/src/fastboot/mod.rs, external/gbl+/libgbl/src/fastboot/pin_fut_container.rs, external/gbl+/libgbl/src/fastboot/sparse.rs, external/gbl+/libgbl/src/fastboot/vars.rs, external/gbl+/libgbl/src/fuchsia_boot/load.rs, external/gbl+/libgbl/src/fuchsia_boot/mod.rs, external/gbl+/libgbl/src/fuchsia_boot/vboot.rs, external/gbl+/libgbl/src/gbl_avb/mod.rs, external/gbl+/libgbl/src/gbl_avb/ops.rs, external/gbl+/libgbl/src/gbl_avb/state.rs, external/gbl+/libgbl/src/lib.rs, external/gbl+/libgbl/src/metrics.rs, external/gbl+/libgbl/src/misc.rs, external/gbl+/libgbl/src/ops.rs, external/gbl+/libgbl/src/partition.rs, external/gbl+/libgbl/src/random.rs, external/gbl+/libgbl/src/slots.rs]
+  Outputs: [bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/gbl_aarch64_dev.efi.runfiles]
+
+action 'Compiling Rust rlib libgbl_efi (9 files)'
+  Mnemonic: Rustc
+  Target: @gbl//efi:libgbl_efi
+  Configuration: k8-fastbuild-ST-1cb3a8a3a143
+  Execution platform: @platforms//host:host
+  ActionKey: bfb7de7d48dbd70831efa5c6712d7f335c0818ea9f912e4dbd25bb4312787511
+  Inputs: [bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_new_local_repository+avb/libavb-3809884619.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_new_local_repository+avb/libavb_bindgen-725714025.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_new_local_repository+smoltcp/libsmoltcp-166022318.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_new_local_repository+smoltcp/src/config.rs, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+arrayvec/libarrayvec-314656330.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+base64/libbase64-1603092118.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+bitflags/libbitflags-2917004149.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+byteorder/libbyteorder-2568220831.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+bytes/libbytes-1925108070.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+cfg_if/libcfg_if-853473165.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+ciborium_io/libciborium_io-541767102.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+ciborium_ll/libciborium_ll-3481782440.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+crc32fast/libcrc32fast-606313334.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+half/libhalf-2582087502.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+hash32/libhash32-743281400.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+heapless/libheapless-845454048.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+lz4_flex/liblz4_flex-2098551795.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+managed/libmanaged-3518141158.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+spin/libspin-2596784739.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+static_assertions/libstatic_assertions-1674861635.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+uuid/libuuid-416090326.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+zerocopy/libzerocopy-68469688.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+zeroize/libzeroize-1855077817.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+zune_inflate/libzune_inflate-859501909.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++local_repository+zbi/libzbi-3377775864.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++local_repository+zbi/src/firmware/lib/zbi-rs/src/zbi_format.rs, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libabr/libabr-1082782016.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libasync/libgbl_async-1055582283.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libavb/libavb_sysdeps-549501431.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboot/aarch64_cache_helper/libaarch64_cache_helper-101996557.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboot/libboot-2704709553.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libbootimg/libbootimg-690824864.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libbootimg/libbootimg_bindgen-117874286.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libbootparams/libbootparams-1950689335.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboringssl/libboringssl_sysdeps-1774273693.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboringssl/libbssl_sys-377935503.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboringssl/liblibboringssl-1222755785.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libbuild_number/liblibbuild_number-1307553031.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libc/liblibc-2031394994.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libdttable/libdttable-2883843917.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libdttable/liblibdttable_bindgen-2399141979.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libefi/libefi-1749486839.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libefi/libefi_rng-636186978.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libefi_types/libefi_types-640721264.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libefi_types/src/defs.rs, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/liberror/libliberror-1428534825.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfastboot/libfastboot-1233383667.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfdt/libfdt-1313881851.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfdt/liblibfdt_bindgen-1656806107.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfdt/liblibufdt_bindgen-443467649.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfit/libfit-547806432.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libgbl/liblibgbl-1363449920.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libgblutils/liblibgblutils-677656287.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/liblp/libliblp-1491811841.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/liblp/libliblp_bindgen-559612236.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libmisc/libmisc-718267797.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libopendice/libopendice-1316913968.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libopendice/libopendice_android_bindgen-1632319856.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libopendice/libopendice_cbor_bindgen-1557239402.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libprofile/liblibprofile-1145831800.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libpvmfwconfig/libpvmfwconfig-2038567177.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libsafemath/libsafemath-9399948.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libstack/liblibstack-2283734441.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libstorage/libgbl_storage-376989494.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libtrace/libgbl_trace_format-1120734821.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libtrace/libtrace-1191326868.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libutils/liblibutils-690664960.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/protocol_integration/liblibprotocol_test-532206246.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/toolchain/aarch64-unknown-uefi/bin/clippy-driver, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/toolchain/aarch64-unknown-uefi/bin/rustc, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/toolchain/aarch64-unknown-uefi/bin/rustdoc, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/toolchain/aarch64-unknown-uefi/toolchain/rust_sysroot_source_build/liballoc-1784067235.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/toolchain/aarch64-unknown-uefi/toolchain/rust_sysroot_source_build/libcompiler_builtins-235307718.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/toolchain/aarch64-unknown-uefi/toolchain/rust_sysroot_source_build/libcore-3528763379.rlib, bazel-out/k8-fastbuild-ST-9b8e53afdcb3/bin/external/gbl+/toolchain/rust_sysroot_source_build/liballoc-1784067235.rlib, bazel-out/k8-fastbuild-ST-9b8e53afdcb3/bin/external/gbl+/toolchain/rust_sysroot_source_build/libcompiler_builtins-235307718.rlib, bazel-out/k8-fastbuild-ST-9b8e53afdcb3/bin/external/gbl+/toolchain/rust_sysroot_source_build/libcore-3528763379.rlib, bazel-out/k8-opt-exec/bin/external/gbl++gbl_rust_crate_repository+zerocopy_derive/libzerocopy_derive-1805086908.so, bazel-out/k8-opt-exec/bin/external/gbl+/libprofile/liblibprofile_macros-1536527535.so, bazel-out/k8-opt-exec/bin/external/rules_rust+/util/process_wrapper/process_wrapper, bazel-out/k8-opt-exec/bin/external/rules_rust+/util/process_wrapper/process_wrapper.runfiles, external/gbl+/efi/src/android_boot.rs, external/gbl+/efi/src/diagnostic_fs.rs, external/gbl+/efi/src/efi_blocks.rs, external/gbl+/efi/src/fastboot.rs, external/gbl+/efi/src/fuchsia_boot.rs, external/gbl+/efi/src/lib.rs, external/gbl+/efi/src/net.rs, external/gbl+/efi/src/ops.rs, external/gbl+/efi/src/utils.rs, external/rules_cc+/cc/private/toolchain/build_interface_so, external/rules_cc+/cc/private/toolchain/link_dynamic_library.sh]
+  Outputs: [bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/libgbl_efi-456980285.rlib]
+  Environment: [BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1, CARGO_CFG_TARGET_ARCH=aarch64, CARGO_CFG_TARGET_OS=uefi, CARGO_CRATE_NAME=gbl_efi, CARGO_MANIFEST_DIR=${pwd}/external/gbl+/efi, CARGO_PKG_AUTHORS=, CARGO_PKG_DESCRIPTION=, CARGO_PKG_HOMEPAGE=, CARGO_PKG_NAME=libgbl_efi, CARGO_PKG_VERSION=0.0.0, CARGO_PKG_VERSION_MAJOR=0, CARGO_PKG_VERSION_MINOR=0, CARGO_PKG_VERSION_PATCH=0, CARGO_PKG_VERSION_PRE=, PATH=/bin:/usr/bin:/usr/local/bin, REPOSITORY_NAME=gbl+]
+  Command Line: (exec bazel-out/k8-opt-exec/bin/external/rules_rust+/util/process_wrapper/process_wrapper \
+    --subst \
+    'pwd=${pwd}' \
+    -- \
+    bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/toolchain/aarch64-unknown-uefi/bin/rustc \
+    external/gbl+/efi/src/lib.rs \
+    '--crate-name=gbl_efi' \
+    '--crate-type=rlib' \
+    '--error-format=human' \
+    '--codegen=metadata=-456980285' \
+    '--codegen=extra-filename=-456980285' \
+    '--out-dir=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi' \
+    '--codegen=opt-level=0' \
+    '--codegen=debuginfo=0' \
+    '--codegen=strip=none' \
+    '--remap-path-prefix=${pwd}=.' \
+    '--emit=dep-info,link' \
+    '--color=always' \
+    '--target=aarch64-unknown-uefi' \
+    -L \
+    bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/toolchain/aarch64-unknown-uefi/toolchain/rust_sysroot_source_build \
+    '--edition=2024' \
+    '-Clto=fat' \
+    -Clinker-plugin-lto \
+    '--extern=arrayvec=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+arrayvec/libarrayvec-314656330.rlib' \
+    '--extern=bytes=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+bytes/libbytes-1925108070.rlib' \
+    '--extern=cfg_if=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+cfg_if/libcfg_if-853473165.rlib' \
+    '--extern=gbl_async=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libasync/libgbl_async-1055582283.rlib' \
+    '--extern=boot=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboot/libboot-2704709553.rlib' \
+    '--extern=libbuild_number=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libbuild_number/liblibbuild_number-1307553031.rlib' \
+    '--extern=efi=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libefi/libefi-1749486839.rlib' \
+    '--extern=efi_types=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libefi_types/libefi_types-640721264.rlib' \
+    '--extern=liberror=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/liberror/libliberror-1428534825.rlib' \
+    '--extern=fastboot=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfastboot/libfastboot-1233383667.rlib' \
+    '--extern=fdt=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfdt/libfdt-1313881851.rlib' \
+    '--extern=libgbl=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libgbl/liblibgbl-1363449920.rlib' \
+    '--extern=libgblutils=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libgblutils/liblibgblutils-677656287.rlib' \
+    '--extern=libprofile=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libprofile/liblibprofile-1145831800.rlib' \
+    '--extern=safemath=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libsafemath/libsafemath-9399948.rlib' \
+    '--extern=gbl_storage=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libstorage/libgbl_storage-376989494.rlib' \
+    '--extern=trace=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libtrace/libtrace-1191326868.rlib' \
+    '--extern=libutils=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libutils/liblibutils-690664960.rlib' \
+    '--extern=spin=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+spin/libspin-2596784739.rlib' \
+    '--extern=static_assertions=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+static_assertions/libstatic_assertions-1674861635.rlib' \
+    '--extern=zerocopy=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+zerocopy/libzerocopy-68469688.rlib' \
+    '--extern=libprotocol_test=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/protocol_integration/liblibprotocol_test-532206246.rlib' \
+    '--extern=smoltcp=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_new_local_repository+smoltcp/libsmoltcp-166022318.rlib' \
+    '--extern=zbi=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++local_repository+zbi/libzbi-3377775864.rlib' \
+    '--extern=libprofile_macros=bazel-out/k8-opt-exec/bin/external/gbl+/libprofile/liblibprofile_macros-1536527535.so' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+arrayvec' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+bytes' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+cfg_if' \
+    '-Ldependency=bazel-out/k8-opt-exec/bin/external/gbl++gbl_rust_crate_repository+zerocopy_derive' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+zerocopy' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libtrace' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_new_local_repository+avb' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+uuid' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libabr' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+spin' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libefi_types' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libutils' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfastboot' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libopendice' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+ciborium_io' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+half' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+ciborium_ll' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+zeroize' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboot/aarch64_cache_helper' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libsafemath' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/liberror' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libasync' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+static_assertions' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+bitflags' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++local_repository+zbi' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboot' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libbuild_number' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfdt' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libc' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+base64' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+crc32fast' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libbootimg' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libbootparams' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libdttable' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfit' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libgblutils' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/liblp' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libmisc' \
+    '-Ldependency=bazel-out/k8-opt-exec/bin/external/gbl+/libprofile' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libprofile' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libpvmfwconfig' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libstorage' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+lz4_flex' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+zune_inflate' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libgbl' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libefi' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libavb' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboringssl' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libstack' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/protocol_integration' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+byteorder' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+hash32' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+heapless' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+managed' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_new_local_repository+smoltcp' \
+    -A \
+    deprecated \
+    -A \
+    unknown_lints \
+    -D \
+    missing-docs \
+    -D \
+    warnings \
+    -D \
+    unsafe_op_in_unsafe_fn \
+    -A \
+    clippy::disallowed_names \
+    -A \
+    clippy::type-complexity \
+    -A \
+    clippy::unnecessary_fallible_conversions \
+    -A \
+    clippy::unnecessary-wraps \
+    -A \
+    clippy::unusual-byte-groupings \
+    -A \
+    clippy::upper-case-acronyms \
+    -D \
+    clippy::missing_assert_message \
+    -D \
+    clippy::too-many-arguments \
+    -D \
+    clippy::undocumented_unsafe_blocks \
+    '--codegen=linker=/home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/external/gbl++gbl_repositories_ext+llvm_linux_x86_64_prebuilts/bin/lld' \
+    --sysroot \
+    /dev/null \
+    -C \
+    'overflow-checks=true' \
+    -Z \
+    'stack-protector=all' \
+    -Z \
+    unstable-options \
+    -Z \
+    'remap-cwd-prefix=.' \
+    -C \
+    'force-frame-pointers=yes' \
+    -C \
+    'force-unwind-tables=yes' \
+    -g \
+    -C \
+    'codegen-units=1' \
+    '--cfg=feature="gbl_dev"' \
+    '--cfg=feature="fuchsia"' \
+    -C \
+    'opt-level=3' \
+    -Z \
+    'branch-protection=bti,pac-ret,leaf')
+# Configuration: cdf94f5f16f79d94d6a870a41655a1f1f48f83f6a50f4d9bb311f02bdd526e83
+# Execution platform: @@platforms//host:host
+
+action 'Clippy @@gbl+//efi:libgbl_efi'
+  Mnemonic: Clippy
+  Target: @gbl//efi:libgbl_efi
+  Configuration: k8-fastbuild-ST-1cb3a8a3a143
+  Execution platform: @platforms//host:host
+  AspectDescriptors: [@@gbl+//toolchain:clippy.bzl%gbl_clippy_aspect()]
+  ActionKey: 61c22f7735d328f573d43318330e71500b8e36bfecba6ec8fe4e1da3b7d201ab
+  Inputs: [bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_new_local_repository+avb/libavb-3809884619.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_new_local_repository+avb/libavb_bindgen-725714025.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_new_local_repository+smoltcp/libsmoltcp-166022318.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_new_local_repository+smoltcp/src/config.rs, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+arrayvec/libarrayvec-314656330.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+base64/libbase64-1603092118.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+bitflags/libbitflags-2917004149.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+byteorder/libbyteorder-2568220831.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+bytes/libbytes-1925108070.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+cfg_if/libcfg_if-853473165.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+ciborium_io/libciborium_io-541767102.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+ciborium_ll/libciborium_ll-3481782440.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+crc32fast/libcrc32fast-606313334.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+half/libhalf-2582087502.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+hash32/libhash32-743281400.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+heapless/libheapless-845454048.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+lz4_flex/liblz4_flex-2098551795.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+managed/libmanaged-3518141158.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+spin/libspin-2596784739.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+static_assertions/libstatic_assertions-1674861635.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+uuid/libuuid-416090326.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+zerocopy/libzerocopy-68469688.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+zeroize/libzeroize-1855077817.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+zune_inflate/libzune_inflate-859501909.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++local_repository+zbi/libzbi-3377775864.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++local_repository+zbi/src/firmware/lib/zbi-rs/src/zbi_format.rs, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libabr/libabr-1082782016.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libasync/libgbl_async-1055582283.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libavb/libavb_sysdeps-549501431.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboot/aarch64_cache_helper/libaarch64_cache_helper-101996557.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboot/libboot-2704709553.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libbootimg/libbootimg-690824864.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libbootimg/libbootimg_bindgen-117874286.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libbootparams/libbootparams-1950689335.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboringssl/libboringssl_sysdeps-1774273693.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboringssl/libbssl_sys-377935503.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboringssl/liblibboringssl-1222755785.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libbuild_number/liblibbuild_number-1307553031.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libc/liblibc-2031394994.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libdttable/libdttable-2883843917.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libdttable/liblibdttable_bindgen-2399141979.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libefi/libefi-1749486839.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libefi/libefi_rng-636186978.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libefi_types/libefi_types-640721264.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libefi_types/src/defs.rs, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/liberror/libliberror-1428534825.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfastboot/libfastboot-1233383667.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfdt/libfdt-1313881851.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfdt/liblibfdt_bindgen-1656806107.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfdt/liblibufdt_bindgen-443467649.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfit/libfit-547806432.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libgbl/liblibgbl-1363449920.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libgblutils/liblibgblutils-677656287.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/liblp/libliblp-1491811841.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/liblp/libliblp_bindgen-559612236.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libmisc/libmisc-718267797.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libopendice/libopendice-1316913968.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libopendice/libopendice_android_bindgen-1632319856.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libopendice/libopendice_cbor_bindgen-1557239402.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libprofile/liblibprofile-1145831800.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libpvmfwconfig/libpvmfwconfig-2038567177.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libsafemath/libsafemath-9399948.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libstack/liblibstack-2283734441.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libstorage/libgbl_storage-376989494.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libtrace/libgbl_trace_format-1120734821.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libtrace/libtrace-1191326868.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libutils/liblibutils-690664960.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/protocol_integration/liblibprotocol_test-532206246.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/toolchain/aarch64-unknown-uefi/bin/clippy-driver, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/toolchain/aarch64-unknown-uefi/bin/rustc, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/toolchain/aarch64-unknown-uefi/bin/rustdoc, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/toolchain/aarch64-unknown-uefi/toolchain/rust_sysroot_source_build/liballoc-1784067235.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/toolchain/aarch64-unknown-uefi/toolchain/rust_sysroot_source_build/libcompiler_builtins-235307718.rlib, bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/toolchain/aarch64-unknown-uefi/toolchain/rust_sysroot_source_build/libcore-3528763379.rlib, bazel-out/k8-fastbuild-ST-9b8e53afdcb3/bin/external/gbl+/toolchain/rust_sysroot_source_build/liballoc-1784067235.rlib, bazel-out/k8-fastbuild-ST-9b8e53afdcb3/bin/external/gbl+/toolchain/rust_sysroot_source_build/libcompiler_builtins-235307718.rlib, bazel-out/k8-fastbuild-ST-9b8e53afdcb3/bin/external/gbl+/toolchain/rust_sysroot_source_build/libcore-3528763379.rlib, bazel-out/k8-opt-exec/bin/external/gbl++gbl_rust_crate_repository+zerocopy_derive/libzerocopy_derive-1805086908.so, bazel-out/k8-opt-exec/bin/external/gbl+/libprofile/liblibprofile_macros-1536527535.so, bazel-out/k8-opt-exec/bin/external/rules_rust+/util/process_wrapper/process_wrapper, bazel-out/k8-opt-exec/bin/external/rules_rust+/util/process_wrapper/process_wrapper.runfiles, external/gbl+/efi/src/android_boot.rs, external/gbl+/efi/src/diagnostic_fs.rs, external/gbl+/efi/src/efi_blocks.rs, external/gbl+/efi/src/fastboot.rs, external/gbl+/efi/src/fuchsia_boot.rs, external/gbl+/efi/src/lib.rs, external/gbl+/efi/src/net.rs, external/gbl+/efi/src/ops.rs, external/gbl+/efi/src/utils.rs, external/rules_cc+/cc/private/toolchain/build_interface_so, external/rules_cc+/cc/private/toolchain/link_dynamic_library.sh, external/rules_rust+/rust/settings/.clippy.toml]
+  Outputs: [bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/libgbl_efi.clippy.ok]
+  Environment: [BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1, CARGO_CFG_TARGET_ARCH=aarch64, CARGO_CFG_TARGET_OS=uefi, CARGO_CRATE_NAME=gbl_efi, CARGO_MANIFEST_DIR=${pwd}/external/gbl+/efi, CARGO_PKG_AUTHORS=, CARGO_PKG_DESCRIPTION=, CARGO_PKG_HOMEPAGE=, CARGO_PKG_NAME=libgbl_efi, CARGO_PKG_VERSION=0.0.0, CARGO_PKG_VERSION_MAJOR=0, CARGO_PKG_VERSION_MINOR=0, CARGO_PKG_VERSION_PATCH=0, CARGO_PKG_VERSION_PRE=, CLIPPY_CONF_DIR=${pwd}/external/rules_rust+/rust/settings, PATH=/bin:/usr/bin:/usr/local/bin, REPOSITORY_NAME=gbl+]
+  Command Line: (exec bazel-out/k8-opt-exec/bin/external/rules_rust+/util/process_wrapper/process_wrapper \
+    --subst \
+    'pwd=${pwd}' \
+    --touch-file \
+    bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/libgbl_efi.clippy.ok \
+    -- \
+    bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/toolchain/aarch64-unknown-uefi/bin/clippy-driver \
+    external/gbl+/efi/src/lib.rs \
+    '--crate-name=gbl_efi' \
+    '--crate-type=rlib' \
+    '--error-format=human' \
+    '--codegen=metadata=-456980285' \
+    '--codegen=extra-filename=-456980285' \
+    '--out-dir=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi' \
+    '--codegen=opt-level=0' \
+    '--codegen=debuginfo=0' \
+    '--codegen=strip=none' \
+    '--remap-path-prefix=${pwd}=.' \
+    '--emit=dep-info,metadata' \
+    '--color=always' \
+    '--target=aarch64-unknown-uefi' \
+    -L \
+    bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/toolchain/aarch64-unknown-uefi/toolchain/rust_sysroot_source_build \
+    '--edition=2024' \
+    '-Clto=fat' \
+    -Clinker-plugin-lto \
+    '--extern=arrayvec=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+arrayvec/libarrayvec-314656330.rlib' \
+    '--extern=bytes=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+bytes/libbytes-1925108070.rlib' \
+    '--extern=cfg_if=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+cfg_if/libcfg_if-853473165.rlib' \
+    '--extern=gbl_async=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libasync/libgbl_async-1055582283.rlib' \
+    '--extern=boot=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboot/libboot-2704709553.rlib' \
+    '--extern=libbuild_number=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libbuild_number/liblibbuild_number-1307553031.rlib' \
+    '--extern=efi=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libefi/libefi-1749486839.rlib' \
+    '--extern=efi_types=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libefi_types/libefi_types-640721264.rlib' \
+    '--extern=liberror=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/liberror/libliberror-1428534825.rlib' \
+    '--extern=fastboot=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfastboot/libfastboot-1233383667.rlib' \
+    '--extern=fdt=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfdt/libfdt-1313881851.rlib' \
+    '--extern=libgbl=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libgbl/liblibgbl-1363449920.rlib' \
+    '--extern=libgblutils=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libgblutils/liblibgblutils-677656287.rlib' \
+    '--extern=libprofile=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libprofile/liblibprofile-1145831800.rlib' \
+    '--extern=safemath=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libsafemath/libsafemath-9399948.rlib' \
+    '--extern=gbl_storage=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libstorage/libgbl_storage-376989494.rlib' \
+    '--extern=trace=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libtrace/libtrace-1191326868.rlib' \
+    '--extern=libutils=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libutils/liblibutils-690664960.rlib' \
+    '--extern=spin=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+spin/libspin-2596784739.rlib' \
+    '--extern=static_assertions=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+static_assertions/libstatic_assertions-1674861635.rlib' \
+    '--extern=zerocopy=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+zerocopy/libzerocopy-68469688.rlib' \
+    '--extern=libprotocol_test=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/protocol_integration/liblibprotocol_test-532206246.rlib' \
+    '--extern=smoltcp=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_new_local_repository+smoltcp/libsmoltcp-166022318.rlib' \
+    '--extern=zbi=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++local_repository+zbi/libzbi-3377775864.rlib' \
+    '--extern=libprofile_macros=bazel-out/k8-opt-exec/bin/external/gbl+/libprofile/liblibprofile_macros-1536527535.so' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+arrayvec' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+bytes' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+cfg_if' \
+    '-Ldependency=bazel-out/k8-opt-exec/bin/external/gbl++gbl_rust_crate_repository+zerocopy_derive' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+zerocopy' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libtrace' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_new_local_repository+avb' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+uuid' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libabr' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+spin' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libefi_types' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libutils' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfastboot' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libopendice' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+ciborium_io' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+half' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+ciborium_ll' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+zeroize' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboot/aarch64_cache_helper' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libsafemath' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/liberror' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libasync' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+static_assertions' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+bitflags' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++local_repository+zbi' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboot' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libbuild_number' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfdt' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libc' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+base64' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+crc32fast' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libbootimg' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libbootparams' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libdttable' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libfit' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libgblutils' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/liblp' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libmisc' \
+    '-Ldependency=bazel-out/k8-opt-exec/bin/external/gbl+/libprofile' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libprofile' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libpvmfwconfig' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libstorage' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+lz4_flex' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+zune_inflate' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libgbl' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libefi' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libavb' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libboringssl' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/libstack' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/protocol_integration' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+byteorder' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+hash32' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+heapless' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_rust_crate_repository+managed' \
+    '-Ldependency=bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl++gbl_new_local_repository+smoltcp' \
+    -A \
+    deprecated \
+    -A \
+    unknown_lints \
+    -D \
+    missing-docs \
+    -D \
+    warnings \
+    -D \
+    unsafe_op_in_unsafe_fn \
+    -A \
+    clippy::disallowed_names \
+    -A \
+    clippy::type-complexity \
+    -A \
+    clippy::unnecessary_fallible_conversions \
+    -A \
+    clippy::unnecessary-wraps \
+    -A \
+    clippy::unusual-byte-groupings \
+    -A \
+    clippy::upper-case-acronyms \
+    -D \
+    clippy::missing_assert_message \
+    -D \
+    clippy::too-many-arguments \
+    -D \
+    clippy::undocumented_unsafe_blocks \
+    '--codegen=linker=/home/hawk/source/DualOS-tools/aosp-uefi-gbl/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/external/gbl++gbl_repositories_ext+llvm_linux_x86_64_prebuilts/bin/lld' \
+    --sysroot \
+    /dev/null \
+    -C \
+    'overflow-checks=true' \
+    -Z \
+    'stack-protector=all' \
+    -Z \
+    unstable-options \
+    -Z \
+    'remap-cwd-prefix=.' \
+    -C \
+    'force-frame-pointers=yes' \
+    -C \
+    'force-unwind-tables=yes' \
+    -g \
+    -C \
+    'codegen-units=1' \
+    '--cfg=feature="gbl_dev"' \
+    '--cfg=feature="fuchsia"' \
+    -C \
+    'opt-level=3' \
+    -Z \
+    'branch-protection=bti,pac-ret,leaf')
+# Configuration: cdf94f5f16f79d94d6a870a41655a1f1f48f83f6a50f4d9bb311f02bdd526e83
+# Execution platform: @@platforms//host:host
+
+DIAGNOSTIC_AQUERY_EXIT_CODE=0
+
+===== EFI RUST COMPILE ACTIONS =====
+81 total actions.
+
+Mnemonics:
+  Rustc: 81
+
+Configurations:
+  k8-opt-exec-ST-34ff0eb4eac8: 2
+  k8-fastbuild-ST-9b8e53afdcb3: 3
+  k8-opt-exec: 8
+  k8-fastbuild-ST-1cb3a8a3a143: 68
+
+Execution Platforms:
+  @@platforms//host:host: 81
+RUSTC_AQUERY_EXIT_CODE=0

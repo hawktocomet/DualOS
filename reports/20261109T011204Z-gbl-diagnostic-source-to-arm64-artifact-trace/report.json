@@ -1,0 +1,13 @@
+{
+  "id": "20261109T011204Z-gbl-diagnostic-source-to-arm64-artifact-trace",
+  "title": "GBL diagnostic source-to-ARM64-artifact trace",
+  "created_utc": "2026-11-09T01:12:04.584942+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd ~/source/DualOS-tools/aosp-uefi-gbl || exit 1\n\nOUT=\"out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/aarch64_dev/gbl_aarch64_dev.efi\"\n\necho \"===== CONFIGURED TARGET OUTPUT =====\"\nls -l \"$OUT\"\necho \"LS_EXIT_CODE=$?\"\nreadlink \"$OUT\"\necho \"READLINK_EXIT_CODE=$?\"\nreadlink -f \"$OUT\"\necho \"RESOLVED_EXIT_CODE=$?\"\nstat -L -c \"mtime=%y size=%s type=%F\" \"$OUT\"\nsha256sum \"$OUT\"\nfile \"$OUT\"\n\necho\necho \"===== UNDERLYING ARM64 EFI ARTIFACT =====\"\nfind out/bazel/output_user_root -type f -name \"gbl_aarch64_dev.efi\" \\\n  -exec stat -c \"%y %s %n\" {} \\; \\\n  -exec sha256sum {} \\; \\\n  -exec file {} \\;\n\necho\necho \"===== DIAGNOSTIC SOURCE COMPILE ACTION =====\"\n./bootable/libbootloader/gbl/bazel.sh aquery \\\n  --extra_toolchains=@gbl//toolchain:all \\\n  --include_commandline \\\n  --include_artifacts \\\n  \"inputs(\\\".*diagnostic_fs.rs\\\", deps(@gbl//efi:aarch64_dev))\" \\\n  --output=text\necho \"DIAGNOSTIC_AQUERY_EXIT_CODE=$?\"\n\necho\necho \"===== EFI RUST COMPILE ACTIONS =====\"\n./bootable/libbootloader/gbl/bazel.sh aquery \\\n  --extra_toolchains=@gbl//toolchain:all \\\n  \"mnemonic(\\\"Rustc\\\", deps(@gbl//efi:aarch64_dev))\" \\\n  --output=summary\necho \"RUSTC_AQUERY_EXIT_CODE=$?\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.842
+}
