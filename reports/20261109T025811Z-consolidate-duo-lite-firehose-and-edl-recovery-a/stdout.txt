@@ -1,0 +1,11 @@
+========== PREFLIGHT ==========
+101007010567 bytes  /home/hawk/duo_edl
+ 23998364750 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334
+      623310 bytes  /home/hawk/duo_forensics/qcs6125_loader_test
+   480902867 bytes  /home/hawk/duo_forensics/recovery_probe/bkerler-edl
+           0 bytes  /home/hawk/duo_edl_report_2.sh
+        8612 bytes  /home/hawk/duo_fastboot_vars.txt
+
+Total source size: 125486910106 bytes
+Available space:   124865404928 bytes
+ERROR: Insufficient space or no source data found.
