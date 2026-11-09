@@ -1,0 +1,78 @@
+========== SOURCE DIRECTORY ==========
+74G	/home/hawk/source
+
+========== IMMEDIATE SUBDIRECTORY SIZES ==========
+     73.65 GiB  /home/hawk/source
+     49.75 GiB  /home/hawk/source/DualOS-tools
+     49.51 GiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl
+     23.90 GiB  /home/hawk/source/pocket-recompiler
+     23.22 GiB  /home/hawk/source/pocket-recompiler/target
+      0.68 GiB  /home/hawk/source/pocket-recompiler/android
+      0.24 GiB  /home/hawk/source/DualOS-tools/aosp-libbootloader
+      0.00 GiB  /home/hawk/source/pocket-recompiler/vendor
+      0.00 GiB  /home/hawk/source/pocket-recompiler/.git
+      0.00 GiB  /home/hawk/source/DualOS
+      0.00 GiB  /home/hawk/source/DualOS/.git
+      0.00 GiB  /home/hawk/source/DualOS/docs
+      0.00 GiB  /home/hawk/source/pocket-recompiler/tools
+      0.00 GiB  /home/hawk/source/DualOS/patches
+      0.00 GiB  /home/hawk/source/pocket-recompiler/native
+      0.00 GiB  /home/hawk/source/DualOS/platform
+
+========== LARGEST FILES ==========
+   4768.16 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/.repo/project-objects/platform/prebuilts/clang/host/linux-x86.git/objects/pack/pack-ee08478d85efdb6a0c6a4518cd1876b82891ab78.pack
+   3867.42 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/.repo/project-objects/platform/prebuilts/rust-toolchain/linux-musl-x86.git/objects/pack/pack-f222bbee873698b5c2902527f5d2499c378a9102.pack
+   2048.00 MiB  /home/hawk/source/pocket-recompiler/target/yoshi-device-built-import/Poochy & Yoshi's Woolly World/game.3ds
+   2048.00 MiB  /home/hawk/source/pocket-recompiler/target/pocket-native-import/Poochy & Yoshi's Woolly World/game.3ds
+   2048.00 MiB  /home/hawk/source/pocket-recompiler/target/pocket-native-fastmem-import/Poochy & Yoshi's Woolly World/game.3ds
+   2048.00 MiB  /home/hawk/source/pocket-recompiler/target/pocket-native-export/00040000001A4100/game.3ds
+   1652.84 MiB  /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/bin/clang-22
+    990.02 MiB  /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/bin/lld
+    504.36 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/.repo/project-objects/device/google/cuttlefish_vmm.git/objects/pack/pack-5905834ef70be1cc606e21dd2ae5f10de1c77809.pack
+    473.58 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/.repo/project-objects/platform/external/boringssl.git/objects/pack/pack-98cd0c4dc0618be5bdf079823c3e7f9a83f06ee8.pack
+    459.06 MiB  /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libclangSema.a
+    451.83 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/.repo/project-objects/platform/prebuilts/build-tools.git/objects/pack/pack-24b6ed73ff02a191c148322b39fef85a090ab02b.pack
+    312.74 MiB  /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libclangAST.a
+    306.51 MiB  /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libLLVMCodeGen.a
+    267.27 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/.repo/project-objects/platform/prebuilts/clang-tools.git/objects/pack/pack-23dedf9cef6615e1f2a292f55ddc25c240be8363.pack
+    248.19 MiB  /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libclangCodeGen.a
+    218.48 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/.repo/project-objects/platform/external/rust/android-crates-io.git/objects/pack/pack-276ac4c29d53b1420d90f23793898b6f39251818.pack
+    208.13 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/.repo/project-objects/kernel/prebuilts/build-tools.git/objects/pack/pack-e5dccb0f69abdc5f1c72b777b415b887d76abc22.pack
+    204.26 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/prebuilts/vmm/x86_64-linux-gnu/bin/libgfxstream_backend.so.debug
+    203.62 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/prebuilts/clang/host/linux-x86/clang-r547379/lib/libclang-cpp.so
+    200.41 MiB  /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libclangStaticAnalyzerCheckers.a
+    200.33 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/prebuilts/vmm/aarch64-linux-gnu/bin/libgfxstream_backend.so.debug
+    184.51 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/prebuilts/vmm/x86_64-linux-gnu/bin/crosvm.debug
+    183.52 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/prebuilts/vmm/aarch64-linux-gnu/bin/crosvm.debug
+    178.14 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/prebuilts/clang/host/linux-x86/clang-r614150/lib/liblldb.so
+    177.19 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/prebuilts/clang/host/linux-x86/clang-r596125/lib/liblldb.so
+    175.66 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/prebuilts/clang/host/linux-x86/clang-r547379/lib/liblldb.so
+    174.99 MiB  /home/hawk/source/pocket-recompiler/target/yoshi-android-test/00040000001A4100.so
+    174.99 MiB  /home/hawk/source/pocket-recompiler/target/pocket-native-import/Poochy & Yoshi's Woolly World/title.so
+    173.38 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/prebuilts/clang/host/linux-x86/clang-r584948b/lib/liblldb.so
+    173.14 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/prebuilts/clang/host/linux-x86/clang-r584948/lib/liblldb.so
+    164.90 MiB  /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0/lib/libLLVMAnalysis.a
+    162.27 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/prebuilts/clang/host/linux-x86/clang-r614150/lib/libclang-cpp.so
+    161.21 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/prebuilts/clang/host/linux-x86/clang-r614150/bin/clang-23
+    159.29 MiB  /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/src/llvm-project-22.1.0-rc3.src.tar.xz
+    157.14 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/prebuilts/clang-tools/linux-x86/lib64/libclang-cpp.so
+    157.14 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/prebuilts/clang/host/linux-x86/clang-r596125/lib/libclang-cpp.so
+    153.77 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/prebuilts/clang/host/linux-x86/clang-r584948/lib/libclang-cpp.so
+    153.58 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/prebuilts/clang/host/linux-x86/clang-r584948b/lib/libclang-cpp.so
+    152.05 MiB  /home/hawk/source/DualOS-tools/aosp-uefi-gbl/prebuilts/clang/host/linux-x86/clang-r596125/bin/clang-22
+
+========== GIT REPOSITORIES ==========
+/home/hawk/source/pocket-recompiler
+/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source
+/home/hawk/source/DualOS-tools/aosp-libbootloader
+/home/hawk/source/DualOS-tools/aosp-uefi-gbl/.repo/repo
+/home/hawk/source/DualOS
+
+========== GIT WORKTREE CHANGES ==========
+--- /home/hawk/source/pocket-recompiler
+--- /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source
+--- /home/hawk/source/DualOS-tools/aosp-libbootloader
+--- /home/hawk/source/DualOS-tools/aosp-uefi-gbl/.repo/repo
+--- /home/hawk/source/DualOS
+
+READ-ONLY: no files moved, deleted, or modified
