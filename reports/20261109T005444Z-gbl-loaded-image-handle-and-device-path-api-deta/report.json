@@ -1,0 +1,13 @@
+{
+  "id": "20261109T005444Z-gbl-loaded-image-handle-and-device-path-api-deta",
+  "title": "GBL loaded-image handle and device-path API details",
+  "created_utc": "2026-11-09T00:54:44.813331+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd bootable/libbootloader || exit 1\n\necho \"===== EFI ENTRY AND IMAGE HANDLE APIs =====\"\nrg -n -C 5 \"struct EfiEntry|impl EfiEntry|image_handle|loaded_image\" gbl/libefi/src\n\necho\necho \"===== PROTOCOL POINTER AND HANDLE APIs =====\"\nrg -n -C 5 \"fn interface_ptr|fn interface\\\\(|struct DeviceHandle|impl DeviceHandle|open_protocol\" gbl/libefi/src/protocol.rs gbl/libefi/src\n\necho\necho \"===== DEVICE PATH UTILITY =====\"\nrg -n -C 10 \"fn get_device_path|pub.*get_device_path|loaded_image_path\" gbl/efi/src/utils.rs\n\necho\necho \"===== DEVICE PATH TYPE AND END NODE CONSTANTS =====\"\nrg -n \"EFI_DEVICE_PATH_TYPE_END|END_ENTIRE|struct EfiDevicePathProtocol|type_:\" gbl/libefi_types\n\necho\necho \"===== BLOCK HANDLE COLLECTION API =====\"\nrg -n -C 5 \"struct HandleBuffer|fn handles\\\\(|locate_handle_buffer_by_protocol\" gbl/libefi/src\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.019
+}

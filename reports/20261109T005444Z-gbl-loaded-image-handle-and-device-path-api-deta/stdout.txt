@@ -1,0 +1,1505 @@
+===== EFI ENTRY AND IMAGE HANDLE APIs =====
+gbl/libefi/src/protocol/hash2.rs-425-        EFI_STATUS_SUCCESS
+gbl/libefi/src/protocol/hash2.rs-426-    }
+gbl/libefi/src/protocol/hash2.rs-427-
+gbl/libefi/src/protocol/hash2.rs-428-    #[test]
+gbl/libefi/src/protocol/hash2.rs-429-    fn test_hash() {
+gbl/libefi/src/protocol/hash2.rs:430:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/protocol/hash2.rs:431:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/protocol/hash2.rs-432-            let handles = [DeviceHandle(std::ptr::dangling())];
+gbl/libefi/src/protocol/hash2.rs-433-
+gbl/libefi/src/protocol/hash2.rs-434-            let mut h2_sp = EfiServiceBindingProtocol {
+gbl/libefi/src/protocol/hash2.rs-435-                create_child: Some(create_child),
+gbl/libefi/src/protocol/hash2.rs-436-                destroy_child: Some(destroy_child),
+--
+gbl/libefi/src/protocol/hash2.rs-467-                assert_eq!(
+gbl/libefi/src/protocol/hash2.rs-468-                    traces.open_protocol_trace.inputs,
+gbl/libefi/src/protocol/hash2.rs-469-                    [(
+gbl/libefi/src/protocol/hash2.rs-470-                        DeviceHandle(std::ptr::dangling_mut()),
+gbl/libefi/src/protocol/hash2.rs-471-                        <Hash2ServiceBindingProtocol as ProtocolInfo>::GUID,
+gbl/libefi/src/protocol/hash2.rs:472:                        image_handle
+gbl/libefi/src/protocol/hash2.rs-473-                    ),]
+gbl/libefi/src/protocol/hash2.rs-474-                );
+gbl/libefi/src/protocol/hash2.rs-475-            });
+gbl/libefi/src/protocol/hash2.rs-476-
+gbl/libefi/src/protocol/hash2.rs-477-            service_binding_call_traces().with(|traces| {
+--
+gbl/libefi/src/protocol/hash2.rs-482-        });
+gbl/libefi/src/protocol/hash2.rs-483-    }
+gbl/libefi/src/protocol/hash2.rs-484-
+gbl/libefi/src/protocol/hash2.rs-485-    #[test]
+gbl/libefi/src/protocol/hash2.rs-486-    fn test_hasher() {
+gbl/libefi/src/protocol/hash2.rs:487:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/protocol/hash2.rs:488:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/protocol/hash2.rs-489-            let handles = [DeviceHandle(std::ptr::dangling())];
+gbl/libefi/src/protocol/hash2.rs-490-
+gbl/libefi/src/protocol/hash2.rs-491-            let mut h2_sp = EfiServiceBindingProtocol {
+gbl/libefi/src/protocol/hash2.rs-492-                create_child: Some(create_child),
+gbl/libefi/src/protocol/hash2.rs-493-                destroy_child: Some(destroy_child),
+--
+gbl/libefi/src/protocol/hash2.rs-535-                assert_eq!(
+gbl/libefi/src/protocol/hash2.rs-536-                    traces.open_protocol_trace.inputs,
+gbl/libefi/src/protocol/hash2.rs-537-                    [(
+gbl/libefi/src/protocol/hash2.rs-538-                        DeviceHandle(std::ptr::dangling()),
+gbl/libefi/src/protocol/hash2.rs-539-                        <Hash2ServiceBindingProtocol as ProtocolInfo>::GUID,
+gbl/libefi/src/protocol/hash2.rs:540:                        image_handle
+gbl/libefi/src/protocol/hash2.rs-541-                    ),]
+gbl/libefi/src/protocol/hash2.rs-542-                );
+gbl/libefi/src/protocol/hash2.rs-543-            });
+gbl/libefi/src/protocol/hash2.rs-544-
+gbl/libefi/src/protocol/hash2.rs-545-            service_binding_call_traces().with(|traces| {
+--
+gbl/libefi/src/protocol/device_path.rs-285-    use core::ptr::null_mut;
+gbl/libefi/src/protocol/device_path.rs-286-    use zerocopy::IntoBytes;
+gbl/libefi/src/protocol/device_path.rs-287-
+gbl/libefi/src/protocol/device_path.rs-288-    #[test]
+gbl/libefi/src/protocol/device_path.rs-289-    fn test_device_path_text_drop() {
+gbl/libefi/src/protocol/device_path.rs:290:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/protocol/device_path.rs:291:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/protocol/device_path.rs-292-            let mut data: [u16; 4] = [1, 2, 3, 0];
+gbl/libefi/src/protocol/device_path.rs-293-            {
+gbl/libefi/src/protocol/device_path.rs-294-                let path = DevicePathText::new(data.as_mut_ptr(), &efi_entry);
+gbl/libefi/src/protocol/device_path.rs-295-                assert_eq!(path.text().unwrap().to_vec(), vec![1, 2, 3]);
+gbl/libefi/src/protocol/device_path.rs-296-            }
+--
+gbl/libefi/src/protocol/device_path.rs-303-        })
+gbl/libefi/src/protocol/device_path.rs-304-    }
+gbl/libefi/src/protocol/device_path.rs-305-
+gbl/libefi/src/protocol/device_path.rs-306-    #[test]
+gbl/libefi/src/protocol/device_path.rs-307-    fn test_device_path_text_null() {
+gbl/libefi/src/protocol/device_path.rs:308:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/protocol/device_path.rs:309:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/protocol/device_path.rs-310-            {
+gbl/libefi/src/protocol/device_path.rs-311-                assert_eq!(DevicePathText::new(null_mut(), &efi_entry).text(), None);
+gbl/libefi/src/protocol/device_path.rs-312-            }
+gbl/libefi/src/protocol/device_path.rs-313-            efi_call_traces().with(|traces| {
+gbl/libefi/src/protocol/device_path.rs-314-                assert_eq!(traces.borrow_mut().free_pool_trace.inputs.len(), 0);
+--
+gbl/libefi/src/protocol/device_path.rs-316-        })
+gbl/libefi/src/protocol/device_path.rs-317-    }
+gbl/libefi/src/protocol/device_path.rs-318-
+gbl/libefi/src/protocol/device_path.rs-319-    #[test]
+gbl/libefi/src/protocol/device_path.rs-320-    fn test_device_path_node_iter() {
+gbl/libefi/src/protocol/device_path.rs:321:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/protocol/device_path.rs:322:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/protocol/device_path.rs-323-            let dp1_data = [1, 2];
+gbl/libefi/src/protocol/device_path.rs-324-            let dp1 = EfiDevicePathProtocol {
+gbl/libefi/src/protocol/device_path.rs-325-                type_: 0x00,
+gbl/libefi/src/protocol/device_path.rs-326-                sub_type: 0x00,
+gbl/libefi/src/protocol/device_path.rs-327-                length: little_endian::U16::new((4 + dp1_data.len()) as u16).to_bytes(),
+--
+gbl/libefi/src/protocol/device_path.rs-375-        })
+gbl/libefi/src/protocol/device_path.rs-376-    }
+gbl/libefi/src/protocol/device_path.rs-377-
+gbl/libefi/src/protocol/device_path.rs-378-    #[test]
+gbl/libefi/src/protocol/device_path.rs-379-    fn test_gbl_vendor_media_device_path() {
+gbl/libefi/src/protocol/device_path.rs:380:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/protocol/device_path.rs:381:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/protocol/device_path.rs-382-            let dp1_data = [1, 2];
+gbl/libefi/src/protocol/device_path.rs-383-            let dp1 = EfiDevicePathProtocol {
+gbl/libefi/src/protocol/device_path.rs-384-                type_: 0x00,
+gbl/libefi/src/protocol/device_path.rs-385-                sub_type: 0x00,
+gbl/libefi/src/protocol/device_path.rs-386-                length: little_endian::U16::new((4 + dp1_data.len()) as u16).to_bytes(),
+--
+gbl/libefi/src/protocol/device_path.rs-423-        })
+gbl/libefi/src/protocol/device_path.rs-424-    }
+gbl/libefi/src/protocol/device_path.rs-425-
+gbl/libefi/src/protocol/device_path.rs-426-    #[test]
+gbl/libefi/src/protocol/device_path.rs-427-    fn test_gbl_vendor_media_device_path_unsupported() {
+gbl/libefi/src/protocol/device_path.rs:428:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/protocol/device_path.rs:429:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/protocol/device_path.rs-430-            let dp1 = EfiDevicePathProtocol {
+gbl/libefi/src/protocol/device_path.rs-431-                type_: 0x00,
+gbl/libefi/src/protocol/device_path.rs-432-                sub_type: 0x00,
+gbl/libefi/src/protocol/device_path.rs-433-                length: little_endian::U16::new(4).to_bytes(),
+gbl/libefi/src/protocol/device_path.rs-434-            };
+--
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-269-    };
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-270-    use efi_types::defs::{EfiStatus, GetVarAllCallback, EFI_STATUS_SUCCESS};
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-271-
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-272-    #[test]
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-273-    fn test_serial_number() {
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs:274:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-275-            // Serial number is shorter than max length and contains non-ASCII unicode.
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-276-            let austria = "Österreich";
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-277-
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-278-            let mut fb = GblEfiFastbootProtocol { ..Default::default() };
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-279-            fb.serial_number.as_mut_slice()[..austria.len()].copy_from_slice(austria.as_bytes());
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs:280:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-281-
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-282-            let protocol = generate_protocol::<GblFastbootProtocol>(&efi_entry, &mut fb);
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-283-
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-284-            // Don't include trailing Null terminators.
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-285-            assert_eq!(protocol.serial_number().unwrap().len(), 11);
+--
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-287-        });
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-288-    }
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-289-
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-290-    #[test]
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-291-    fn test_serial_number_max_length() {
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs:292:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-293-            let mut fb = GblEfiFastbootProtocol { serial_number: [71u8; 32], ..Default::default() };
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs:294:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-295-
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-296-            let protocol = generate_protocol::<GblFastbootProtocol>(&efi_entry, &mut fb);
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-297-
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-298-            assert_eq!(protocol.serial_number().unwrap().len(), 32);
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-299-            assert_eq!(protocol.serial_number().unwrap(), "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-300-        });
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-301-    }
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-302-
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-303-    #[test]
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-304-    fn test_serial_number_invalid_utf8() {
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs:305:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-306-            let mut fb = GblEfiFastbootProtocol { serial_number: [0xF8; 32], ..Default::default() };
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs:307:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-308-
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-309-            let protocol = generate_protocol::<GblFastbootProtocol>(&efi_entry, &mut fb);
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-310-
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-311-            assert_eq!(protocol.serial_number(), Err(Error::InvalidInput));
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-312-        });
+--
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-341-            out.clone_from_slice(c"val".to_bytes());
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-342-            *out_size = c"val".to_bytes().len();
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-343-            EFI_STATUS_SUCCESS
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-344-        }
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-345-
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs:346:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-347-            let mut fb =
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-348-                GblEfiFastbootProtocol { get_var: Some(get_var_test), ..Default::default() };
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs:349:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-350-            let protocol = generate_protocol::<GblFastbootProtocol>(&efi_entry, &mut fb);
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-351-            let mut out = [0u8; 3];
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-352-            let args = [c"arg1", c"arg2"];
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-353-            assert_eq!(protocol.get_var(c"var", args.iter().copied(), &mut out[..]), Ok(3));
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-354-            assert_eq!(&out, b"val");
+--
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-377-                //   needed by `cb`.
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-378-                unsafe { (cb.unwrap())(ctx, args.len(), args.as_ptr() as _, val.as_ptr() as _) };
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-379-            }
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-380-            EFI_STATUS_SUCCESS
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-381-        }
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs:382:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-383-            let mut fb = GblEfiFastbootProtocol {
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-384-                get_var_all: Some(test_get_var_all),
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-385-                ..Default::default()
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-386-            };
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs:387:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-388-            let protocol = generate_protocol::<GblFastbootProtocol>(&efi_entry, &mut fb);
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-389-            let mut out = vec![];
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-390-            protocol
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-391-                .get_var_all(|args, val| {
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-392-                    let args_str =
+--
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-415-            // * By safety requirement of this function, `ctx` points to a valid type of data
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-416-            //   needed by `cb`.
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-417-            unsafe { (cb.unwrap())(ctx, args.len(), args.as_ptr() as _, c"".as_ptr() as _) };
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-418-            EFI_STATUS_SUCCESS
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-419-        }
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs:420:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-421-            let mut fb = GblEfiFastbootProtocol {
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-422-                get_var_all: Some(test_get_var_all),
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-423-                ..Default::default()
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-424-            };
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs:425:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-426-            let protocol = generate_protocol::<GblFastbootProtocol>(&efi_entry, &mut fb);
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-427-            let mut out = vec![];
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-428-            protocol
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-429-                .get_var_all(|args, val| {
+gbl/libefi/src/protocol/gbl_efi_fastboot.rs-430-                    let args_str =
+--
+gbl/libefi/src/protocol.rs-35-pub mod gbl_efi_debug;
+gbl/libefi/src/protocol.rs-36-pub mod gbl_efi_fastboot;
+gbl/libefi/src/protocol.rs-37-pub mod gbl_efi_fastboot_transport;
+gbl/libefi/src/protocol.rs-38-pub mod gbl_efi_os_configuration;
+gbl/libefi/src/protocol.rs-39-pub mod load_file2;
+gbl/libefi/src/protocol.rs:40:pub mod loaded_image;
+gbl/libefi/src/protocol.rs-41-pub mod random_number_generator;
+gbl/libefi/src/protocol.rs-42-pub mod riscv;
+gbl/libefi/src/protocol.rs-43-pub mod simple_network;
+gbl/libefi/src/protocol.rs-44-pub mod simple_text_input;
+gbl/libefi/src/protocol.rs-45-pub mod simple_text_output;
+--
+gbl/libefi/src/efi_hash_c.rs-270-        update: unsafe extern "C" fn(*mut EfiHasherStorage, *const u8, usize),
+gbl/libefi/src/efi_hash_c.rs-271-        r#final: unsafe extern "C" fn(*mut EfiHasherStorage, *mut u8),
+gbl/libefi/src/efi_hash_c.rs-272-    }
+gbl/libefi/src/efi_hash_c.rs-273-
+gbl/libefi/src/efi_hash_c.rs-274-    fn efi_hash_wrapper_test<Algorithm: HashAlgorithm>(test_struct: HashTest) {
+gbl/libefi/src/efi_hash_c.rs:275:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/efi_hash_c.rs:276:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/efi_hash_c.rs-277-            let handles = [DeviceHandle(std::ptr::dangling())];
+gbl/libefi/src/efi_hash_c.rs-278-
+gbl/libefi/src/efi_hash_c.rs-279-            let mut h2_sp = EfiServiceBindingProtocol {
+gbl/libefi/src/efi_hash_c.rs-280-                create_child: Some(create_child),
+gbl/libefi/src/efi_hash_c.rs-281-                destroy_child: Some(destroy_child),
+--
+gbl/libefi/src/efi_hash_c.rs-418-        unsafe { efi_sha_final::<Sha512>(&mut hasher, core::ptr::null_mut()) };
+gbl/libefi/src/efi_hash_c.rs-419-    }
+gbl/libefi/src/efi_hash_c.rs-420-
+gbl/libefi/src/efi_hash_c.rs-421-    #[test]
+gbl/libefi/src/efi_hash_c.rs-422-    fn test_efi_sha256_update_after_exit_boot_services_skips_protocol_call() {
+gbl/libefi/src/efi_hash_c.rs:423:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/efi_hash_c.rs:424:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/efi_hash_c.rs-425-            let handles = [DeviceHandle(std::ptr::dangling())];
+gbl/libefi/src/efi_hash_c.rs-426-
+gbl/libefi/src/efi_hash_c.rs-427-            let mut h2_sp = EfiServiceBindingProtocol {
+gbl/libefi/src/efi_hash_c.rs-428-                create_child: Some(create_child),
+gbl/libefi/src/efi_hash_c.rs-429-                destroy_child: Some(destroy_child),
+--
+gbl/libefi/src/profiling.rs-189-    #[profile(backend = EfiProfileBackend::new(efi_entry))]
+gbl/libefi/src/profiling.rs-190-    fn no_op_profile(efi_entry: &EfiEntry) {}
+gbl/libefi/src/profiling.rs-191-
+gbl/libefi/src/profiling.rs-192-    #[test]
+gbl/libefi/src/profiling.rs-193-    fn test_profile_success() {
+gbl/libefi/src/profiling.rs:194:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/profiling.rs-195-            GET_TIMESTAMP_COUNTER.with(|c| *c.borrow_mut() = 0);
+gbl/libefi/src/profiling.rs-196-
+gbl/libefi/src/profiling.rs:197:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/profiling.rs-198-            let mut ts = EfiTimestampProtocol {
+gbl/libefi/src/profiling.rs-199-                get_timestamp: Some(get_timestamp),
+gbl/libefi/src/profiling.rs-200-                get_properties: Some(get_properties),
+gbl/libefi/src/profiling.rs-201-            };
+gbl/libefi/src/profiling.rs-202-            let handles: [DeviceHandle; 1] = [1.into()];
+--
+gbl/libefi/src/profiling.rs-220-
+gbl/libefi/src/profiling.rs-221-            efi_call_traces().with(|trace| {
+gbl/libefi/src/profiling.rs-222-                let t = trace.borrow();
+gbl/libefi/src/profiling.rs-223-                assert_eq!(
+gbl/libefi/src/profiling.rs-224-                    t.open_protocol_trace.inputs,
+gbl/libefi/src/profiling.rs:225:                    [(1.into(), TimestampProtocol::GUID, image_handle),]
+gbl/libefi/src/profiling.rs-226-                );
+gbl/libefi/src/profiling.rs-227-
+gbl/libefi/src/profiling.rs-228-                assert_eq!(GET_TIMESTAMP_COUNTER.with(|c| *c.borrow()), 2);
+gbl/libefi/src/profiling.rs-229-
+gbl/libefi/src/profiling.rs-230-                let out_str = trace.borrow().console_out_trace.as_single_string();
+--
+gbl/libefi/src/profiling.rs-236-        });
+gbl/libefi/src/profiling.rs-237-    }
+gbl/libefi/src/profiling.rs-238-
+gbl/libefi/src/profiling.rs-239-    #[test]
+gbl/libefi/src/profiling.rs-240-    fn test_profile_no_protocol() {
+gbl/libefi/src/profiling.rs:241:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/profiling.rs:242:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/profiling.rs-243-
+gbl/libefi/src/profiling.rs-244-            // Just want to verify that no error is generated
+gbl/libefi/src/profiling.rs-245-            // if the protocol is absent.
+gbl/libefi/src/profiling.rs-246-            no_op_profile(&efi_entry);
+gbl/libefi/src/profiling.rs-247-
+--
+gbl/libefi/src/profiling.rs-252-        });
+gbl/libefi/src/profiling.rs-253-    }
+gbl/libefi/src/profiling.rs-254-
+gbl/libefi/src/profiling.rs-255-    #[test]
+gbl/libefi/src/profiling.rs-256-    fn test_profile_no_properties() {
+gbl/libefi/src/profiling.rs:257:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/profiling.rs-258-            GET_TIMESTAMP_COUNTER.with(|c| *c.borrow_mut() = 0);
+gbl/libefi/src/profiling.rs:259:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/profiling.rs-260-
+gbl/libefi/src/profiling.rs-261-            // Make sure the profiling implementation handles a protocol
+gbl/libefi/src/profiling.rs-262-            // with a missing `get_properties` method.
+gbl/libefi/src/profiling.rs-263-            // This is very unlikely if the protocol exists at all,
+gbl/libefi/src/profiling.rs-264-            // but it is important that the implementation is robust.
+--
+gbl/libefi/src/profiling.rs-289-        });
+gbl/libefi/src/profiling.rs-290-    }
+gbl/libefi/src/profiling.rs-291-
+gbl/libefi/src/profiling.rs-292-    #[test]
+gbl/libefi/src/profiling.rs-293-    fn test_profile_timestamp_error() {
+gbl/libefi/src/profiling.rs:294:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/profiling.rs-295-            GET_TIMESTAMP_COUNTER.with(|c| *c.borrow_mut() = 0);
+gbl/libefi/src/profiling.rs:296:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/profiling.rs-297-            let handles: [DeviceHandle; 1] = [1.into()];
+gbl/libefi/src/profiling.rs-298-
+gbl/libefi/src/profiling.rs-299-            // Make sure the profiling implementation handles a protocol
+gbl/libefi/src/profiling.rs-300-            // with a missing `get_timestamp` method.
+gbl/libefi/src/profiling.rs-301-            // This is very unlikely if the protocol exists at all,
+--
+gbl/libefi/src/lib.rs-147-};
+gbl/libefi/src/lib.rs-148-use liberror::{Error, Result};
+gbl/libefi/src/lib.rs-149-use libgblutils::aligned_subslice;
+gbl/libefi/src/lib.rs-150-use libutils::base_type_name;
+gbl/libefi/src/lib.rs-151-use protocol::{
+gbl/libefi/src/lib.rs:152:    loaded_image::LoadedImageProtocol, simple_text_output::SimpleTextOutputProtocol, Protocol,
+gbl/libefi/src/lib.rs-153-    ProtocolImpl, ProtocolInfo, Revision,
+gbl/libefi/src/lib.rs-154-};
+gbl/libefi/src/lib.rs-155-use zerocopy::{FromBytes, Ref};
+gbl/libefi/src/lib.rs-156-
+gbl/libefi/src/lib.rs-157-/// Container for EFI metrics.
+--
+gbl/libefi/src/lib.rs-195-}
+gbl/libefi/src/lib.rs-196-
+gbl/libefi/src/lib.rs-197-/// `EfiEntry` stores the EFI system table pointer and image handle passed from the entry point.
+gbl/libefi/src/lib.rs-198-/// It's the root data structure that derives all other wrapper APIs and structures.
+gbl/libefi/src/lib.rs-199-#[derive(Debug)]
+gbl/libefi/src/lib.rs:200:pub struct EfiEntry {
+gbl/libefi/src/lib.rs:201:    image_handle: EfiHandle,
+gbl/libefi/src/lib.rs-202-    systab_ptr: *const EfiSystemTable,
+gbl/libefi/src/lib.rs-203-}
+gbl/libefi/src/lib.rs-204-
+gbl/libefi/src/lib.rs:205:impl EfiEntry {
+gbl/libefi/src/lib.rs-206-    /// Gets an instance of `SystemTable`.
+gbl/libefi/src/lib.rs-207-    ///
+gbl/libefi/src/lib.rs-208-    /// Panics if the pointer is NULL.
+gbl/libefi/src/lib.rs-209-    pub fn system_table(&self) -> SystemTable<'_> {
+gbl/libefi/src/lib.rs-210-        self.system_table_checked().unwrap()
+--
+gbl/libefi/src/lib.rs-218-            table: unsafe { self.systab_ptr.as_ref() }.ok_or(Error::Unsupported)?,
+gbl/libefi/src/lib.rs-219-        })
+gbl/libefi/src/lib.rs-220-    }
+gbl/libefi/src/lib.rs-221-
+gbl/libefi/src/lib.rs-222-    /// Gets the image handle.
+gbl/libefi/src/lib.rs:223:    pub fn image_handle(&self) -> DeviceHandle {
+gbl/libefi/src/lib.rs:224:        DeviceHandle(self.image_handle)
+gbl/libefi/src/lib.rs-225-    }
+gbl/libefi/src/lib.rs-226-
+gbl/libefi/src/lib.rs-227-    /// Implementation of [efi_println!]: prints `args` to `ConOut` with a timestamp prefix and the
+gbl/libefi/src/lib.rs-228-    /// UEFI newline sequence. Kept out of line so that call sites stay small.
+gbl/libefi/src/lib.rs-229-    #[doc(hidden)]
+--
+gbl/libefi/src/lib.rs-292-/// Only the first call initializes the global allocator; subsequent calls (or calls after
+gbl/libefi/src/lib.rs-293-/// [exit_boot_services]) return `Err(Error::AlreadyStarted)` without modifying global state.
+gbl/libefi/src/lib.rs-294-///
+gbl/libefi/src/lib.rs-295-/// # Safety
+gbl/libefi/src/lib.rs-296-///
+gbl/libefi/src/lib.rs:297:/// `image_handle` and `systab_ptr` must be valid, firmware-provided objects adhering to the UEFI
+gbl/libefi/src/lib.rs-298-/// specification with boot services still active. Safe methods on [EfiEntry] and `EfiAllocator`
+gbl/libefi/src/lib.rs-299-/// dereference `systab_ptr` and invoke its function tables without further validation.
+gbl/libefi/src/lib.rs-300-#[cfg(not(test))]
+gbl/libefi/src/lib.rs-301-pub unsafe fn initialize(
+gbl/libefi/src/lib.rs:302:    image_handle: EfiHandle,
+gbl/libefi/src/lib.rs-303-    systab_ptr: *const EfiSystemTable,
+gbl/libefi/src/lib.rs-304-) -> Result<EfiEntry> {
+gbl/libefi/src/lib.rs-305-    // Create one for internal global allocator.
+gbl/libefi/src/lib.rs:306:    allocation::init_efi_global_alloc(EfiEntry { image_handle, systab_ptr })?;
+gbl/libefi/src/lib.rs:307:    Ok(EfiEntry { image_handle, systab_ptr })
+gbl/libefi/src/lib.rs-308-}
+gbl/libefi/src/lib.rs-309-
+gbl/libefi/src/lib.rs-310-/// Exits boot service and returns the memory map in the given buffer.
+gbl/libefi/src/lib.rs-311-///
+gbl/libefi/src/lib.rs-312-/// The API takes ownership of the given `entry` and causes it to go out of scope.
+--
+gbl/libefi/src/lib.rs-516-            efi_call!(
+gbl/libefi/src/lib.rs-517-                self.boot_services.open_protocol,
+gbl/libefi/src/lib.rs-518-                handle.0,
+gbl/libefi/src/lib.rs-519-                &T::GUID,
+gbl/libefi/src/lib.rs-520-                &mut out_handle,
+gbl/libefi/src/lib.rs:521:                self.efi_entry.image_handle().0,
+gbl/libefi/src/lib.rs-522-                null_mut(),
+gbl/libefi/src/lib.rs-523-                // Cannot open exclusively because firmware may require the protocol as well.
+gbl/libefi/src/lib.rs-524-                EFI_OPEN_PROTOCOL_ATTRIBUTE_BY_HANDLE_PROTOCOL
+gbl/libefi/src/lib.rs-525-            )?;
+gbl/libefi/src/lib.rs-526-        }
+--
+gbl/libefi/src/lib.rs-684-    fn exit_boot_services<'b>(&self, mmap: &'b EfiMemoryMap<'b>) -> Result<()> {
+gbl/libefi/src/lib.rs-685-        // SAFETY: EFI_BOOT_SERVICES method call.
+gbl/libefi/src/lib.rs-686-        unsafe {
+gbl/libefi/src/lib.rs-687-            efi_call!(
+gbl/libefi/src/lib.rs-688-                self.boot_services.exit_boot_services,
+gbl/libefi/src/lib.rs:689:                self.efi_entry.image_handle().0,
+gbl/libefi/src/lib.rs-690-                mmap.map_key()
+gbl/libefi/src/lib.rs-691-            )
+gbl/libefi/src/lib.rs-692-        }
+gbl/libefi/src/lib.rs-693-    }
+gbl/libefi/src/lib.rs-694-
+--
+gbl/libefi/src/lib.rs-960-    ///
+gbl/libefi/src/lib.rs-961-    /// # Safety
+gbl/libefi/src/lib.rs-962-    ///
+gbl/libefi/src/lib.rs-963-    /// Caller must guarantee that `src` is a valid EFI application
+gbl/libefi/src/lib.rs-964-    pub unsafe fn load_image(&self, src: &[u8]) -> Result<LoadedEfiImage<'a>> {
+gbl/libefi/src/lib.rs:965:        let mut image_handle: EfiHandle = null_mut();
+gbl/libefi/src/lib.rs-966-
+gbl/libefi/src/lib.rs-967-        // NOTE: UEFI spec defines the "source" buffer as a non-const pointer, which
+gbl/libefi/src/lib.rs-968-        // technically allows modification of the buffer in the backend. However, in practice
+gbl/libefi/src/lib.rs-969-        // it is treated as read-only. We pass an immutable slice pointer here as it is
+gbl/libefi/src/lib.rs-970-        // unlikely to be modified and more idiomatic for our APIs.
+gbl/libefi/src/lib.rs-971-
+gbl/libefi/src/lib.rs-972-        // SAFETY:
+gbl/libefi/src/lib.rs:973:        // * `image_handle` is an output parameter. It is not retained and outlives the call.
+gbl/libefi/src/lib.rs-974-        // * `src` is a valid slice and outlives the call.
+gbl/libefi/src/lib.rs:975:        // * `parent_image_handle` is a valid handle for output and outlives the call.
+gbl/libefi/src/lib.rs-976-        unsafe {
+gbl/libefi/src/lib.rs-977-            efi_call!(
+gbl/libefi/src/lib.rs-978-                self.boot_services.load_image,
+gbl/libefi/src/lib.rs-979-                true, // Ignored since we use source buffer.
+gbl/libefi/src/lib.rs:980:                self.efi_entry.image_handle().0,
+gbl/libefi/src/lib.rs-981-                null_mut(),
+gbl/libefi/src/lib.rs-982-                src.as_ptr() as _,
+gbl/libefi/src/lib.rs-983-                src.len(),
+gbl/libefi/src/lib.rs:984:                &mut image_handle
+gbl/libefi/src/lib.rs-985-            )?;
+gbl/libefi/src/lib.rs-986-        }
+gbl/libefi/src/lib.rs-987-
+gbl/libefi/src/lib.rs-988-        let protocol = self
+gbl/libefi/src/lib.rs:989:            .open_protocol::<LoadedImageProtocol>(DeviceHandle::new(image_handle))
+gbl/libefi/src/lib.rs-990-            .inspect_err(|e| {
+gbl/libefi/src/lib.rs-991-            efi_println!(
+gbl/libefi/src/lib.rs-992-                self.efi_entry,
+gbl/libefi/src/lib.rs-993-                "Failed to open LoadedImageProtocol on image handle: {e:?}",
+gbl/libefi/src/lib.rs-994-            )
+gbl/libefi/src/lib.rs-995-        })?;
+gbl/libefi/src/lib.rs-996-
+gbl/libefi/src/lib.rs:997:        Ok(LoadedEfiImage { efi_entry: self.efi_entry, image_handle, protocol })
+gbl/libefi/src/lib.rs-998-    }
+gbl/libefi/src/lib.rs-999-}
+gbl/libefi/src/lib.rs-1000-
+gbl/libefi/src/lib.rs-1001-/// A loaded EFI image.
+gbl/libefi/src/lib.rs-1002-pub struct LoadedEfiImage<'a> {
+gbl/libefi/src/lib.rs-1003-    efi_entry: &'a EfiEntry,
+gbl/libefi/src/lib.rs-1004-    /// Handle of the loaded EFI image.
+gbl/libefi/src/lib.rs:1005:    pub image_handle: EfiHandle,
+gbl/libefi/src/lib.rs-1006-    /// `LoadedImageProtocol` for the loaded image.
+gbl/libefi/src/lib.rs-1007-    pub protocol: Protocol<'a, LoadedImageProtocol>,
+gbl/libefi/src/lib.rs-1008-}
+gbl/libefi/src/lib.rs-1009-
+gbl/libefi/src/lib.rs-1010-impl LoadedEfiImage<'_> {
+--
+gbl/libefi/src/lib.rs-1014-        let bs = self.efi_entry.system_table().boot_services().boot_services;
+gbl/libefi/src/lib.rs-1015-        // SAFETY:
+gbl/libefi/src/lib.rs-1016-        // * `exit_data` is an optional output parameter and set to NULL.
+gbl/libefi/src/lib.rs-1017-        // * `exit_data_size` is an output parameter. It is not retained and outlives the call.
+gbl/libefi/src/lib.rs-1018-        //   The value is set to 0 to indicate exit_data is not used.
+gbl/libefi/src/lib.rs:1019:        unsafe { efi_call!(bs.start_image, self.image_handle, &mut exit_data_size, null_mut()) }
+gbl/libefi/src/lib.rs-1020-    }
+gbl/libefi/src/lib.rs-1021-
+gbl/libefi/src/lib.rs-1022-    /// Returns the memory range occupied by the loaded EFI image.
+gbl/libefi/src/lib.rs-1023-    pub fn loaded_range(&self) -> core::ops::Range<usize> {
+gbl/libefi/src/lib.rs-1024-        let base = self.protocol.image_base();
+--
+gbl/libefi/src/lib.rs-1925-    }
+gbl/libefi/src/lib.rs-1926-
+gbl/libefi/src/lib.rs-1927-    /// EFI_BOOT_SERVICE.ExitBootServices.
+gbl/libefi/src/lib.rs-1928-    #[derive(Default)]
+gbl/libefi/src/lib.rs-1929-    pub struct ExitBootServicespTrace {
+gbl/libefi/src/lib.rs:1930:        // Capture `image_handle`, `map_key`
+gbl/libefi/src/lib.rs-1931-        pub inputs: VecDeque<(EfiHandle, usize)>,
+gbl/libefi/src/lib.rs-1932-    }
+gbl/libefi/src/lib.rs-1933-
+gbl/libefi/src/lib.rs-1934-    /// Mock of the `EFI_BOOT_SERVICE.ExitBootServices` C API in test environment.
+gbl/libefi/src/lib.rs:1935:    extern "efiapi" fn exit_boot_services(image_handle: EfiHandle, map_key: usize) -> EfiStatus {
+gbl/libefi/src/lib.rs-1936-        EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs-1937-            let trace = &mut traces.borrow_mut().exit_boot_services_trace;
+gbl/libefi/src/lib.rs:1938:            trace.inputs.push_back((image_handle, map_key));
+gbl/libefi/src/lib.rs-1939-            EFI_STATUS_SUCCESS
+gbl/libefi/src/lib.rs-1940-        })
+gbl/libefi/src/lib.rs-1941-    }
+gbl/libefi/src/lib.rs-1942-
+gbl/libefi/src/lib.rs-1943-    /// EFI_BOOT_SERVICE.CreateEvent.
+--
+gbl/libefi/src/lib.rs-2110-            check_event: Some(check_event),
+gbl/libefi/src/lib.rs-2111-            set_watchdog_timer: Some(set_watchdog_timer),
+gbl/libefi/src/lib.rs-2112-            ..Default::default()
+gbl/libefi/src/lib.rs-2113-        };
+gbl/libefi/src/lib.rs-2114-        systab.boot_services = &mut boot_services as *mut _;
+gbl/libefi/src/lib.rs:2115:        let image_handle: usize = 1234; // Don't care.
+gbl/libefi/src/lib.rs-2116-
+gbl/libefi/src/lib.rs:2117:        func(image_handle as EfiHandle, &mut systab as *mut _);
+gbl/libefi/src/lib.rs-2118-
+gbl/libefi/src/lib.rs-2119-        // Reset all traces and clear any thread-local `GLOBAL_EFI_ENTRY` pointer so stack-local
+gbl/libefi/src/lib.rs-2120-        // `EfiEntry` instances never dangle across tests.
+gbl/libefi/src/lib.rs-2121-        crate::GLOBAL_EFI_ENTRY.with(|e| {
+gbl/libefi/src/lib.rs-2122-            *e.borrow_mut() = None;
+--
+gbl/libefi/src/lib.rs-2137-    /// * `f`: the callback function to run, given the resulting protocol as an argument.
+gbl/libefi/src/lib.rs-2138-    pub fn run_test_with_mock_protocol<P: ProtocolInfo>(
+gbl/libefi/src/lib.rs-2139-        mut c_interface: P::InterfaceType,
+gbl/libefi/src/lib.rs-2140-        f: impl FnOnce(&Protocol<P>),
+gbl/libefi/src/lib.rs-2141-    ) {
+gbl/libefi/src/lib.rs:2142:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2143:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2144-            // SAFETY:
+gbl/libefi/src/lib.rs-2145-            // * `c_interface` is a valid C interface for proto `P`
+gbl/libefi/src/lib.rs-2146-            // * `c_interface` outlives the created `protocol`
+gbl/libefi/src/lib.rs-2147-            let protocol = unsafe {
+gbl/libefi/src/lib.rs-2148-                Protocol::new(
+--
+gbl/libefi/src/lib.rs-2160-        val as *mut T as *mut _
+gbl/libefi/src/lib.rs-2161-    }
+gbl/libefi/src/lib.rs-2162-
+gbl/libefi/src/lib.rs-2163-    #[test]
+gbl/libefi/src/lib.rs-2164-    fn test_open_protocol() {
+gbl/libefi/src/lib.rs:2165:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2166:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2167-
+gbl/libefi/src/lib.rs-2168-            // Set up open_protocol trace
+gbl/libefi/src/lib.rs-2169-            let mut block_io: EfiBlockIoProtocol = Default::default();
+gbl/libefi/src/lib.rs-2170-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs-2171-                traces.borrow_mut().open_protocol_trace.outputs =
+--
+gbl/libefi/src/lib.rs-2188-                    assert_eq!(
+gbl/libefi/src/lib.rs-2189-                        trace.borrow_mut().open_protocol_trace.inputs,
+gbl/libefi/src/lib.rs-2190-                        [(
+gbl/libefi/src/lib.rs-2191-                            DeviceHandle(as_efi_handle(&mut device_handle)),
+gbl/libefi/src/lib.rs-2192-                            BlockIoProtocol::GUID,
+gbl/libefi/src/lib.rs:2193:                            image_handle
+gbl/libefi/src/lib.rs-2194-                        ),]
+gbl/libefi/src/lib.rs-2195-                    );
+gbl/libefi/src/lib.rs-2196-                });
+gbl/libefi/src/lib.rs-2197-            }
+gbl/libefi/src/lib.rs-2198-        })
+gbl/libefi/src/lib.rs-2199-    }
+gbl/libefi/src/lib.rs-2200-
+gbl/libefi/src/lib.rs-2201-    #[test]
+gbl/libefi/src/lib.rs-2202-    fn test_null_efi_method() {
+gbl/libefi/src/lib.rs-2203-        // Test that wrapper call fails if efi method is None.
+gbl/libefi/src/lib.rs:2204:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2205:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2206-
+gbl/libefi/src/lib.rs-2207-            // Set up open_protocol trace
+gbl/libefi/src/lib.rs-2208-            let mut block_io: EfiBlockIoProtocol = Default::default();
+gbl/libefi/src/lib.rs-2209-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs-2210-                traces.borrow_mut().open_protocol_trace.outputs =
+--
+gbl/libefi/src/lib.rs-2236-    }
+gbl/libefi/src/lib.rs-2237-
+gbl/libefi/src/lib.rs-2238-    #[test]
+gbl/libefi/src/lib.rs-2239-    fn test_error_efi_method() {
+gbl/libefi/src/lib.rs-2240-        // Test that wrapper call fails if efi method returns error.
+gbl/libefi/src/lib.rs:2241:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2242:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2243-
+gbl/libefi/src/lib.rs-2244-            // Set up open_protocol trace.
+gbl/libefi/src/lib.rs-2245-            let mut block_io: EfiBlockIoProtocol = Default::default();
+gbl/libefi/src/lib.rs-2246-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs-2247-                traces.borrow_mut().open_protocol_trace.outputs =
+--
+gbl/libefi/src/lib.rs-2257-        })
+gbl/libefi/src/lib.rs-2258-    }
+gbl/libefi/src/lib.rs-2259-
+gbl/libefi/src/lib.rs-2260-    #[test]
+gbl/libefi/src/lib.rs-2261-    fn test_locate_handle_buffer_by_protocol() {
+gbl/libefi/src/lib.rs:2262:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2263:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2264-
+gbl/libefi/src/lib.rs-2265-            // Set up locate_handle_buffer_trace trace.
+gbl/libefi/src/lib.rs-2266-            let mut located_handles: [DeviceHandle; 3] = [
+gbl/libefi/src/lib.rs-2267-                DeviceHandle(std::ptr::dangling()),
+gbl/libefi/src/lib.rs-2268-                DeviceHandle(2 as *const _),
+--
+gbl/libefi/src/lib.rs-2294-        })
+gbl/libefi/src/lib.rs-2295-    }
+gbl/libefi/src/lib.rs-2296-
+gbl/libefi/src/lib.rs-2297-    #[test]
+gbl/libefi/src/lib.rs-2298-    fn test_find_first_and_open() {
+gbl/libefi/src/lib.rs:2299:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2300:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2301-
+gbl/libefi/src/lib.rs-2302-            // Set up locate_handle_buffer_trace trace.
+gbl/libefi/src/lib.rs-2303-            let located_handles = [
+gbl/libefi/src/lib.rs-2304-                DeviceHandle(std::ptr::dangling()),
+gbl/libefi/src/lib.rs-2305-                DeviceHandle(2 as *const _),
+--
+gbl/libefi/src/lib.rs-2325-
+gbl/libefi/src/lib.rs-2326-            // Check open_protocol is called on the first handle.
+gbl/libefi/src/lib.rs-2327-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs-2328-                assert_eq!(
+gbl/libefi/src/lib.rs-2329-                    traces.borrow_mut().open_protocol_trace.inputs,
+gbl/libefi/src/lib.rs:2330:                    [(DeviceHandle(std::ptr::dangling()), BlockIoProtocol::GUID, image_handle),]
+gbl/libefi/src/lib.rs-2331-                );
+gbl/libefi/src/lib.rs-2332-            });
+gbl/libefi/src/lib.rs-2333-        })
+gbl/libefi/src/lib.rs-2334-    }
+gbl/libefi/src/lib.rs-2335-
+gbl/libefi/src/lib.rs-2336-    #[test]
+gbl/libefi/src/lib.rs-2337-    fn test_find_first_and_open_empty_handles() {
+gbl/libefi/src/lib.rs:2338:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2339:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2340-
+gbl/libefi/src/lib.rs-2341-            // Set up locate_handle_buffer_trace trace.
+gbl/libefi/src/lib.rs-2342-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs-2343-                traces.borrow_mut().locate_handle_trace.outputs = VecDeque::from([vec![]]);
+gbl/libefi/src/lib.rs-2344-            });
+--
+gbl/libefi/src/lib.rs-2360-        })
+gbl/libefi/src/lib.rs-2361-    }
+gbl/libefi/src/lib.rs-2362-
+gbl/libefi/src/lib.rs-2363-    #[test]
+gbl/libefi/src/lib.rs-2364-    fn test_find_first_and_open_many_handles() {
+gbl/libefi/src/lib.rs:2365:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2366:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2367-            let handles = (1..=BootServices::LOCATE_HANDLE_BUFFER_SIZE * 4)
+gbl/libefi/src/lib.rs-2368-                .map(DeviceHandle::from)
+gbl/libefi/src/lib.rs-2369-                .collect::<Vec<_>>();
+gbl/libefi/src/lib.rs-2370-
+gbl/libefi/src/lib.rs-2371-            let mut block_io: EfiBlockIoProtocol = Default::default();
+--
+gbl/libefi/src/lib.rs-2387-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs-2388-                let traces = traces.borrow_mut();
+gbl/libefi/src/lib.rs-2389-                assert_eq!(traces.locate_handle_buffer_trace.inputs, [BlockIoProtocol::GUID]);
+gbl/libefi/src/lib.rs-2390-                assert_eq!(
+gbl/libefi/src/lib.rs-2391-                    traces.open_protocol_trace.inputs,
+gbl/libefi/src/lib.rs:2392:                    [(DeviceHandle::from(1), BlockIoProtocol::GUID, image_handle),]
+gbl/libefi/src/lib.rs-2393-                );
+gbl/libefi/src/lib.rs-2394-            });
+gbl/libefi/src/lib.rs-2395-        })
+gbl/libefi/src/lib.rs-2396-    }
+gbl/libefi/src/lib.rs-2397-
+gbl/libefi/src/lib.rs-2398-    #[test]
+gbl/libefi/src/lib.rs-2399-    fn test_exit_boot_services() {
+gbl/libefi/src/lib.rs:2400:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2401:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2402-            // Create a buffer large enough to hold two EfiMemoryDescriptor.
+gbl/libefi/src/lib.rs-2403-            let mut descriptors: [EfiMemoryDescriptor; 2] = [
+gbl/libefi/src/lib.rs-2404-                EfiMemoryDescriptor {
+gbl/libefi/src/lib.rs-2405-                    memory_type: EFI_MEMORY_TYPE_LOADER_DATA,
+gbl/libefi/src/lib.rs-2406-                    padding: 0,
+--
+gbl/libefi/src/lib.rs-2447-                    )]
+gbl/libefi/src/lib.rs-2448-                );
+gbl/libefi/src/lib.rs-2449-
+gbl/libefi/src/lib.rs-2450-                assert_eq!(
+gbl/libefi/src/lib.rs-2451-                    traces.borrow_mut().exit_boot_services_trace.inputs,
+gbl/libefi/src/lib.rs:2452:                    [(image_handle, map_key)],
+gbl/libefi/src/lib.rs-2453-                );
+gbl/libefi/src/lib.rs-2454-            });
+gbl/libefi/src/lib.rs-2455-
+gbl/libefi/src/lib.rs-2456-            // Validate that the returned `EfiMemoryMap` contains only 1 EfiMemoryDescriptor.
+gbl/libefi/src/lib.rs-2457-            assert_eq!(desc.into_iter().copied().collect::<Vec<_>>(), descriptors[..1].to_vec());
+--
+gbl/libefi/src/lib.rs-2460-        })
+gbl/libefi/src/lib.rs-2461-    }
+gbl/libefi/src/lib.rs-2462-
+gbl/libefi/src/lib.rs-2463-    #[test]
+gbl/libefi/src/lib.rs-2464-    fn test_get_memory_map_preserves_required_size() {
+gbl/libefi/src/lib.rs:2465:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2466:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2467-            const REQUIRED: usize = 4 * size_of::<EfiMemoryDescriptor>();
+gbl/libefi/src/lib.rs-2468-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs-2469-                let mut t = traces.borrow_mut();
+gbl/libefi/src/lib.rs-2470-                t.get_memory_map_trace.statuses = VecDeque::from([EFI_STATUS_BUFFER_TOO_SMALL]);
+gbl/libefi/src/lib.rs-2471-                t.get_memory_map_trace.outputs = VecDeque::from([(0, REQUIRED)]);
+--
+gbl/libefi/src/lib.rs-2483-        })
+gbl/libefi/src/lib.rs-2484-    }
+gbl/libefi/src/lib.rs-2485-
+gbl/libefi/src/lib.rs-2486-    #[test]
+gbl/libefi/src/lib.rs-2487-    fn test_memory_map_size_reports_firmware_capacity() {
+gbl/libefi/src/lib.rs:2488:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2489:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2490-            const REQUIRED: usize = 7 * size_of::<EfiMemoryDescriptor>();
+gbl/libefi/src/lib.rs-2491-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs-2492-                let mut t = traces.borrow_mut();
+gbl/libefi/src/lib.rs-2493-                t.get_memory_map_trace.statuses = VecDeque::from([EFI_STATUS_BUFFER_TOO_SMALL]);
+gbl/libefi/src/lib.rs-2494-                t.get_memory_map_trace.outputs = VecDeque::from([(0, REQUIRED)]);
+--
+gbl/libefi/src/lib.rs-2503-        })
+gbl/libefi/src/lib.rs-2504-    }
+gbl/libefi/src/lib.rs-2505-
+gbl/libefi/src/lib.rs-2506-    #[test]
+gbl/libefi/src/lib.rs-2507-    fn test_exit_boot_services_not_called_without_fresh_map() {
+gbl/libefi/src/lib.rs:2508:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2509:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2510-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs-2511-                let mut t = traces.borrow_mut();
+gbl/libefi/src/lib.rs-2512-                t.get_memory_map_trace.statuses = VecDeque::from([EFI_STATUS_BUFFER_TOO_SMALL]);
+gbl/libefi/src/lib.rs-2513-                t.get_memory_map_trace.outputs =
+gbl/libefi/src/lib.rs-2514-                    VecDeque::from([(0, 8 * size_of::<EfiMemoryDescriptor>())]);
+--
+gbl/libefi/src/lib.rs-2524-        })
+gbl/libefi/src/lib.rs-2525-    }
+gbl/libefi/src/lib.rs-2526-
+gbl/libefi/src/lib.rs-2527-    #[test]
+gbl/libefi/src/lib.rs-2528-    fn test_exit_boot_services_unaligned_buffer() {
+gbl/libefi/src/lib.rs:2529:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2530:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2531-            // Create a buffer for 2 EfiMemoryDescriptor.
+gbl/libefi/src/lib.rs-2532-            let descriptors: [EfiMemoryDescriptor; 2] = [
+gbl/libefi/src/lib.rs-2533-                EfiMemoryDescriptor {
+gbl/libefi/src/lib.rs-2534-                    memory_type: EFI_MEMORY_TYPE_LOADER_DATA,
+gbl/libefi/src/lib.rs-2535-                    padding: 0,
+--
+gbl/libefi/src/lib.rs-2574-        });
+gbl/libefi/src/lib.rs-2575-    }
+gbl/libefi/src/lib.rs-2576-
+gbl/libefi/src/lib.rs-2577-    #[test]
+gbl/libefi/src/lib.rs-2578-    fn test_create_event_with_notify_fn() {
+gbl/libefi/src/lib.rs:2579:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2580:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2581-            let mut cb_impl = |_: EfiEvent| {};
+gbl/libefi/src/lib.rs-2582-            let mut cb = EventNotify::new(Tpl::Callback, &mut cb_impl);
+gbl/libefi/src/lib.rs-2583-            let event: EfiEvent = 1234usize as _;
+gbl/libefi/src/lib.rs-2584-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs-2585-                traces.borrow_mut().create_event_trace.outputs.push_back(event);
+--
+gbl/libefi/src/lib.rs-2612-        });
+gbl/libefi/src/lib.rs-2613-    }
+gbl/libefi/src/lib.rs-2614-
+gbl/libefi/src/lib.rs-2615-    #[test]
+gbl/libefi/src/lib.rs-2616-    fn test_create_event_wo_notify_fn() {
+gbl/libefi/src/lib.rs:2617:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2618:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2619-            let event: EfiEvent = 1234usize as _;
+gbl/libefi/src/lib.rs-2620-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs-2621-                traces.borrow_mut().create_event_trace.outputs.push_back(event);
+gbl/libefi/src/lib.rs-2622-            });
+gbl/libefi/src/lib.rs-2623-            {
+--
+gbl/libefi/src/lib.rs-2636-        });
+gbl/libefi/src/lib.rs-2637-    }
+gbl/libefi/src/lib.rs-2638-
+gbl/libefi/src/lib.rs-2639-    #[test]
+gbl/libefi/src/lib.rs-2640-    fn test_check_event() {
+gbl/libefi/src/lib.rs:2641:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2642:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2643-            let event: EfiEvent = 1234usize as _;
+gbl/libefi/src/lib.rs-2644-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs-2645-                traces.borrow_mut().create_event_trace.outputs.push_back(event);
+gbl/libefi/src/lib.rs-2646-                traces.borrow_mut().check_event_trace.outputs.push_back(EFI_STATUS_SUCCESS);
+gbl/libefi/src/lib.rs-2647-                traces.borrow_mut().check_event_trace.outputs.push_back(EFI_STATUS_NOT_READY);
+--
+gbl/libefi/src/lib.rs-2658-    #[test]
+gbl/libefi/src/lib.rs-2659-    fn test_set_watchdog_timer() {
+gbl/libefi/src/lib.rs-2660-        const FIRST_CALL_CODE: WatchdogTimerCode = WatchdogTimerCode::new(0x10000);
+gbl/libefi/src/lib.rs-2661-        const SECOND_CALL_CODE: WatchdogTimerCode = WatchdogTimerCode::new(0x10001);
+gbl/libefi/src/lib.rs-2662-
+gbl/libefi/src/lib.rs:2663:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2664:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2665-
+gbl/libefi/src/lib.rs-2666-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs-2667-                let mut traces = traces.borrow_mut();
+gbl/libefi/src/lib.rs-2668-                traces.set_watchdog_timer_trace.outputs.push_back(EFI_STATUS_SUCCESS);
+gbl/libefi/src/lib.rs-2669-                traces.set_watchdog_timer_trace.outputs.push_back(EFI_STATUS_UNSUPPORTED);
+--
+gbl/libefi/src/lib.rs-2714-
+gbl/libefi/src/lib.rs-2715-    #[test]
+gbl/libefi/src/lib.rs-2716-    fn test_required_protocol_present() {
+gbl/libefi/src/lib.rs-2717-        TestProto! {Requirement::Mandatory};
+gbl/libefi/src/lib.rs-2718-
+gbl/libefi/src/lib.rs:2719:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2720:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2721-
+gbl/libefi/src/lib.rs-2722-            let located_handles = [DeviceHandle(std::ptr::dangling())];
+gbl/libefi/src/lib.rs-2723-            let mut test = TestProtocol;
+gbl/libefi/src/lib.rs-2724-
+gbl/libefi/src/lib.rs-2725-            efi_call_traces().with(|traces| {
+--
+gbl/libefi/src/lib.rs-2747-
+gbl/libefi/src/lib.rs-2748-    #[test]
+gbl/libefi/src/lib.rs-2749-    fn test_required_protocol_not_present() {
+gbl/libefi/src/lib.rs-2750-        TestProto! {Requirement::Mandatory};
+gbl/libefi/src/lib.rs-2751-
+gbl/libefi/src/lib.rs:2752:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2753:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2754-
+gbl/libefi/src/lib.rs-2755-            efi_call_traces()
+gbl/libefi/src/lib.rs-2756-                .with(|traces| traces.borrow_mut().locate_handle_trace.outputs.clear());
+gbl/libefi/src/lib.rs-2757-
+gbl/libefi/src/lib.rs-2758-            assert!(efi_entry
+--
+gbl/libefi/src/lib.rs-2770-
+gbl/libefi/src/lib.rs-2771-    #[test]
+gbl/libefi/src/lib.rs-2772-    fn test_optional_protocol_present() {
+gbl/libefi/src/lib.rs-2773-        TestProto! {Requirement::Optional};
+gbl/libefi/src/lib.rs-2774-
+gbl/libefi/src/lib.rs:2775:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2776:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2777-
+gbl/libefi/src/lib.rs-2778-            let located_handles = [DeviceHandle(std::ptr::dangling())];
+gbl/libefi/src/lib.rs-2779-            let mut test = TestProtocol;
+gbl/libefi/src/lib.rs-2780-
+gbl/libefi/src/lib.rs-2781-            efi_call_traces().with(|traces| {
+--
+gbl/libefi/src/lib.rs-2803-
+gbl/libefi/src/lib.rs-2804-    #[test]
+gbl/libefi/src/lib.rs-2805-    fn test_optional_protocol_not_present() {
+gbl/libefi/src/lib.rs-2806-        TestProto! {Requirement::Optional};
+gbl/libefi/src/lib.rs-2807-
+gbl/libefi/src/lib.rs:2808:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2809:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2810-
+gbl/libefi/src/lib.rs-2811-            efi_call_traces()
+gbl/libefi/src/lib.rs-2812-                .with(|traces| traces.borrow_mut().locate_handle_trace.outputs.clear());
+gbl/libefi/src/lib.rs-2813-
+gbl/libefi/src/lib.rs-2814-            assert!(efi_entry
+--
+gbl/libefi/src/lib.rs-2846-            );
+gbl/libefi/src/lib.rs-2847-
+gbl/libefi/src/lib.rs-2848-            // Don't add a requirement override to make sure the default is 'Mandatory'.
+gbl/libefi/src/lib.rs-2849-        }
+gbl/libefi/src/lib.rs-2850-
+gbl/libefi/src/lib.rs:2851:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2852:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2853-
+gbl/libefi/src/lib.rs-2854-            efi_call_traces()
+gbl/libefi/src/lib.rs-2855-                .with(|traces| traces.borrow_mut().locate_handle_trace.outputs.clear());
+gbl/libefi/src/lib.rs-2856-
+gbl/libefi/src/lib.rs-2857-            assert!(efi_entry
+--
+gbl/libefi/src/lib.rs-2902-    }
+gbl/libefi/src/lib.rs-2903-
+gbl/libefi/src/lib.rs-2904-    fn versioned_test_helper<T: ProtocolInfo + TriviallyConstruct, EMF: FnOnce(T) -> String>(
+gbl/libefi/src/lib.rs-2905-        error_msg_func: EMF,
+gbl/libefi/src/lib.rs-2906-    ) {
+gbl/libefi/src/lib.rs:2907:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:2908:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2909-            let located_handles = vec![DeviceHandle(std::ptr::dangling())];
+gbl/libefi/src/lib.rs-2910-            let mut test = T::new();
+gbl/libefi/src/lib.rs-2911-
+gbl/libefi/src/lib.rs-2912-            efi_call_traces().with(|traces| {
+gbl/libefi/src/lib.rs-2913-                let mut traces = traces.borrow_mut();
+--
+gbl/libefi/src/lib.rs-3016-        ) -> EfiStatus {
+gbl/libefi/src/lib.rs-3017-            let _ = PANICS_CAUGHT.with(|pc| pc.fetch_add(1, Ordering::Relaxed));
+gbl/libefi/src/lib.rs-3018-            EFI_STATUS_SUCCESS
+gbl/libefi/src/lib.rs-3019-        }
+gbl/libefi/src/lib.rs-3020-
+gbl/libefi/src/lib.rs:3021:        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs:3022:            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-3023-            crate::GLOBAL_EFI_ENTRY
+gbl/libefi/src/lib.rs-3024-                .with(|e| *e.borrow_mut() = Some(std::ptr::NonNull::from_ref(&efi_entry)));
+gbl/libefi/src/lib.rs-3025-
+gbl/libefi/src/lib.rs-3026-            let mut debug_proto =
+gbl/libefi/src/lib.rs-3027-                GblEfiDebugProtocol { fatal_error: Some(fatal_error), ..Default::default() };
+
+===== PROTOCOL POINTER AND HANDLE APIs =====
+gbl/libefi/src/protocol.rs-453-}
+gbl/libefi/src/protocol.rs-454-
+gbl/libefi/src/protocol.rs-455-/// Additional functions for Protocol<T> with a raw pointer implementation.
+gbl/libefi/src/protocol.rs-456-impl<'a, T: ProtocolInfo> Protocol<'a, T> {
+gbl/libefi/src/protocol.rs-457-    /// Returns the EFI data structure for the protocol interface.
+gbl/libefi/src/protocol.rs:458:    pub fn interface(&self) -> &T::InterfaceType {
+gbl/libefi/src/protocol.rs-459-        // SAFETY: EFI protocol interface data structure.
+gbl/libefi/src/protocol.rs-460-        unsafe { self.interface.as_ref() }
+gbl/libefi/src/protocol.rs-461-    }
+gbl/libefi/src/protocol.rs-462-
+gbl/libefi/src/protocol.rs-463-    /// Returns the mutable pointer of the interface. Invisible from outside. Application should
+gbl/libefi/src/protocol.rs-464-    /// not have any need to alter the content of interface data.
+gbl/libefi/src/protocol.rs:465:    pub(crate) fn interface_ptr(&self) -> *mut T::InterfaceType {
+gbl/libefi/src/protocol.rs-466-        self.interface.as_ptr()
+gbl/libefi/src/protocol.rs-467-    }
+gbl/libefi/src/protocol.rs-468-}
+gbl/libefi/src/protocol.rs-469-
+gbl/libefi/src/protocol.rs-470-/// Protocol<T> with a [Client] implementation can deref to [Client] to call
+--
+gbl/libefi/src/protocol/hash2.rs-440-
+gbl/libefi/src/protocol/hash2.rs-441-            efi_call_traces().with(|traces| {
+gbl/libefi/src/protocol/hash2.rs-442-                let mut traces = traces.borrow_mut();
+gbl/libefi/src/protocol/hash2.rs-443-                traces.locate_handle_trace.outputs = VecDeque::from([handles.into()]);
+gbl/libefi/src/protocol/hash2.rs-444-
+gbl/libefi/src/protocol/hash2.rs:445:                traces.open_protocol_trace.outputs =
+gbl/libefi/src/protocol/hash2.rs-446-                    VecDeque::from([(as_efi_handle(&mut h2_sp), EFI_STATUS_SUCCESS)]);
+gbl/libefi/src/protocol/hash2.rs-447-
+gbl/libefi/src/protocol/hash2.rs-448-                traces.handle_protocol_trace.outputs.push_back(&mut h2_p as *mut _ as *mut _);
+gbl/libefi/src/protocol/hash2.rs-449-            });
+gbl/libefi/src/protocol/hash2.rs-450-
+--
+gbl/libefi/src/protocol/hash2.rs-463-
+gbl/libefi/src/protocol/hash2.rs-464-            efi_call_traces().with(|traces| {
+gbl/libefi/src/protocol/hash2.rs-465-                let traces = traces.borrow();
+gbl/libefi/src/protocol/hash2.rs-466-
+gbl/libefi/src/protocol/hash2.rs-467-                assert_eq!(
+gbl/libefi/src/protocol/hash2.rs:468:                    traces.open_protocol_trace.inputs,
+gbl/libefi/src/protocol/hash2.rs-469-                    [(
+gbl/libefi/src/protocol/hash2.rs-470-                        DeviceHandle(std::ptr::dangling_mut()),
+gbl/libefi/src/protocol/hash2.rs-471-                        <Hash2ServiceBindingProtocol as ProtocolInfo>::GUID,
+gbl/libefi/src/protocol/hash2.rs-472-                        image_handle
+gbl/libefi/src/protocol/hash2.rs-473-                    ),]
+--
+gbl/libefi/src/protocol/hash2.rs-503-            efi_call_traces().with(|traces| {
+gbl/libefi/src/protocol/hash2.rs-504-                let mut traces = traces.borrow_mut();
+gbl/libefi/src/protocol/hash2.rs-505-
+gbl/libefi/src/protocol/hash2.rs-506-                traces.locate_handle_trace.outputs = VecDeque::from([handles.into()]);
+gbl/libefi/src/protocol/hash2.rs-507-
+gbl/libefi/src/protocol/hash2.rs:508:                traces.open_protocol_trace.outputs =
+gbl/libefi/src/protocol/hash2.rs-509-                    VecDeque::from([(as_efi_handle(&mut h2_sp), EFI_STATUS_SUCCESS)]);
+gbl/libefi/src/protocol/hash2.rs-510-
+gbl/libefi/src/protocol/hash2.rs-511-                let interface = &mut h2_p as *mut _;
+gbl/libefi/src/protocol/hash2.rs-512-                traces.handle_protocol_trace.outputs.push_back(interface as *mut _);
+gbl/libefi/src/protocol/hash2.rs-513-            });
+--
+gbl/libefi/src/protocol/hash2.rs-531-
+gbl/libefi/src/protocol/hash2.rs-532-            efi_call_traces().with(|traces| {
+gbl/libefi/src/protocol/hash2.rs-533-                let traces = traces.borrow();
+gbl/libefi/src/protocol/hash2.rs-534-
+gbl/libefi/src/protocol/hash2.rs-535-                assert_eq!(
+gbl/libefi/src/protocol/hash2.rs:536:                    traces.open_protocol_trace.inputs,
+gbl/libefi/src/protocol/hash2.rs-537-                    [(
+gbl/libefi/src/protocol/hash2.rs-538-                        DeviceHandle(std::ptr::dangling()),
+gbl/libefi/src/protocol/hash2.rs-539-                        <Hash2ServiceBindingProtocol as ProtocolInfo>::GUID,
+gbl/libefi/src/protocol/hash2.rs-540-                        image_handle
+gbl/libefi/src/protocol/hash2.rs-541-                    ),]
+--
+gbl/libefi/src/protocol.rs-453-}
+gbl/libefi/src/protocol.rs-454-
+gbl/libefi/src/protocol.rs-455-/// Additional functions for Protocol<T> with a raw pointer implementation.
+gbl/libefi/src/protocol.rs-456-impl<'a, T: ProtocolInfo> Protocol<'a, T> {
+gbl/libefi/src/protocol.rs-457-    /// Returns the EFI data structure for the protocol interface.
+gbl/libefi/src/protocol.rs:458:    pub fn interface(&self) -> &T::InterfaceType {
+gbl/libefi/src/protocol.rs-459-        // SAFETY: EFI protocol interface data structure.
+gbl/libefi/src/protocol.rs-460-        unsafe { self.interface.as_ref() }
+gbl/libefi/src/protocol.rs-461-    }
+gbl/libefi/src/protocol.rs-462-
+gbl/libefi/src/protocol.rs-463-    /// Returns the mutable pointer of the interface. Invisible from outside. Application should
+gbl/libefi/src/protocol.rs-464-    /// not have any need to alter the content of interface data.
+gbl/libefi/src/protocol.rs:465:    pub(crate) fn interface_ptr(&self) -> *mut T::InterfaceType {
+gbl/libefi/src/protocol.rs-466-        self.interface.as_ptr()
+gbl/libefi/src/protocol.rs-467-    }
+gbl/libefi/src/protocol.rs-468-}
+gbl/libefi/src/protocol.rs-469-
+gbl/libefi/src/protocol.rs-470-/// Protocol<T> with a [Client] implementation can deref to [Client] to call
+--
+gbl/libefi/src/profiling.rs-205-
+gbl/libefi/src/profiling.rs-206-                trace.locate_handle_trace.outputs =
+gbl/libefi/src/profiling.rs-207-                    VecDeque::from([handles.into(), handles.into()]);
+gbl/libefi/src/profiling.rs-208-
+gbl/libefi/src/profiling.rs-209-                let ts_handle = as_efi_handle(&mut ts);
+gbl/libefi/src/profiling.rs:210:                trace.open_protocol_trace.outputs =
+gbl/libefi/src/profiling.rs-211-                    VecDeque::from([(ts_handle, EFI_STATUS_SUCCESS)]);
+gbl/libefi/src/profiling.rs-212-            });
+gbl/libefi/src/profiling.rs-213-
+gbl/libefi/src/profiling.rs-214-            efi_call_traces().with(|trace| {
+gbl/libefi/src/profiling.rs-215-                let t = trace.borrow();
+gbl/libefi/src/profiling.rs:216:                assert_eq!(t.open_protocol_trace.inputs, [])
+gbl/libefi/src/profiling.rs-217-            });
+gbl/libefi/src/profiling.rs-218-
+gbl/libefi/src/profiling.rs-219-            no_op_profile(&efi_entry);
+gbl/libefi/src/profiling.rs-220-
+gbl/libefi/src/profiling.rs-221-            efi_call_traces().with(|trace| {
+gbl/libefi/src/profiling.rs-222-                let t = trace.borrow();
+gbl/libefi/src/profiling.rs-223-                assert_eq!(
+gbl/libefi/src/profiling.rs:224:                    t.open_protocol_trace.inputs,
+gbl/libefi/src/profiling.rs-225-                    [(1.into(), TimestampProtocol::GUID, image_handle),]
+gbl/libefi/src/profiling.rs-226-                );
+gbl/libefi/src/profiling.rs-227-
+gbl/libefi/src/profiling.rs-228-                assert_eq!(GET_TIMESTAMP_COUNTER.with(|c| *c.borrow()), 2);
+gbl/libefi/src/profiling.rs-229-
+--
+gbl/libefi/src/profiling.rs-269-                let mut trace = trace.borrow_mut();
+gbl/libefi/src/profiling.rs-270-
+gbl/libefi/src/profiling.rs-271-                trace.locate_handle_trace.outputs = VecDeque::from([handles.into()]);
+gbl/libefi/src/profiling.rs-272-
+gbl/libefi/src/profiling.rs-273-                let ts_handle = as_efi_handle(&mut ts);
+gbl/libefi/src/profiling.rs:274:                trace.open_protocol_trace.outputs =
+gbl/libefi/src/profiling.rs-275-                    VecDeque::from([(ts_handle, EFI_STATUS_SUCCESS)]);
+gbl/libefi/src/profiling.rs-276-            });
+gbl/libefi/src/profiling.rs-277-
+gbl/libefi/src/profiling.rs-278-            efi_call_traces().with(|trace| {
+gbl/libefi/src/profiling.rs-279-                let t = trace.borrow();
+gbl/libefi/src/profiling.rs:280:                assert_eq!(t.open_protocol_trace.inputs, [])
+gbl/libefi/src/profiling.rs-281-            });
+gbl/libefi/src/profiling.rs-282-
+gbl/libefi/src/profiling.rs-283-            no_op_profile(&efi_entry);
+gbl/libefi/src/profiling.rs-284-
+gbl/libefi/src/profiling.rs-285-            efi_call_traces().with(|trace| {
+--
+gbl/libefi/src/profiling.rs-306-                let mut trace = trace.borrow_mut();
+gbl/libefi/src/profiling.rs-307-
+gbl/libefi/src/profiling.rs-308-                trace.locate_handle_trace.outputs = VecDeque::from([handles.into()]);
+gbl/libefi/src/profiling.rs-309-
+gbl/libefi/src/profiling.rs-310-                let ts_handle = as_efi_handle(&mut ts);
+gbl/libefi/src/profiling.rs:311:                trace.open_protocol_trace.outputs =
+gbl/libefi/src/profiling.rs-312-                    VecDeque::from([(ts_handle, EFI_STATUS_SUCCESS)]);
+gbl/libefi/src/profiling.rs-313-            });
+gbl/libefi/src/profiling.rs-314-
+gbl/libefi/src/profiling.rs-315-            efi_call_traces().with(|trace| {
+gbl/libefi/src/profiling.rs-316-                let t = trace.borrow();
+gbl/libefi/src/profiling.rs:317:                assert_eq!(t.open_protocol_trace.inputs, [])
+gbl/libefi/src/profiling.rs-318-            });
+gbl/libefi/src/profiling.rs-319-
+gbl/libefi/src/profiling.rs-320-            no_op_profile(&efi_entry);
+gbl/libefi/src/profiling.rs-321-
+gbl/libefi/src/profiling.rs-322-            efi_call_traces().with(|trace| {
+--
+gbl/libefi/src/efi_hash_c.rs-291-            efi_call_traces().with(|traces| {
+gbl/libefi/src/efi_hash_c.rs-292-                let mut traces = traces.borrow_mut();
+gbl/libefi/src/efi_hash_c.rs-293-
+gbl/libefi/src/efi_hash_c.rs-294-                traces.locate_handle_trace.outputs = VecDeque::from([handles.into()]);
+gbl/libefi/src/efi_hash_c.rs-295-
+gbl/libefi/src/efi_hash_c.rs:296:                traces.open_protocol_trace.outputs =
+gbl/libefi/src/efi_hash_c.rs-297-                    VecDeque::from([(as_efi_handle(&mut h2_sp), EFI_STATUS_SUCCESS)]);
+gbl/libefi/src/efi_hash_c.rs-298-
+gbl/libefi/src/efi_hash_c.rs-299-                let interface = &mut h2_p as *mut _;
+gbl/libefi/src/efi_hash_c.rs-300-                traces.handle_protocol_trace.outputs.push_back(interface as *mut _);
+gbl/libefi/src/efi_hash_c.rs-301-            });
+--
+gbl/libefi/src/efi_hash_c.rs-436-            };
+gbl/libefi/src/efi_hash_c.rs-437-
+gbl/libefi/src/efi_hash_c.rs-438-            efi_call_traces().with(|traces| {
+gbl/libefi/src/efi_hash_c.rs-439-                let mut traces = traces.borrow_mut();
+gbl/libefi/src/efi_hash_c.rs-440-                traces.locate_handle_trace.outputs = VecDeque::from([handles.into()]);
+gbl/libefi/src/efi_hash_c.rs:441:                traces.open_protocol_trace.outputs =
+gbl/libefi/src/efi_hash_c.rs-442-                    VecDeque::from([(as_efi_handle(&mut h2_sp), EFI_STATUS_SUCCESS)]);
+gbl/libefi/src/efi_hash_c.rs-443-                traces.handle_protocol_trace.outputs.push_back((&mut h2_p as *mut _) as *mut _);
+gbl/libefi/src/efi_hash_c.rs-444-            });
+gbl/libefi/src/efi_hash_c.rs-445-            reinitialized_service_binding_call_traces().with(|traces| {
+gbl/libefi/src/efi_hash_c.rs-446-                traces.borrow_mut().create_child_trace.outputs =
+--
+gbl/libefi/src/lib.rs-31-//!     write!(con_out, "Scanning block devices...\n")?;
+gbl/libefi/src/lib.rs-32-//!
+gbl/libefi/src/lib.rs-33-//!     let block_handles = boot_services.locate_handle_buffer_by_protocol::<BlockIoProtocol>()?;
+gbl/libefi/src/lib.rs-34-//!
+gbl/libefi/src/lib.rs-35-//!     for (i, handle) in block_handles.handles().iter().enumerate() {
+gbl/libefi/src/lib.rs:36://!         let path = boot_services.open_protocol::<DevicePathProtocol>(*handle)?;
+gbl/libefi/src/lib.rs-37-//!         write!(con_out, "Block Device #{}: ", i)?;
+gbl/libefi/src/lib.rs-38-//!         path_to_text.convert_device_path_to_text(&path, false, false)?.print()?;
+gbl/libefi/src/lib.rs-39-//!         write!(con_out, "\n")?;
+gbl/libefi/src/lib.rs-40-//!
+gbl/libefi/src/lib.rs:41://!         let block_io_protocol = boot_services.open_protocol::<BlockIoProtocol>(*handle)?;
+gbl/libefi/src/lib.rs-42-//!         let media = block_io_protocol.media()?;
+gbl/libefi/src/lib.rs-43-//!         write!(con_out, "  block size = {}\n", media.block_size)?;
+gbl/libefi/src/lib.rs-44-//!         write!(con_out, "  io alignment = {}\n", media.io_align)?;
+gbl/libefi/src/lib.rs-45-//!     }
+gbl/libefi/src/lib.rs-46-//!
+--
+gbl/libefi/src/lib.rs-507-        //   associated with any allocated memory.
+gbl/libefi/src/lib.rs-508-        unsafe { efi_call!(self.boot_services.free_pages, buf as _, pages) }
+gbl/libefi/src/lib.rs-509-    }
+gbl/libefi/src/lib.rs-510-
+gbl/libefi/src/lib.rs-511-    /// Wrapper of `EFI_BOOT_SERVICES.OpenProtocol()`.
+gbl/libefi/src/lib.rs:512:    pub fn open_protocol<T: ProtocolImpl>(&self, handle: DeviceHandle) -> Result<Protocol<'a, T>> {
+gbl/libefi/src/lib.rs-513-        let mut out_handle: EfiHandle = null();
+gbl/libefi/src/lib.rs-514-        // SAFETY: EFI_BOOT_SERVICES method call.
+gbl/libefi/src/lib.rs-515-        unsafe {
+gbl/libefi/src/lib.rs-516-            efi_call!(
+gbl/libefi/src/lib.rs:517:                self.boot_services.open_protocol,
+gbl/libefi/src/lib.rs-518-                handle.0,
+gbl/libefi/src/lib.rs-519-                &T::GUID,
+gbl/libefi/src/lib.rs-520-                &mut out_handle,
+gbl/libefi/src/lib.rs-521-                self.efi_entry.image_handle().0,
+gbl/libefi/src/lib.rs-522-                null_mut(),
+--
+gbl/libefi/src/lib.rs-598-        })
+gbl/libefi/src/lib.rs-599-    }
+gbl/libefi/src/lib.rs-600-
+gbl/libefi/src/lib.rs-601-    /// Search and open the first found target EFI protocol.
+gbl/libefi/src/lib.rs-602-    pub fn find_first_and_open<T: ProtocolImpl>(&self) -> Result<Protocol<'a, T>> {
+gbl/libefi/src/lib.rs:603:        // The `open_protocol` and Protocol structure need a device handle,
+gbl/libefi/src/lib.rs-604-        // so we can't use EFI_BOOT_SERVICES.LocateProtocol().
+gbl/libefi/src/lib.rs-605-        //
+gbl/libefi/src/lib.rs-606-        // Try locating handles first using an automatically allocated array.
+gbl/libefi/src/lib.rs-607-        // If the array isn't big enough, fall back to dynamically allocating the array.
+gbl/libefi/src/lib.rs-608-        let mut handles = [DeviceHandle::new(null()); Self::LOCATE_HANDLE_BUFFER_SIZE];
+--
+gbl/libefi/src/lib.rs-613-        };
+gbl/libefi/src/lib.rs-614-
+gbl/libefi/src/lib.rs-615-        helper(&mut handles)
+gbl/libefi/src/lib.rs-616-            .and_then(|l| l.handles().first().cloned().ok_or(Error::NotFound))
+gbl/libefi/src/lib.rs-617-            .inspect_err(|_| log_missing_protocol::<T>(self.efi_entry))
+gbl/libefi/src/lib.rs:618:            .and_then(|handle| self.open_protocol::<T>(handle))
+gbl/libefi/src/lib.rs-619-    }
+gbl/libefi/src/lib.rs-620-
+gbl/libefi/src/lib.rs-621-    /// Wrapper of `EFI_BOOT_SERVICES.GetMemoryMap()`.
+gbl/libefi/src/lib.rs-622-    ///
+gbl/libefi/src/lib.rs-623-    /// On `EFI_BUFFER_TOO_SMALL`, returns the required size in [`Error::BufferTooSmall`].
+--
+gbl/libefi/src/lib.rs-984-                &mut image_handle
+gbl/libefi/src/lib.rs-985-            )?;
+gbl/libefi/src/lib.rs-986-        }
+gbl/libefi/src/lib.rs-987-
+gbl/libefi/src/lib.rs-988-        let protocol = self
+gbl/libefi/src/lib.rs:989:            .open_protocol::<LoadedImageProtocol>(DeviceHandle::new(image_handle))
+gbl/libefi/src/lib.rs-990-            .inspect_err(|e| {
+gbl/libefi/src/lib.rs-991-            efi_println!(
+gbl/libefi/src/lib.rs-992-                self.efi_entry,
+gbl/libefi/src/lib.rs-993-                "Failed to open LoadedImageProtocol on image handle: {e:?}",
+gbl/libefi/src/lib.rs-994-            )
+--
+gbl/libefi/src/lib.rs-1385-}
+gbl/libefi/src/lib.rs-1386-
+gbl/libefi/src/lib.rs-1387-/// A type representing a UEFI handle to a UEFI device.
+gbl/libefi/src/lib.rs-1388-#[repr(transparent)]
+gbl/libefi/src/lib.rs-1389-#[derive(Copy, Clone, Debug, PartialEq)]
+gbl/libefi/src/lib.rs:1390:pub struct DeviceHandle(EfiHandle);
+gbl/libefi/src/lib.rs-1391-
+gbl/libefi/src/lib.rs:1392:impl DeviceHandle {
+gbl/libefi/src/lib.rs-1393-    /// Public constructor
+gbl/libefi/src/lib.rs-1394-    pub fn new(handle: EfiHandle) -> Self {
+gbl/libefi/src/lib.rs-1395-        Self(handle)
+gbl/libefi/src/lib.rs-1396-    }
+gbl/libefi/src/lib.rs-1397-}
+--
+gbl/libefi/src/lib.rs-1666-        pub free_pool_trace: FreePoolTrace,
+gbl/libefi/src/lib.rs-1667-        pub get_memory_map_trace: GetMemoryMapTrace,
+gbl/libefi/src/lib.rs-1668-        pub handle_protocol_trace: HandleProtocolTrace,
+gbl/libefi/src/lib.rs-1669-        pub locate_handle_buffer_trace: LocateHandleBufferTrace,
+gbl/libefi/src/lib.rs-1670-        pub locate_handle_trace: LocateHandleTrace,
+gbl/libefi/src/lib.rs:1671:        pub open_protocol_trace: OpenProtocolTrace,
+gbl/libefi/src/lib.rs-1672-        pub reset_trace: ResetTrace,
+gbl/libefi/src/lib.rs-1673-        pub set_watchdog_timer_trace: SetWatchdogTimerTrace,
+gbl/libefi/src/lib.rs-1674-    }
+gbl/libefi/src/lib.rs-1675-
+gbl/libefi/src/lib.rs-1676-    // Declares a global instance of EfiCallTraces.
+--
+gbl/libefi/src/lib.rs-1717-    /// Mock of the `EFI_BOOT_SERVICE.OpenProtocol` C API in test environment.
+gbl/libefi/src/lib.rs-1718-    ///
+gbl/libefi/src/lib.rs-1719-    /// # Safety
+gbl/libefi/src/lib.rs-1720-    ///
+gbl/libefi/src/lib.rs-1721-    ///   Caller should guarantee that `intf` and `protocol_guid` point to valid memory locations.
+gbl/libefi/src/lib.rs:1722:    unsafe extern "efiapi" fn open_protocol(
+gbl/libefi/src/lib.rs-1723-        handle: EfiHandle,
+gbl/libefi/src/lib.rs-1724-        protocol_guid: *const EfiGuid,
+gbl/libefi/src/lib.rs-1725-        intf: *mut *const core::ffi::c_void,
+gbl/libefi/src/lib.rs-1726-        agent_handle: EfiHandle,
+gbl/libefi/src/lib.rs-1727-        _: EfiHandle,
+gbl/libefi/src/lib.rs-1728-        attr: EfiOpenProtocolAttributes,
+gbl/libefi/src/lib.rs-1729-    ) -> EfiStatus {
+gbl/libefi/src/lib.rs-1730-        assert_eq!(attr, EFI_OPEN_PROTOCOL_ATTRIBUTE_BY_HANDLE_PROTOCOL);
+gbl/libefi/src/lib.rs-1731-        EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs:1732:            let trace = &mut traces.borrow_mut().open_protocol_trace;
+gbl/libefi/src/lib.rs-1733-            trace.inputs.push_back((
+gbl/libefi/src/lib.rs-1734-                DeviceHandle(handle),
+gbl/libefi/src/lib.rs-1735-                // SAFETY: function safety docs require valid `protocol_guid`.
+gbl/libefi/src/lib.rs-1736-                unsafe { *protocol_guid },
+gbl/libefi/src/lib.rs-1737-                agent_handle,
+--
+gbl/libefi/src/lib.rs-2097-            ..Default::default()
+gbl/libefi/src/lib.rs-2098-        };
+gbl/libefi/src/lib.rs-2099-        let mut systab = EfiSystemTable { con_out: &mut sto, ..Default::default() };
+gbl/libefi/src/lib.rs-2100-        let mut boot_services = EfiBootService {
+gbl/libefi/src/lib.rs-2101-            free_pool: Some(free_pool),
+gbl/libefi/src/lib.rs:2102:            open_protocol: Some(open_protocol),
+gbl/libefi/src/lib.rs-2103-            handle_protocol: Some(handle_protocol),
+gbl/libefi/src/lib.rs-2104-            locate_handle_buffer: Some(locate_handle_buffer),
+gbl/libefi/src/lib.rs-2105-            locate_handle: Some(locate_handle),
+gbl/libefi/src/lib.rs-2106-            get_memory_map: Some(get_memory_map),
+gbl/libefi/src/lib.rs-2107-            exit_boot_services: Some(exit_boot_services),
+--
+gbl/libefi/src/lib.rs-2159-    pub fn as_efi_handle<T>(val: &mut T) -> EfiHandle {
+gbl/libefi/src/lib.rs-2160-        val as *mut T as *mut _
+gbl/libefi/src/lib.rs-2161-    }
+gbl/libefi/src/lib.rs-2162-
+gbl/libefi/src/lib.rs-2163-    #[test]
+gbl/libefi/src/lib.rs:2164:    fn test_open_protocol() {
+gbl/libefi/src/lib.rs-2165-        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs-2166-            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2167-
+gbl/libefi/src/lib.rs:2168:            // Set up open_protocol trace
+gbl/libefi/src/lib.rs-2169-            let mut block_io: EfiBlockIoProtocol = Default::default();
+gbl/libefi/src/lib.rs-2170-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs:2171:                traces.borrow_mut().open_protocol_trace.outputs =
+gbl/libefi/src/lib.rs-2172-                    VecDeque::from([(as_efi_handle(&mut block_io), EFI_STATUS_SUCCESS)]);
+gbl/libefi/src/lib.rs-2173-            });
+gbl/libefi/src/lib.rs-2174-
+gbl/libefi/src/lib.rs-2175-            let mut device_handle: usize = 0; // Don't care
+gbl/libefi/src/lib.rs-2176-            {
+gbl/libefi/src/lib.rs-2177-                // Open a protocol
+gbl/libefi/src/lib.rs-2178-                efi_entry
+gbl/libefi/src/lib.rs-2179-                    .system_table()
+gbl/libefi/src/lib.rs-2180-                    .boot_services()
+gbl/libefi/src/lib.rs:2181:                    .open_protocol::<BlockIoProtocol>(DeviceHandle(as_efi_handle(
+gbl/libefi/src/lib.rs-2182-                        &mut device_handle,
+gbl/libefi/src/lib.rs-2183-                    )))
+gbl/libefi/src/lib.rs-2184-                    .unwrap();
+gbl/libefi/src/lib.rs-2185-
+gbl/libefi/src/lib.rs-2186-                // Validate call args
+gbl/libefi/src/lib.rs-2187-                EFI_CALL_TRACES.with(|trace| {
+gbl/libefi/src/lib.rs-2188-                    assert_eq!(
+gbl/libefi/src/lib.rs:2189:                        trace.borrow_mut().open_protocol_trace.inputs,
+gbl/libefi/src/lib.rs-2190-                        [(
+gbl/libefi/src/lib.rs-2191-                            DeviceHandle(as_efi_handle(&mut device_handle)),
+gbl/libefi/src/lib.rs-2192-                            BlockIoProtocol::GUID,
+gbl/libefi/src/lib.rs-2193-                            image_handle
+gbl/libefi/src/lib.rs-2194-                        ),]
+--
+gbl/libefi/src/lib.rs-2202-    fn test_null_efi_method() {
+gbl/libefi/src/lib.rs-2203-        // Test that wrapper call fails if efi method is None.
+gbl/libefi/src/lib.rs-2204-        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs-2205-            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2206-
+gbl/libefi/src/lib.rs:2207:            // Set up open_protocol trace
+gbl/libefi/src/lib.rs-2208-            let mut block_io: EfiBlockIoProtocol = Default::default();
+gbl/libefi/src/lib.rs-2209-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs:2210:                traces.borrow_mut().open_protocol_trace.outputs =
+gbl/libefi/src/lib.rs-2211-                    VecDeque::from([(as_efi_handle(&mut block_io), EFI_STATUS_SUCCESS)]);
+gbl/libefi/src/lib.rs-2212-            });
+gbl/libefi/src/lib.rs-2213-
+gbl/libefi/src/lib.rs-2214-            // Set the method to None.
+gbl/libefi/src/lib.rs-2215-            // SAFETY:
+gbl/libefi/src/lib.rs-2216-            // run_test() guarantees `boot_services` pointer points to valid object.
+gbl/libefi/src/lib.rs:2217:            unsafe { (*(*systab_ptr).boot_services).open_protocol = None };
+gbl/libefi/src/lib.rs-2218-
+gbl/libefi/src/lib.rs-2219-            let mut device_handle: usize = 0; // Don't care
+gbl/libefi/src/lib.rs-2220-            assert!(efi_entry
+gbl/libefi/src/lib.rs-2221-                .system_table()
+gbl/libefi/src/lib.rs-2222-                .boot_services()
+gbl/libefi/src/lib.rs:2223:                .open_protocol::<BlockIoProtocol>(DeviceHandle(as_efi_handle(&mut device_handle)))
+gbl/libefi/src/lib.rs-2224-                .is_err());
+gbl/libefi/src/lib.rs-2225-
+gbl/libefi/src/lib.rs-2226-            efi_call_traces().with(|traces| {
+gbl/libefi/src/lib.rs-2227-                let actual = traces.borrow().console_out_trace.as_single_string();
+gbl/libefi/src/lib.rs:2228:                // Reports the location of the `efi_call!` in `BootServices::open_protocol()`.
+gbl/libefi/src/lib.rs-2229-                let prefix = format!("Protocol method not found at {}:", file!());
+gbl/libefi/src/lib.rs-2230-                assert!(
+gbl/libefi/src/lib.rs:2231:                    actual.starts_with(&prefix) && actual.ends_with(": open_protocol\r\n"),
+gbl/libefi/src/lib.rs-2232-                    "{actual}"
+gbl/libefi/src/lib.rs-2233-                );
+gbl/libefi/src/lib.rs-2234-            });
+gbl/libefi/src/lib.rs-2235-        })
+gbl/libefi/src/lib.rs-2236-    }
+--
+gbl/libefi/src/lib.rs-2239-    fn test_error_efi_method() {
+gbl/libefi/src/lib.rs-2240-        // Test that wrapper call fails if efi method returns error.
+gbl/libefi/src/lib.rs-2241-        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs-2242-            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2243-
+gbl/libefi/src/lib.rs:2244:            // Set up open_protocol trace.
+gbl/libefi/src/lib.rs-2245-            let mut block_io: EfiBlockIoProtocol = Default::default();
+gbl/libefi/src/lib.rs-2246-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs:2247:                traces.borrow_mut().open_protocol_trace.outputs =
+gbl/libefi/src/lib.rs-2248-                    VecDeque::from([(as_efi_handle(&mut block_io), EFI_STATUS_NOT_FOUND)]);
+gbl/libefi/src/lib.rs-2249-            });
+gbl/libefi/src/lib.rs-2250-
+gbl/libefi/src/lib.rs-2251-            let mut device_handle: usize = 0; // Don't care
+gbl/libefi/src/lib.rs-2252-            assert!(efi_entry
+gbl/libefi/src/lib.rs-2253-                .system_table()
+gbl/libefi/src/lib.rs-2254-                .boot_services()
+gbl/libefi/src/lib.rs:2255:                .open_protocol::<BlockIoProtocol>(DeviceHandle(as_efi_handle(&mut device_handle)))
+gbl/libefi/src/lib.rs-2256-                .is_err());
+gbl/libefi/src/lib.rs-2257-        })
+gbl/libefi/src/lib.rs-2258-    }
+gbl/libefi/src/lib.rs-2259-
+gbl/libefi/src/lib.rs-2260-    #[test]
+--
+gbl/libefi/src/lib.rs-2308-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs-2309-                traces.borrow_mut().locate_handle_trace.outputs =
+gbl/libefi/src/lib.rs-2310-                    VecDeque::from([located_handles.into()]);
+gbl/libefi/src/lib.rs-2311-            });
+gbl/libefi/src/lib.rs-2312-
+gbl/libefi/src/lib.rs:2313:            // Set up open_protocol trace.
+gbl/libefi/src/lib.rs-2314-            let mut block_io: EfiBlockIoProtocol = Default::default();
+gbl/libefi/src/lib.rs-2315-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs:2316:                traces.borrow_mut().open_protocol_trace.outputs =
+gbl/libefi/src/lib.rs-2317-                    VecDeque::from([(as_efi_handle(&mut block_io), EFI_STATUS_SUCCESS)]);
+gbl/libefi/src/lib.rs-2318-            });
+gbl/libefi/src/lib.rs-2319-
+gbl/libefi/src/lib.rs-2320-            efi_entry
+gbl/libefi/src/lib.rs-2321-                .system_table()
+gbl/libefi/src/lib.rs-2322-                .boot_services()
+gbl/libefi/src/lib.rs-2323-                .find_first_and_open::<BlockIoProtocol>()
+gbl/libefi/src/lib.rs-2324-                .unwrap();
+gbl/libefi/src/lib.rs-2325-
+gbl/libefi/src/lib.rs:2326:            // Check open_protocol is called on the first handle.
+gbl/libefi/src/lib.rs-2327-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs-2328-                assert_eq!(
+gbl/libefi/src/lib.rs:2329:                    traces.borrow_mut().open_protocol_trace.inputs,
+gbl/libefi/src/lib.rs-2330-                    [(DeviceHandle(std::ptr::dangling()), BlockIoProtocol::GUID, image_handle),]
+gbl/libefi/src/lib.rs-2331-                );
+gbl/libefi/src/lib.rs-2332-            });
+gbl/libefi/src/lib.rs-2333-        })
+gbl/libefi/src/lib.rs-2334-    }
+--
+gbl/libefi/src/lib.rs-2341-            // Set up locate_handle_buffer_trace trace.
+gbl/libefi/src/lib.rs-2342-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs-2343-                traces.borrow_mut().locate_handle_trace.outputs = VecDeque::from([vec![]]);
+gbl/libefi/src/lib.rs-2344-            });
+gbl/libefi/src/lib.rs-2345-
+gbl/libefi/src/lib.rs:2346:            // Set up open_protocol trace.
+gbl/libefi/src/lib.rs-2347-            let mut block_io: EfiBlockIoProtocol = Default::default();
+gbl/libefi/src/lib.rs-2348-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs:2349:                traces.borrow_mut().open_protocol_trace.outputs =
+gbl/libefi/src/lib.rs-2350-                    VecDeque::from([(as_efi_handle(&mut block_io), EFI_STATUS_SUCCESS)]);
+gbl/libefi/src/lib.rs-2351-            });
+gbl/libefi/src/lib.rs-2352-
+gbl/libefi/src/lib.rs-2353-            let res = efi_entry
+gbl/libefi/src/lib.rs-2354-                .system_table()
+--
+gbl/libefi/src/lib.rs-2372-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs-2373-                let mut traces = traces.borrow_mut();
+gbl/libefi/src/lib.rs-2374-                traces.locate_handle_trace.outputs = VecDeque::from([handles.clone()]);
+gbl/libefi/src/lib.rs-2375-                traces.locate_handle_buffer_trace.outputs =
+gbl/libefi/src/lib.rs-2376-                    VecDeque::from([(handles.len(), handles.as_ptr())]);
+gbl/libefi/src/lib.rs:2377:                traces.open_protocol_trace.outputs =
+gbl/libefi/src/lib.rs-2378-                    VecDeque::from([(as_efi_handle(&mut block_io), EFI_STATUS_SUCCESS)])
+gbl/libefi/src/lib.rs-2379-            });
+gbl/libefi/src/lib.rs-2380-
+gbl/libefi/src/lib.rs-2381-            efi_entry
+gbl/libefi/src/lib.rs-2382-                .system_table()
+--
+gbl/libefi/src/lib.rs-2386-
+gbl/libefi/src/lib.rs-2387-            EFI_CALL_TRACES.with(|traces| {
+gbl/libefi/src/lib.rs-2388-                let traces = traces.borrow_mut();
+gbl/libefi/src/lib.rs-2389-                assert_eq!(traces.locate_handle_buffer_trace.inputs, [BlockIoProtocol::GUID]);
+gbl/libefi/src/lib.rs-2390-                assert_eq!(
+gbl/libefi/src/lib.rs:2391:                    traces.open_protocol_trace.inputs,
+gbl/libefi/src/lib.rs-2392-                    [(DeviceHandle::from(1), BlockIoProtocol::GUID, image_handle),]
+gbl/libefi/src/lib.rs-2393-                );
+gbl/libefi/src/lib.rs-2394-            });
+gbl/libefi/src/lib.rs-2395-        })
+gbl/libefi/src/lib.rs-2396-    }
+--
+gbl/libefi/src/lib.rs-2725-            efi_call_traces().with(|traces| {
+gbl/libefi/src/lib.rs-2726-                let mut traces = traces.borrow_mut();
+gbl/libefi/src/lib.rs-2727-
+gbl/libefi/src/lib.rs-2728-                traces.locate_handle_trace.outputs.push_back(located_handles.into());
+gbl/libefi/src/lib.rs-2729-                traces
+gbl/libefi/src/lib.rs:2730:                    .open_protocol_trace
+gbl/libefi/src/lib.rs-2731-                    .outputs
+gbl/libefi/src/lib.rs-2732-                    .push_back((as_efi_handle(&mut test), EFI_STATUS_SUCCESS));
+gbl/libefi/src/lib.rs-2733-            });
+gbl/libefi/src/lib.rs-2734-
+gbl/libefi/src/lib.rs-2735-            assert!(efi_entry
+--
+gbl/libefi/src/lib.rs-2781-            efi_call_traces().with(|traces| {
+gbl/libefi/src/lib.rs-2782-                let mut traces = traces.borrow_mut();
+gbl/libefi/src/lib.rs-2783-
+gbl/libefi/src/lib.rs-2784-                traces.locate_handle_trace.outputs.push_back(located_handles.into());
+gbl/libefi/src/lib.rs-2785-                traces
+gbl/libefi/src/lib.rs:2786:                    .open_protocol_trace
+gbl/libefi/src/lib.rs-2787-                    .outputs
+gbl/libefi/src/lib.rs-2788-                    .push_back((as_efi_handle(&mut test), EFI_STATUS_SUCCESS));
+gbl/libefi/src/lib.rs-2789-            });
+gbl/libefi/src/lib.rs-2790-
+gbl/libefi/src/lib.rs-2791-            assert!(efi_entry
+--
+gbl/libefi/src/lib.rs-2912-            efi_call_traces().with(|traces| {
+gbl/libefi/src/lib.rs-2913-                let mut traces = traces.borrow_mut();
+gbl/libefi/src/lib.rs-2914-
+gbl/libefi/src/lib.rs-2915-                traces.locate_handle_trace.outputs.push_back(located_handles);
+gbl/libefi/src/lib.rs-2916-                traces
+gbl/libefi/src/lib.rs:2917:                    .open_protocol_trace
+gbl/libefi/src/lib.rs-2918-                    .outputs
+gbl/libefi/src/lib.rs-2919-                    .push_back((as_efi_handle(&mut test), EFI_STATUS_SUCCESS));
+gbl/libefi/src/lib.rs-2920-            });
+gbl/libefi/src/lib.rs-2921-
+gbl/libefi/src/lib.rs-2922-            assert!(efi_entry.system_table().boot_services().find_first_and_open::<T>().is_ok());
+--
+gbl/libefi/src/lib.rs-3029-            let handles = &mut [DeviceHandle::from(1)];
+gbl/libefi/src/lib.rs-3030-            efi_call_traces().with(|trace| {
+gbl/libefi/src/lib.rs-3031-                let mut trace = trace.borrow_mut();
+gbl/libefi/src/lib.rs-3032-
+gbl/libefi/src/lib.rs-3033-                trace.locate_handle_trace.outputs = VecDeque::from([handles.into()]);
+gbl/libefi/src/lib.rs:3034:                trace.open_protocol_trace.outputs =
+gbl/libefi/src/lib.rs-3035-                    VecDeque::from([(as_efi_handle(&mut debug_proto), EFI_STATUS_SUCCESS)]);
+gbl/libefi/src/lib.rs-3036-            });
+gbl/libefi/src/lib.rs-3037-
+gbl/libefi/src/lib.rs-3038-            struct PanicHookGuard(
+gbl/libefi/src/lib.rs-3039-                Arc<Mutex<Option<Box<dyn Fn(&PanicHookInfo<'_>) + Send + Sync>>>>,
+
+===== DEVICE PATH UTILITY =====
+38-    EfiInputKey, GBL_EFI_BOOT_BUFFER_TYPE_FASTBOOT_DOWNLOAD, GBL_EFI_BOOT_BUFFER_TYPE_FDT,
+39-    GBL_EFI_BOOT_BUFFER_TYPE_GENERAL_LOAD, GBL_EFI_BOOT_BUFFER_TYPE_KERNEL,
+40-    GBL_EFI_BOOT_BUFFER_TYPE_PVMFW_DATA, GBL_EFI_BOOT_BUFFER_TYPE_RAMDISK,
+41-};
+42-use liberror::Error;
+43-use libgbl::{android_boot::BootBuffer, metrics::GblTime};
+44-
+45-type Result<T> = core::result::Result<T, Error>;
+46-
+47-/// Helper function to get the `DevicePathText` from a `DeviceHandle`.
+48:pub fn get_device_path<'a>(
+49-    entry: &'a EfiEntry,
+50-    handle: DeviceHandle,
+51-) -> Result<DevicePathText<'a>> {
+52-    let bs = entry.system_table().boot_services();
+53-    let path = bs.open_protocol::<DevicePathProtocol>(handle)?;
+54-    let path_to_text = bs.find_first_and_open::<DevicePathToTextProtocol>()?;
+55-    path_to_text.convert_device_path_to_text(&path, false, false)
+56-}
+57-
+58-/// Helper function to get the loaded image path.
+59:pub fn loaded_image_path(entry: &EfiEntry) -> Result<DevicePathText<'_>> {
+60-    let bs = entry.system_table().boot_services();
+61-    let path_to_text = bs.find_first_and_open::<DevicePathToTextProtocol>()?;
+62-    let loaded_image = bs.open_protocol::<LoadedImageProtocol>(entry.image_handle())?;
+63-    if let Ok(file_path) = loaded_image.file_path() {
+64-        path_to_text.convert_device_path_to_text(&file_path, false, false)
+65-    } else {
+66-        let device_path = bs.open_protocol::<DevicePathProtocol>(loaded_image.device_handle())?;
+67-        path_to_text.convert_device_path_to_text(&device_path, false, false)
+68-    }
+69-}
+
+===== DEVICE PATH TYPE AND END NODE CONSTANTS =====
+gbl/libefi_types/include/uefi/protocols/load_file2_protocol.h:39:                         struct EfiDevicePathProtocol* file_path,
+gbl/libefi_types/include/uefi/protocols/device_path_protocol.h:35:typedef struct EfiDevicePathProtocol {
+gbl/libefi_types/include/uefi/protocols/device_path_protocol.h:46:      struct EfiDevicePathProtocol* device_node, bool display_only,
+gbl/libefi_types/include/uefi/protocols/device_path_protocol.h:49:      struct EfiDevicePathProtocol* device_path, bool display_only,
+gbl/libefi_types/include/uefi/protocols/device_path_protocol.h:53:static const uint8_t EFI_DEVICE_PATH_TYPE_END_OF_HARDWARE_DEVICE_PATH = 0x7F;
+gbl/libefi_types/include/uefi/protocols/device_path_protocol.h:58:    EFI_END_OF_HARDWARE_DEVICE_PATH_SUB_TYPE_END_ENTIRE_DEVICE_PATH = 0xFF;
+
+===== BLOCK HANDLE COLLECTION API =====
+gbl/libefi/src/lib.rs-28-//!     let boot_services = efi_entry.system_table().boot_services();
+gbl/libefi/src/lib.rs-29-//!     let path_to_text = boot_services.find_first_and_open::<DevicePathToTextProtocol>()?;
+gbl/libefi/src/lib.rs-30-//!
+gbl/libefi/src/lib.rs-31-//!     write!(con_out, "Scanning block devices...\n")?;
+gbl/libefi/src/lib.rs-32-//!
+gbl/libefi/src/lib.rs:33://!     let block_handles = boot_services.locate_handle_buffer_by_protocol::<BlockIoProtocol>()?;
+gbl/libefi/src/lib.rs-34-//!
+gbl/libefi/src/lib.rs-35-//!     for (i, handle) in block_handles.handles().iter().enumerate() {
+gbl/libefi/src/lib.rs-36-//!         let path = boot_services.open_protocol::<DevicePathProtocol>(*handle)?;
+gbl/libefi/src/lib.rs-37-//!         write!(con_out, "Block Device #{}: ", i)?;
+gbl/libefi/src/lib.rs-38-//!         path_to_text.convert_device_path_to_text(&path, false, false)?.print()?;
+--
+gbl/libefi/src/lib.rs-455-    /// `find_first_and_open`.
+gbl/libefi/src/lib.rs-456-    ///
+gbl/libefi/src/lib.rs-457-    /// Many protocols we want to open via `find_first_and_open` have only have a few
+gbl/libefi/src/lib.rs-458-    /// handles, so we pick an empirically reasonable size for the array.
+gbl/libefi/src/lib.rs-459-    /// If the call to `locate_handles_by_protocol` fails with BUFFER_TOO_SMALL,
+gbl/libefi/src/lib.rs:460:    /// fall back to finding handles via `locate_handle_buffer_by_protocol`.
+gbl/libefi/src/lib.rs-461-    const LOCATE_HANDLE_BUFFER_SIZE: usize = 8;
+gbl/libefi/src/lib.rs-462-
+gbl/libefi/src/lib.rs-463-    /// Wrapper of `EFI_BOOT_SERVICES.AllocatePool()`.
+gbl/libefi/src/lib.rs-464-    #[cfg(not(test))]
+gbl/libefi/src/lib.rs-465-    fn allocate_pool(
+--
+gbl/libefi/src/lib.rs-567-        Ok(LocatedHandles::new_borrowed(&buffer[..num_handles]))
+gbl/libefi/src/lib.rs-568-    }
+gbl/libefi/src/lib.rs-569-
+gbl/libefi/src/lib.rs-570-    /// Call `EFI_BOOT_SERVICES.LocateHandleBuffer()` with fixed
+gbl/libefi/src/lib.rs-571-    /// `EFI_LOCATE_HANDLE_SEARCH_TYPE_BY_PROTOCOL` and without search key.
+gbl/libefi/src/lib.rs:572:    pub fn locate_handle_buffer_by_protocol<T: ProtocolImpl>(&self) -> Result<LocatedHandles<'a>> {
+gbl/libefi/src/lib.rs-573-        let mut num_handles: usize = 0;
+gbl/libefi/src/lib.rs-574-        let mut handles: *mut EfiHandle = null_mut();
+gbl/libefi/src/lib.rs-575-        // SAFETY: EFI_BOOT_SERVICES method call.
+gbl/libefi/src/lib.rs-576-        unsafe {
+gbl/libefi/src/lib.rs-577-            efi_call!(
+--
+gbl/libefi/src/lib.rs-606-        // Try locating handles first using an automatically allocated array.
+gbl/libefi/src/lib.rs-607-        // If the array isn't big enough, fall back to dynamically allocating the array.
+gbl/libefi/src/lib.rs-608-        let mut handles = [DeviceHandle::new(null()); Self::LOCATE_HANDLE_BUFFER_SIZE];
+gbl/libefi/src/lib.rs-609-        let helper = |hs| match self.locate_handles_by_protocol::<T>(hs) {
+gbl/libefi/src/lib.rs-610-            Ok(h) => Ok(h),
+gbl/libefi/src/lib.rs:611:            Err(Error::BufferTooSmall(_)) => self.locate_handle_buffer_by_protocol::<T>(),
+gbl/libefi/src/lib.rs-612-            Err(e) => Err(e),
+gbl/libefi/src/lib.rs-613-        };
+gbl/libefi/src/lib.rs-614-
+gbl/libefi/src/lib.rs-615-        helper(&mut handles)
+gbl/libefi/src/lib.rs-616-            .and_then(|l| l.handles().first().cloned().ok_or(Error::NotFound))
+--
+gbl/libefi/src/lib.rs-1395-        Self(handle)
+gbl/libefi/src/lib.rs-1396-    }
+gbl/libefi/src/lib.rs-1397-}
+gbl/libefi/src/lib.rs-1398-
+gbl/libefi/src/lib.rs-1399-/// `LocatedHandles` holds the array of handles returned by
+gbl/libefi/src/lib.rs:1400:/// `BootServices::locate_handle_buffer_by_protocol()` or
+gbl/libefi/src/lib.rs-1401-/// `BootServices::locate_handles_by_protocol()`.
+gbl/libefi/src/lib.rs-1402-pub enum LocatedHandles<'a> {
+gbl/libefi/src/lib.rs-1403-    /// The handle buffer was allocated dynamically and must be explicitly freed.
+gbl/libefi/src/lib.rs-1404-    Allocated {
+gbl/libefi/src/lib.rs-1405-        /// The handles
+--
+gbl/libefi/src/lib.rs-1434-    pub(crate) fn new_borrowed(handles: &'a [DeviceHandle]) -> Self {
+gbl/libefi/src/lib.rs-1435-        Self::Borrowed(handles)
+gbl/libefi/src/lib.rs-1436-    }
+gbl/libefi/src/lib.rs-1437-
+gbl/libefi/src/lib.rs-1438-    /// Get the list of handles as a slice.
+gbl/libefi/src/lib.rs:1439:    pub fn handles(&self) -> &[DeviceHandle] {
+gbl/libefi/src/lib.rs-1440-        match self {
+gbl/libefi/src/lib.rs-1441-            Self::Allocated { handles, .. } => handles,
+gbl/libefi/src/lib.rs-1442-            Self::Borrowed(handles) => handles,
+gbl/libefi/src/lib.rs-1443-        }
+gbl/libefi/src/lib.rs-1444-    }
+--
+gbl/libefi/src/lib.rs-2256-                .is_err());
+gbl/libefi/src/lib.rs-2257-        })
+gbl/libefi/src/lib.rs-2258-    }
+gbl/libefi/src/lib.rs-2259-
+gbl/libefi/src/lib.rs-2260-    #[test]
+gbl/libefi/src/lib.rs:2261:    fn test_locate_handle_buffer_by_protocol() {
+gbl/libefi/src/lib.rs-2262-        run_test(|image_handle, systab_ptr| {
+gbl/libefi/src/lib.rs-2263-            let efi_entry = EfiEntry { image_handle, systab_ptr };
+gbl/libefi/src/lib.rs-2264-
+gbl/libefi/src/lib.rs-2265-            // Set up locate_handle_buffer_trace trace.
+gbl/libefi/src/lib.rs-2266-            let mut located_handles: [DeviceHandle; 3] = [
+--
+gbl/libefi/src/lib.rs-2275-
+gbl/libefi/src/lib.rs-2276-            {
+gbl/libefi/src/lib.rs-2277-                let handles = efi_entry
+gbl/libefi/src/lib.rs-2278-                    .system_table()
+gbl/libefi/src/lib.rs-2279-                    .boot_services()
+gbl/libefi/src/lib.rs:2280:                    .locate_handle_buffer_by_protocol::<BlockIoProtocol>()
+gbl/libefi/src/lib.rs-2281-                    .unwrap();
+gbl/libefi/src/lib.rs-2282-
+gbl/libefi/src/lib.rs-2283-                // Returned handles are expected.
+gbl/libefi/src/lib.rs-2284-                assert_eq!(handles.handles().to_vec(), located_handles);
+gbl/libefi/src/lib.rs-2285-            }
