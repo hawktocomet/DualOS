@@ -1,0 +1,13 @@
+{
+  "id": "20261109T011328Z-dualos-sd-efi-pre-deployment-audit",
+  "title": "DualOS SD EFI pre-deployment audit",
+  "created_utc": "2026-11-09T01:13:28.298210+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\necho \"===== DEVICE AND FILESYSTEM =====\"\nlsblk -o NAME,RM,SIZE,FSTYPE,LABEL,UUID,MOUNTPOINTS /dev/mmcblk0\nfindmnt /mnt/dualos-check\ndf -h /mnt/dualos-check\n\necho\necho \"===== SD ROOT CONTENTS =====\"\nls -la /mnt/dualos-check\n\necho\necho \"===== EFI FILES =====\"\nfind /mnt/dualos-check -maxdepth 5 -type f \\\n  \\( -iname \"*.efi\" -o -iname \"*.bak\" \\) \\\n  -print\n\necho\necho \"===== EXISTING DEFAULT BOOT FILE =====\"\nif [ -f /mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI ]; then\n  stat /mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI\n  sha256sum /mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI\n  file /mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI\nelse\n  echo \"BOOTAA64.EFI not found at standard path\"\nfi\n\necho\necho \"===== NEW DIAGNOSTIC EFI =====\"\nsha256sum out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.599
+}

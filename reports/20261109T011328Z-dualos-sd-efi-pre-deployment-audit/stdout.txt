@@ -1,0 +1,33 @@
+===== DEVICE AND FILESYSTEM =====
+NAME        RM  SIZE FSTYPE LABEL   UUID                                 MOUNTPOINTS
+mmcblk0      0 59.6G                                                     
+└─mmcblk0p1  0 59.6G vfat   GBLTEST DD36-A492                            /mnt/dualos-check
+TARGET            SOURCE         FSTYPE OPTIONS
+/mnt/dualos-check /dev/mmcblk0p1 vfat   ro,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/mmcblk0p1   60G  512K   60G   1% /mnt/dualos-check
+
+===== SD ROOT CONTENTS =====
+total 96
+drwxr-xr-x 3 root root 32768 Dec 31  1969 .
+drwxr-xr-x 1 root root   178 Nov  8 16:27 ..
+-rwxr-xr-x 1 root root   129 Jan  5  1980 DUALOS-DIAG.TXT
+drwxr-xr-x 3 root root 32768 Nov  8 15:38 EFI
+
+===== EFI FILES =====
+/mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI
+
+===== EXISTING DEFAULT BOOT FILE =====
+  File: /mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI
+  Size: 143360    	Blocks: 320        IO Block: 32768  regular file
+Device: 179,1	Inode: 36761       Links: 1
+Access: (0755/-rwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2026-11-07 19:00:00.000000000 -0500
+Modify: 2026-11-08 16:27:44.000000000 -0500
+Change: 2026-11-08 16:27:44.000000000 -0500
+ Birth: 2026-11-08 16:27:44.960000000 -0500
+edc8958b8308cf52d6e6e2d4b3c308c0d8786ee9b27d6b4534e9c72bae9fa4ae  /mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI
+/mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI: PE32+ executable for EFI (application), ARM64, 5 sections
+
+===== NEW DIAGNOSTIC EFI =====
+367cb02aa0c3bed854926b595ce1bbe5fb63fa2b52b99596b6b9caa93c1ca145  out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi
