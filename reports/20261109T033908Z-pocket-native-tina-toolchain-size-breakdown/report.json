@@ -1,0 +1,19 @@
+{
+  "id": "20261109T033908Z-pocket-native-tina-toolchain-size-breakdown",
+  "title": "pocket-native-tina-toolchain-size-breakdown",
+  "created_utc": "2026-11-09T03:39:08.344422+00:00",
+  "cwd": "/home/hawk/source/pocket-recompiler/target",
+  "command": [
+    "bash",
+    "-c",
+    "\nROOT=\"$HOME/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain\"\n\necho \"========== TOOLCHAIN CONTENTS ==========\"\ndu -xhd2 \"$ROOT\" 2>/dev/null | sort -h | tail -n 50\n\necho\necho \"========== SOURCE DIRECTORY ==========\"\ndu -xhd3 \"$ROOT/src\" 2>/dev/null | sort -h | tail -n 30\n\necho\necho \"========== GENERATED BUILD DIRECTORIES ==========\"\ndu -xhd3 \"$ROOT/build\" 2>/dev/null | sort -h | tail -n 40\n\necho\necho \"READ-ONLY: no files modified\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.532,
+  "git": {
+    "root": "/home/hawk/source/pocket-recompiler",
+    "commit": "f83f76cbd0b18f7e5f6a5b68c7e4f0eaf5ca4215",
+    "branch": "main",
+    "status": ""
+  }
+}
