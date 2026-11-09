@@ -1,0 +1,418 @@
+========== OVERSIZED REPORT FILE TYPES ==========
+
+--- duo_boot_protocol_batch_20261031_171337.txt
+size=2025520412 bytes allocated=3956096 blocks
+ASCII text
+first 96 bytes:  3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d
+*
+ 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 0a 44 55 4f
+ 20 4c 49 54 45 20 42 4f 4f 54 20 50 52 4f 54 4f
+ 43 4f 4c 20 42 41 54 43 48 20 41 4e 41 4c 59 53
+last 96 bytes:   24 20 63 6c 65 61 72 0a 1b 5b 3f 32 30 30 34 6c
+ 0d 1b 5b 48 1b 5b 32 4a 1b 5b 33 4a 1b 5d 30 3b
+ 68 61 77 6b 40 61 72 63 68 6c 69 6e 75 78 3a 7e
+ 07 1b 5b 3f 32 30 30 34 68 5b 68 61 77 6b 40 61
+ 72 63 68 6c 69 6e 75 78 20 7e 5d 24 20 1b 5b 3f
+ 32 30 30 34 6c 0d 1b 5b 3f 32 30 30 34 6c 0d 0a
+beginning sample:
+============================================================
+DUO LITE BOOT PROTOCOL BATCH ANALYSIS
+Timestamp: 20261031_171337
+============================================================
+GHIDRA=/opt/ghidra/support/analyzeHeadless
+=== 1. EXTRACT ORIGINAL FIRMWARE MODULES ===
+MODULE 003: PE offset=0x4, machine=0xaa64, size=266240, sha256=e3032b4297777c33caeb2b94a4a379c417923e6705d769937be60143f19ef94d
+MODULE 006: PE offset=0xc, machine=0xaa64, size=53248, sha256=88d7ecf6a16087c568b086545d8f0c063c9788263b5d1c1c068dfd1481ffdfae
+ending sample:
+FINISHED
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ clear
+[?2004l
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ 
+[?2004l
+[?2004l
+
+--- duo_protocol_provider_trace_20261031_172145.txt
+size=2025442745 bytes allocated=3955944 blocks
+Unicode text, UTF-8 text, with very long lines (335), with CR, LF line terminators, with escape sequences, with overstriking
+first 96 bytes:  3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d
+*
+ 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 0a 44 55 4f
+ 20 4c 49 54 45 20 55 45 46 49 20 50 52 4f 54 4f
+ 43 4f 4c 20 50 52 4f 56 49 44 45 52 20 54 52 41
+last 96 bytes:   24 20 63 6c 65 61 72 0a 1b 5b 3f 32 30 30 34 6c
+ 0d 1b 5b 48 1b 5b 32 4a 1b 5b 33 4a 1b 5d 30 3b
+ 68 61 77 6b 40 61 72 63 68 6c 69 6e 75 78 3a 7e
+ 07 1b 5b 3f 32 30 30 34 68 5b 68 61 77 6b 40 61
+ 72 63 68 6c 69 6e 75 78 20 7e 5d 24 20 1b 5b 3f
+ 32 30 30 34 6c 0d 1b 5b 3f 32 30 30 34 6c 0d 0a
+beginning sample:
+============================================================
+DUO LITE UEFI PROTOCOL PROVIDER TRACE
+Timestamp: 20261031_172145
+============================================================
+GHIDRA=/opt/ghidra/support/analyzeHeadless
+PROJECT=/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/project
+=== SELECTED MODULES ===
+============================================================
+ending sample:
+FINISHED
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ clear
+[?2004l
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ 
+[?2004l
+[?2004l
+
+--- duo_boot_provider_full_decompilation_20261031_172927.txt
+size=2025396756 bytes allocated=3955856 blocks
+C source, ASCII text
+first 96 bytes:  3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d
+*
+ 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 0a 44 55 4f
+ 20 4c 49 54 45 20 46 55 4c 4c 20 50 52 4f 54 4f
+ 43 4f 4c 20 50 52 4f 56 49 44 45 52 20 44 45 43
+last 96 bytes:   24 20 63 6c 65 61 72 0a 1b 5b 3f 32 30 30 34 6c
+ 0d 1b 5b 48 1b 5b 32 4a 1b 5b 33 4a 1b 5d 30 3b
+ 68 61 77 6b 40 61 72 63 68 6c 69 6e 75 78 3a 7e
+ 07 1b 5b 3f 32 30 30 34 68 5b 68 61 77 6b 40 61
+ 72 63 68 6c 69 6e 75 78 20 7e 5d 24 20 1b 5b 3f
+ 32 30 30 34 6c 0d 1b 5b 3f 32 30 30 34 6c 0d 0a
+beginning sample:
+============================================================
+DUO LITE FULL PROTOCOL PROVIDER DECOMPILATION
+Timestamp: 20261031_172927
+============================================================
+SOURCE_DIRECTORY=/home/hawk/duo_edl/edl/duo_protocol_provider_trace_20261031_172145/results
+====================================================================================================
+MODULE 051: module_051_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_051_f10f76db-42c1-533f-34a8-69be24653110.bin.txt
+SIZE=26408
+ending sample:
+FINISHED
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ clear
+[?2004l
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ 
+[?2004l
+[?2004l
+
+--- duo_sd_slot_failure_trace_20261031_173011.txt
+size=2025224795 bytes allocated=3955520 blocks
+a bash script executable (binary data)
+first 96 bytes:  3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d
+*
+ 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 0a 44 55 4f
+ 20 4c 49 54 45 20 53 44 20 53 4c 4f 54 20 41 4e
+ 44 20 52 45 4d 4f 56 41 42 4c 45 20 42 4f 4f 54
+last 96 bytes:   24 20 63 6c 65 61 72 0a 1b 5b 3f 32 30 30 34 6c
+ 0d 1b 5b 48 1b 5b 32 4a 1b 5b 33 4a 1b 5d 30 3b
+ 68 61 77 6b 40 61 72 63 68 6c 69 6e 75 78 3a 7e
+ 07 1b 5b 3f 32 30 30 34 68 5b 68 61 77 6b 40 61
+ 72 63 68 6c 69 6e 75 78 20 7e 5d 24 20 1b 5b 3f
+ 32 30 30 34 6c 0d 1b 5b 3f 32 30 30 34 6c 0d 0a
+beginning sample:
+============================================================
+DUO LITE SD SLOT AND REMOVABLE BOOT FAILURE TRACE
+Timestamp=20261031_173011
+============================================================
+=== MODULE 051: SDCC ===
+ERROR: SDCC module 051 not found.
+=== MODULE 071: QCOMBDS ===
+ERROR: QcomBds module 071 not found.
+ending sample:
+FINISHED
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ clear
+[?2004l
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ 
+[?2004l
+[?2004l
+
+--- duo_slot_mapping_20261031_173056.txt
+size=2025213829 bytes allocated=3955496 blocks
+data
+first 96 bytes:  3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d
+*
+ 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 0a 44 55 4f
+ 20 4c 49 54 45 20 53 44 43 43 20 53 4c 4f 54 20
+ 4d 41 50 50 49 4e 47 20 41 4e 44 20 42 4f 4f 54
+last 96 bytes:   24 20 63 6c 65 61 72 0a 1b 5b 3f 32 30 30 34 6c
+ 0d 1b 5b 48 1b 5b 32 4a 1b 5b 33 4a 1b 5d 30 3b
+ 68 61 77 6b 40 61 72 63 68 6c 69 6e 75 78 3a 7e
+ 07 1b 5b 3f 32 30 30 34 68 5b 68 61 77 6b 40 61
+ 72 63 68 6c 69 6e 75 78 20 7e 5d 24 20 1b 5b 3f
+ 32 30 30 34 6c 0d 1b 5b 3f 32 30 30 34 6c 0d 0a
+beginning sample:
+============================================================
+DUO LITE SDCC SLOT MAPPING AND BOOT PATH
+TIMESTAMP=20261031_173056
+============================================================
+GHIDRA=/opt/ghidra/support/analyzeHeadless
+SDCC_PE=/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/pe/module_051_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_051_f10f76db-42c1-533f-34a8-69be24653110.bin
+QCOMBDS_PE=/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/pe/module_071_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_071_5a50aa81-c3ae-4608-a0e3-41a2e69baf94.bin
+============================================================
+ending sample:
+FINISHED
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ clear
+[?2004l
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ 
+[?2004l
+[?2004l
+
+--- duo_slot_mapping_full_20261031_173303.txt
+size=2025202009 bytes allocated=3955480 blocks
+data
+first 96 bytes:  3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d
+*
+ 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 0a 44 55 4f
+ 20 4c 49 54 45 20 43 4f 4d 50 4c 45 54 45 20 53
+ 4c 4f 54 20 4d 41 50 50 49 4e 47 20 44 45 43 4f
+last 96 bytes:   24 20 63 6c 65 61 72 0a 1b 5b 3f 32 30 30 34 6c
+ 0d 1b 5b 48 1b 5b 32 4a 1b 5b 33 4a 1b 5d 30 3b
+ 68 61 77 6b 40 61 72 63 68 6c 69 6e 75 78 3a 7e
+ 07 1b 5b 3f 32 30 30 34 68 5b 68 61 77 6b 40 61
+ 72 63 68 6c 69 6e 75 78 20 7e 5d 24 20 1b 5b 3f
+ 32 30 30 34 6c 0d 1b 5b 3f 32 30 30 34 6c 0d 0a
+beginning sample:
+============================================================
+DUO LITE COMPLETE SLOT MAPPING DECOMPILATION
+============================================================
+############################################################
+MODULE 051
+############################################################
+SOURCE_FILE=/home/hawk/duo_edl/edl/duo_slot_mapping_20261031_173056/results/module_051_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_051_f10f76db-42c1-533f-34a8-69be24653110.bin.txt
+FILE_SIZE=21714
+ending sample:
+FINISHED
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ clear
+[?2004l
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ 
+[?2004l
+[?2004l
+
+--- duo_boot_chain_deep_20261031_173640.txt
+size=2025143987 bytes allocated=3955360 blocks
+ASCII text
+first 96 bytes:  3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d
+*
+ 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 0a 44 55 4f
+ 20 4c 49 54 45 20 53 44 20 42 4f 4f 54 20 43 48
+ 41 49 4e 20 44 45 45 50 20 41 4e 41 4c 59 53 49
+last 96 bytes:   24 20 63 6c 65 61 72 0a 1b 5b 3f 32 30 30 34 6c
+ 0d 1b 5b 48 1b 5b 32 4a 1b 5b 33 4a 1b 5d 30 3b
+ 68 61 77 6b 40 61 72 63 68 6c 69 6e 75 78 3a 7e
+ 07 1b 5b 3f 32 30 30 34 68 5b 68 61 77 6b 40 61
+ 72 63 68 6c 69 6e 75 78 20 7e 5d 24 20 1b 5b 3f
+ 32 30 30 34 6c 0d 1b 5b 3f 32 30 30 34 6c 0d 0a
+beginning sample:
+============================================================
+DUO LITE SD BOOT CHAIN DEEP ANALYSIS
+============================================================
+DATE=20261031_173640
+OUTPUT=/home/hawk/duo_edl/edl/duo_boot_chain_deep_20261031_173640
+SDCC_BINARY=/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/pe/module_051_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_051_f10f76db-42c1-533f-34a8-69be24653110.bin
+QCOMBDS_BINARY=/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/pe/module_071_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_071_5a50aa81-c3ae-4608-a0e3-41a2e69baf94.bin
+GHIDRA=/opt/ghidra/support/analyzeHeadless
+ending sample:
+FINISHED
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ clear
+[?2004l
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ 
+[?2004l
+[?2004l
+
+--- duo_boot_chain_decompilation_and_drivers_20261031_174227.txt
+size=2024432176 bytes allocated=3953976 blocks
+C source, ASCII text
+first 96 bytes:  3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d
+*
+ 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 0a 44 55 4f
+ 20 4c 49 54 45 20 2d 20 46 55 4c 4c 20 44 45 43
+ 4f 4d 50 49 4c 41 54 49 4f 4e 20 41 4e 44 20 44
+last 96 bytes:   24 20 63 6c 65 61 72 0a 1b 5b 3f 32 30 30 34 6c
+ 0d 1b 5b 48 1b 5b 32 4a 1b 5b 33 4a 1b 5d 30 3b
+ 68 61 77 6b 40 61 72 63 68 6c 69 6e 75 78 3a 7e
+ 07 1b 5b 3f 32 30 30 34 68 5b 68 61 77 6b 40 61
+ 72 63 68 6c 69 6e 75 78 20 7e 5d 24 20 1b 5b 3f
+ 32 30 30 34 6c 0d 1b 5b 3f 32 30 30 34 6c 0d 0a
+beginning sample:
+============================================================
+DUO LITE - FULL DECOMPILATION AND DRIVER EVIDENCE
+============================================================
+DATE=20261031_174227
+SOURCE=/home/hawk/duo_edl/edl/duo_boot_chain_deep_20261031_173640/results
+============================================================
+SOURCE FILE: sdcc_deep.txt
+============================================================
+ending sample:
+FINISHED
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ clear
+[?2004l
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ 
+[?2004l
+[?2004l
+
+--- duo_controller_and_dxe_20261031_174331.txt
+size=2023642580 bytes allocated=3952432 blocks
+data
+first 96 bytes:  3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d
+*
+ 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 0a 44 55 4f
+ 20 4c 49 54 45 20 43 4f 4e 54 52 4f 4c 4c 45 52
+ 20 2b 20 44 58 45 20 44 52 49 56 45 52 20 41 4e
+last 96 bytes:   24 20 63 6c 65 61 72 0a 1b 5b 3f 32 30 30 34 6c
+ 0d 1b 5b 48 1b 5b 32 4a 1b 5b 33 4a 1b 5d 30 3b
+ 68 61 77 6b 40 61 72 63 68 6c 69 6e 75 78 3a 7e
+ 07 1b 5b 3f 32 30 30 34 68 5b 68 61 77 6b 40 61
+ 72 63 68 6c 69 6e 75 78 20 7e 5d 24 20 1b 5b 3f
+ 32 30 30 34 6c 0d 1b 5b 3f 32 30 30 34 6c 0d 0a
+beginning sample:
+============================================================
+DUO LITE CONTROLLER + DXE DRIVER ANALYSIS
+============================================================
+DATE=20261031_174331
+OUTPUT=/home/hawk/duo_edl/edl/duo_controller_and_dxe_20261031_174331
+GHIDRA=/opt/ghidra/support/analyzeHeadless
+SDCC=/home/hawk/duo_edl/edl/duo_boot_protocol_batch_20261031_171337/pe/module_051_ffs_parsed_fv_xbl_a_gzip_001_offset_bab68_8.bin_051_f10f76db-42c1-533f-34a8-69be24653110.bin
+============================================================
+ending sample:
+FINISHED
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ clear
+[?2004l
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ 
+[?2004l
+[?2004l
+
+--- duo_controller_and_dxe_fixed_20261031_174542.txt
+size=2023617593 bytes allocated=3952384 blocks
+data
+first 96 bytes:  47 48 49 44 52 41 3d 2f 6f 70 74 2f 67 68 69 64
+ 72 61 2f 73 75 70 70 6f 72 74 2f 61 6e 61 6c 79
+ 7a 65 48 65 61 64 6c 65 73 73 0a 53 43 52 49 50
+ 54 3d 2f 68 6f 6d 65 2f 68 61 77 6b 2f 64 75 6f
+ 5f 65 64 6c 2f 65 64 6c 2f 64 75 6f 5f 63 6f 6e
+ 74 72 6f 6c 6c 65 72 5f 61 6e 64 5f 64 78 65 5f
+last 96 bytes:   24 20 63 6c 65 61 72 0a 1b 5b 3f 32 30 30 34 6c
+ 0d 1b 5b 48 1b 5b 32 4a 1b 5b 33 4a 1b 5d 30 3b
+ 68 61 77 6b 40 61 72 63 68 6c 69 6e 75 78 3a 7e
+ 07 1b 5b 3f 32 30 30 34 68 5b 68 61 77 6b 40 61
+ 72 63 68 6c 69 6e 75 78 20 7e 5d 24 20 1b 5b 3f
+ 32 30 30 34 6c 0d 1b 5b 3f 32 30 30 34 6c 0d 0a
+beginning sample:
+GHIDRA=/opt/ghidra/support/analyzeHeadless
+SCRIPT=/home/hawk/duo_edl/edl/duo_controller_and_dxe_20261031_174331/ghidra_scripts/DuoControllerDxe.java
+DATE=20261031_174542
+============================================================
+ANALYSIS=SDCC_CONTROLLER
+BINARY=/home/hawk/duo_edl/edl/full_forensics_20261031_152924/ffs_xbl_a_gzip_001_offset_bab68_8_051_f10f76db-42c1-533f-34a8-69be24653110.bin
+PROJECT=/home/hawk/duo_edl/edl/duo_controller_and_dxe_fixed_20261031_174542/projects/SDCC_CONTROLLER
+============================================================
+ending sample:
+FINISHED
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ clear
+[?2004l
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ 
+[?2004l
+[?2004l
+
+--- duo_image_recovery_20261031_174936.txt
+size=2023587129 bytes allocated=3952320 blocks
+data
+first 96 bytes:  3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d
+*
+ 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 3d 0a 44 55 4f
+ 20 55 45 46 49 20 49 4d 41 47 45 20 52 45 43 4f
+ 56 45 52 59 20 2f 20 4c 4f 41 44 41 42 49 4c 49
+last 96 bytes:   24 20 63 6c 65 61 72 0a 1b 5b 3f 32 30 30 34 6c
+ 0d 1b 5b 48 1b 5b 32 4a 1b 5b 33 4a 1b 5d 30 3b
+ 68 61 77 6b 40 61 72 63 68 6c 69 6e 75 78 3a 7e
+ 07 1b 5b 3f 32 30 30 34 68 5b 68 61 77 6b 40 61
+ 72 63 68 6c 69 6e 75 78 20 7e 5d 24 20 1b 5b 3f
+ 32 30 30 34 6c 0d 1b 5b 3f 32 30 30 34 6c 0d 0a
+beginning sample:
+============================================================
+DUO UEFI IMAGE RECOVERY / LOADABILITY AUDIT
+============================================================
+DATE=20261031_174936
+EDL=/home/hawk/duo_edl/edl
+CANDIDATE_COUNT=59
+MODULE_051_CANDIDATES=14
+  SIZE=106584 SHA256=e60734f19ab2047d...
+ending sample:
+FINISHED
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ clear
+[?2004l
+]0;hawk@archlinux:~
+[?2004h[hawk@archlinux ~]$ 
+[?2004l
+[?2004l
+
+--- duo_sd_boot_10_batches_20261031_220547.txt
+size=2021846192 bytes allocated=3948920 blocks
+AppleWorks Word Processor 0x2f, tabstop ruler "ID POC", zoomed, paginated, with mail merge, 109/10 inch left margin
+first 96 bytes:  52 45 54 52 4f 49 44 20 50 4f 43 4b 45 54 20 44
+ 55 4f 20 4c 49 54 45 20 e2 80 94 20 54 45 4e 20
+ 42 41 54 43 48 20 53 44 20 42 4f 4f 54 20 49 4e
+ 56 45 53 54 49 47 41 54 49 4f 4e 0a 44 41 54 45
+ 3d 32 30 32 36 31 30 33 31 5f 32 32 30 35 34 37
+ 0a 4f 55 54 50 55 54 3d 2f 68 6f 6d 65 2f 68 61
+last 96 bytes:   31 30 33 31 5f 32 32 30 35 34 37 2e 74 78 74 0a
+ 46 49 4e 41 4c 5f 4f 55 54 50 55 54 3d 2f 68 6f
+ 6d 65 2f 68 61 77 6b 2f 64 75 6f 5f 65 64 6c 2f
+ 65 64 6c 2f 64 75 6f 5f 73 64 5f 62 6f 6f 74 5f
+ 31 30 5f 62 61 74 63 68 65 73 5f 32 30 32 36 31
+ 30 33 31 5f 32 32 30 35 34 37 0a 44 4f 4e 45 0a
+beginning sample:
+RETROID POCKET DUO LITE 
+ TEN BATCH SD BOOT INVESTIGATION
+DATE=20261031_220547
+OUTPUT=/home/hawk/duo_edl/edl/duo_sd_boot_10_batches_20261031_220547
+REPORT=/home/hawk/duo_edl/reports/duo_sd_boot_10_batches_20261031_220547.txt
+========== BATCH 1: INPUT VERIFICATION ==========
+063fd1f74db4862bf54ac97d3e1bc142c9173eff1019b58794341ddee3c9ea34  /home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/051_SDCC.txt
+61a3cd7423fed509209aa4e4155eb9b4e4ae52c6ad01970d7696db9b8d70a8e0  /home/hawk/duo_edl/edl/verified_dxe_analysis_20261031_215505/039_DiskIoDxe.txt
+ending sample:
+- Creating gist duo_sd_boot_10_batches_20261031_220547.txt
+X Failed to create gist: HTTP 413: 413 Request Entity Too Large (https://api.github.com/gists)
+PUBLISH_EXIT=1
+GIST_URL_NOT_FOUND
+RETRY: /home/hawk/bin/publish-report "/home/hawk/duo_edl/reports/duo_sd_boot_10_batches_20261031_220547.txt"
+FINAL_REPORT=/home/hawk/duo_edl/reports/duo_sd_boot_10_batches_20261031_220547.txt
+FINAL_OUTPUT=/home/hawk/duo_edl/edl/duo_sd_boot_10_batches_20261031_220547
+DONE
+
+========== SMALL REPORTS WITH DUPLICATE CONTENT ==========
+
+========== REPORT DIRECTORY SUMMARY ==========
+25G	/home/hawk/duo_edl/reports
+duo_boot_chain_decompilation_and_drivers_20261031_174227.txt  2024432176 bytes
+duo_boot_chain_deep_20261031_173640.txt  2025143987 bytes
+duo_boot_protocol_batch_20261031_171337.txt  2025520412 bytes
+duo_boot_provider_full_decompilation_20261031_172927.txt  2025396756 bytes
+duo_controller_and_dxe_20261031_174331.txt  2023642580 bytes
+duo_controller_and_dxe_fixed_20261031_174542.txt  2023617593 bytes
+duo_image_recovery_20261031_174936.txt  2023587129 bytes
+duo_protocol_provider_trace_20261031_172145.txt  2025442745 bytes
+duo_sd_boot_10_batches_20261031_220547.txt  2021846192 bytes
+duo_sd_slot_failure_trace_20261031_173011.txt  2025224795 bytes
+duo_slot_mapping_20261031_173056.txt  2025213829 bytes
+duo_slot_mapping_full_20261031_173303.txt  2025202009 bytes
+
+READ ONLY: no files moved, deleted, or modified

@@ -1,0 +1,13 @@
+{
+  "id": "20261109T031409Z-identify-contents-of-oversized-duo-edl-reports",
+  "title": "Identify contents of oversized Duo EDL reports",
+  "created_utc": "2026-11-09T03:14:09.191980+00:00",
+  "cwd": "/home/hawk",
+  "command": [
+    "bash",
+    "-lc",
+    "\nROOT=\"/home/hawk/duo_edl/reports\"\n\necho \"========== OVERSIZED REPORT FILE TYPES ==========\"\nfind \"$ROOT\" -maxdepth 1 -type f -size +1G -print0 |\nwhile IFS= read -r -d \"\" F; do\n  echo\n  echo \"--- $(basename \"$F\")\"\n  stat -c \"size=%s bytes allocated=%b blocks\" \"$F\"\n  file -b \"$F\"\n  printf \"first 96 bytes: \"\n  head -c 96 \"$F\" | od -An -tx1\n  printf \"last 96 bytes:  \"\n  tail -c 96 \"$F\" | od -An -tx1\n  echo \"beginning sample:\"\n  head -c 2048 \"$F\" | strings | head -n 8\n  echo \"ending sample:\"\n  tail -c 2048 \"$F\" | strings | tail -n 8\ndone\n\necho\necho \"========== SMALL REPORTS WITH DUPLICATE CONTENT ==========\"\nfind \"$ROOT\" -maxdepth 1 -type f -size -10M -print0 |\n  sort -z | xargs -0 -r sha256sum |\n  sort | awk '{\n    hash=$1\n    $1=\"\"\n    sub(/^ /,\"\")\n    if (hash==previous) {\n      if (!shown) print previous_file\n      print $0\n      shown=1\n    } else {\n      previous_file=$0\n      previous=hash\n      shown=0\n    }\n  }'\n\necho\necho \"========== REPORT DIRECTORY SUMMARY ==========\"\ndu -sh \"$ROOT\"\nfind \"$ROOT\" -maxdepth 1 -type f -size +1G -printf \"%f  %s bytes\\n\" | sort\n\necho\necho \"READ ONLY: no files moved, deleted, or modified\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.459
+}
