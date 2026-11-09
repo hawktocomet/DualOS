@@ -1,0 +1,130 @@
+
+========== /home/hawk/duo_forensics/android_boot_chain_20261102_094334 ==========
+97415 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/android_boot_chain_readonly_report.txt
+775147 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/android_ramdisk_audit_20261102_144923.txt
+100663296 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/boot_a.img
+100663296 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/boot_b.img
+312200 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/boot_device_audit_20261102_145629.txt
+289139 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/boot_device_audit/vendor_boot.dts
+25165824 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/dtbo_a.img
+25165824 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/dtbo_b.img
+44272 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/edl_partition_read.log
+463950 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/first_stage_init_audit_20261102_145500.txt
+43 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/first_stage_init_audit/init_a/dynamic.txt
+941 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/first_stage_init_audit/init_a/elf_header.txt
+2144 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/first_stage_init_audit/init_a/program_headers.txt
+17105 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/first_stage_init_audit/init_a/relevant_strings.txt
+0 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/first_stage_init_audit/init_a/symbols.txt
+43 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/first_stage_init_audit/init_b/dynamic.txt
+941 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/first_stage_init_audit/init_b/elf_header.txt
+2144 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/first_stage_init_audit/init_b/program_headers.txt
+17105 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/first_stage_init_audit/init_b/relevant_strings.txt
+0 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/first_stage_init_audit/init_b/symbols.txt
+17697 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/gpt_inventory.log
+8388608 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/init_boot_a.img
+8388608 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/init_boot_b.img
+55802368 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/boot_a/kernel
+0 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/boot_a/ramdisk
+178 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/boot_a/unpack.log
+55802368 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/boot_b/kernel
+0 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/boot_b/ramdisk
+178 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/boot_b/unpack.log
+0 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/init_boot_a/kernel
+2013845 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/init_boot_a/ramdisk
+177 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/init_boot_a/unpack.log
+0 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/init_boot_b/kernel
+2013845 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/init_boot_b/ramdisk
+177 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/init_boot_b/unpack.log
+124 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/vendor_boot_a/bootconfig
+658275 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/vendor_boot_a/dtb
+1067 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/vendor_boot_a/unpack.log
+7423844 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/vendor_boot_a/vendor_ramdisk00
+124 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/vendor_boot_b/bootconfig
+658275 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/vendor_boot_b/dtb
+1067 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/vendor_boot_b/unpack.log
+7423289 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/offline_analysis/vendor_boot_b/vendor_ramdisk00
+235 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/init_boot_a/archive_listing.txt
+12 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/init_boot_a/extract.log
+165 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/init_boot_a/file_inventory.txt
+3641088 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/init_boot_a/ramdisk.cpio
+235 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/init_boot_b/archive_listing.txt
+12 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/init_boot_b/extract.log
+165 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/init_boot_b/file_inventory.txt
+3641088 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/init_boot_b/ramdisk.cpio
+6678 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/vendor_boot_a/archive_listing.txt
+13 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/vendor_boot_a/extract.log
+9867 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/vendor_boot_a/file_inventory.txt
+24499968 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/vendor_boot_a/ramdisk.cpio
+6678 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/vendor_boot_b/archive_listing.txt
+13 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/vendor_boot_b/extract.log
+9867 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/vendor_boot_b/file_inventory.txt
+24497152 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/ramdisk_analysis/vendor_boot_b/ramdisk.cpio
+591753 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/sd_first_stage_audit_20261102_145118.txt
+21351 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/sd_first_stage_audit/modules_a.sha256
+21351 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/sd_first_stage_audit/modules_b.sha256
+289139 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/sd_first_stage_audit/vendor_boot.dts
+485142 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/sd_kernel_config_audit_20261102_145325.txt
+188387 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/sd_kernel_config_audit/kernel.config
+65536 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/vbmeta_a.img
+65536 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/vbmeta_b.img
+65536 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/vbmeta_system_a.img
+65536 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/vbmeta_system_b.img
+100663296 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/vendor_boot_a.img
+100663296 bytes  /home/hawk/duo_forensics/android_boot_chain_20261102_094334/vendor_boot_b.img
+
+========== /home/hawk/duo_forensics/recovery_backups_20261102 ==========
+1048576 bytes  /home/hawk/duo_forensics/recovery_backups_20261102/abl_a.img
+1048576 bytes  /home/hawk/duo_forensics/recovery_backups_20261102/abl_b.img
+2433 bytes  /home/hawk/duo_forensics/recovery_backups_20261102/backup_report.txt
+4096 bytes  /home/hawk/duo_forensics/recovery_backups_20261102/devinfo.img
+1049 bytes  /home/hawk/duo_forensics/recovery_backups_20261102/misc_backup_report.txt
+1048576 bytes  /home/hawk/duo_forensics/recovery_backups_20261102/misc.img
+
+========== /home/hawk/duo_forensics/abl_update_20261102 ==========
+1048576 bytes  /home/hawk/duo_forensics/abl_update_20261102/abl_a_after_update.img
+1048576 bytes  /home/hawk/duo_forensics/abl_update_20261102/abl_a_before_update.img
+532480 bytes  /home/hawk/duo_forensics/abl_update_20261102/abl_signed-SM6115_20261101.elf
+
+========== FORENSICS ARCHIVE PARTITION-LIKE FILES ==========
+DUO_FORENSICS_20261005_075018/device_tree/raw/firmware/android/vbmeta/
+DUO_FORENSICS_20261005_075018/device_tree/raw/firmware/android/vbmeta/parts
+DUO_FORENSICS_20261005_075018/device_tree/raw/firmware/android/vbmeta/compatible
+DUO_FORENSICS_20261005_075018/device_tree/raw/firmware/android/vbmeta/name
+DUO_FORENSICS_20261005_075018/device_tree/raw/firmware/android/fstab/vendor/
+DUO_FORENSICS_20261005_075018/device_tree/raw/firmware/android/fstab/vendor/fsmgr_flags
+DUO_FORENSICS_20261005_075018/device_tree/raw/firmware/android/fstab/vendor/mnt_flags
+DUO_FORENSICS_20261005_075018/device_tree/raw/firmware/android/fstab/vendor/dev
+DUO_FORENSICS_20261005_075018/device_tree/raw/firmware/android/fstab/vendor/type
+DUO_FORENSICS_20261005_075018/device_tree/raw/firmware/android/fstab/vendor/compatible
+DUO_FORENSICS_20261005_075018/device_tree/raw/firmware/android/fstab/vendor/status
+DUO_FORENSICS_20261005_075018/device_tree/raw/firmware/android/fstab/vendor/name
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/qcom,instance-id
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/name
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_current/
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_current/phandle
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_current/qcom,qmi-dev-name
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_current/name
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_current/#cooling-cells
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_skin/
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_skin/phandle
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_skin/qcom,qmi-dev-name
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_skin/name
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_skin/#cooling-cells
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_pa/
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_pa/phandle
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_pa/qcom,qmi-dev-name
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_pa/name
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_pa/#cooling-cells
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_proc/
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_proc/phandle
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_proc/qcom,qmi-dev-name
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_proc/name
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_proc/#cooling-cells
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_vdd/
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_vdd/phandle
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_vdd/qcom,qmi-dev-name
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_vdd/name
+DUO_FORENSICS_20261005_075018/device_tree/raw/soc/qmi-tmd-devices/modem/modem_vdd/#cooling-cells
+
+========== COMPLETE ==========
