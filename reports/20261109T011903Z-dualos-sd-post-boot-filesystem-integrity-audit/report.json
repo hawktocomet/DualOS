@@ -1,0 +1,13 @@
+{
+  "id": "20261109T011903Z-dualos-sd-post-boot-filesystem-integrity-audit",
+  "title": "DualOS SD post-boot filesystem integrity audit",
+  "created_utc": "2026-11-09T01:19:03.459013+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\nDEVICE=/dev/mmcblk0p1\nCARD=/mnt/dualos-check\nBACKUP=\"$HOME/dualos-sd-backups/20261109T0113Z/BOOTAA64.EFI.original\"\n\necho \"===== DEVICE IDENTITY =====\"\nlsblk -o NAME,MAJ:MIN,SIZE,RO,TYPE,FSTYPE,LABEL,UUID,MOUNTPOINTS /dev/mmcblk0\nsudo blkid \"$DEVICE\"\n\necho\necho \"===== PRESERVED HOST BACKUP =====\"\nif [ -f \"$BACKUP\" ]; then\n  sha256sum \"$BACKUP\"\n  file \"$BACKUP\"\nelse\n  echo \"HOST BACKUP MISSING\"\nfi\n\necho\necho \"===== UNMOUNT FOR READ-ONLY CHECK =====\"\nif mountpoint -q \"$CARD\"; then\n  sudo umount \"$CARD\"\nfi\nfindmnt \"$CARD\" || echo \"Card unmounted\"\n\necho\necho \"===== FAT FILESYSTEM CHECK (NO REPAIR) =====\"\nsudo fsck.fat -n -v \"$DEVICE\"\nFSCK_STATUS=$?\necho \"fsck.fat exit status: $FSCK_STATUS\"\n\necho\necho \"===== RECENT KERNEL STORAGE MESSAGES =====\"\nsudo dmesg --ctime | tail -n 180 | grep -Ei \"mmc|vfat|fat-fs|I/O error|buffer I/O|reset|timeout|corrupt|usb|sd\" || true\n\necho\necho \"===== PARTITION GEOMETRY =====\"\nsudo fdisk -l /dev/mmcblk0\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.877
+}

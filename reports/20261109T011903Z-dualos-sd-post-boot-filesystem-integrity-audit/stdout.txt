@@ -1,0 +1,73 @@
+===== DEVICE IDENTITY =====
+NAME        MAJ:MIN  SIZE RO TYPE FSTYPE LABEL   UUID                                 MOUNTPOINTS
+mmcblk0     179:8   59.6G  0 disk                                                     
+└─mmcblk0p1 179:9   59.6G  0 part vfat   GBLTEST DD36-A492                            /mnt/dualos-check
+/dev/mmcblk0p1: LABEL_FATBOOT="GBLTEST" LABEL="GBLTEST" UUID="DD36-A492" BLOCK_SIZE="512" TYPE="vfat" PARTLABEL="primary" PARTUUID="1b806d74-8676-4e78-a90a-9c209e214d81"
+
+===== PRESERVED HOST BACKUP =====
+edc8958b8308cf52d6e6e2d4b3c308c0d8786ee9b27d6b4534e9c72bae9fa4ae  /home/hawk/dualos-sd-backups/20261109T0113Z/BOOTAA64.EFI.original
+/home/hawk/dualos-sd-backups/20261109T0113Z/BOOTAA64.EFI.original: PE32+ executable for EFI (application), ARM64, 5 sections
+
+===== UNMOUNT FOR READ-ONLY CHECK =====
+Card unmounted
+
+===== FAT FILESYSTEM CHECK (NO REPAIR) =====
+fsck.fat 4.2 (2021-01-31)
+Checking we can access the last sector of the filesystem
+There are differences between boot sector and its backup.
+This is mostly harmless. Differences: (offset:original/backup)
+  65:01/00
+  Not automatically fixing this.
+Boot sector contents:
+System ID "mkfs.fat"
+Media byte 0xf8 (hard disk)
+       512 bytes per logical sector
+     32768 bytes per cluster
+        64 reserved sectors
+First FAT starts at byte 32768 (sector 64)
+         2 FATs, 32 bit entries
+   7831552 bytes per FAT (= 15296 sectors)
+Root directory start at cluster 2 (arbitrary size)
+Data area starts at byte 15695872 (sector 30656)
+   1953249 data clusters (64004063232 bytes)
+16 sectors/track, 4 heads
+      2048 hidden sectors
+ 125038592 sectors total
+Checking for unused clusters.
+Dirty bit is set. Fs was not properly unmounted and some data may be corrupt.
+ Automatically removing dirty bit.
+Checking free cluster summary.
+
+Leaving filesystem unchanged.
+/dev/mmcblk0p1: 7 files, 21/1953249 clusters
+fsck.fat exit status: 1
+
+===== RECENT KERNEL STORAGE MESSAGES =====
+[Fri Nov 13 01:45:11 2026] usb 1-5: USB disconnect, device number 98
+[Fri Nov 13 02:19:40 2026] mmc0: error -123 doing aggressive suspend
+[Fri Nov 13 02:19:40 2026] mmc0: card 0001 removed
+[Fri Nov 13 02:21:06 2026] mmc0: new UHS-I speed SDR50 SDXC card at address 0001
+[Fri Nov 13 02:21:06 2026] mmcblk0: mmc0:0001 00000 59.6 GiB
+[Fri Nov 13 02:21:06 2026]  mmcblk0: p1
+[Fri Nov 13 02:22:48 2026] FAT-fs (mmcblk0p1): Directory bread(block 30656) failed
+[Fri Nov 13 02:22:48 2026] FAT-fs (mmcblk0p1): Directory bread(block 30657) failed
+[Fri Nov 13 02:22:48 2026] FAT-fs (mmcblk0p1): Directory bread(block 30658) failed
+[Fri Nov 13 02:22:48 2026] FAT-fs (mmcblk0p1): Directory bread(block 30659) failed
+[Fri Nov 13 02:22:48 2026] FAT-fs (mmcblk0p1): Directory bread(block 30660) failed
+[Fri Nov 13 02:22:48 2026] FAT-fs (mmcblk0p1): Directory bread(block 30661) failed
+[Fri Nov 13 02:22:48 2026] FAT-fs (mmcblk0p1): Directory bread(block 30662) failed
+[Fri Nov 13 02:22:48 2026] FAT-fs (mmcblk0p1): Directory bread(block 30663) failed
+[Fri Nov 13 02:22:48 2026] FAT-fs (mmcblk0p1): Directory bread(block 30664) failed
+[Fri Nov 13 02:22:48 2026] FAT-fs (mmcblk0p1): Directory bread(block 30665) failed
+[Fri Nov 13 02:23:37 2026] FAT-fs (mmcblk0p1): unable to read boot sector to mark fs as dirty
+
+===== PARTITION GEOMETRY =====
+Disk /dev/mmcblk0: 59.63 GiB, 64021856256 bytes, 125042688 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 9D2FD75B-CD87-4178-B733-9DD45A6A3B7E
+
+Device         Start       End   Sectors  Size Type
+/dev/mmcblk0p1  2048 125040639 125038592 59.6G EFI System
