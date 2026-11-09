@@ -1,0 +1,13 @@
+{
+  "id": "20261109T012811Z-dualos-gbl-device-path-representation-before-sd-",
+  "title": "DualOS GBL device-path representation before SD filter patch",
+  "created_utc": "2026-11-09T01:28:11.719902+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd \"$HOME/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader\" || exit 2\n\necho \"===== DEVICE PATH PROTOCOL =====\"\nsed -n \"1,135p\" gbl/libefi/src/protocol/device_path.rs\n\necho\necho \"===== EFI DEVICE PATH TYPES =====\"\nrg -n -C 5 \"EfiDevicePathProtocol|EfiDevicePathNode|DeviceHandle\\\\(\" gbl/libefi/src gbl/libefi_types\n\necho\necho \"===== LOADED IMAGE ACCESS AND APP INITIALIZATION =====\"\nsed -n \"100,220p\" gbl/efi/src/lib.rs\n\necho\necho \"===== BLOCK IO MEDIA DEFINITION =====\"\nrg -n -C 8 \"struct EfiBlockIoMedia|logical_partition\" gbl/libefi\n"
+  ],
+  "exit_code": 1,
+  "duration_seconds": 0.01
+}
