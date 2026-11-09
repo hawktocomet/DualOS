@@ -1,0 +1,151 @@
+
+=== DISK DISCOVERY FUNCTION ===
+    }
+
+    async fn flush(&self) -> Result<(), Error> {
+        let res = match &self.block_io2 {
+            Some(v) => v.flush_blocks_ex().await,
+            _ => self.block_io.flush_blocks().map_err(Into::into),
+        };
+        match res {
+            Ok(()) | Err(Error::Unsupported) | Err(Error::NotFound) => Ok(()),
+            Err(e) => Err(e),
+        }
+    }
+}
+
+/// The [GblDisk] type in the GBL EFI context.
+pub type EfiGblDisk<'a> =
+    GblDisk<Disk<EfiBlockDeviceIo<'a>, ArrayVec<Option<Box<[u8]>>, 2>>, Gpt<Vec<u8>>>;
+
+#[cfg(not(test))]
+fn write_dualos_discovery_report(efi_entry: &EfiEntry, status: &str) {
+    let result = crate::diagnostic_fs::write_report(efi_entry, status);
+    efi_println!(efi_entry, "DualOS SD report: {result}");
+}
+
+/// Finds and returns all EFI devices supporting either EFI_BLOCK_IO or EFI_BLOCK_IO2 protocol.
+#[profile(backend = EfiProfileBackend::new(efi_entry))]
+pub fn find_block_devices(efi_entry: &EfiEntry) -> Result<Vec<EfiGblDisk<'_>>, Error> {
+    let bs = efi_entry.system_table().boot_services();
+    let block_dev_handles = bs.locate_handle_buffer_by_protocol::<BlockIoProtocol>()?;
+
+    // GBL is SD-only: identify the physical disk that contains this EFI image.
+    let loaded_image = bs.open_protocol::<LoadedImageProtocol>(efi_entry.image_handle())?;
+    let source_partition = loaded_image.device_handle();
+    let source_path = bs.open_protocol::<DevicePathProtocol>(source_partition)?;
+
+    let source_block_io = bs.open_protocol::<BlockIoProtocol>(source_partition)?;
+    // SAFETY: this code always executes at EFI_TPL_APPLICATION.
+    let source_media = unsafe {
+        source_block_io.with_lock::<EFI_TPL_APPLICATION, _>(efi_entry, || {
+            source_block_io.media().unwrap().clone()
+        })
+    };
+    if !source_media.logical_partition {
+        let status = "FAIL: loaded-image device handle is not a logical partition";
+        efi_println!(efi_entry, "DUALOS SD-ONLY FILTER: {status}");
+        #[cfg(not(test))]
+        write_dualos_discovery_report(efi_entry, status);
+        return Err(Error::InvalidInput);
+    }
+
+    let mut source_disk_handle = None;
+    for handle in block_dev_handles.handles() {
+        let candidate_path = match bs.open_protocol::<DevicePathProtocol>(*handle) {
+            Ok(path) => path,
+            Err(_) => continue,
+        };
+        if !candidate_path.is_parent_of(&source_path) {
+            continue;
+        }
+
+        let candidate_block_io = match bs.open_protocol::<BlockIoProtocol>(*handle) {
+            Ok(protocol) => protocol,
+            Err(_) => continue,
+        };
+        // SAFETY: this code always executes at EFI_TPL_APPLICATION.
+        let candidate_media = unsafe {
+            candidate_block_io.with_lock::<EFI_TPL_APPLICATION, _>(efi_entry, || {
+                candidate_block_io.media().unwrap().clone()
+            })
+        };
+        if candidate_media.logical_partition {
+            continue;
+        }
+
+        if source_disk_handle.replace(*handle).is_some() {
+            let status = "FAIL: multiple physical parent disks matched the loaded-image partition";
+            efi_println!(efi_entry, "DUALOS SD-ONLY FILTER: {status}");
+            #[cfg(not(test))]
+            write_dualos_discovery_report(efi_entry, status);
+            return Err(Error::InvalidInput);
+        }
+    }
+
+    let source_disk_handle = match source_disk_handle {
+        Some(handle) => handle,
+        None => {
+            let status = "FAIL: no physical parent disk found for the loaded-image partition";
+            efi_println!(efi_entry, "DUALOS SD-ONLY FILTER: {status}");
+            #[cfg(not(test))]
+            write_dualos_discovery_report(efi_entry, status);
+            return Err(Error::InvalidInput);
+        }
+    };
+
+    let selected_disk_path = crate::utils::get_device_path(efi_entry, source_disk_handle)
+        .unwrap_or_else(|error| alloc::format!("UNAVAILABLE: {error:?}"));
+    efi_println!(efi_entry, "DUALOS SELECTED PHYSICAL DISK: {selected_disk_path}");
+    efi_println!(
+        efi_entry,
+        "DUALOS FILTER: PASS — all other physical disks excluded from GBL discovery."
+    );
+
+    let mut gbl_disks = vec![];
+    // TODO(b/452455989) Buffer size and capacity can be configurable using vendor path.
+    let gpt_buffer_size = gpt_buffer_size(GPT_MAX_NUM_ENTRIES)?;
+    for (idx, handle) in block_dev_handles.handles().iter().enumerate() {
+        if *handle != source_disk_handle {
+            continue;
+        }
+        match crate::utils::get_device_path(efi_entry, *handle) {
+            Ok(path) => efi_println!(efi_entry, "Block #{idx} path: {path}"),
+            Err(e) => efi_println!(efi_entry, "Block #{idx} path unavailable: {e:?}"),
+        }
+        let block_io = bs.open_protocol::<BlockIoProtocol>(*handle).unwrap();
+        // SAFETY: this code always executes at `EFI_TPL_APPLICATION`.
+        let media = unsafe {
+            block_io.with_lock::<EFI_TPL_APPLICATION, _>(efi_entry, || {
+                // SAFETY: the protocol is locked while we access `media`, we
+                // clone it here for safe access outside the critical section.
+                block_io.media().unwrap().clone()
+            })
+
+=== DEVICE PATH HELPER SIGNATURE ===
+gbl/efi/src/utils.rs:48:pub fn get_device_path<'a>(
+gbl/efi/src/utils.rs-49-    entry: &'a EfiEntry,
+gbl/efi/src/utils.rs-50-    handle: DeviceHandle,
+gbl/efi/src/utils.rs-51-) -> Result<DevicePathText<'a>> {
+gbl/efi/src/utils.rs-52-    let bs = entry.system_table().boot_services();
+gbl/efi/src/utils.rs-53-    let path = bs.open_protocol::<DevicePathProtocol>(handle)?;
+gbl/efi/src/utils.rs-54-    let path_to_text = bs.find_first_and_open::<DevicePathToTextProtocol>()?;
+gbl/efi/src/utils.rs-55-    path_to_text.convert_device_path_to_text(&path, false, false)
+gbl/efi/src/utils.rs-56-}
+gbl/efi/src/utils.rs-57-
+gbl/efi/src/utils.rs-58-/// Helper function to get the loaded image path.
+gbl/efi/src/utils.rs-59-pub fn loaded_image_path(entry: &EfiEntry) -> Result<DevicePathText<'_>> {
+gbl/efi/src/utils.rs-60-    let bs = entry.system_table().boot_services();
+
+=== DEVICE PATH TEXT TYPE ===
+gbl/libefi/src/protocol/device_path.rs:249:pub struct DevicePathText<'a> {
+gbl/libefi/src/protocol/device_path.rs-250-    text: Option<&'a [u16]>,
+gbl/libefi/src/protocol/device_path.rs-251-    efi_entry: &'a EfiEntry,
+gbl/libefi/src/protocol/device_path.rs-252-}
+gbl/libefi/src/protocol/device_path.rs-253-
+gbl/libefi/src/protocol/device_path.rs-254-impl<'a> DevicePathText<'a> {
+gbl/libefi/src/protocol/device_path.rs-255-    pub(crate) fn new(text: *mut u16, efi_entry: &'a EfiEntry) -> Self {
+gbl/libefi/src/protocol/device_path.rs-256-        if text.is_null() || !text.is_aligned() {
+gbl/libefi/src/protocol/device_path.rs-257-            return Self { text: None, efi_entry };
+gbl/libefi/src/protocol/device_path.rs-258-        }
+gbl/libefi/src/protocol/device_path.rs-259-
