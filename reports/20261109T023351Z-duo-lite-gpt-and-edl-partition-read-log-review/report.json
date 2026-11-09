@@ -1,0 +1,19 @@
+{
+  "id": "20261109T023351Z-duo-lite-gpt-and-edl-partition-read-log-review",
+  "title": "Duo Lite GPT and EDL partition-read log review",
+  "created_utc": "2026-11-09T02:33:51.375703+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-lc",
+    "\nROOT=/home/hawk/duo_forensics/android_boot_chain_20261102_094334\n\nfor FILE in gpt_inventory.log edl_partition_read.log; do\n  PATH_TO_LOG=\"$ROOT/$FILE\"\n  echo\n  echo \"============================================================\"\n  echo \"FILE: $PATH_TO_LOG\"\n  echo \"============================================================\"\n\n  if [ -f \"$PATH_TO_LOG\" ]; then\n    wc -l -c \"$PATH_TO_LOG\"\n    cat \"$PATH_TO_LOG\"\n  else\n    echo \"MISSING\"\n  fi\ndone\n\necho\necho \"LOG REVIEW COMPLETE; NO FILES OR DEVICE PARTITIONS MODIFIED\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.025,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}

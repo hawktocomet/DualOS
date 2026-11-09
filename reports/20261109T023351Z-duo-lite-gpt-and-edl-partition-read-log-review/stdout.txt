@@ -1,0 +1,660 @@
+
+============================================================
+FILE: /home/hawk/duo_forensics/android_boot_chain_20261102_094334/gpt_inventory.log
+============================================================
+  155 17697 /home/hawk/duo_forensics/android_boot_chain_20261102_094334/gpt_inventory.log
+Qualcomm Sahara / Firehose Client V3.62 (c) B.Kerler 2018-2025.
+main - Using loader /home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin ...
+main - Waiting for the device
+main - Device detected :)
+sahara - Protocol version: 2, Version supported: 1
+main - Mode detected: sahara
+sahara - 
+Version 0x2
+------------------------
+HWID:              0x001750e100000000 (MSM_ID:0x001750e1,OEM_ID:0x0000,MODEL_ID:0x0000)
+CPU detected:      "nicobar_IoT_modem"
+PK_HASH:           0xd40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87
+Serial:            0x63b30b6d
+
+sahara - Protocol version: 2, Version supported: 1
+sahara - Uploading loader /home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin ...
+sahara - 64-Bit mode detected.
+sahara - Loader successfully uploaded.
+main - Trying to connect to firehose loader ...
+firehose - INFO: Binary build date: Oct 13 2022 @ 18:19:54
+firehose - INFO: Binary build date: Oct 13 2022 @ 18:19:54 
+firehose - INFO: Chip serial num: 1672678253 (0x63b30b6d)
+firehose - INFO: Supported Functions (14):
+firehose - INFO: program
+firehose - INFO: read
+firehose - INFO: nop
+firehose - INFO: patch
+firehose - INFO: configure
+firehose - INFO: setbootablestoragedrive
+firehose - INFO: erase
+firehose - INFO: power
+firehose - INFO: firmwarewrite
+firehose - INFO: getstorageinfo
+firehose - INFO: benchmark
+firehose - INFO: emmc
+firehose - INFO: ufs
+firehose - INFO: fixgpt
+firehose - INFO: End of supported functions 14
+firehose
+firehose - [LIB]: [33mCouldn't detect MaxPayloadSizeFromTargetinBytes[0m
+firehose
+firehose - [LIB]: [33mCouldn't detect TargetName[0m
+firehose - TargetName=Unknown
+firehose - MemoryName=eMMC
+firehose - Version=1
+firehose - Trying to read first storage sector...
+firehose - Running configure...
+firehose - Storage report:
+firehose - total_blocks:244285440
+firehose - block_size:512
+firehose - page_size:512
+firehose - num_physical:4
+firehose - manufacturer_id:144
+firehose - serial_num:4010781202
+firehose - fw_version:858796080
+firehose - mem_type:eMMC
+firehose - prod_name:hDEaP3
+firehose_client - Supported functions:
+-----------------
+program,read,nop,patch,configure,setbootablestoragedrive,erase,power,firmwarewrite,getstorageinfo,benchmark,emmc,ufs,fixgpt
+
+Parsing Lun 0:
+
+GPT Table:
+-------------
+modemst1:            Offset 0x0000000000005000, Length 0x0000000000400000, Flags 0x0000000000000000, UUID 8f4162ea-1084-687a-6578-1014d1f61b87, Type 0xebbeadaf, Active False
+modemst2:            Offset 0x0000000000405000, Length 0x0000000000400000, Flags 0x0000000000000000, UUID 3604e266-2a6f-fe22-4899-203f273ef68d, Type 0xa288b1f, Active False
+fsg:                 Offset 0x0000000004000000, Length 0x0000000000400000, Flags 0x1000000000000000, UUID ba96facd-f5e3-8106-ede1-72b178e84849, Type 0x638ff8e2, Active False
+fsc:                 Offset 0x0000000008000000, Length 0x0000000000020000, Flags 0x0000000000000000, UUID ed5aef71-aa5e-b3ca-e965-4de57b3c8eca, Type 0x57b90a16, Active False
+nvdata1:             Offset 0x0000000008020000, Length 0x0000000000180000, Flags 0x0000000000000000, UUID f77dc7d3-d9d6-0949-4948-383a3cb47de2, Type 0x97745aba, Active False
+nvdata2:             Offset 0x00000000081a0000, Length 0x0000000000180000, Flags 0x0000000000000000, UUID 2e331b21-507c-7c69-83f9-49d604ea0452, Type 0x97745aba, Active False
+reserve1:            Offset 0x0000000008320000, Length 0x0000000000400000, Flags 0x0000000000000000, UUID f7716b06-3626-b3a8-ffea-f50711218827, Type 0x5af99321, Active False
+reserve2:            Offset 0x0000000008720000, Length 0x0000000000400000, Flags 0x0000000000000000, UUID 6b4bc0bd-bd38-f03d-29f3-53e63dbc8c0f, Type 0x5af99321, Active False
+persist:             Offset 0x0000000008b20000, Length 0x0000000002000000, Flags 0x0000000000000000, UUID ecc7998f-9297-fded-e4cc-d22c9e3b6897, Type 0x6c95e238, Active False
+qpdata1:             Offset 0x000000000ab20000, Length 0x0000000004000000, Flags 0x0000000000000000, UUID 23078930-1f2c-1145-3511-57ed8247457e, Type 0x5af80123, Active False
+qpdata2:             Offset 0x000000000eb20000, Length 0x0000000000a00000, Flags 0x0000000000000000, UUID b416446b-7be5-0900-2cdc-c8158b19a67a, Type 0x5af99321, Active False
+modem_a:             Offset 0x000000000f520000, Length 0x000000000b400000, Flags 0x007f000000000000, UUID 92388933-af3f-cbce-0812-b12ffd9ab0fa, Type EFI_BASIC_DATA, Active True
+modem_b:             Offset 0x000000001a920000, Length 0x000000000b400000, Flags 0x00fb000000000000, UUID 335708ee-32ca-2d6b-0ffb-8bfe3ec630aa, Type 0x77036cd4, Active False
+bluetooth_a:         Offset 0x0000000025d20000, Length 0x0000000000100000, Flags 0x007f000000000000, UUID bd19b55b-82ae-5791-cbaa-26b27e11fb28, Type 0x6cb747f1, Active True
+bluetooth_b:         Offset 0x0000000025e20000, Length 0x0000000000100000, Flags 0x00fb000000000000, UUID d41195eb-2797-db79-2fa4-d76478241884, Type 0x77036cd4, Active False
+splash:              Offset 0x0000000025f20000, Length 0x0000000002000000, Flags 0x0000000000000000, UUID a7e7e795-0696-372e-fee0-7e92c88d6d52, Type 0xad99f201, Active False
+imagefv_a:           Offset 0x0000000027f20000, Length 0x0000000002000000, Flags 0x007f000000000001, UUID 394159d2-33d2-b24f-153c-54dd0a93b652, Type 0x17911177, Active True
+imagefv_b:           Offset 0x0000000029f20000, Length 0x0000000002000000, Flags 0x00fb000000000001, UUID fb031b6f-2597-fd8a-80d2-3e267fa647bf, Type 0x77036cd4, Active False
+apdp:                Offset 0x000000002bf20000, Length 0x0000000000040000, Flags 0x0000000000000000, UUID a9993b73-8e2e-b58d-2ea0-ca1edc153b02, Type 0xe6e98da2, Active False
+catecontentfv:       Offset 0x000000002bf60000, Length 0x0000000000100000, Flags 0x0000000000000000, UUID de5ff8fc-7064-9889-9fa0-63a286151386, Type 0xe12d830b, Active False
+catefv:              Offset 0x000000002c060000, Length 0x0000000000080000, Flags 0x0000000000000000, UUID 20746d72-6914-9832-525a-d085346a05f1, Type 0x80c23c26, Active False
+cateloader:          Offset 0x000000002c0e0000, Length 0x0000000000200000, Flags 0x0000000000000000, UUID 279d9522-eeca-5521-d462-36048526f3f3, Type 0xaa9a5c4c, Active False
+ddr:                 Offset 0x000000002c2e0000, Length 0x0000000000100000, Flags 0x0000000000000000, UUID c3cdac88-3752-a7fb-7c42-68bbb98c47f6, Type 0x20a0c19c, Active False
+dip:                 Offset 0x000000002c3e0000, Length 0x0000000000100000, Flags 0x0000000000000000, UUID 4fc42ab1-423d-88e0-87c5-aac66106777b, Type 0x4114b077, Active False
+frp:                 Offset 0x000000002c4e0000, Length 0x0000000000080000, Flags 0x0000000000000000, UUID aae080b0-adbe-9215-da51-3a5de2b1e596, Type 0x91b72d4d, Active False
+keystore:            Offset 0x000000002c560000, Length 0x0000000000080000, Flags 0x0000000000000000, UUID b464c402-e8f6-f12e-d244-a4b3223d4ed9, Type 0xde7d4029, Active False
+limits:              Offset 0x000000002c5e0000, Length 0x0000000000001000, Flags 0x0000000000000000, UUID db0b786d-4bcf-b2cd-2100-c078f7bd6e32, Type 0x10a0c19c, Active False
+mdtpsecapp_a:        Offset 0x000000002c5e1000, Length 0x0000000000400000, Flags 0x007f000000000000, UUID 121f06ed-bfe8-e4ab-934b-23cb0bdc1618, Type 0xea02d680, Active True
+mdtpsecapp_b:        Offset 0x000000002c9e1000, Length 0x0000000000400000, Flags 0x00fb000000000000, UUID efe22bc1-55f9-64be-7a75-789865696d2f, Type 0x77036cd4, Active False
+mdtp_a:              Offset 0x000000002cde1000, Length 0x0000000002000000, Flags 0x007f000000000000, UUID 51583a99-17bf-c77b-e914-ba3eea1b3d90, Type 0x3878408a, Active True
+mdtp_b:              Offset 0x000000002ede1000, Length 0x0000000002000000, Flags 0x00fb000000000000, UUID 7fc1aa32-6650-ef24-3474-cf5f3c71eff9, Type 0x77036cd4, Active False
+multiimgoem:         Offset 0x0000000030de1000, Length 0x0000000000008000, Flags 0x0000000000000000, UUID 30a7de0b-8c84-fd50-4304-f2a8bda07f8d, Type 0xe126a436, Active False
+multiimgqti:         Offset 0x0000000030de9000, Length 0x0000000000008000, Flags 0x0000000000000000, UUID 0fec0219-9cb0-2d95-71c3-baf175b84f71, Type 0x846c6f05, Active False
+secdata:             Offset 0x0000000030df1000, Length 0x0000000000006400, Flags 0x0000000000000000, UUID 7d277cd5-3bd7-0d47-d077-4d751db0bec7, Type 0x76cfc7ef, Active False
+spunvm:              Offset 0x0000000030df8000, Length 0x0000000000800000, Flags 0x0000000000000000, UUID aa93dea8-c67d-6d25-a277-3a234a4d1302, Type 0xe42e2b4c, Active False
+ssd:                 Offset 0x00000000315f8000, Length 0x0000000000002000, Flags 0x0000000000000000, UUID 61010f15-c99f-e2e4-234c-001368cf6738, Type 0x2c86e742, Active False
+toolsfv:             Offset 0x00000000315fa000, Length 0x0000000000100000, Flags 0x0000000000000000, UUID d54e5b7b-a04b-43d3-9ec6-350cbfab3fc3, Type 0x97745aba, Active False
+uefivarstore:        Offset 0x00000000316fa000, Length 0x0000000000080000, Flags 0x0000000000000000, UUID 9738f7ce-fd3a-38b3-20bc-94c51a57297a, Type 0x165bd6bc, Active False
+cmnlib_a:            Offset 0x000000003177a000, Length 0x0000000000080000, Flags 0x007f000000000000, UUID 0e1e6740-e9c8-e4b3-b84f-530a3aa62d1e, Type 0x73471795, Active True
+cmnlib64_a:          Offset 0x00000000317fa000, Length 0x0000000000080000, Flags 0x007f000000000000, UUID a8576a14-2f6f-80dc-3828-1735c8ea1223, Type 0x8ea64893, Active True
+cmnlib_b:            Offset 0x000000003187a000, Length 0x0000000000080000, Flags 0x00fb000000000000, UUID 5f81903b-0796-e8b4-a20f-65f09087f972, Type 0x77036cd4, Active False
+cmnlib64_b:          Offset 0x00000000318fa000, Length 0x0000000000080000, Flags 0x00fb000000000000, UUID fcef1902-d69a-f36d-2999-ba5e4be2ff8c, Type 0x77036cd4, Active False
+devcfg_a:            Offset 0x000000003197a000, Length 0x0000000000020000, Flags 0x007f000000000000, UUID ce47deac-6049-0975-b9ad-056a567bb37b, Type 0xf65d4b16, Active True
+devcfg_b:            Offset 0x000000003199a000, Length 0x0000000000020000, Flags 0x00fb000000000000, UUID 6e75df49-3d11-15be-c4f1-d86928ea8a78, Type 0x77036cd4, Active False
+devinfo:             Offset 0x00000000319ba000, Length 0x0000000000001000, Flags 0x0000000000000000, UUID 73497758-d4aa-ba39-44e2-de76804be3cd, Type 0x65addcf4, Active False
+dsp_a:               Offset 0x00000000319bb000, Length 0x0000000002000000, Flags 0x007f000000000000, UUID 9bb99830-eca3-7fe1-f201-1953cfcf877b, Type 0x7efe5010, Active True
+dsp_b:               Offset 0x00000000339bb000, Length 0x0000000002000000, Flags 0x00fb000000000000, UUID a8e85f9d-375f-de7c-349e-c4b487d364af, Type 0x77036cd4, Active False
+hyp_a:               Offset 0x00000000359bb000, Length 0x0000000000080000, Flags 0x007f000000000000, UUID f37dde83-5e62-ab1e-495d-3a30df89353e, Type 0xe1a6a689, Active True
+hyp_b:               Offset 0x0000000035a3b000, Length 0x0000000000080000, Flags 0x00fb000000000000, UUID 2dea64a2-c710-c798-e985-07e6ca7dcb18, Type 0x77036cd4, Active False
+keymaster_a:         Offset 0x0000000035abb000, Length 0x0000000000080000, Flags 0x007f000000000000, UUID b915f7ae-6c47-493b-b969-2d9455f38816, Type 0xa11d2a7c, Active True
+keymaster_b:         Offset 0x0000000035b3b000, Length 0x0000000000080000, Flags 0x00fb000000000000, UUID 9b78504a-e30d-ab94-b2ef-ce66600341d1, Type 0x77036cd4, Active False
+logfs:               Offset 0x0000000035bbb000, Length 0x0000000000800000, Flags 0x0000000000000000, UUID 4449f402-8513-f182-363e-214a1df35ad1, Type 0xbc0330eb, Active False
+qupfw_a:             Offset 0x00000000363bb000, Length 0x0000000000010000, Flags 0x007f000000000000, UUID 3e7f5273-a5ab-4365-3125-65c6aa39d03a, Type 0x21d1219f, Active True
+qupfw_b:             Offset 0x00000000363cb000, Length 0x0000000000010000, Flags 0x00fb000000000000, UUID 2e3d37ac-7e25-9f4c-3ff0-9197d93bc700, Type 0x77036cd4, Active False
+rpm_a:               Offset 0x00000000363db000, Length 0x0000000000080000, Flags 0x007f000000000000, UUID 712adabf-af3b-d22a-2d01-2574a3295a34, Type 0x98df793, Active True
+rpm_b:               Offset 0x000000003645b000, Length 0x0000000000080000, Flags 0x00fb000000000000, UUID d815f277-7ff6-1e7f-55a0-343d0524da94, Type 0x77036cd4, Active False
+storsec:             Offset 0x00000000364db000, Length 0x0000000000020000, Flags 0x0000000000000000, UUID 7db7fe13-65b6-2b10-71b1-d7822eac95d5, Type 0x2db45fe, Active False
+tz_a:                Offset 0x00000000364fb000, Length 0x0000000000400000, Flags 0x007f000000000000, UUID 0e32479e-2495-7fd7-0e45-646047319843, Type 0xa053aa7f, Active True
+tz_b:                Offset 0x00000000368fb000, Length 0x0000000000400000, Flags 0x00fb000000000000, UUID befda9d3-e604-7878-8f51-933127214b3c, Type 0x77036cd4, Active False
+uefisecapp_a:        Offset 0x0000000036cfb000, Length 0x0000000000200000, Flags 0x007f000000000000, UUID 5dd29db2-42e5-abcc-e4ba-16b9da86064c, Type 0xbe8a7e08, Active True
+uefisecapp_b:        Offset 0x0000000036efb000, Length 0x0000000000200000, Flags 0x00fb000000000000, UUID 2ac3b2e2-4fba-5a72-00a0-5fc3ee90f03b, Type 0x77036cd4, Active False
+xbl_a:               Offset 0x0000000038000000, Length 0x0000000000380000, Flags 0x107f000000000000, UUID ce4ead6b-c5fc-2728-eef9-1fe662d71275, Type 0xdea0ba2c, Active True
+xbl_b:               Offset 0x0000000038380000, Length 0x0000000000380000, Flags 0x10fb000000000000, UUID c0762d50-1c5a-6896-3126-a90ff9538930, Type 0x77036cd4, Active False
+xbl_config_a:        Offset 0x000000003c000000, Length 0x0000000000020000, Flags 0x007f000000000000, UUID 1ceff720-9b5b-f013-33cd-4274ebdcb4b4, Type 0x5a325ae4, Active True
+xbl_config_b:        Offset 0x000000003c020000, Length 0x0000000000020000, Flags 0x00fb000000000000, UUID 754887cc-f1a6-cb7a-91e7-0569f9d159da, Type 0x77036cd4, Active False
+misc:                Offset 0x000000003c040000, Length 0x0000000000100000, Flags 0x0000000000000000, UUID 8979fff3-70bc-25b7-9cad-5c64bc23fd48, Type 0x82acc91f, Active False
+abl_a:               Offset 0x000000003c140000, Length 0x0000000000100000, Flags 0x007f000000000000, UUID d56c25cf-cdfb-8bc6-abcd-f9ef1c630897, Type 0xbd6928a1, Active True
+abl_b:               Offset 0x000000003c240000, Length 0x0000000000100000, Flags 0x00fb000000000000, UUID 6885479d-1b34-8d49-a37a-1b1bd93c6714, Type 0x77036cd4, Active False
+boot_a:              Offset 0x000000003c340000, Length 0x0000000006000000, Flags 0x0077000000000000, UUID f76c6d9b-8104-9341-fcdd-e547b247fafd, Type 0x20117f86, Active True
+boot_b:              Offset 0x0000000042340000, Length 0x0000000006000000, Flags 0x00f3000000000000, UUID 9cac171d-29df-7670-6a72-31c8e0d36126, Type 0x77036cd4, Active False
+dtbo_a:              Offset 0x0000000048340000, Length 0x0000000001800000, Flags 0x007f000000000000, UUID fc7bc069-5027-79ee-4a82-c10bad89254f, Type 0x24d0d418, Active True
+dtbo_b:              Offset 0x0000000049b40000, Length 0x0000000001800000, Flags 0x00fb000000000000, UUID 3885c2ef-091c-6998-e6b9-540fb631d6f0, Type 0x77036cd4, Active False
+init_boot_a:         Offset 0x000000004b340000, Length 0x0000000000800000, Flags 0x007f000000000000, UUID e63ba506-1b0d-3761-3f55-82a1d9b4a39c, Type 0xe5b0f3f7, Active True
+init_boot_b:         Offset 0x000000004bb40000, Length 0x0000000000800000, Flags 0x00fb000000000000, UUID 4bc2006a-30ca-7b9e-0528-229f312d8c6b, Type 0x77036cd4, Active False
+metadata:            Offset 0x000000004c340000, Length 0x0000000004000000, Flags 0x0000000000000000, UUID 21e5f679-f87b-9233-3c81-b8d7e468f3a2, Type 0x988a98c9, Active False
+recovery_a:          Offset 0x0000000050340000, Length 0x0000000006400000, Flags 0x007f000000000000, UUID cc689fb5-9918-d545-9a0f-081130fed855, Type 0xd504d6db, Active True
+recovery_b:          Offset 0x0000000056740000, Length 0x0000000006400000, Flags 0x00fb000000000000, UUID 5a39d230-077b-a274-9bb0-e1d5bdd248d7, Type 0x352b8083, Active False
+vbmeta_a:            Offset 0x000000005cb40000, Length 0x0000000000010000, Flags 0x007f000000000000, UUID c228813b-e29c-45da-3d17-e20a92d02cc6, Type 0x4b7a15d6, Active True
+vbmeta_b:            Offset 0x000000005cb50000, Length 0x0000000000010000, Flags 0x00fb000000000000, UUID 58c07759-8189-fa57-3150-570e11ea70ee, Type 0x77036cd4, Active False
+vendor_boot_a:       Offset 0x000000005cb60000, Length 0x0000000006000000, Flags 0x007f000000000000, UUID f47cb86b-e792-311f-8979-bae1fa51b7a8, Type 0x6d286a7f, Active True
+vendor_boot_b:       Offset 0x0000000062b60000, Length 0x0000000006000000, Flags 0x00fb000000000000, UUID 6cd93fa3-7206-16c1-48b7-25be39f1220d, Type 0x77036cd4, Active False
+vbmeta_system_a:     Offset 0x0000000068b60000, Length 0x0000000000010000, Flags 0x0004000000000000, UUID 382ee600-5acf-c36f-116c-8e9208471118, Type 0x1344859d, Active True
+vbmeta_system_b:     Offset 0x0000000068b70000, Length 0x0000000000010000, Flags 0x0000000000000000, UUID 9b292e0e-2bd1-fc4b-434a-43e83f3b247e, Type 0xfe3ab853, Active False
+logdump:             Offset 0x0000000068b80000, Length 0x0000000004000000, Flags 0x0000000000000000, UUID 963d07ea-de17-043b-ea43-1e8be01bec3f, Type 0x5af80809, Active False
+rawdump:             Offset 0x000000006cb80000, Length 0x0000000008000000, Flags 0x0000000000000000, UUID 2bf61587-04b7-68b4-f71c-e9dfed6ecf76, Type 0x66c9b323, Active False
+super:               Offset 0x0000000074b80000, Length 0x0000000300000000, Flags 0x0000000000000000, UUID 51a426b4-137c-8761-03ea-724b4eb8b191, Type 0x89a12de1, Active False
+userdata:            Offset 0x0000000374b80000, Length 0x00000019aa47be00, Flags 0x0000000000000000, UUID e08179de-6bd6-f5e3-b4af-be4095a5ecd8, Type 0x1b81e7e6, Active False
+
+Total disk size:0x0000001d1f000000, sectors:0x000000000e8f8000
+
+
+============================================================
+FILE: /home/hawk/duo_forensics/android_boot_chain_20261102_094334/edl_partition_read.log
+============================================================
+   29 44272 /home/hawk/duo_forensics/android_boot_chain_20261102_094334/edl_partition_read.log
+Qualcomm Sahara / Firehose Client V3.62 (c) B.Kerler 2018-2025.
+main - Using loader /home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin ...
+main - Waiting for the device
+main - Device detected :)
+main - Mode detected: firehose
+
+Done |----------|   0.0% Read (Sector 0x0 of 0x30000) 0.00 MB/s               
+Progress: |----------|   1.0% Read (Sector 0x800 of 0x30000, 02s left) 33.47 MB/s
+Progress: |----------|   2.1% Read (Sector 0x1000 of 0x30000, 02s left) 31.09 MB/s
+Progress: |----------|   3.1% Read (Sector 0x1800 of 0x30000, 02s left) 33.97 MB/s
+Progress: |----------|   4.2% Read (Sector 0x2000 of 0x30000, 02s left) 32.26 MB/s
+Progress: |█---------|   5.2% Read (Sector 0x2800 of 0x30000, 02s left) 33.20 MB/s
+Progress: |█---------|   6.2% Read (Sector 0x3000 of 0x30000, 02s left) 31.48 MB/s
+Progress: |█---------|   7.3% Read (Sector 0x3800 of 0x30000, 02s left) 33.83 MB/s
+Progress: |█---------|   8.3% Read (Sector 0x4000 of 0x30000, 02s left) 30.66 MB/s
+Progress: |█---------|   9.4% Read (Sector 0x4800 of 0x30000, 02s left) 35.09 MB/s
+Progress: |█---------|  10.4% Read (Sector 0x5000 of 0x30000, 02s left) 32.13 MB/s
+Progress: |█---------|  11.5% Read (Sector 0x5800 of 0x30000, 02s left) 33.73 MB/s
+Progress: |█---------|  12.5% Read (Sector 0x6000 of 0x30000, 02s left) 31.58 MB/s
+Progress: |█---------|  13.5% Read (Sector 0x6800 of 0x30000, 02s left) 34.63 MB/s
+Progress: |█---------|  14.6% Read (Sector 0x7000 of 0x30000, 02s left) 31.31 MB/s
+Progress: |██--------|  15.6% Read (Sector 0x7800 of 0x30000, 02s left) 34.75 MB/s
+Progress: |██--------|  16.7% Read (Sector 0x8000 of 0x30000, 02s left) 31.39 MB/s
+Progress: |██--------|  17.7% Read (Sector 0x8800 of 0x30000, 02s left) 32.98 MB/s
+Progress: |██--------|  18.8% Read (Sector 0x9000 of 0x30000, 02s left) 30.96 MB/s
+Progress: |██--------|  19.8% Read (Sector 0x9800 of 0x30000, 02s left) 33.13 MB/s
+Progress: |██--------|  20.8% Read (Sector 0xA000 of 0x30000, 02s left) 32.46 MB/s
+Progress: |██--------|  21.9% Read (Sector 0xA800 of 0x30000, 02s left) 34.63 MB/s
+Progress: |██--------|  22.9% Read (Sector 0xB000 of 0x30000, 02s left) 32.49 MB/s
+Progress: |██--------|  24.0% Read (Sector 0xB800 of 0x30000, 02s left) 35.05 MB/s
+Progress: |██--------|  25.0% Read (Sector 0xC000 of 0x30000, 02s left) 32.81 MB/s
+Progress: |███-------|  26.0% Read (Sector 0xC800 of 0x30000, 02s left) 34.33 MB/s
+Progress: |███-------|  27.1% Read (Sector 0xD000 of 0x30000, 02s left) 32.43 MB/s
+Progress: |███-------|  28.1% Read (Sector 0xD800 of 0x30000, 02s left) 34.62 MB/s
+Progress: |███-------|  29.2% Read (Sector 0xE000 of 0x30000, 02s left) 32.37 MB/s
+Progress: |███-------|  30.2% Read (Sector 0xE800 of 0x30000, 02s left) 33.79 MB/s
+Progress: |███-------|  31.2% Read (Sector 0xF000 of 0x30000, 02s left) 32.64 MB/s
+Progress: |███-------|  32.3% Read (Sector 0xF800 of 0x30000, 01s left) 35.03 MB/s
+Progress: |███-------|  33.3% Read (Sector 0x10000 of 0x30000, 01s left) 32.77 MB/s
+Progress: |███-------|  34.4% Read (Sector 0x10800 of 0x30000, 01s left) 34.45 MB/s
+Progress: |████------|  35.4% Read (Sector 0x11000 of 0x30000, 01s left) 31.72 MB/s
+Progress: |████------|  36.5% Read (Sector 0x11800 of 0x30000, 01s left) 34.41 MB/s
+Progress: |████------|  37.5% Read (Sector 0x12000 of 0x30000, 01s left) 31.61 MB/s
+Progress: |████------|  38.5% Read (Sector 0x12800 of 0x30000, 01s left) 33.37 MB/s
+Progress: |████------|  39.6% Read (Sector 0x13000 of 0x30000, 01s left) 31.25 MB/s
+Progress: |████------|  40.6% Read (Sector 0x13800 of 0x30000, 01s left) 34.58 MB/s
+Progress: |████------|  41.7% Read (Sector 0x14000 of 0x30000, 01s left) 32.20 MB/s
+Progress: |████------|  42.7% Read (Sector 0x14800 of 0x30000, 01s left) 34.21 MB/s
+Progress: |████------|  43.8% Read (Sector 0x15000 of 0x30000, 01s left) 32.67 MB/s
+Progress: |████------|  44.8% Read (Sector 0x15800 of 0x30000, 01s left) 34.36 MB/s
+Progress: |█████-----|  45.8% Read (Sector 0x16000 of 0x30000, 01s left) 32.52 MB/s
+Progress: |█████-----|  46.9% Read (Sector 0x16800 of 0x30000, 01s left) 34.09 MB/s
+Progress: |█████-----|  47.9% Read (Sector 0x17000 of 0x30000, 01s left) 32.57 MB/s
+Progress: |█████-----|  49.0% Read (Sector 0x17800 of 0x30000, 01s left) 35.21 MB/s
+Progress: |█████-----|  50.0% Read (Sector 0x18000 of 0x30000, 01s left) 32.03 MB/s
+Progress: |█████-----|  51.0% Read (Sector 0x18800 of 0x30000, 01s left) 34.72 MB/s
+Progress: |█████-----|  52.1% Read (Sector 0x19000 of 0x30000, 01s left) 32.45 MB/s
+Progress: |█████-----|  53.1% Read (Sector 0x19800 of 0x30000, 01s left) 34.46 MB/s
+Progress: |█████-----|  54.2% Read (Sector 0x1A000 of 0x30000, 01s left) 31.13 MB/s
+Progress: |██████----|  55.2% Read (Sector 0x1A800 of 0x30000, 01s left) 33.10 MB/s
+Progress: |██████----|  56.2% Read (Sector 0x1B000 of 0x30000, 01s left) 31.50 MB/s
+Progress: |██████----|  57.3% Read (Sector 0x1B800 of 0x30000, 01s left) 34.51 MB/s
+Progress: |██████----|  58.3% Read (Sector 0x1C000 of 0x30000, 01s left) 32.07 MB/s
+Progress: |██████----|  59.4% Read (Sector 0x1C800 of 0x30000, 01s left) 34.21 MB/s
+Progress: |██████----|  60.4% Read (Sector 0x1D000 of 0x30000, 01s left) 31.46 MB/s
+Progress: |██████----|  61.5% Read (Sector 0x1D800 of 0x30000, 01s left) 34.36 MB/s
+Progress: |██████----|  62.5% Read (Sector 0x1E000 of 0x30000, 01s left) 31.41 MB/s
+Progress: |██████----|  63.5% Read (Sector 0x1E800 of 0x30000, 01s left) 34.75 MB/s
+Progress: |██████----|  64.6% Read (Sector 0x1F000 of 0x30000, 01s left) 31.80 MB/s
+Progress: |███████---|  65.6% Read (Sector 0x1F800 of 0x30000, 01s left) 34.20 MB/s
+Progress: |███████---|  66.7% Read (Sector 0x20000 of 0x30000, ) 31.89 MB/s   
+Progress: |███████---|  67.7% Read (Sector 0x20800 of 0x30000, ) 34.59 MB/s   
+Progress: |███████---|  68.8% Read (Sector 0x21000 of 0x30000, ) 31.58 MB/s   
+Progress: |███████---|  69.8% Read (Sector 0x21800 of 0x30000, ) 34.93 MB/s   
+Progress: |███████---|  70.8% Read (Sector 0x22000 of 0x30000, ) 31.84 MB/s   
+Progress: |███████---|  71.9% Read (Sector 0x22800 of 0x30000, ) 33.77 MB/s   
+Progress: |███████---|  72.9% Read (Sector 0x23000 of 0x30000, ) 32.06 MB/s   
+Progress: |███████---|  74.0% Read (Sector 0x23800 of 0x30000, ) 34.72 MB/s   
+Progress: |████████--|  75.0% Read (Sector 0x24000 of 0x30000, ) 32.10 MB/s   
+Progress: |████████--|  76.0% Read (Sector 0x24800 of 0x30000, ) 34.65 MB/s   
+Progress: |████████--|  77.1% Read (Sector 0x25000 of 0x30000, ) 31.69 MB/s   
+Progress: |████████--|  78.1% Read (Sector 0x25800 of 0x30000, ) 34.16 MB/s   
+Progress: |████████--|  79.2% Read (Sector 0x26000 of 0x30000, ) 31.80 MB/s   
+Progress: |████████--|  80.2% Read (Sector 0x26800 of 0x30000, ) 34.27 MB/s   
+Progress: |████████--|  81.2% Read (Sector 0x27000 of 0x30000, ) 32.15 MB/s   
+Progress: |████████--|  82.3% Read (Sector 0x27800 of 0x30000, ) 33.99 MB/s   
+Progress: |████████--|  83.3% Read (Sector 0x28000 of 0x30000, ) 31.74 MB/s   
+Progress: |████████--|  84.4% Read (Sector 0x28800 of 0x30000, ) 34.47 MB/s   
+Progress: |█████████-|  85.4% Read (Sector 0x29000 of 0x30000, ) 32.30 MB/s   
+Progress: |█████████-|  86.5% Read (Sector 0x29800 of 0x30000, ) 34.14 MB/s   
+Progress: |█████████-|  87.5% Read (Sector 0x2A000 of 0x30000, ) 31.81 MB/s   
+Progress: |█████████-|  88.5% Read (Sector 0x2A800 of 0x30000, ) 34.41 MB/s   
+Progress: |█████████-|  89.6% Read (Sector 0x2B000 of 0x30000, ) 31.85 MB/s   
+Progress: |█████████-|  90.6% Read (Sector 0x2B800 of 0x30000, ) 34.15 MB/s   
+Progress: |█████████-|  91.7% Read (Sector 0x2C000 of 0x30000, ) 31.77 MB/s   
+Progress: |█████████-|  92.7% Read (Sector 0x2C800 of 0x30000, ) 34.23 MB/s   
+Progress: |█████████-|  93.8% Read (Sector 0x2D000 of 0x30000, ) 32.03 MB/s   
+Progress: |█████████-|  94.8% Read (Sector 0x2D800 of 0x30000, ) 35.11 MB/s   
+Progress: |██████████|  95.8% Read (Sector 0x2E000 of 0x30000, ) 31.19 MB/s   
+Progress: |██████████|  96.9% Read (Sector 0x2E800 of 0x30000, ) 33.73 MB/s   
+Progress: |██████████|  97.9% Read (Sector 0x2F000 of 0x30000, ) 31.96 MB/s   
+Progress: |██████████|  99.0% Read (Sector 0x2F800 of 0x30000, ) 34.34 MB/s   
+Progress: |██████████| 100.0% Read (Sector 0x30000 of 0x30000, ) 31.77 MB/s   
+Dumped sector 1972736 with sector count 196608 as /home/hawk/duo_forensics/android_boot_chain_20261102_094334/boot_a.img.
+
+Done |----------|   0.0% Read (Sector 0x0 of 0x30000) 0.00 MB/s               
+Progress: |----------|   1.0% Read (Sector 0x800 of 0x30000, 02s left) 34.18 MB/s
+Progress: |----------|   2.1% Read (Sector 0x1000 of 0x30000, 02s left) 32.09 MB/s
+Progress: |----------|   3.1% Read (Sector 0x1800 of 0x30000, 02s left) 33.93 MB/s
+Progress: |----------|   4.2% Read (Sector 0x2000 of 0x30000, 02s left) 30.94 MB/s
+Progress: |█---------|   5.2% Read (Sector 0x2800 of 0x30000, 02s left) 33.98 MB/s
+Progress: |█---------|   6.2% Read (Sector 0x3000 of 0x30000, 02s left) 30.53 MB/s
+Progress: |█---------|   7.3% Read (Sector 0x3800 of 0x30000, 02s left) 33.77 MB/s
+Progress: |█---------|   8.3% Read (Sector 0x4000 of 0x30000, 02s left) 30.57 MB/s
+Progress: |█---------|   9.4% Read (Sector 0x4800 of 0x30000, 02s left) 33.70 MB/s
+Progress: |█---------|  10.4% Read (Sector 0x5000 of 0x30000, 02s left) 31.34 MB/s
+Progress: |█---------|  11.5% Read (Sector 0x5800 of 0x30000, 02s left) 33.53 MB/s
+Progress: |█---------|  12.5% Read (Sector 0x6000 of 0x30000, 02s left) 32.01 MB/s
+Progress: |█---------|  13.5% Read (Sector 0x6800 of 0x30000, 02s left) 34.30 MB/s
+Progress: |█---------|  14.6% Read (Sector 0x7000 of 0x30000, 02s left) 31.36 MB/s
+Progress: |██--------|  15.6% Read (Sector 0x7800 of 0x30000, 02s left) 33.55 MB/s
+Progress: |██--------|  16.7% Read (Sector 0x8000 of 0x30000, 02s left) 30.49 MB/s
+Progress: |██--------|  17.7% Read (Sector 0x8800 of 0x30000, 02s left) 32.93 MB/s
+Progress: |██--------|  18.8% Read (Sector 0x9000 of 0x30000, 02s left) 31.27 MB/s
+Progress: |██--------|  19.8% Read (Sector 0x9800 of 0x30000, 02s left) 34.94 MB/s
+Progress: |██--------|  20.8% Read (Sector 0xA000 of 0x30000, 02s left) 32.30 MB/s
+Progress: |██--------|  21.9% Read (Sector 0xA800 of 0x30000, 02s left) 34.80 MB/s
+Progress: |██--------|  22.9% Read (Sector 0xB000 of 0x30000, 02s left) 31.62 MB/s
+Progress: |██--------|  24.0% Read (Sector 0xB800 of 0x30000, 02s left) 34.33 MB/s
+Progress: |██--------|  25.0% Read (Sector 0xC000 of 0x30000, 02s left) 31.12 MB/s
+Progress: |███-------|  26.0% Read (Sector 0xC800 of 0x30000, 02s left) 33.64 MB/s
+Progress: |███-------|  27.1% Read (Sector 0xD000 of 0x30000, 02s left) 32.19 MB/s
+Progress: |███-------|  28.1% Read (Sector 0xD800 of 0x30000, 02s left) 34.74 MB/s
+Progress: |███-------|  29.2% Read (Sector 0xE000 of 0x30000, 02s left) 32.31 MB/s
+Progress: |███-------|  30.2% Read (Sector 0xE800 of 0x30000, 02s left) 34.07 MB/s
+Progress: |███-------|  31.2% Read (Sector 0xF000 of 0x30000, 02s left) 31.37 MB/s
+Progress: |███-------|  32.3% Read (Sector 0xF800 of 0x30000, 01s left) 34.87 MB/s
+Progress: |███-------|  33.3% Read (Sector 0x10000 of 0x30000, 01s left) 32.33 MB/s
+Progress: |███-------|  34.4% Read (Sector 0x10800 of 0x30000, 01s left) 34.61 MB/s
+Progress: |████------|  35.4% Read (Sector 0x11000 of 0x30000, 01s left) 32.02 MB/s
+Progress: |████------|  36.5% Read (Sector 0x11800 of 0x30000, 01s left) 34.25 MB/s
+Progress: |████------|  37.5% Read (Sector 0x12000 of 0x30000, 01s left) 31.82 MB/s
+Progress: |████------|  38.5% Read (Sector 0x12800 of 0x30000, 01s left) 33.66 MB/s
+Progress: |████------|  39.6% Read (Sector 0x13000 of 0x30000, 01s left) 31.47 MB/s
+Progress: |████------|  40.6% Read (Sector 0x13800 of 0x30000, 01s left) 34.26 MB/s
+Progress: |████------|  41.7% Read (Sector 0x14000 of 0x30000, 01s left) 31.84 MB/s
+Progress: |████------|  42.7% Read (Sector 0x14800 of 0x30000, 01s left) 34.70 MB/s
+Progress: |████------|  43.8% Read (Sector 0x15000 of 0x30000, 01s left) 31.52 MB/s
+Progress: |████------|  44.8% Read (Sector 0x15800 of 0x30000, 01s left) 34.30 MB/s
+Progress: |█████-----|  45.8% Read (Sector 0x16000 of 0x30000, 01s left) 30.74 MB/s
+Progress: |█████-----|  46.9% Read (Sector 0x16800 of 0x30000, 01s left) 34.10 MB/s
+Progress: |█████-----|  47.9% Read (Sector 0x17000 of 0x30000, 01s left) 31.69 MB/s
+Progress: |█████-----|  49.0% Read (Sector 0x17800 of 0x30000, 01s left) 34.30 MB/s
+Progress: |█████-----|  50.0% Read (Sector 0x18000 of 0x30000, 01s left) 31.83 MB/s
+Progress: |█████-----|  51.0% Read (Sector 0x18800 of 0x30000, 01s left) 33.71 MB/s
+Progress: |█████-----|  52.1% Read (Sector 0x19000 of 0x30000, 01s left) 31.73 MB/s
+Progress: |█████-----|  53.1% Read (Sector 0x19800 of 0x30000, 01s left) 33.76 MB/s
+Progress: |█████-----|  54.2% Read (Sector 0x1A000 of 0x30000, 01s left) 31.72 MB/s
+Progress: |██████----|  55.2% Read (Sector 0x1A800 of 0x30000, 01s left) 33.61 MB/s
+Progress: |██████----|  56.2% Read (Sector 0x1B000 of 0x30000, 01s left) 31.76 MB/s
+Progress: |██████----|  57.3% Read (Sector 0x1B800 of 0x30000, 01s left) 34.24 MB/s
+Progress: |██████----|  58.3% Read (Sector 0x1C000 of 0x30000, 01s left) 31.66 MB/s
+Progress: |██████----|  59.4% Read (Sector 0x1C800 of 0x30000, 01s left) 33.72 MB/s
+Progress: |██████----|  60.4% Read (Sector 0x1D000 of 0x30000, 01s left) 31.54 MB/s
+Progress: |██████----|  61.5% Read (Sector 0x1D800 of 0x30000, 01s left) 34.73 MB/s
+Progress: |██████----|  62.5% Read (Sector 0x1E000 of 0x30000, 01s left) 31.92 MB/s
+Progress: |██████----|  63.5% Read (Sector 0x1E800 of 0x30000, 01s left) 33.54 MB/s
+Progress: |██████----|  64.6% Read (Sector 0x1F000 of 0x30000, 01s left) 32.22 MB/s
+Progress: |███████---|  65.6% Read (Sector 0x1F800 of 0x30000, 01s left) 34.73 MB/s
+Progress: |███████---|  66.7% Read (Sector 0x20000 of 0x30000, ) 31.75 MB/s   
+Progress: |███████---|  67.7% Read (Sector 0x20800 of 0x30000, ) 34.29 MB/s   
+Progress: |███████---|  68.8% Read (Sector 0x21000 of 0x30000, ) 31.73 MB/s   
+Progress: |███████---|  69.8% Read (Sector 0x21800 of 0x30000, ) 34.34 MB/s   
+Progress: |███████---|  70.8% Read (Sector 0x22000 of 0x30000, ) 32.22 MB/s   
+Progress: |███████---|  71.9% Read (Sector 0x22800 of 0x30000, ) 34.08 MB/s   
+Progress: |███████---|  72.9% Read (Sector 0x23000 of 0x30000, ) 32.23 MB/s   
+Progress: |███████---|  74.0% Read (Sector 0x23800 of 0x30000, ) 33.91 MB/s   
+Progress: |████████--|  75.0% Read (Sector 0x24000 of 0x30000, ) 32.08 MB/s   
+Progress: |████████--|  76.0% Read (Sector 0x24800 of 0x30000, ) 34.29 MB/s   
+Progress: |████████--|  77.1% Read (Sector 0x25000 of 0x30000, ) 30.94 MB/s   
+Progress: |████████--|  78.1% Read (Sector 0x25800 of 0x30000, ) 34.86 MB/s   
+Progress: |████████--|  79.2% Read (Sector 0x26000 of 0x30000, ) 31.82 MB/s   
+Progress: |████████--|  80.2% Read (Sector 0x26800 of 0x30000, ) 34.02 MB/s   
+Progress: |████████--|  81.2% Read (Sector 0x27000 of 0x30000, ) 32.04 MB/s   
+Progress: |████████--|  82.3% Read (Sector 0x27800 of 0x30000, ) 34.04 MB/s   
+Progress: |████████--|  83.3% Read (Sector 0x28000 of 0x30000, ) 32.28 MB/s   
+Progress: |████████--|  84.4% Read (Sector 0x28800 of 0x30000, ) 33.98 MB/s   
+Progress: |█████████-|  85.4% Read (Sector 0x29000 of 0x30000, ) 31.89 MB/s   
+Progress: |█████████-|  86.5% Read (Sector 0x29800 of 0x30000, ) 33.92 MB/s   
+Progress: |█████████-|  87.5% Read (Sector 0x2A000 of 0x30000, ) 31.57 MB/s   
+Progress: |█████████-|  88.5% Read (Sector 0x2A800 of 0x30000, ) 34.05 MB/s   
+Progress: |█████████-|  89.6% Read (Sector 0x2B000 of 0x30000, ) 32.20 MB/s   
+Progress: |█████████-|  90.6% Read (Sector 0x2B800 of 0x30000, ) 34.22 MB/s   
+Progress: |█████████-|  91.7% Read (Sector 0x2C000 of 0x30000, ) 31.75 MB/s   
+Progress: |█████████-|  92.7% Read (Sector 0x2C800 of 0x30000, ) 34.29 MB/s   
+Progress: |█████████-|  93.8% Read (Sector 0x2D000 of 0x30000, ) 31.81 MB/s   
+Progress: |█████████-|  94.8% Read (Sector 0x2D800 of 0x30000, ) 34.30 MB/s   
+Progress: |██████████|  95.8% Read (Sector 0x2E000 of 0x30000, ) 31.91 MB/s   
+Progress: |██████████|  96.9% Read (Sector 0x2E800 of 0x30000, ) 34.23 MB/s   
+Progress: |██████████|  97.9% Read (Sector 0x2F000 of 0x30000, ) 31.89 MB/s   
+Progress: |██████████|  99.0% Read (Sector 0x2F800 of 0x30000, ) 34.19 MB/s   
+Progress: |██████████| 100.0% Read (Sector 0x30000 of 0x30000, ) 31.48 MB/s   
+Dumped sector 2169344 with sector count 196608 as /home/hawk/duo_forensics/android_boot_chain_20261102_094334/boot_b.img.
+
+Done |----------|   0.0% Read (Sector 0x0 of 0x4000) 0.00 MB/s                
+Progress: |█---------|  12.5% Read (Sector 0x800 of 0x4000, ) 34.78 MB/s      
+Progress: |██--------|  25.0% Read (Sector 0x1000 of 0x4000, ) 33.32 MB/s     
+Progress: |████------|  37.5% Read (Sector 0x1800 of 0x4000, ) 33.40 MB/s     
+Progress: |█████-----|  50.0% Read (Sector 0x2000 of 0x4000, ) 32.11 MB/s     
+Progress: |██████----|  62.5% Read (Sector 0x2800 of 0x4000, ) 34.21 MB/s     
+Progress: |████████--|  75.0% Read (Sector 0x3000 of 0x4000, ) 31.72 MB/s     
+Progress: |█████████-|  87.5% Read (Sector 0x3800 of 0x4000, ) 34.31 MB/s     
+Progress: |██████████| 100.0% Read (Sector 0x4000 of 0x4000, ) 31.49 MB/s     
+Dumped sector 2464256 with sector count 16384 as /home/hawk/duo_forensics/android_boot_chain_20261102_094334/init_boot_a.img.
+
+Done |----------|   0.0% Read (Sector 0x0 of 0x4000) 0.00 MB/s                
+Progress: |█---------|  12.5% Read (Sector 0x800 of 0x4000, ) 34.36 MB/s      
+Progress: |██--------|  25.0% Read (Sector 0x1000 of 0x4000, ) 32.61 MB/s     
+Progress: |████------|  37.5% Read (Sector 0x1800 of 0x4000, ) 34.91 MB/s     
+Progress: |█████-----|  50.0% Read (Sector 0x2000 of 0x4000, ) 32.23 MB/s     
+Progress: |██████----|  62.5% Read (Sector 0x2800 of 0x4000, ) 34.57 MB/s     
+Progress: |████████--|  75.0% Read (Sector 0x3000 of 0x4000, ) 31.45 MB/s     
+Progress: |█████████-|  87.5% Read (Sector 0x3800 of 0x4000, ) 34.05 MB/s     
+Progress: |██████████| 100.0% Read (Sector 0x4000 of 0x4000, ) 31.37 MB/s     
+Dumped sector 2480640 with sector count 16384 as /home/hawk/duo_forensics/android_boot_chain_20261102_094334/init_boot_b.img.
+
+Done |----------|   0.0% Read (Sector 0x0 of 0x30000) 0.00 MB/s               
+Progress: |----------|   1.0% Read (Sector 0x800 of 0x30000, 03s left) 28.47 MB/s
+Progress: |----------|   2.1% Read (Sector 0x1000 of 0x30000, 03s left) 31.04 MB/s
+Progress: |----------|   3.1% Read (Sector 0x1800 of 0x30000, 03s left) 33.94 MB/s
+Progress: |----------|   4.2% Read (Sector 0x2000 of 0x30000, 02s left) 31.85 MB/s
+Progress: |█---------|   5.2% Read (Sector 0x2800 of 0x30000, 02s left) 34.17 MB/s
+Progress: |█---------|   6.2% Read (Sector 0x3000 of 0x30000, 02s left) 32.11 MB/s
+Progress: |█---------|   7.3% Read (Sector 0x3800 of 0x30000, 02s left) 34.71 MB/s
+Progress: |█---------|   8.3% Read (Sector 0x4000 of 0x30000, 02s left) 32.00 MB/s
+Progress: |█---------|   9.4% Read (Sector 0x4800 of 0x30000, 02s left) 33.97 MB/s
+Progress: |█---------|  10.4% Read (Sector 0x5000 of 0x30000, 02s left) 31.69 MB/s
+Progress: |█---------|  11.5% Read (Sector 0x5800 of 0x30000, 02s left) 34.59 MB/s
+Progress: |█---------|  12.5% Read (Sector 0x6000 of 0x30000, 02s left) 31.98 MB/s
+Progress: |█---------|  13.5% Read (Sector 0x6800 of 0x30000, 02s left) 33.94 MB/s
+Progress: |█---------|  14.6% Read (Sector 0x7000 of 0x30000, 02s left) 31.34 MB/s
+Progress: |██--------|  15.6% Read (Sector 0x7800 of 0x30000, 02s left) 34.35 MB/s
+Progress: |██--------|  16.7% Read (Sector 0x8000 of 0x30000, 02s left) 31.92 MB/s
+Progress: |██--------|  17.7% Read (Sector 0x8800 of 0x30000, 02s left) 34.08 MB/s
+Progress: |██--------|  18.8% Read (Sector 0x9000 of 0x30000, 02s left) 31.66 MB/s
+Progress: |██--------|  19.8% Read (Sector 0x9800 of 0x30000, 02s left) 34.73 MB/s
+Progress: |██--------|  20.8% Read (Sector 0xA000 of 0x30000, 02s left) 31.45 MB/s
+Progress: |██--------|  21.9% Read (Sector 0xA800 of 0x30000, 02s left) 33.79 MB/s
+Progress: |██--------|  22.9% Read (Sector 0xB000 of 0x30000, 02s left) 31.72 MB/s
+Progress: |██--------|  24.0% Read (Sector 0xB800 of 0x30000, 02s left) 33.91 MB/s
+Progress: |██--------|  25.0% Read (Sector 0xC000 of 0x30000, 02s left) 31.97 MB/s
+Progress: |███-------|  26.0% Read (Sector 0xC800 of 0x30000, 02s left) 34.67 MB/s
+Progress: |███-------|  27.1% Read (Sector 0xD000 of 0x30000, 02s left) 32.46 MB/s
+Progress: |███-------|  28.1% Read (Sector 0xD800 of 0x30000, 02s left) 34.72 MB/s
+Progress: |███-------|  29.2% Read (Sector 0xE000 of 0x30000, 02s left) 31.86 MB/s
+Progress: |███-------|  30.2% Read (Sector 0xE800 of 0x30000, 02s left) 34.31 MB/s
+Progress: |███-------|  31.2% Read (Sector 0xF000 of 0x30000, 02s left) 32.21 MB/s
+Progress: |███-------|  32.3% Read (Sector 0xF800 of 0x30000, 01s left) 34.21 MB/s
+Progress: |███-------|  33.3% Read (Sector 0x10000 of 0x30000, 01s left) 31.78 MB/s
+Progress: |███-------|  34.4% Read (Sector 0x10800 of 0x30000, 01s left) 33.86 MB/s
+Progress: |████------|  35.4% Read (Sector 0x11000 of 0x30000, 01s left) 32.41 MB/s
+Progress: |████------|  36.5% Read (Sector 0x11800 of 0x30000, 01s left) 34.39 MB/s
+Progress: |████------|  37.5% Read (Sector 0x12000 of 0x30000, 01s left) 32.14 MB/s
+Progress: |████------|  38.5% Read (Sector 0x12800 of 0x30000, 01s left) 33.85 MB/s
+Progress: |████------|  39.6% Read (Sector 0x13000 of 0x30000, 01s left) 32.25 MB/s
+Progress: |████------|  40.6% Read (Sector 0x13800 of 0x30000, 01s left) 34.03 MB/s
+Progress: |████------|  41.7% Read (Sector 0x14000 of 0x30000, 01s left) 31.77 MB/s
+Progress: |████------|  42.7% Read (Sector 0x14800 of 0x30000, 01s left) 34.17 MB/s
+Progress: |████------|  43.8% Read (Sector 0x15000 of 0x30000, 01s left) 32.17 MB/s
+Progress: |████------|  44.8% Read (Sector 0x15800 of 0x30000, 01s left) 34.92 MB/s
+Progress: |█████-----|  45.8% Read (Sector 0x16000 of 0x30000, 01s left) 31.84 MB/s
+Progress: |█████-----|  46.9% Read (Sector 0x16800 of 0x30000, 01s left) 34.36 MB/s
+Progress: |█████-----|  47.9% Read (Sector 0x17000 of 0x30000, 01s left) 31.29 MB/s
+Progress: |█████-----|  49.0% Read (Sector 0x17800 of 0x30000, 01s left) 34.96 MB/s
+Progress: |█████-----|  50.0% Read (Sector 0x18000 of 0x30000, 01s left) 32.05 MB/s
+Progress: |█████-----|  51.0% Read (Sector 0x18800 of 0x30000, 01s left) 33.75 MB/s
+Progress: |█████-----|  52.1% Read (Sector 0x19000 of 0x30000, 01s left) 32.12 MB/s
+Progress: |█████-----|  53.1% Read (Sector 0x19800 of 0x30000, 01s left) 34.29 MB/s
+Progress: |█████-----|  54.2% Read (Sector 0x1A000 of 0x30000, 01s left) 32.04 MB/s
+Progress: |██████----|  55.2% Read (Sector 0x1A800 of 0x30000, 01s left) 34.11 MB/s
+Progress: |██████----|  56.2% Read (Sector 0x1B000 of 0x30000, 01s left) 32.00 MB/s
+Progress: |██████----|  57.3% Read (Sector 0x1B800 of 0x30000, 01s left) 34.52 MB/s
+Progress: |██████----|  58.3% Read (Sector 0x1C000 of 0x30000, 01s left) 31.71 MB/s
+Progress: |██████----|  59.4% Read (Sector 0x1C800 of 0x30000, 01s left) 34.65 MB/s
+Progress: |██████----|  60.4% Read (Sector 0x1D000 of 0x30000, 01s left) 31.70 MB/s
+Progress: |██████----|  61.5% Read (Sector 0x1D800 of 0x30000, 01s left) 34.45 MB/s
+Progress: |██████----|  62.5% Read (Sector 0x1E000 of 0x30000, 01s left) 32.06 MB/s
+Progress: |██████----|  63.5% Read (Sector 0x1E800 of 0x30000, 01s left) 34.34 MB/s
+Progress: |██████----|  64.6% Read (Sector 0x1F000 of 0x30000, 01s left) 31.98 MB/s
+Progress: |███████---|  65.6% Read (Sector 0x1F800 of 0x30000, 01s left) 34.37 MB/s
+Progress: |███████---|  66.7% Read (Sector 0x20000 of 0x30000, ) 31.92 MB/s   
+Progress: |███████---|  67.7% Read (Sector 0x20800 of 0x30000, ) 34.00 MB/s   
+Progress: |███████---|  68.8% Read (Sector 0x21000 of 0x30000, ) 32.10 MB/s   
+Progress: |███████---|  69.8% Read (Sector 0x21800 of 0x30000, ) 33.93 MB/s   
+Progress: |███████---|  70.8% Read (Sector 0x22000 of 0x30000, ) 32.21 MB/s   
+Progress: |███████---|  71.9% Read (Sector 0x22800 of 0x30000, ) 34.44 MB/s   
+Progress: |███████---|  72.9% Read (Sector 0x23000 of 0x30000, ) 31.93 MB/s   
+Progress: |███████---|  74.0% Read (Sector 0x23800 of 0x30000, ) 34.38 MB/s   
+Progress: |████████--|  75.0% Read (Sector 0x24000 of 0x30000, ) 31.75 MB/s   
+Progress: |████████--|  76.0% Read (Sector 0x24800 of 0x30000, ) 34.49 MB/s   
+Progress: |████████--|  77.1% Read (Sector 0x25000 of 0x30000, ) 31.94 MB/s   
+Progress: |████████--|  78.1% Read (Sector 0x25800 of 0x30000, ) 33.81 MB/s   
+Progress: |████████--|  79.2% Read (Sector 0x26000 of 0x30000, ) 31.66 MB/s   
+Progress: |████████--|  80.2% Read (Sector 0x26800 of 0x30000, ) 34.36 MB/s   
+Progress: |████████--|  81.2% Read (Sector 0x27000 of 0x30000, ) 31.56 MB/s   
+Progress: |████████--|  82.3% Read (Sector 0x27800 of 0x30000, ) 34.95 MB/s   
+Progress: |████████--|  83.3% Read (Sector 0x28000 of 0x30000, ) 32.29 MB/s   
+Progress: |████████--|  84.4% Read (Sector 0x28800 of 0x30000, ) 34.14 MB/s   
+Progress: |█████████-|  85.4% Read (Sector 0x29000 of 0x30000, ) 31.85 MB/s   
+Progress: |█████████-|  86.5% Read (Sector 0x29800 of 0x30000, ) 34.45 MB/s   
+Progress: |█████████-|  87.5% Read (Sector 0x2A000 of 0x30000, ) 32.16 MB/s   
+Progress: |█████████-|  88.5% Read (Sector 0x2A800 of 0x30000, ) 34.32 MB/s   
+Progress: |█████████-|  89.6% Read (Sector 0x2B000 of 0x30000, ) 31.91 MB/s   
+Progress: |█████████-|  90.6% Read (Sector 0x2B800 of 0x30000, ) 34.31 MB/s   
+Progress: |█████████-|  91.7% Read (Sector 0x2C000 of 0x30000, ) 31.84 MB/s   
+Progress: |█████████-|  92.7% Read (Sector 0x2C800 of 0x30000, ) 34.27 MB/s   
+Progress: |█████████-|  93.8% Read (Sector 0x2D000 of 0x30000, ) 32.17 MB/s   
+Progress: |█████████-|  94.8% Read (Sector 0x2D800 of 0x30000, ) 34.43 MB/s   
+Progress: |██████████|  95.8% Read (Sector 0x2E000 of 0x30000, ) 31.86 MB/s   
+Progress: |██████████|  96.9% Read (Sector 0x2E800 of 0x30000, ) 33.74 MB/s   
+Progress: |██████████|  97.9% Read (Sector 0x2F000 of 0x30000, ) 32.26 MB/s   
+Progress: |██████████|  99.0% Read (Sector 0x2F800 of 0x30000, ) 34.34 MB/s   
+Progress: |██████████| 100.0% Read (Sector 0x30000 of 0x30000, ) 32.28 MB/s   
+Dumped sector 3037952 with sector count 196608 as /home/hawk/duo_forensics/android_boot_chain_20261102_094334/vendor_boot_a.img.
+
+Done |----------|   0.0% Read (Sector 0x0 of 0x30000) 0.00 MB/s               
+Progress: |----------|   1.0% Read (Sector 0x800 of 0x30000, 02s left) 34.94 MB/s
+Progress: |----------|   2.1% Read (Sector 0x1000 of 0x30000, 02s left) 32.90 MB/s
+Progress: |----------|   3.1% Read (Sector 0x1800 of 0x30000, 02s left) 34.33 MB/s
+Progress: |----------|   4.2% Read (Sector 0x2000 of 0x30000, 02s left) 32.19 MB/s
+Progress: |█---------|   5.2% Read (Sector 0x2800 of 0x30000, 02s left) 33.90 MB/s
+Progress: |█---------|   6.2% Read (Sector 0x3000 of 0x30000, 02s left) 31.54 MB/s
+Progress: |█---------|   7.3% Read (Sector 0x3800 of 0x30000, 02s left) 33.96 MB/s
+Progress: |█---------|   8.3% Read (Sector 0x4000 of 0x30000, 02s left) 31.22 MB/s
+Progress: |█---------|   9.4% Read (Sector 0x4800 of 0x30000, 02s left) 34.96 MB/s
+Progress: |█---------|  10.4% Read (Sector 0x5000 of 0x30000, 02s left) 31.69 MB/s
+Progress: |█---------|  11.5% Read (Sector 0x5800 of 0x30000, 02s left) 34.33 MB/s
+Progress: |█---------|  12.5% Read (Sector 0x6000 of 0x30000, 02s left) 31.82 MB/s
+Progress: |█---------|  13.5% Read (Sector 0x6800 of 0x30000, 02s left) 34.35 MB/s
+Progress: |█---------|  14.6% Read (Sector 0x7000 of 0x30000, 02s left) 32.35 MB/s
+Progress: |██--------|  15.6% Read (Sector 0x7800 of 0x30000, 02s left) 34.11 MB/s
+Progress: |██--------|  16.7% Read (Sector 0x8000 of 0x30000, 02s left) 31.82 MB/s
+Progress: |██--------|  17.7% Read (Sector 0x8800 of 0x30000, 02s left) 34.29 MB/s
+Progress: |██--------|  18.8% Read (Sector 0x9000 of 0x30000, 02s left) 31.85 MB/s
+Progress: |██--------|  19.8% Read (Sector 0x9800 of 0x30000, 02s left) 34.57 MB/s
+Progress: |██--------|  20.8% Read (Sector 0xA000 of 0x30000, 02s left) 31.31 MB/s
+Progress: |██--------|  21.9% Read (Sector 0xA800 of 0x30000, 02s left) 33.98 MB/s
+Progress: |██--------|  22.9% Read (Sector 0xB000 of 0x30000, 02s left) 31.51 MB/s
+Progress: |██--------|  24.0% Read (Sector 0xB800 of 0x30000, 02s left) 35.04 MB/s
+Progress: |██--------|  25.0% Read (Sector 0xC000 of 0x30000, 02s left) 32.35 MB/s
+Progress: |███-------|  26.0% Read (Sector 0xC800 of 0x30000, 02s left) 34.28 MB/s
+Progress: |███-------|  27.1% Read (Sector 0xD000 of 0x30000, 02s left) 31.65 MB/s
+Progress: |███-------|  28.1% Read (Sector 0xD800 of 0x30000, 02s left) 33.86 MB/s
+Progress: |███-------|  29.2% Read (Sector 0xE000 of 0x30000, 02s left) 31.76 MB/s
+Progress: |███-------|  30.2% Read (Sector 0xE800 of 0x30000, 02s left) 33.98 MB/s
+Progress: |███-------|  31.2% Read (Sector 0xF000 of 0x30000, 02s left) 32.00 MB/s
+Progress: |███-------|  32.3% Read (Sector 0xF800 of 0x30000, 01s left) 34.34 MB/s
+Progress: |███-------|  33.3% Read (Sector 0x10000 of 0x30000, 01s left) 32.00 MB/s
+Progress: |███-------|  34.4% Read (Sector 0x10800 of 0x30000, 01s left) 34.29 MB/s
+Progress: |████------|  35.4% Read (Sector 0x11000 of 0x30000, 01s left) 32.11 MB/s
+Progress: |████------|  36.5% Read (Sector 0x11800 of 0x30000, 01s left) 34.49 MB/s
+Progress: |████------|  37.5% Read (Sector 0x12000 of 0x30000, 01s left) 32.35 MB/s
+Progress: |████------|  38.5% Read (Sector 0x12800 of 0x30000, 01s left) 34.83 MB/s
+Progress: |████------|  39.6% Read (Sector 0x13000 of 0x30000, 01s left) 32.43 MB/s
+Progress: |████------|  40.6% Read (Sector 0x13800 of 0x30000, 01s left) 35.02 MB/s
+Progress: |████------|  41.7% Read (Sector 0x14000 of 0x30000, 01s left) 31.73 MB/s
+Progress: |████------|  42.7% Read (Sector 0x14800 of 0x30000, 01s left) 33.79 MB/s
+Progress: |████------|  43.8% Read (Sector 0x15000 of 0x30000, 01s left) 32.14 MB/s
+Progress: |████------|  44.8% Read (Sector 0x15800 of 0x30000, 01s left) 34.40 MB/s
+Progress: |█████-----|  45.8% Read (Sector 0x16000 of 0x30000, 01s left) 31.43 MB/s
+Progress: |█████-----|  46.9% Read (Sector 0x16800 of 0x30000, 01s left) 34.12 MB/s
+Progress: |█████-----|  47.9% Read (Sector 0x17000 of 0x30000, 01s left) 31.65 MB/s
+Progress: |█████-----|  49.0% Read (Sector 0x17800 of 0x30000, 01s left) 34.39 MB/s
+Progress: |█████-----|  50.0% Read (Sector 0x18000 of 0x30000, 01s left) 32.10 MB/s
+Progress: |█████-----|  51.0% Read (Sector 0x18800 of 0x30000, 01s left) 33.66 MB/s
+Progress: |█████-----|  52.1% Read (Sector 0x19000 of 0x30000, 01s left) 31.30 MB/s
+Progress: |█████-----|  53.1% Read (Sector 0x19800 of 0x30000, 01s left) 34.90 MB/s
+Progress: |█████-----|  54.2% Read (Sector 0x1A000 of 0x30000, 01s left) 32.10 MB/s
+Progress: |██████----|  55.2% Read (Sector 0x1A800 of 0x30000, 01s left) 34.58 MB/s
+Progress: |██████----|  56.2% Read (Sector 0x1B000 of 0x30000, 01s left) 32.17 MB/s
+Progress: |██████----|  57.3% Read (Sector 0x1B800 of 0x30000, 01s left) 34.46 MB/s
+Progress: |██████----|  58.3% Read (Sector 0x1C000 of 0x30000, 01s left) 32.01 MB/s
+Progress: |██████----|  59.4% Read (Sector 0x1C800 of 0x30000, 01s left) 34.46 MB/s
+Progress: |██████----|  60.4% Read (Sector 0x1D000 of 0x30000, 01s left) 23.84 MB/s
+Progress: |██████----|  61.5% Read (Sector 0x1D800 of 0x30000, 01s left) 20.77 MB/s
+Progress: |██████----|  62.5% Read (Sector 0x1E000 of 0x30000, 01s left) 27.44 MB/s
+Progress: |██████----|  63.5% Read (Sector 0x1E800 of 0x30000, 01s left) 34.37 MB/s
+Progress: |██████----|  64.6% Read (Sector 0x1F000 of 0x30000, 01s left) 31.26 MB/s
+Progress: |███████---|  65.6% Read (Sector 0x1F800 of 0x30000, 01s left) 34.64 MB/s
+Progress: |███████---|  66.7% Read (Sector 0x20000 of 0x30000, ) 31.73 MB/s   
+Progress: |███████---|  67.7% Read (Sector 0x20800 of 0x30000, ) 34.20 MB/s   
+Progress: |███████---|  68.8% Read (Sector 0x21000 of 0x30000, ) 32.47 MB/s   
+Progress: |███████---|  69.8% Read (Sector 0x21800 of 0x30000, ) 34.19 MB/s   
+Progress: |███████---|  70.8% Read (Sector 0x22000 of 0x30000, ) 32.41 MB/s   
+Progress: |███████---|  71.9% Read (Sector 0x22800 of 0x30000, ) 34.21 MB/s   
+Progress: |███████---|  72.9% Read (Sector 0x23000 of 0x30000, ) 31.90 MB/s   
+Progress: |███████---|  74.0% Read (Sector 0x23800 of 0x30000, ) 34.17 MB/s   
+Progress: |████████--|  75.0% Read (Sector 0x24000 of 0x30000, ) 31.70 MB/s   
+Progress: |████████--|  76.0% Read (Sector 0x24800 of 0x30000, ) 34.23 MB/s   
+Progress: |████████--|  77.1% Read (Sector 0x25000 of 0x30000, ) 32.39 MB/s   
+Progress: |████████--|  78.1% Read (Sector 0x25800 of 0x30000, ) 34.21 MB/s   
+Progress: |████████--|  79.2% Read (Sector 0x26000 of 0x30000, ) 31.59 MB/s   
+Progress: |████████--|  80.2% Read (Sector 0x26800 of 0x30000, ) 34.16 MB/s   
+Progress: |████████--|  81.2% Read (Sector 0x27000 of 0x30000, ) 31.80 MB/s   
+Progress: |████████--|  82.3% Read (Sector 0x27800 of 0x30000, ) 34.26 MB/s   
+Progress: |████████--|  83.3% Read (Sector 0x28000 of 0x30000, ) 31.95 MB/s   
+Progress: |████████--|  84.4% Read (Sector 0x28800 of 0x30000, ) 34.13 MB/s   
+Progress: |█████████-|  85.4% Read (Sector 0x29000 of 0x30000, ) 32.15 MB/s   
+Progress: |█████████-|  86.5% Read (Sector 0x29800 of 0x30000, ) 34.27 MB/s   
+Progress: |█████████-|  87.5% Read (Sector 0x2A000 of 0x30000, ) 32.26 MB/s   
+Progress: |█████████-|  88.5% Read (Sector 0x2A800 of 0x30000, ) 34.02 MB/s   
+Progress: |█████████-|  89.6% Read (Sector 0x2B000 of 0x30000, ) 32.01 MB/s   
+Progress: |█████████-|  90.6% Read (Sector 0x2B800 of 0x30000, ) 34.23 MB/s   
+Progress: |█████████-|  91.7% Read (Sector 0x2C000 of 0x30000, ) 31.82 MB/s   
+Progress: |█████████-|  92.7% Read (Sector 0x2C800 of 0x30000, ) 34.10 MB/s   
+Progress: |█████████-|  93.8% Read (Sector 0x2D000 of 0x30000, ) 32.10 MB/s   
+Progress: |█████████-|  94.8% Read (Sector 0x2D800 of 0x30000, ) 33.93 MB/s   
+Progress: |██████████|  95.8% Read (Sector 0x2E000 of 0x30000, ) 31.94 MB/s   
+Progress: |██████████|  96.9% Read (Sector 0x2E800 of 0x30000, ) 34.24 MB/s   
+Progress: |██████████|  97.9% Read (Sector 0x2F000 of 0x30000, ) 32.14 MB/s   
+Progress: |██████████|  99.0% Read (Sector 0x2F800 of 0x30000, ) 34.72 MB/s   
+Progress: |██████████| 100.0% Read (Sector 0x30000 of 0x30000, ) 31.50 MB/s   
+Dumped sector 3234560 with sector count 196608 as /home/hawk/duo_forensics/android_boot_chain_20261102_094334/vendor_boot_b.img.
+
+Done |----------|   0.0% Read (Sector 0x0 of 0xC000) 0.00 MB/s                
+Progress: |----------|   4.2% Read (Sector 0x800 of 0xC000, ) 34.73 MB/s      
+Progress: |█---------|   8.3% Read (Sector 0x1000 of 0xC000, ) 32.71 MB/s     
+Progress: |█---------|  12.5% Read (Sector 0x1800 of 0xC000, ) 34.30 MB/s     
+Progress: |██--------|  16.7% Read (Sector 0x2000 of 0xC000, ) 32.07 MB/s     
+Progress: |██--------|  20.8% Read (Sector 0x2800 of 0xC000, ) 34.07 MB/s     
+Progress: |██--------|  25.0% Read (Sector 0x3000 of 0xC000, ) 31.65 MB/s     
+Progress: |███-------|  29.2% Read (Sector 0x3800 of 0xC000, ) 34.57 MB/s     
+Progress: |███-------|  33.3% Read (Sector 0x4000 of 0xC000, ) 31.81 MB/s     
+Progress: |████------|  37.5% Read (Sector 0x4800 of 0xC000, ) 35.15 MB/s     
+Progress: |████------|  41.7% Read (Sector 0x5000 of 0xC000, ) 31.84 MB/s     
+Progress: |█████-----|  45.8% Read (Sector 0x5800 of 0xC000, ) 34.58 MB/s     
+Progress: |█████-----|  50.0% Read (Sector 0x6000 of 0xC000, ) 31.77 MB/s     
+Progress: |█████-----|  54.2% Read (Sector 0x6800 of 0xC000, ) 35.12 MB/s     
+Progress: |██████----|  58.3% Read (Sector 0x7000 of 0xC000, ) 32.36 MB/s     
+Progress: |██████----|  62.5% Read (Sector 0x7800 of 0xC000, ) 34.85 MB/s     
+Progress: |███████---|  66.7% Read (Sector 0x8000 of 0xC000, ) 32.51 MB/s     
+Progress: |███████---|  70.8% Read (Sector 0x8800 of 0xC000, ) 34.64 MB/s     
+Progress: |████████--|  75.0% Read (Sector 0x9000 of 0xC000, ) 31.22 MB/s     
+Progress: |████████--|  79.2% Read (Sector 0x9800 of 0xC000, ) 34.93 MB/s     
+Progress: |████████--|  83.3% Read (Sector 0xA000 of 0xC000, ) 32.11 MB/s     
+Progress: |█████████-|  87.5% Read (Sector 0xA800 of 0xC000, ) 35.00 MB/s     
+Progress: |█████████-|  91.7% Read (Sector 0xB000 of 0xC000, ) 32.28 MB/s     
+Progress: |██████████|  95.8% Read (Sector 0xB800 of 0xC000, ) 34.18 MB/s     
+Progress: |██████████| 100.0% Read (Sector 0xC000 of 0xC000, ) 31.60 MB/s     
+Dumped sector 2365952 with sector count 49152 as /home/hawk/duo_forensics/android_boot_chain_20261102_094334/dtbo_a.img.
+
+Done |----------|   0.0% Read (Sector 0x0 of 0xC000) 0.00 MB/s                
+Progress: |----------|   4.2% Read (Sector 0x800 of 0xC000, ) 35.35 MB/s      
+Progress: |█---------|   8.3% Read (Sector 0x1000 of 0xC000, ) 33.32 MB/s     
+Progress: |█---------|  12.5% Read (Sector 0x1800 of 0xC000, ) 34.23 MB/s     
+Progress: |██--------|  16.7% Read (Sector 0x2000 of 0xC000, ) 32.01 MB/s     
+Progress: |██--------|  20.8% Read (Sector 0x2800 of 0xC000, ) 34.47 MB/s     
+Progress: |██--------|  25.0% Read (Sector 0x3000 of 0xC000, ) 31.31 MB/s     
+Progress: |███-------|  29.2% Read (Sector 0x3800 of 0xC000, ) 33.59 MB/s     
+Progress: |███-------|  33.3% Read (Sector 0x4000 of 0xC000, ) 29.98 MB/s     
+Progress: |████------|  37.5% Read (Sector 0x4800 of 0xC000, ) 34.44 MB/s     
+Progress: |████------|  41.7% Read (Sector 0x5000 of 0xC000, ) 32.73 MB/s     
+Progress: |█████-----|  45.8% Read (Sector 0x5800 of 0xC000, ) 34.74 MB/s     
+Progress: |█████-----|  50.0% Read (Sector 0x6000 of 0xC000, ) 32.23 MB/s     
+Progress: |█████-----|  54.2% Read (Sector 0x6800 of 0xC000, ) 35.03 MB/s     
+Progress: |██████----|  58.3% Read (Sector 0x7000 of 0xC000, ) 32.12 MB/s     
+Progress: |██████----|  62.5% Read (Sector 0x7800 of 0xC000, ) 35.46 MB/s     
+Progress: |███████---|  66.7% Read (Sector 0x8000 of 0xC000, ) 32.28 MB/s     
+Progress: |███████---|  70.8% Read (Sector 0x8800 of 0xC000, ) 34.69 MB/s     
+Progress: |████████--|  75.0% Read (Sector 0x9000 of 0xC000, ) 32.26 MB/s     
+Progress: |████████--|  79.2% Read (Sector 0x9800 of 0xC000, ) 35.57 MB/s     
+Progress: |████████--|  83.3% Read (Sector 0xA000 of 0xC000, ) 32.44 MB/s     
+Progress: |█████████-|  87.5% Read (Sector 0xA800 of 0xC000, ) 34.84 MB/s     
+Progress: |█████████-|  91.7% Read (Sector 0xB000 of 0xC000, ) 32.41 MB/s     
+Progress: |██████████|  95.8% Read (Sector 0xB800 of 0xC000, ) 34.71 MB/s     
+Progress: |██████████| 100.0% Read (Sector 0xC000 of 0xC000, ) 32.80 MB/s     
+Dumped sector 2415104 with sector count 49152 as /home/hawk/duo_forensics/android_boot_chain_20261102_094334/dtbo_b.img.
+
+Done |----------|   0.0% Read (Sector 0x0 of 0x80) 0.00 MB/s                  
+Progress: |██████████| 100.0% Read (Sector 0x80 of 0x80, ) 21.63 MB/s         
+Dumped sector 3037696 with sector count 128 as /home/hawk/duo_forensics/android_boot_chain_20261102_094334/vbmeta_a.img.
+
+Done |----------|   0.0% Read (Sector 0x0 of 0x80) 0.00 MB/s                  
+Progress: |██████████| 100.0% Read (Sector 0x80 of 0x80, ) 20.25 MB/s         
+Dumped sector 3037824 with sector count 128 as /home/hawk/duo_forensics/android_boot_chain_20261102_094334/vbmeta_b.img.
+
+Done |----------|   0.0% Read (Sector 0x0 of 0x80) 0.00 MB/s                  
+Progress: |██████████| 100.0% Read (Sector 0x80 of 0x80, ) 22.50 MB/s         
+Dumped sector 3431168 with sector count 128 as /home/hawk/duo_forensics/android_boot_chain_20261102_094334/vbmeta_system_a.img.
+
+Done |----------|   0.0% Read (Sector 0x0 of 0x80) 0.00 MB/s                  
+Progress: |██████████| 100.0% Read (Sector 0x80 of 0x80, ) 23.26 MB/s         
+Dumped sector 3431296 with sector count 128 as /home/hawk/duo_forensics/android_boot_chain_20261102_094334/vbmeta_system_b.img.
+
+LOG REVIEW COMPLETE; NO FILES OR DEVICE PARTITIONS MODIFIED
