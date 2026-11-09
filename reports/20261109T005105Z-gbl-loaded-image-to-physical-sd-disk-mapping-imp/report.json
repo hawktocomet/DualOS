@@ -1,0 +1,13 @@
+{
+  "id": "20261109T005105Z-gbl-loaded-image-to-physical-sd-disk-mapping-imp",
+  "title": "GBL loaded-image to physical SD disk mapping implementation audit",
+  "created_utc": "2026-11-09T00:51:05.003273+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\nGBL=bootable/libbootloader\ncd \"$GBL\" || exit 1\n\necho \"===== REVISION AND CURRENT LOCAL PATCHES =====\"\ngit rev-parse HEAD\ngit status --short\ngit diff -- gbl/efi/src/lib.rs gbl/efi/src/efi_blocks.rs gbl/libefi/src/protocol/device_path.rs\necho\n\necho \"===== BLOCK DISCOVERY: HANDLE AND DEVICE PATH AVAILABILITY =====\"\nsed -n \"115,215p\" gbl/efi/src/efi_blocks.rs\necho\n\necho \"===== LOADED IMAGE DEVICE HANDLE =====\"\nsed -n \"25,75p\" gbl/libefi/src/protocol/loaded_image.rs\necho\n\necho \"===== DEVICE PATH PROTOCOL INTERFACE =====\"\nsed -n \"35,115p\" gbl/libefi/src/protocol/device_path.rs\necho\n\necho \"===== DEVICE PATH RAW INTERFACE ACCESSORS =====\"\nrg -n -C 5 \"fn interface_ptr|interface_ptr\\\\(\" gbl/libefi/src\necho\n\necho \"===== BOOT SERVICES: HANDLE AND DEVICE-PATH LOOKUP =====\"\nrg -n -C 5 \"locate_device_path|LocateDevicePath|locate_handle_buffer_by_protocol|handle_protocol_raw|open_protocol_raw\" gbl/libefi/src\necho\n\necho \"===== DEVICE PATH TYPES AND NODE STRUCTURES =====\"\nrg -n -C 5 \"struct EfiDevicePathProtocol|EFI_DEVICE_PATH_TYPE_END|END_ENTIRE|END_INSTANCE|DevicePath\" gbl/libefi_types gbl/libefi/src/protocol/device_path.rs\necho\n\necho \"===== EFI OPS DISK SLICE CONSTRUCTION =====\"\nsed -n \"105,140p\" gbl/efi/src/lib.rs\nrg -n -C 8 \"pub fn new|struct Ops|disks:\" gbl/efi/src/ops.rs\necho\n\necho \"===== CURRENT DIAGNOSTIC ENTRYPOINT CHANGES =====\"\ngit diff -- gbl/efi/src/lib.rs\necho\n\necho \"===== END =====\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.028
+}
