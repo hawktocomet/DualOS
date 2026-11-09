@@ -1,0 +1,13 @@
+{
+  "id": "20261109T012703Z-dualos-gbl-exact-disk-discovery-implementation",
+  "title": "DualOS GBL exact disk discovery implementation",
+  "created_utc": "2026-11-09T01:27:03.607824+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd \"$HOME/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader\" || exit 2\n\necho \"===== EFI DISK IMPLEMENTATION =====\"\nsed -n \"1,360p\" gbl/efi/src/efi_blocks.rs\n\necho\necho \"===== EFI ENTRY AND DISK DISCOVERY CALLERS =====\"\nrg -n -C 18 \"efi_blocks|EfiGblDisk|find_block|find_disk|disks\" gbl/efi/src --glob \"*.rs\" --glob \"!diagnostic_fs.rs\"\n\necho\necho \"===== DEVICE PATH NODE AND PROTOCOL API =====\"\nrg -n \"pub fn|pub\\\\(crate\\\\) fn|struct EfiDevicePathNodeIter|impl.*DevicePath\" gbl/libefi/src/protocol/device_path.rs\nsed -n \"1,110p\" gbl/libefi/src/protocol/loaded_image.rs\nsed -n \"420,485p\" gbl/libefi/src/protocol.rs\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.01
+}
