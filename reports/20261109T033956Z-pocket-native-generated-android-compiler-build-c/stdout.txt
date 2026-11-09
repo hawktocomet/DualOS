@@ -1,0 +1,18 @@
+========== SAFETY CHECKS ==========
+Target verified: /home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0
+12G	/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/android-aarch64-api28-pathfix0-execwrap0
+
+========== REMOVE GENERATED BUILD ==========
+Removal verified.
+
+========== PRESERVED CONTENTS ==========
+2.5G	/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/src
+883M	/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/.ccache
+67M	/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build/host
+257M	/home/hawk/source/pocket-recompiler/target/android-clang-builder/device-test-package
+167M	/home/hawk/source/pocket-recompiler/target/releases
+
+========== REMAINING TOOLCHAIN BUILD ==========
+67M	/home/hawk/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain/build
+
+CLEANUP COMPLETE

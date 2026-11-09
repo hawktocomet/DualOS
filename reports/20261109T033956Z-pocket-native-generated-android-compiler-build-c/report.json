@@ -1,0 +1,19 @@
+{
+  "id": "20261109T033956Z-pocket-native-generated-android-compiler-build-c",
+  "title": "pocket-native-generated-android-compiler-build-cleanup",
+  "created_utc": "2026-11-09T03:39:56.545415+00:00",
+  "cwd": "/home/hawk/source/pocket-recompiler/target",
+  "command": [
+    "bash",
+    "-c",
+    "\nBASE=\"$HOME/source/pocket-recompiler/target/android-clang-builder/tinaide-source/build/tina-toolchain\"\nTARGET=\"$BASE/build/android-aarch64-api28-pathfix0-execwrap0\"\n\necho \"========== SAFETY CHECKS ==========\"\n\nif [ ! -d \"$TARGET\" ] || [ -L \"$TARGET\" ]; then\n    echo \"ABORT: target is missing or is a symlink.\"\n    exit 10\nfi\n\nif [ \"$(realpath -e \"$TARGET\")\" != \"$TARGET\" ]; then\n    echo \"ABORT: target resolves to an unexpected path.\"\n    exit 11\nfi\n\nif [ ! -f \"$TARGET/CMakeCache.txt\" ] || [ ! -f \"$TARGET/build.ninja\" ]; then\n    echo \"ABORT: expected generated build markers are missing.\"\n    exit 12\nfi\n\nif mountpoint -q \"$TARGET\"; then\n    echo \"ABORT: target is a mount point.\"\n    exit 13\nfi\n\necho \"Target verified: $TARGET\"\ndu -sh \"$TARGET\"\n\necho\necho \"========== REMOVE GENERATED BUILD ==========\"\nrm -rf -- \"$TARGET\"\nRESULT=$?\n\nif [ \"$RESULT\" -ne 0 ] || [ -e \"$TARGET\" ]; then\n    echo \"ERROR: removal failed or target still exists.\"\n    exit 20\nfi\n\necho \"Removal verified.\"\n\necho\necho \"========== PRESERVED CONTENTS ==========\"\ndu -sh \"$BASE/src\" \"$BASE/.ccache\" \"$BASE/build/host\" 2>/dev/null\ndu -sh \"$HOME/source/pocket-recompiler/target/android-clang-builder/device-test-package\"\ndu -sh \"$HOME/source/pocket-recompiler/target/releases\"\n\necho\necho \"========== REMAINING TOOLCHAIN BUILD ==========\"\ndu -sh \"$BASE/build\"\n\necho\necho \"CLEANUP COMPLETE\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 1.242,
+  "git": {
+    "root": "/home/hawk/source/pocket-recompiler",
+    "commit": "f83f76cbd0b18f7e5f6a5b68c7e4f0eaf5ca4215",
+    "branch": "main",
+    "status": ""
+  }
+}
