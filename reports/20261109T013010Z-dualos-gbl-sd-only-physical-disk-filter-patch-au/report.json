@@ -1,0 +1,19 @@
+{
+  "id": "20261109T013010Z-dualos-gbl-sd-only-physical-disk-filter-patch-au",
+  "title": "DualOS GBL SD-only physical disk filter patch audit",
+  "created_utc": "2026-11-09T01:30:10.018765+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-c",
+    "\ncd \"$HOME/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader\" || exit 2\necho \"===== WORKTREE STATUS =====\"\ngit status --short\necho\necho \"===== DEVICE PATH DIFF =====\"\ngit diff -- gbl/libefi/src/protocol/device_path.rs\necho\necho \"===== DISK FILTER DIFF =====\"\ngit diff -- gbl/efi/src/efi_blocks.rs\necho\necho \"===== PATCH WHITESPACE CHECK =====\"\ngit diff --check\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.012,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}
