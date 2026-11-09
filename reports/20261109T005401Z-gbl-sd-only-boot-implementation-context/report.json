@@ -1,0 +1,13 @@
+{
+  "id": "20261109T005401Z-gbl-sd-only-boot-implementation-context",
+  "title": "GBL SD-only boot implementation context",
+  "created_utc": "2026-11-09T00:54:01.531540+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\nGBL=bootable/libbootloader\ncd \"$GBL\" || exit 1\n\necho \"===== REVISION AND WORKTREE =====\"\ngit rev-parse HEAD\ngit status --short\necho\necho \"===== EFI ENTRYPOINT AND OPS CONSTRUCTION =====\"\nsed -n \"1,260p\" gbl/efi/src/lib.rs\necho\necho \"===== BLOCK DEVICE DISCOVERY =====\"\nsed -n \"1,260p\" gbl/efi/src/efi_blocks.rs\necho\necho \"===== LOADED IMAGE PROTOCOL =====\"\nsed -n \"1,180p\" gbl/libefi/src/protocol/loaded_image.rs\necho\necho \"===== DEVICE PATH PROTOCOL =====\"\nsed -n \"1,180p\" gbl/libefi/src/protocol/device_path.rs\necho\necho \"===== GENERIC PROTOCOL WRAPPER =====\"\nsed -n \"1,180p\" gbl/libefi/src/protocol.rs\necho\necho \"===== EFI OPS DISK OWNERSHIP AND CONSTRUCTOR =====\"\nrg -n -C 12 \"struct Ops|impl.*Ops|fn new\\\\(|find_block_devices|disks:\" gbl/efi/src/ops.rs gbl/efi/src/lib.rs\necho\necho \"===== CURRENT LOCAL DIFF =====\"\ngit diff -- gbl/efi/src/lib.rs gbl/efi/src/efi_blocks.rs gbl/efi/src/ops.rs gbl/libefi/src/protocol/device_path.rs\necho\necho \"===== END =====\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.017
+}

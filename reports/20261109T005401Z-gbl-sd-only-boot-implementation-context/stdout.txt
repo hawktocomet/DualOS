@@ -1,0 +1,1071 @@
+===== REVISION AND WORKTREE =====
+2392920e832470f38899b068f880971d3a679664
+ M gbl/efi/src/efi_blocks.rs
+ M gbl/efi/src/lib.rs
+ M gbl/libefi/src/lib.rs
+ M gbl/libefi/src/protocol/simple_text_output.rs
+?? gbl/efi/src/diagnostic_fs.rs
+
+===== EFI ENTRYPOINT AND OPS CONSTRUCTION =====
+#![allow(dead_code)]
+// Copyright 2023, The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+//! This EFI application implements a demo for booting Android/Fuchsia from disk. See
+//! bootable/libbootloader/gbl/README.md for how to run the demo. See comments of
+//! `android_boot:android_boot_demo()` and `fuchsia_boot:fuchsia_boot_demo()` for
+//! supported/unsupported features at the moment.
+
+#![cfg_attr(not(test), no_std)]
+
+// For the `vec!` macro
+#[macro_use]
+extern crate alloc;
+
+mod efi_blocks;
+#[cfg(not(test))]
+mod diagnostic_fs;
+#[cfg(feature = "fuchsia")]
+mod fuchsia_boot;
+mod net;
+mod ops;
+#[macro_use]
+pub mod utils;
+
+// Currently un-testable modules.
+//
+// The libefi API surface is large and complex; rather than trying to mock it all out at once, we
+// will selectively enable modules for test as they become mockable.
+#[cfg(not(test))]
+mod android_boot;
+#[cfg(not(test))]
+mod fastboot;
+
+// In tests, map the `efi_mocks` module as `efi`. This allows other modules to `use crate::efi`
+// and automatically pick up the correct one.
+#[cfg(not(test))]
+#[allow(clippy::single_component_path_imports)] // Needed for `crate::efi` paths.
+pub(crate) use efi;
+#[cfg(test)]
+pub(crate) use efi_mocks as efi;
+
+#[cfg(not(test))]
+use {
+    crate::{
+        efi_blocks::EfiGblDisk,
+    },
+    cfg_if::cfg_if,
+    core::convert::Infallible,
+    efi::{efi_println, EfiEntry},
+    libbuild_number::{format_build_fingerprint, format_build_vcs_info},
+    libgbl::Result,
+    utils::loaded_image_path,
+};
+
+#[cfg(not(test))]
+enum TargetOs {
+    Android,
+    #[cfg(feature = "fuchsia")]
+    Fuchsia,
+}
+
+#[cfg(not(test))]
+fn get_target_os(_entry: &EfiEntry, _disks: &[EfiGblDisk]) -> TargetOs {
+    cfg_if! {
+        if #[cfg(feature = "fuchsia")] {
+            let mut buf = [0u8; 1];
+            if _entry
+                .system_table()
+                .runtime_services()
+                .get_variable(&efi::GBL_EFI_VENDOR_GUID, efi::GBL_EFI_OS_BOOT_TARGET_VARNAME, &mut buf)
+                .is_ok()
+            {
+                efi_println!(
+                    _entry,
+                    "`{}` is set. Proceeding as Fuchsia.",
+                    efi::GBL_EFI_OS_BOOT_TARGET_VARNAME
+                );
+                TargetOs::Fuchsia
+            } else if fuchsia_boot::is_fuchsia_gpt(_disks).is_ok() {
+                efi_println!(_entry, "Partition layout looks like Fuchsia. Proceeding as Fuchsia");
+                TargetOs::Fuchsia
+            } else {
+                efi_println!(_entry, "Proceeding as Android");
+                TargetOs::Android
+            }
+        } else {
+            TargetOs::Android
+        }
+    }
+}
+
+/// GBL EFI application logic entry point.
+#[cfg(not(test))]
+#[allow(unreachable_code, unused_variables)]
+pub fn app_main(entry: EfiEntry) -> Result<Infallible> {
+    efi_println!(entry, "**** Generic Bootloader (GBL) ****");
+    efi_println!(entry, "Fingerprint: {}", format_build_fingerprint!());
+    efi_println!(entry, "VCS info: {}", format_build_vcs_info!());
+    if let Ok(v) = loaded_image_path(&entry) {
+        efi_println!(entry, "Image path: {v}");
+    }
+
+    // Read-only console mode diagnostic.
+    match entry.system_table().con_out() {
+        Ok(console) => {
+            let mode_info = console.interface().mode;
+            if mode_info.is_null() {
+                efi_println!(entry, "Console mode information unavailable.");
+            } else {
+                // SAFETY: UEFI provides this pointer as part of the live
+                // Simple Text Output Protocol.
+                let (max_mode, current_mode) = unsafe {
+                    ((*mode_info).max_mode, (*mode_info).mode)
+                };
+                efi_println!(
+                    entry,
+                    "Console current mode: {current_mode}; available modes: {max_mode}"
+                );
+
+                for mode in 0..max_mode.max(0) as usize {
+                    match console.query_mode(mode) {
+                        Ok((cols, rows)) => {
+                            efi_println!(
+                                entry,
+                                "Console mode {mode}: {cols} columns x {rows} rows"
+                            );
+                        }
+                        Err(e) => {
+                            efi_println!(
+                                entry,
+                                "Console mode {mode}: query failed: {e:?}"
+                            );
+                        }
+                    }
+                }
+            }
+        }
+        Err(e) => efi_println!(entry, "Console protocol unavailable: {e:?}"),
+    }
+
+    let report_status = diagnostic_fs::write_report(&entry);
+    efi_println!(entry, "Filesystem report: {report_status}");
+    efi_println!(entry, "Diagnostic complete. Halting before OS boot.");
+    loop {
+        core::hint::spin_loop();
+    }
+}
+
+===== BLOCK DEVICE DISCOVERY =====
+// Copyright 2024, The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+use alloc::{boxed::Box, vec::Vec};
+use arrayvec::ArrayVec;
+use bytes::buf::UninitSlice;
+use core::cmp::max;
+use efi::{
+    efi_println,
+    profiling::EfiProfileBackend,
+    protocol::{
+        block_io::BlockIoProtocol, block_io2::BlockIo2Protocol, device_path::DevicePathProtocol,
+        erase_block::EraseBlockProtocol, Protocol,
+    },
+    EfiEntry,
+};
+use efi_types::{defs::EFI_TPL_APPLICATION, protocol::block_io::BlockIo as _, tpl::TplLocked};
+use gbl_async::block_on;
+use gbl_storage::{gpt_buffer_size, BlockInfo, BlockIo, Disk, Gpt, GPT_MAX_NUM_ENTRIES};
+use liberror::Error;
+use libgbl::partition::GblDisk;
+use libprofile_macros::profile;
+use safemath::SafeNum;
+
+/// `EfiBlockDeviceIo` wraps an EFI `BlockIoProtocol` and optionally a `BlockIo2Protocol` and
+/// implements the `BlockIo` interface.
+///
+/// `BlockIoProtocol` is always required and used for implementation of `read_blocks_sync` and
+/// `write_blocks_sync`. When `BlockIo2Protocol` is provided, it will be used to implement
+/// `read_blocks` and `write_blocks`, otherwise they fall back to `BlockIoProtocol`.
+pub struct EfiBlockDeviceIo<'a> {
+    block_io: Protocol<'a, BlockIoProtocol>,
+    block_io2: Option<Protocol<'a, BlockIo2Protocol>>,
+    erase: Option<Protocol<'a, EraseBlockProtocol>>,
+    /// We don't currently support hot-plugging disks so we cache the media ID
+    /// upon creation; if this media ever goes away, the APIs will start
+    /// failing rather than trying to switch to a new ID.
+    media_id: u32,
+    block_info: BlockInfo,
+}
+
+// SAFETY:
+// `read_blocks()` uses EFI protocol that guarantees to read exact number of blocks that were
+// requested, or return error.
+// For async `read_blocks_ex()` blocking wait guarantees that read finishes.
+unsafe impl BlockIo for EfiBlockDeviceIo<'_> {
+    fn info(&self) -> BlockInfo {
+        self.block_info
+    }
+
+    async fn read_blocks<'a>(
+        &self,
+        blk_offset: u64,
+        out: impl Into<&'a mut UninitSlice>,
+    ) -> Result<(), Error> {
+        match &self.block_io2 {
+            Some(v) => v.read_blocks_ex(blk_offset, out).await,
+            _ => {
+                // SAFETY: `read_blocks()` will only initialize the data.
+                let out = unsafe { out.into().as_uninit_slice_mut() };
+                self.block_io.read_blocks(self.media_id, blk_offset, out).map_err(Into::into)
+            }
+        }
+    }
+
+    async fn write_blocks(&self, blk_offset: u64, data: &mut [u8]) -> Result<(), Error> {
+        match &self.block_io2 {
+            Some(v) => v.write_blocks_ex(blk_offset, data).await,
+            _ => self.block_io.write_blocks(self.media_id, blk_offset, data).map_err(Into::into),
+        }
+    }
+
+    async fn erase_blocks(&self, blk_off: u64, num_blks: u64) -> Result<(), Error> {
+        let protocol = self.erase.as_ref().ok_or(Error::Unsupported)?;
+        let block_info = self.info();
+        let erase_block_size = block_info.erase_block_size()?;
+        let lba = SafeNum::from(blk_off) * erase_block_size / block_info.block_size;
+        let sz = SafeNum::from(num_blks) * erase_block_size;
+        protocol.erase_blocks(self.media_id, lba.try_into()?, sz.try_into()?).await
+    }
+
+    fn read_blocks_sync<'a>(
+        &self,
+        blk_offset: u64,
+        out: impl Into<&'a mut UninitSlice>,
+    ) -> Result<(), Error> {
+        // SAFETY: `read_blocks()` will only initialize the data.
+        let out = unsafe { out.into().as_uninit_slice_mut() };
+        Ok(self.block_io.read_blocks(self.media_id, blk_offset, out)?)
+    }
+
+    fn write_blocks_sync(&self, blk_offset: u64, data: &mut [u8]) -> Result<(), Error> {
+        Ok(self.block_io.write_blocks(self.media_id, blk_offset, data)?)
+    }
+
+    async fn flush(&self) -> Result<(), Error> {
+        let res = match &self.block_io2 {
+            Some(v) => v.flush_blocks_ex().await,
+            _ => self.block_io.flush_blocks().map_err(Into::into),
+        };
+        match res {
+            Ok(()) | Err(Error::Unsupported) | Err(Error::NotFound) => Ok(()),
+            Err(e) => Err(e),
+        }
+    }
+}
+
+/// The [GblDisk] type in the GBL EFI context.
+pub type EfiGblDisk<'a> =
+    GblDisk<Disk<EfiBlockDeviceIo<'a>, ArrayVec<Option<Box<[u8]>>, 2>>, Gpt<Vec<u8>>>;
+
+/// Finds and returns all EFI devices supporting either EFI_BLOCK_IO or EFI_BLOCK_IO2 protocol.
+#[profile(backend = EfiProfileBackend::new(efi_entry))]
+pub fn find_block_devices(efi_entry: &EfiEntry) -> Result<Vec<EfiGblDisk<'_>>, Error> {
+    let bs = efi_entry.system_table().boot_services();
+    let block_dev_handles = bs.locate_handle_buffer_by_protocol::<BlockIoProtocol>()?;
+    let mut gbl_disks = vec![];
+    // TODO(b/452455989) Buffer size and capacity can be configurable using vendor path.
+    let gpt_buffer_size = gpt_buffer_size(GPT_MAX_NUM_ENTRIES)?;
+    for (idx, handle) in block_dev_handles.handles().iter().enumerate() {
+        match crate::utils::get_device_path(efi_entry, *handle) {
+            Ok(path) => efi_println!(efi_entry, "Block #{idx} path: {path}"),
+            Err(e) => efi_println!(efi_entry, "Block #{idx} path unavailable: {e:?}"),
+        }
+        let block_io = bs.open_protocol::<BlockIoProtocol>(*handle).unwrap();
+        // SAFETY: this code always executes at `EFI_TPL_APPLICATION`.
+        let media = unsafe {
+            block_io.with_lock::<EFI_TPL_APPLICATION, _>(efi_entry, || {
+                // SAFETY: the protocol is locked while we access `media`, we
+                // clone it here for safe access outside the critical section.
+                block_io.media().unwrap().clone()
+            })
+        };
+        if media.logical_partition {
+            continue;
+        }
+        let open_disk = || -> Result<_, Error> {
+            let block_io2 = bs.open_protocol::<BlockIo2Protocol>(*handle).ok();
+            let erase = bs.open_protocol::<EraseBlockProtocol>(*handle).ok();
+            let erase_blocks =
+                erase.as_ref().map(|v| v.erase_length_granularity()).unwrap_or_default();
+            let block_info = BlockInfo {
+                // `block_size` is u32 so can always convert to u64
+                block_size: media.block_size as u64,
+                erase_blocks_num: max(1, erase_blocks).into(),
+                num_blocks: (SafeNum::from(media.last_block) + 1).try_into()?,
+                // `io_align` is u32 so can always convert to u64
+                alignment: max(1, media.io_align as u64),
+            };
+            let disk_io = Disk::new_alloc_scratch(EfiBlockDeviceIo {
+                block_io,
+                block_io2,
+                erase,
+                media_id: media.media_id,
+                block_info,
+            })?;
+            let disk = match bs.open_protocol::<DevicePathProtocol>(*handle) {
+                Ok(dpp) => {
+                    if let Some(device_name) = dpp.gbl_vendor_media_device_path()? {
+                        efi_println!(
+                            efi_entry,
+                            "Block #{idx} raw device vendor-defined name: {device_name:?}"
+                        );
+                        GblDisk::new_raw(disk_io, device_name)?
+                    } else {
+                        GblDisk::new_gpt(disk_io, Gpt::new(vec![0u8; gpt_buffer_size])?)
+                    }
+                }
+                _ => GblDisk::new_gpt(disk_io, Gpt::new(vec![0u8; gpt_buffer_size])?),
+            };
+            match block_on(disk.as_sync()?.sync_gpt()) {
+                Ok(Some(v)) => efi_println!(efi_entry, "Block #{idx} GPT sync result: {v}"),
+                Err(e) => efi_println!(efi_entry, "Block #{idx} error while syncing GPT: {e}"),
+                _ => {}
+            };
+            Ok(disk)
+        };
+        match open_disk() {
+            Ok(disk) => gbl_disks.push(disk),
+            Err(e) => efi_println!(efi_entry, "Block #{idx} failed to open device: {e}"),
+        }
+    }
+    Ok(gbl_disks)
+}
+
+===== LOADED IMAGE PROTOCOL =====
+// Copyright 2024, The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+//! Rust wrapper for `EFI_LOADED_IMAGE_PROTOCOL`.
+
+use crate::DeviceHandle;
+use crate::{
+    protocol::{device_path::DevicePathProtocol, Protocol, ProtocolInfo, Requirement},
+    versioned_protocol,
+};
+use core::ffi::c_void;
+use core::ptr::{null_mut, NonNull};
+use efi_types::{
+    EfiGuid, EfiLoadedImageProtocol, EFI_LOADED_IMAGE_PROTOCOL_GUID_U64_0,
+    EFI_LOADED_IMAGE_PROTOCOL_GUID_U64_1, EFI_LOADED_IMAGE_PROTOCOL_REVISION,
+};
+use liberror::{Error, Result};
+
+/// EFI_LOADED_IMAGE_PROTOCOL
+pub struct LoadedImageProtocol;
+
+versioned_protocol!(LoadedImageProtocol, EFI_LOADED_IMAGE_PROTOCOL_REVISION);
+
+impl ProtocolInfo for LoadedImageProtocol {
+    type InterfaceType = EfiLoadedImageProtocol;
+
+    const GUID: EfiGuid = EfiGuid::from_u64s(
+        EFI_LOADED_IMAGE_PROTOCOL_GUID_U64_0,
+        EFI_LOADED_IMAGE_PROTOCOL_GUID_U64_1,
+    );
+
+    const REQUIREMENT: Requirement = Requirement::Optional;
+}
+
+impl<'a> Protocol<'a, LoadedImageProtocol> {
+    /// Wraps `EFI_LOADED_IMAGE_PROTOCOL.DeviceHandle`.
+    pub fn device_handle(&self) -> DeviceHandle {
+        DeviceHandle(self.interface().device_handle)
+    }
+
+    /// Wraps `EFI_LOADED_IMAGE_PROTOCOL.FilePath`.
+    pub fn file_path(&self) -> Result<Protocol<'_, DevicePathProtocol>> {
+        // SAFETY: `EFI_LOADED_IMAGE_PROTOCOL.FilePath` (if non-null) points to a
+        // `EFI_DEVICE_PATH_PROTOCOL` which outlives the `EFI_LOADED_IMAGE_PROTOCOL` itself.
+        Ok(unsafe {
+            Protocol::new(
+                DeviceHandle::new(null_mut()),
+                NonNull::new(self.interface().file_path).ok_or(Error::NotFound)?,
+                self.efi_entry,
+            )
+        })
+    }
+
+    /// Returns the `EFI_LOADED_IMAGE_PROTOCOL.image_base` field.
+    pub fn image_base(&self) -> usize {
+        self.interface().image_base as _
+    }
+
+    /// Sets `EFI_LOADED_IMAGE_PROTOCOL.LoadOptions` and `LoadOptionsSize`.
+    ///
+    /// # Safety
+    ///
+    /// If `options` is non-null, it must point to valid memory of at least `options_size` bytes
+    /// that outlives the loaded image execution.
+    pub unsafe fn set_load_options(&mut self, options: *const c_void, options_size: u32) {
+        let lip = self.interface_ptr();
+        // SAFETY: `lip` is a valid protocol interface pointer.
+        // Caller guarantees non-null `options` outlives the loaded image execution.
+        unsafe {
+            (*lip).load_options = options as *mut _;
+            (*lip).load_options_size = options_size;
+        }
+    }
+}
+
+===== DEVICE PATH PROTOCOL =====
+// Copyright 2024, The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+//! Rust wrapper for `EFI_DEVICE_PATH_PROTOCOL`.
+
+use crate::protocol::{MaybeVersioned, Protocol, ProtocolInfo, Requirement};
+use crate::{efi_println, EfiEntry};
+use core::ffi::CStr;
+use core::fmt::Display;
+use core::marker::PhantomData;
+use core::mem::size_of;
+use efi_types::{
+    protocol::BridgeToRust, EfiDevicePathProtocol, EfiDevicePathToTextProtocol, EfiGuid,
+    Identified, EFI_DEVICE_PATH_TO_TEXT_PROTOCOL_GUID_U64_0,
+    EFI_DEVICE_PATH_TO_TEXT_PROTOCOL_GUID_U64_1, EFI_DEVICE_PATH_TYPE_END_OF_HARDWARE_DEVICE_PATH,
+    EFI_DEVICE_PATH_TYPE_MEDIA_DEVICE_PATH,
+    EFI_END_OF_HARDWARE_DEVICE_PATH_SUB_TYPE_END_ENTIRE_DEVICE_PATH,
+    EFI_MEDIA_DEVICE_PATH_SUB_TYPE_VENDOR, GBL_VENDOR_MEDIA_DEVICE_PATH_GUID_U64_0,
+    GBL_VENDOR_MEDIA_DEVICE_PATH_GUID_U64_1,
+};
+use liberror::{Error, Result};
+use static_assertions::{const_assert, const_assert_eq};
+use zerocopy::byteorder::little_endian;
+use zerocopy::FromBytes;
+
+impl MaybeVersioned for EfiDevicePathProtocol {}
+
+/// `EFI_DEVICE_PATH_PROTOCOL`
+pub struct DevicePathProtocol;
+
+impl ProtocolInfo for DevicePathProtocol {
+    type InterfaceType = EfiDevicePathProtocol;
+    const GUID: EfiGuid = EfiDevicePathProtocol::GUID;
+    const REQUIREMENT: Requirement = Requirement::Optional;
+}
+
+const GBL_VENDOR_MEDIA_DEVICE_PATH_GUID: EfiGuid = EfiGuid::from_u64s(
+    GBL_VENDOR_MEDIA_DEVICE_PATH_GUID_U64_0,
+    GBL_VENDOR_MEDIA_DEVICE_PATH_GUID_U64_1,
+);
+
+/// Iterates a series of `EfiDevicePathProtocol`
+struct EfiDevicePathNodeIter<'a>(
+    *const EfiDevicePathProtocol,
+    PhantomData<&'a EfiDevicePathProtocol>,
+);
+
+impl<'a> EfiDevicePathNodeIter<'a> {
+    /// # Safety
+    /// The pointer must point to the start of a series of Device Path nodes and the series must be
+    /// terminated by an End of Hardware Device Path node (sub-type End Entire Device Path).
+    unsafe fn new(ptr: *const EfiDevicePathProtocol) -> Self {
+        EfiDevicePathNodeIter(ptr, PhantomData)
+    }
+}
+
+impl<'a> Iterator for EfiDevicePathNodeIter<'a> {
+    type Item = (&'a EfiDevicePathProtocol, &'a [u8]);
+
+    fn next(&mut self) -> Option<Self::Item> {
+        // SAFETY: `self.0` points to a valid `EfiDevicePathProtocol` object.
+        let header = unsafe { self.0.as_ref()? };
+        if header.type_ == EFI_DEVICE_PATH_TYPE_END_OF_HARDWARE_DEVICE_PATH
+            && header.sub_type == EFI_END_OF_HARDWARE_DEVICE_PATH_SUB_TYPE_END_ENTIRE_DEVICE_PATH
+        {
+            return None;
+        }
+        let length = little_endian::U16::from_bytes(header.length).get() as usize;
+        // SAFETY: Buffer was established by UEFI firmware. Buffer outlives the call.
+        let aux = unsafe { core::slice::from_raw_parts(self.0 as *const u8, length) };
+        let aux = aux.get(size_of::<EfiDevicePathProtocol>()..)?;
+        // SAFETY: UEFI spec requires `EfiDevicePathProtocol` to be byte-packed and shifting by
+        // `length` bytes would point to the next `EfiDevicePathProtocol` object.
+        unsafe { self.0 = self.0.byte_add(length) };
+        Some((header, aux))
+    }
+}
+
+impl<'a> Protocol<'a, DevicePathProtocol> {
+    /// Get the GBL vendor-defined media device path.
+    ///
+    /// # Returns
+    /// * `Ok(Some)` the GBL vendor-defined media device path.
+    /// * `Ok(None)` if not found.
+    /// * `Err(Error::InvalidInput)` if failed to parse EFI data.
+    pub fn gbl_vendor_media_device_path(&self) -> Result<Option<&'a CStr>> {
+        // SAFETY: UEFI firmware requires that `self.interface_ptr()` is non-null and points to a
+        // series of Device Path nodes that ends with an End of Hardware Device Path node.
+        for (header, aux) in unsafe { EfiDevicePathNodeIter::new(self.interface_ptr()) } {
+            if header.type_ == EFI_DEVICE_PATH_TYPE_MEDIA_DEVICE_PATH
+                && header.sub_type == EFI_MEDIA_DEVICE_PATH_SUB_TYPE_VENDOR
+            {
+                // Mustn't use ref_from_prefix() because `aux` could be unaligned to `EfiGuid` size.
+                match EfiGuid::read_from_prefix(aux) {
+                    Err(e) => {
+                        efi_println!(
+                            self.efi_entry(),
+                            "Failed to parse vendor-defined media device path GUID: {e:?}"
+                        );
+                        return Err(Error::InvalidInput);
+                    }
+                    Ok((GBL_VENDOR_MEDIA_DEVICE_PATH_GUID, data)) => {
+                        return Ok(Some(core::ffi::CStr::from_bytes_until_nul(data)?));
+                    }
+                    Ok(_) => {}
+                };
+            }
+        }
+        Ok(None)
+    }
+}
+
+/// Linux Initrd Vendor Media Path.
+pub struct InitrdDevicePathProtocol;
+
+/// Device Path Protocol for the Linux EFI initrd vendor media path.
+#[repr(C, packed)]
+pub struct EfiInitrdDevicePathProtocol {
+    vendor: EfiDevicePathProtocol,
+    guid: EfiGuid,
+    end: EfiDevicePathProtocol,
+}
+
+impl Default for EfiInitrdDevicePathProtocol {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+impl EfiInitrdDevicePathProtocol {
+    /// GUID for the Linux EFI Initrd vendor media device path node.
+    const LINUX_EFI_INITRD_MEDIA_GUID: EfiGuid =
+        EfiGuid::new(0x5568e427, 0x68fc, 0x4f3d, [0xac, 0x74, 0xca, 0x55, 0x52, 0x31, 0xcc, 0x68]);
+
+    /// Creates a new instance.
+    pub const fn new() -> Self {
+        Self {
+            vendor: EfiDevicePathProtocol {
+                type_: EFI_DEVICE_PATH_TYPE_MEDIA_DEVICE_PATH,
+                sub_type: EFI_MEDIA_DEVICE_PATH_SUB_TYPE_VENDOR,
+                length: ((size_of::<EfiDevicePathProtocol>() + size_of::<EfiGuid>()) as u16)
+                    .to_le_bytes(),
+            },
+            guid: Self::LINUX_EFI_INITRD_MEDIA_GUID,
+            end: EfiDevicePathProtocol {
+                type_: EFI_DEVICE_PATH_TYPE_END_OF_HARDWARE_DEVICE_PATH,
+                sub_type: EFI_END_OF_HARDWARE_DEVICE_PATH_SUB_TYPE_END_ENTIRE_DEVICE_PATH,
+                length: (size_of::<EfiDevicePathProtocol>() as u16).to_le_bytes(),
+            },
+        }
+    }
+}
+
+// NOTE: Cannot use `const_assert_eq` here because PartialEq is not const-aware for slices.
+const_assert!(matches!(EfiInitrdDevicePathProtocol::new().vendor.length, [20, 0]));
+const_assert!(matches!(EfiInitrdDevicePathProtocol::new().end.length, [4, 0]));
+const_assert_eq!(size_of::<EfiInitrdDevicePathProtocol>(), 24);
+
+impl Identified for EfiInitrdDevicePathProtocol {
+    const GUID: EfiGuid = EfiDevicePathProtocol::GUID;
+}
+
+impl MaybeVersioned for EfiInitrdDevicePathProtocol {}
+
+impl ProtocolInfo for InitrdDevicePathProtocol {
+    type InterfaceType = EfiInitrdDevicePathProtocol;
+    const GUID: EfiGuid = EfiInitrdDevicePathProtocol::GUID;
+    const REQUIREMENT: Requirement = Requirement::Optional;
+}
+
+===== GENERIC PROTOCOL WRAPPER =====
+// Copyright 2023, The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+//! EFI protocol wrappers to provide Rust-safe APIs for usage.
+
+use crate::{efi_println, record_protocol, DeviceHandle, EfiEntry};
+use core::{
+    ffi::c_void,
+    mem::ManuallyDrop,
+    ops::{Deref, DerefMut},
+    ptr::NonNull,
+};
+use efi_types::{defs::EfiGuid, protocol::Client, Identified};
+
+pub mod block_io;
+pub mod block_io2;
+pub mod device_path;
+pub mod dt_fixup;
+pub mod erase_block;
+pub mod gbl_efi_avb;
+pub mod gbl_efi_avf;
+pub mod gbl_efi_boot_control;
+pub mod gbl_efi_boot_memory;
+pub mod gbl_efi_debug;
+pub mod gbl_efi_fastboot;
+pub mod gbl_efi_fastboot_transport;
+pub mod gbl_efi_os_configuration;
+pub mod load_file2;
+pub mod loaded_image;
+pub mod random_number_generator;
+pub mod riscv;
+pub mod simple_network;
+pub mod simple_text_input;
+pub mod simple_text_output;
+pub mod timestamp;
+
+pub(super) mod hash2;
+pub(crate) mod service_binding;
+
+/// Describes whether a Protocol is required or optional.
+pub enum Requirement {
+    /// The protocol is a mandatory requirement for supporting GBL.
+    Mandatory,
+    /// The protocol is an optional requirement for supporting GBL.
+    Optional,
+}
+
+/// Type safe definition for protocol revision.
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord)]
+pub struct Revision {
+    /// The major revision of the protocol as defined in the header.
+    /// The major version must match EXACTLY for compatibility.
+    /// If the major version is 0, the protocol is not yet stable
+    /// and breaking changes may occur.
+    pub major: u16,
+    /// The minor revision of the protocol as defined by the header.
+    ///
+    /// If the minor version is higher than the defined constant,
+    /// this is a transparent, backwards compatible difference.
+    ///
+    /// If the minor version is lower than expected,
+    /// the size of the protocol struct may be smaller than the GBL visible type
+    /// or fields may be in a reserved and undefined state.
+    pub minor: u16,
+}
+
+impl Revision {
+    /// Generate a revision from a raw u32.
+    pub const fn from_u32(r: u32) -> Self {
+        Self { major: ((r >> 16) & 0xFFFF) as u16, minor: (r & 0xFFFF) as u16 }
+    }
+}
+
+impl core::fmt::Display for Revision {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "{}.{}", self.major, self.minor)
+    }
+}
+
+impl From<u64> for Revision {
+    fn from(value: u64) -> Self {
+        // For now, discard the most significant bytes..
+        Self::from_u32(value as u32)
+    }
+}
+
+impl From<u32> for Revision {
+    fn from(value: u32) -> Self {
+        Self::from_u32(value)
+    }
+}
+
+/// Bindgen-derived protocol structures MUST implement `MaybeVersioned`.
+/// If the protocol is actually versioned it should provide override definitions
+/// for `REVISION` and `revision`.
+///
+/// This is necessary due to limitations in specializing trait implementations.
+pub trait MaybeVersioned {
+    /// Revision of struct as defined by header file.
+    const REVISION: Option<Revision> = None;
+
+    /// Actual revision of runtime protocol.
+    fn revision(&self) -> Option<Revision> {
+        None
+    }
+}
+
+/// Interface for defining the compile time expected version of a protocol
+/// and the actual runtime version of the protocol when opened.
+///
+/// Implement for Protocol<T> if you want to check the minor version in order to
+/// gate access to fields or method.
+///
+/// E.g.
+///
+/// ```
+/// struct MyProtocol;
+/// impl ProtocolInfo for MyProtocol {
+///     type InterfaceType = EfiMyProtocol;
+///
+///     const GUID: EfiGuid = ...;
+/// }
+///
+/// impl MaybeVersioned for EfiMyProtocol {
+///     const REVISION: Option<Revision> = Some(Revision::from_u32(EFI_MY_PROTOCOL_REVISION as u32));
+///
+///     fn revision(&self) -> Option<Revision> {
+///         Some(self.revision.into())
+///     }
+/// }
+///
+/// impl Versioned for Protocol<'_, MyProtocol> {
+///     const REVISION: Some(Revision::from_u32(EFI_MY_PROTOCOL_REVISION as u32));
+///
+///     fn revision(&self) -> Revision {
+///         self.interface().revision.into()
+///     }
+/// }
+/// ```
+///
+/// This is verbose, and it is easy to make mistakes, so the `versioned_protocol!` macro
+/// is defined to assist with the boilerplate.
+///
+/// The two traits `MaybeVersioned` and `Versioned` are necessary due to limitations
+/// in specializing trait implementations.
+pub trait Versioned {
+    /// The revision of the struct definition as seen by GBL.
+    /// Should be derived from the header that defines the protocol struct
+    /// and provided by bindgen.
+    const REVISION: Revision;
+
+    /// Accesses the revision field of the protocol structure.
+    fn revision(&self) -> Revision;
+}
+
+/// Convenience macro for describing versioned protocols.
+///
+/// Extended example:
+///
+/// ```
+/// // libefi_types/defs/protocols/efi_my_proto.h
+/// #include <gbl_protocol_utils.h>
+///
+/// static const uint64_t EFI_MY_PROTOCOL_REVISION = GBL_PROTOCOL_REVISION(2, 3);
+///
+/// typedef struct {
+///     uint64_t revision;
+///     ...
+/// } EfiMyProtocol;
+
+===== EFI OPS DISK OWNERSHIP AND CONSTRUCTOR =====
+gbl/efi/src/lib.rs-63-    libgbl::Result,
+gbl/efi/src/lib.rs-64-    utils::loaded_image_path,
+gbl/efi/src/lib.rs-65-};
+gbl/efi/src/lib.rs-66-
+gbl/efi/src/lib.rs-67-#[cfg(not(test))]
+gbl/efi/src/lib.rs-68-enum TargetOs {
+gbl/efi/src/lib.rs-69-    Android,
+gbl/efi/src/lib.rs-70-    #[cfg(feature = "fuchsia")]
+gbl/efi/src/lib.rs-71-    Fuchsia,
+gbl/efi/src/lib.rs-72-}
+gbl/efi/src/lib.rs-73-
+gbl/efi/src/lib.rs-74-#[cfg(not(test))]
+gbl/efi/src/lib.rs:75:fn get_target_os(_entry: &EfiEntry, _disks: &[EfiGblDisk]) -> TargetOs {
+gbl/efi/src/lib.rs-76-    cfg_if! {
+gbl/efi/src/lib.rs-77-        if #[cfg(feature = "fuchsia")] {
+gbl/efi/src/lib.rs-78-            let mut buf = [0u8; 1];
+gbl/efi/src/lib.rs-79-            if _entry
+gbl/efi/src/lib.rs-80-                .system_table()
+gbl/efi/src/lib.rs-81-                .runtime_services()
+gbl/efi/src/lib.rs-82-                .get_variable(&efi::GBL_EFI_VENDOR_GUID, efi::GBL_EFI_OS_BOOT_TARGET_VARNAME, &mut buf)
+gbl/efi/src/lib.rs-83-                .is_ok()
+gbl/efi/src/lib.rs-84-            {
+gbl/efi/src/lib.rs-85-                efi_println!(
+gbl/efi/src/lib.rs-86-                    _entry,
+gbl/efi/src/lib.rs-87-                    "`{}` is set. Proceeding as Fuchsia.",
+--
+gbl/efi/src/ops.rs-141-                }
+gbl/efi/src/ops.rs-142-            } as _,
+gbl/efi/src/ops.rs-143-            id,
+gbl/efi/src/ops.rs-144-            rev,
+gbl/efi/src/ops.rs-145-            custom_size,
+gbl/efi/src/ops.rs-146-            custom,
+gbl/efi/src/ops.rs-147-        },
+gbl/efi/src/ops.rs-148-        device_tree: component.dt.as_ptr() as _,
+gbl/efi/src/ops.rs-149-        selected: component.selected,
+gbl/efi/src/ops.rs-150-    }
+gbl/efi/src/ops.rs-151-}
+gbl/efi/src/ops.rs-152-
+gbl/efi/src/ops.rs:153:pub struct Ops<'a, 'b> {
+gbl/efi/src/ops.rs-154-    pub efi_entry: &'a EfiEntry,
+gbl/efi/src/ops.rs:155:    pub disks: &'b [EfiGblDisk<'a>],
+gbl/efi/src/ops.rs-156-    #[cfg(feature = "fuchsia")]
+gbl/efi/src/ops.rs-157-    pub zbi_bootloader_files_buffer: Vec<u8>,
+gbl/efi/src/ops.rs-158-    pub os: Option<Os>,
+gbl/efi/src/ops.rs-159-    pub base_sp: usize,
+gbl/efi/src/ops.rs-160-    pause_fastboot: bool,
+gbl/efi/src/ops.rs-161-    time: Option<EfiTime<'a>>,
+gbl/efi/src/ops.rs-162-    metrics: Mutex<GblMetrics>,
+gbl/efi/src/ops.rs-163-}
+gbl/efi/src/ops.rs-164-
+gbl/efi/src/ops.rs:165:impl<'a, 'b> Ops<'a, 'b> {
+gbl/efi/src/ops.rs-166-    /// Creates a new instance of [Ops]
+gbl/efi/src/ops.rs:167:    pub fn new(
+gbl/efi/src/ops.rs-168-        efi_entry: &'a EfiEntry,
+gbl/efi/src/ops.rs:169:        disks: &'b [EfiGblDisk<'a>],
+gbl/efi/src/ops.rs-170-        os: Option<Os>,
+gbl/efi/src/ops.rs-171-        base_sp: usize,
+gbl/efi/src/ops.rs-172-    ) -> Self {
+gbl/efi/src/ops.rs-173-        let time = if cfg!(not(test)) {
+gbl/efi/src/ops.rs-174-            efi_entry
+gbl/efi/src/ops.rs-175-                .system_table()
+gbl/efi/src/ops.rs-176-                .boot_services()
+gbl/efi/src/ops.rs-177-                .find_first_and_open::<TimestampProtocol>()
+gbl/efi/src/ops.rs-178-                .ok()
+gbl/efi/src/ops.rs-179-                .and_then(|ts| EfiTime::new(ts).ok())
+gbl/efi/src/ops.rs-180-        } else {
+gbl/efi/src/ops.rs-181-            None
+--
+gbl/efi/src/ops.rs-369-                        Ok(CommandExecType::CustomImpl)
+gbl/efi/src/ops.rs-370-                    }
+gbl/efi/src/ops.rs-371-                    Ok(_) => Err(Error::InvalidState),
+gbl/efi/src/ops.rs-372-                    Err(e) => Err(e),
+gbl/efi/src/ops.rs-373-                }
+gbl/efi/src/ops.rs-374-            }
+gbl/efi/src/ops.rs-375-            Err(Error::NotFound) => Ok(Default::default()),
+gbl/efi/src/ops.rs-376-            Err(e) => Err(e),
+gbl/efi/src/ops.rs-377-        }
+gbl/efi/src/ops.rs-378-    }
+gbl/efi/src/ops.rs-379-}
+gbl/efi/src/ops.rs-380-
+gbl/efi/src/ops.rs:381:impl Write for Ops<'_, '_> {
+gbl/efi/src/ops.rs-382-    fn write_str(&mut self, s: &str) -> core::fmt::Result {
+gbl/efi/src/ops.rs-383-        efi_print!(self.efi_entry, "{}", s);
+gbl/efi/src/ops.rs-384-        Ok(())
+gbl/efi/src/ops.rs-385-    }
+gbl/efi/src/ops.rs-386-}
+gbl/efi/src/ops.rs-387-
+gbl/efi/src/ops.rs-388-/// Helper function to handle message sending for cammand_exec
+gbl/efi/src/ops.rs-389-fn command_exec_message_sender(
+gbl/efi/src/ops.rs-390-    msg_type: GblEfiFastbootMessageType,
+gbl/efi/src/ops.rs-391-    msg: &str,
+gbl/efi/src/ops.rs-392-    sender: &mut Option<impl InfoSender + OkaySender + FailSender>,
+gbl/efi/src/ops.rs-393-) -> Result<()> {
+--
+gbl/efi/src/ops.rs-396-            Ok(block_on(sender.as_mut().ok_or(Error::ProtocolError)?.send_info(msg))?)
+gbl/efi/src/ops.rs-397-        }
+gbl/efi/src/ops.rs-398-        GBL_EFI_FASTBOOT_MESSAGE_TYPE_OKAY => {
+gbl/efi/src/ops.rs-399-            Ok(block_on(sender.take().ok_or(Error::ProtocolError)?.send_okay(msg))?)
+gbl/efi/src/ops.rs-400-        }
+gbl/efi/src/ops.rs-401-        GBL_EFI_FASTBOOT_MESSAGE_TYPE_FAIL => {
+gbl/efi/src/ops.rs-402-            Ok(block_on(sender.take().ok_or(Error::ProtocolError)?.send_fail(msg))?)
+gbl/efi/src/ops.rs-403-        }
+gbl/efi/src/ops.rs-404-        _ => Err(Error::InvalidInput),
+gbl/efi/src/ops.rs-405-    }
+gbl/efi/src/ops.rs-406-}
+gbl/efi/src/ops.rs-407-
+gbl/efi/src/ops.rs:408:impl<'a, 'b> GblOps<'b> for Ops<'a, 'b> {
+gbl/efi/src/ops.rs-409-    fn console_out(&mut self) -> Option<&mut dyn Write> {
+gbl/efi/src/ops.rs-410-        Some(self)
+gbl/efi/src/ops.rs-411-    }
+gbl/efi/src/ops.rs-412-
+gbl/efi/src/ops.rs-413-    /// UEFI console uses \r\n newline.
+gbl/efi/src/ops.rs-414-    fn console_newline(&self) -> &'static str {
+gbl/efi/src/ops.rs-415-        "\r\n"
+gbl/efi/src/ops.rs-416-    }
+gbl/efi/src/ops.rs-417-
+gbl/efi/src/ops.rs-418-    /// Reboots the system into the last set boot mode.
+gbl/efi/src/ops.rs-419-    fn reboot(&mut self) -> Result<Infallible> {
+gbl/efi/src/ops.rs-420-        self.efi_entry.system_table().runtime_services().cold_reset()
+
+===== CURRENT LOCAL DIFF =====
+diff --git a/gbl/efi/src/efi_blocks.rs b/gbl/efi/src/efi_blocks.rs
+index 3f21da57..86ac7f49 100644
+--- a/gbl/efi/src/efi_blocks.rs
++++ b/gbl/efi/src/efi_blocks.rs
+@@ -129,6 +129,10 @@ pub fn find_block_devices(efi_entry: &EfiEntry) -> Result<Vec<EfiGblDisk<'_>>, E
+     // TODO(b/452455989) Buffer size and capacity can be configurable using vendor path.
+     let gpt_buffer_size = gpt_buffer_size(GPT_MAX_NUM_ENTRIES)?;
+     for (idx, handle) in block_dev_handles.handles().iter().enumerate() {
++        match crate::utils::get_device_path(efi_entry, *handle) {
++            Ok(path) => efi_println!(efi_entry, "Block #{idx} path: {path}"),
++            Err(e) => efi_println!(efi_entry, "Block #{idx} path unavailable: {e:?}"),
++        }
+         let block_io = bs.open_protocol::<BlockIoProtocol>(*handle).unwrap();
+         // SAFETY: this code always executes at `EFI_TPL_APPLICATION`.
+         let media = unsafe {
+diff --git a/gbl/efi/src/lib.rs b/gbl/efi/src/lib.rs
+index 1652aa05..c30c2ab4 100644
+--- a/gbl/efi/src/lib.rs
++++ b/gbl/efi/src/lib.rs
+@@ -1,3 +1,4 @@
++#![allow(dead_code)]
+ // Copyright 2023, The Android Open Source Project
+ //
+ // Licensed under the Apache License, Version 2.0 (the "License");
+@@ -24,6 +25,8 @@
+ extern crate alloc;
+ 
+ mod efi_blocks;
++#[cfg(not(test))]
++mod diagnostic_fs;
+ #[cfg(feature = "fuchsia")]
+ mod fuchsia_boot;
+ mod net;
+@@ -51,14 +54,13 @@ pub(crate) use efi_mocks as efi;
+ #[cfg(not(test))]
+ use {
+     crate::{
+-        efi_blocks::{find_block_devices, EfiGblDisk},
+-        ops::Ops,
++        efi_blocks::EfiGblDisk,
+     },
+     cfg_if::cfg_if,
+     core::convert::Infallible,
+-    efi::{efi_println, report_error_and_reset, EfiEntry},
++    efi::{efi_println, EfiEntry},
+     libbuild_number::{format_build_fingerprint, format_build_vcs_info},
+-    libgbl::{Os, Result},
++    libgbl::Result,
+     utils::loaded_image_path,
+ };
+ 
+@@ -101,8 +103,8 @@ fn get_target_os(_entry: &EfiEntry, _disks: &[EfiGblDisk]) -> TargetOs {
+ 
+ /// GBL EFI application logic entry point.
+ #[cfg(not(test))]
++#[allow(unreachable_code, unused_variables)]
+ pub fn app_main(entry: EfiEntry) -> Result<Infallible> {
+-    use libutils::get_sp;
+     efi_println!(entry, "**** Generic Bootloader (GBL) ****");
+     efi_println!(entry, "Fingerprint: {}", format_build_fingerprint!());
+     efi_println!(entry, "VCS info: {}", format_build_vcs_info!());
+@@ -110,26 +112,48 @@ pub fn app_main(entry: EfiEntry) -> Result<Infallible> {
+         efi_println!(entry, "Image path: {v}");
+     }
+ 
+-    let disks = find_block_devices(&entry).inspect_err(|e| {
+-        report_error_and_reset(&entry, e, efi_types::GBL_EFI_DEBUG_ERROR_TAG_PARTITION)
+-    })?;
+-    match get_target_os(&entry, &disks) {
+-        #[cfg(feature = "fuchsia")]
+-        TargetOs::Fuchsia => {
+-            let mut load: libgbl::android_boot::BootBuffer =
+-                utils::get_boot_buffer(&entry, 128 * 1024 * 1024)?.into();
+-            let mut ops = Ops::new(&entry, &disks[..], Some(Os::Fuchsia), get_sp());
+-            let images = fuchsia_boot::efi_fuchsia_load(&mut ops, load.scratch())?;
+-            drop(disks);
+-            fuchsia_boot::efi_fuchsia_boot(entry, images)
+-        }
+-        TargetOs::Android => {
+-            let load = utils::get_boot_buffer(&entry, 256 * 1024 * 1024)?;
+-            let mut ops = Ops::new(&entry, &disks[..], Some(Os::Android), get_sp());
+-            let (ramdisk, fdt, kernel, remains) =
+-                android_boot::efi_android_load(&mut ops, load.into())?;
+-            drop(disks);
+-            android_boot::efi_android_boot(entry, kernel, ramdisk, fdt, remains)
++    // Read-only console mode diagnostic.
++    match entry.system_table().con_out() {
++        Ok(console) => {
++            let mode_info = console.interface().mode;
++            if mode_info.is_null() {
++                efi_println!(entry, "Console mode information unavailable.");
++            } else {
++                // SAFETY: UEFI provides this pointer as part of the live
++                // Simple Text Output Protocol.
++                let (max_mode, current_mode) = unsafe {
++                    ((*mode_info).max_mode, (*mode_info).mode)
++                };
++                efi_println!(
++                    entry,
++                    "Console current mode: {current_mode}; available modes: {max_mode}"
++                );
++
++                for mode in 0..max_mode.max(0) as usize {
++                    match console.query_mode(mode) {
++                        Ok((cols, rows)) => {
++                            efi_println!(
++                                entry,
++                                "Console mode {mode}: {cols} columns x {rows} rows"
++                            );
++                        }
++                        Err(e) => {
++                            efi_println!(
++                                entry,
++                                "Console mode {mode}: query failed: {e:?}"
++                            );
++                        }
++                    }
++                }
++            }
+         }
++        Err(e) => efi_println!(entry, "Console protocol unavailable: {e:?}"),
++    }
++
++    let report_status = diagnostic_fs::write_report(&entry);
++    efi_println!(entry, "Filesystem report: {report_status}");
++    efi_println!(entry, "Diagnostic complete. Halting before OS boot.");
++    loop {
++        core::hint::spin_loop();
+     }
+ }
+
+===== END =====
