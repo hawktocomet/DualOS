@@ -1,0 +1,13 @@
+{
+  "id": "20261109T012555Z-dualos-gbl-sd-source-device-disk-filter-implemen",
+  "title": "DualOS GBL SD source-device disk-filter implementation audit",
+  "created_utc": "2026-11-09T01:25:55.253040+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\necho \"===== PINNED SOURCE =====\"\ngit -C bootable/libbootloader rev-parse HEAD\ngit -C bootable/libbootloader status --short\n\necho\necho \"===== DISK DISCOVERY AND CONSTRUCTION =====\"\nrg -n -C 8 \"find_block_devices|EfiGblDisk|struct GblDisk|impl.*GblDisk|BlockIoProtocol|logical_partition\" \\\n  gbl/efi gbl/libgbl gbl/libefi\n\necho\necho \"===== LOADED IMAGE AND DEVICE PATH =====\"\nrg -n -C 10 \"LoadedImageProtocol|device_handle\\\\(|get_device_path|EfiDevicePathNodeIter|DevicePathProtocol\" \\\n  gbl/efi gbl/libefi\n\necho\necho \"===== DISK LIST AND OPS CONSTRUCTION =====\"\nrg -n -C 12 \"GblOps|expected_os|\\\\.disks\\\\(|disks:|android_main|efi_android_load|get_target_os\" \\\n  gbl/efi gbl/libgbl\n\necho\necho \"===== DEVICE PATH IMPLEMENTATION =====\"\nsed -n \"1,280p\" gbl/libefi/src/protocol/device_path.rs\n\necho\necho \"===== BLOCK IO MEDIA STRUCTURE =====\"\nsed -n \"1,240p\" gbl/libefi/src/protocol/block_io.rs\n\necho\necho \"===== LOCAL DIFF SUMMARY =====\"\ngit diff --stat\n"
+  ],
+  "exit_code": 129,
+  "duration_seconds": 0.018
+}

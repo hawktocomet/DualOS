@@ -1,0 +1,19 @@
+===== PINNED SOURCE =====
+2392920e832470f38899b068f880971d3a679664
+ M gbl/efi/src/efi_blocks.rs
+ M gbl/efi/src/lib.rs
+ M gbl/libefi/src/lib.rs
+ M gbl/libefi/src/protocol/simple_text_output.rs
+?? gbl/efi/src/diagnostic_fs.rs
+
+===== DISK DISCOVERY AND CONSTRUCTION =====
+
+===== LOADED IMAGE AND DEVICE PATH =====
+
+===== DISK LIST AND OPS CONSTRUCTION =====
+
+===== DEVICE PATH IMPLEMENTATION =====
+
+===== BLOCK IO MEDIA STRUCTURE =====
+
+===== LOCAL DIFF SUMMARY =====
