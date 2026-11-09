@@ -1,0 +1,11 @@
+Partition: /dev/mmcblk0p1
+Mount: /mnt/dualos-check
+
+=== ROOT DIRECTORY ===
+d /mnt/dualos-check
+
+=== EFI FILES ===
+
+=== MOUNT IDENTITY ===
+/dev/mmcblk0p1 vfat /mnt/dualos-check
+/dev/mmcblk0p1: LABEL_FATBOOT="GBLTEST" LABEL="GBLTEST" UUID="DD36-A492" BLOCK_SIZE="512" TYPE="vfat" PARTLABEL="primary" PARTUUID="1b806d74-8676-4e78-a90a-9c209e214d81"

@@ -1,0 +1,13 @@
+{
+  "id": "20261109T020811Z-dualos-microsd-efi-destination-layout-inspection",
+  "title": "DualOS microSD EFI destination layout inspection",
+  "created_utc": "2026-11-09T02:08:11.123991+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\nSD_PART=\"/dev/mmcblk0p1\"\nMOUNT_DIR=\"$(findmnt -rn -S \"$SD_PART\" -o TARGET | head -n 1)\"\n\necho \"Partition: $SD_PART\"\necho \"Mount: $MOUNT_DIR\"\necho\necho \"=== ROOT DIRECTORY ===\"\nsudo find \"$MOUNT_DIR\" -maxdepth 3 -printf \"%y %p\\n\" 2>/dev/null | sort | head -n 250\n\necho\necho \"=== EFI FILES ===\"\nsudo find \"$MOUNT_DIR\" -type f \\( -iname \"*.efi\" -o -iname \"BOOTAA64.EFI\" \\) -printf \"%p\\n\" 2>/dev/null\n\necho\necho \"=== MOUNT IDENTITY ===\"\nfindmnt -rn -T \"$MOUNT_DIR\" -o SOURCE,FSTYPE,TARGET\nsudo blkid \"$SD_PART\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.038
+}
