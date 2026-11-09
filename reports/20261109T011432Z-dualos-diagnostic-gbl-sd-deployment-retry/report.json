@@ -1,0 +1,13 @@
+{
+  "id": "20261109T011432Z-dualos-diagnostic-gbl-sd-deployment-retry",
+  "title": "DualOS diagnostic GBL SD deployment retry",
+  "created_utc": "2026-11-09T01:14:32.611273+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\nCARD=/mnt/dualos-check\nTARGET=\"$CARD/EFI/BOOT/BOOTAA64.EFI\"\nSOURCE=\"$PWD/out/bazel/output_user_root/019cb06479896b5a4be46fc2cc092e63/execroot/_main/bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi\"\nHOST_BACKUP=\"$HOME/dualos-sd-backups/20261109T0113Z/BOOTAA64.EFI.original\"\nCARD_BACKUP=\"$TARGET.pre-dualos-diagnostic\"\nEXPECTED=\"367cb02aa0c3bed854926b595ce1bbe5fb63fa2b52b99596b6b9caa93c1ca145\"\n\necho \"===== VERIFY EXISTING HOST BACKUP =====\"\nif [ ! -f \"$HOST_BACKUP\" ]; then echo \"Missing host backup\"; exit 1; fi\nsha256sum \"$HOST_BACKUP\"\n\necho\necho \"===== REMOUNT =====\"\nsudo mount -o remount,rw \"$CARD\" || exit 1\nfindmnt \"$CARD\"\n\necho\necho \"===== VERIFY CARD AND SOURCE =====\"\nif [ ! -f \"$TARGET\" ] || [ ! -f \"$SOURCE\" ]; then echo \"Missing EFI file\"; exit 1; fi\nif [ -e \"$CARD_BACKUP\" ]; then echo \"Card backup already exists; stopping\"; exit 1; fi\nif [ \"$(sudo sha256sum \"$TARGET\" | awk \"{print \\$1}\")\" != \"edc8958b8308cf52d6e6e2d4b3c308c0d8786ee9b27d6b4534e9c72bae9fa4ae\" ]; then\n  echo \"Original card EFI changed; stopping\"\n  exit 1\nfi\nif [ \"$(sha256sum \"$SOURCE\" | awk \"{print \\$1}\")\" != \"$EXPECTED\" ]; then echo \"Diagnostic source hash mismatch\"; exit 1; fi\n\necho\necho \"===== BACK UP ORIGINAL ON CARD =====\"\nsudo cp -p \"$TARGET\" \"$CARD_BACKUP\" || exit 1\nsudo sha256sum \"$CARD_BACKUP\" || exit 1\n\necho\necho \"===== INSTALL DIAGNOSTIC EFI =====\"\nsudo cp \"$SOURCE\" \"$TARGET.new\" || exit 1\nif [ \"$(sudo sha256sum \"$TARGET.new\" | awk \"{print \\$1}\")\" != \"$EXPECTED\" ]; then\n  echo \"Staged file hash mismatch; original remains intact\"\n  sudo rm -f \"$TARGET.new\"\n  exit 1\nfi\nsudo mv \"$TARGET.new\" \"$TARGET\" || exit 1\nsync\n\necho\necho \"===== FINAL VERIFICATION =====\"\nsudo sha256sum \"$TARGET\" \"$CARD_BACKUP\"\nsha256sum \"$HOST_BACKUP\"\nsudo file \"$TARGET\"\nif [ \"$(sudo sha256sum \"$TARGET\" | awk \"{print \\$1}\")\" = \"$EXPECTED\" ]; then\n  echo \"DEPLOYMENT_VERIFIED\"\nelse\n  echo \"FINAL HASH MISMATCH\"\n  exit 1\nfi\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 2.785
+}

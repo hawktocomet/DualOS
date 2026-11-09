@@ -1,0 +1,20 @@
+===== VERIFY EXISTING HOST BACKUP =====
+edc8958b8308cf52d6e6e2d4b3c308c0d8786ee9b27d6b4534e9c72bae9fa4ae  /home/hawk/dualos-sd-backups/20261109T0113Z/BOOTAA64.EFI.original
+
+===== REMOUNT =====
+TARGET            SOURCE         FSTYPE OPTIONS
+/mnt/dualos-check /dev/mmcblk0p1 vfat   rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro
+
+===== VERIFY CARD AND SOURCE =====
+
+===== BACK UP ORIGINAL ON CARD =====
+edc8958b8308cf52d6e6e2d4b3c308c0d8786ee9b27d6b4534e9c72bae9fa4ae  /mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI.pre-dualos-diagnostic
+
+===== INSTALL DIAGNOSTIC EFI =====
+
+===== FINAL VERIFICATION =====
+367cb02aa0c3bed854926b595ce1bbe5fb63fa2b52b99596b6b9caa93c1ca145  /mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI
+edc8958b8308cf52d6e6e2d4b3c308c0d8786ee9b27d6b4534e9c72bae9fa4ae  /mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI.pre-dualos-diagnostic
+edc8958b8308cf52d6e6e2d4b3c308c0d8786ee9b27d6b4534e9c72bae9fa4ae  /home/hawk/dualos-sd-backups/20261109T0113Z/BOOTAA64.EFI.original
+/mnt/dualos-check/EFI/BOOT/BOOTAA64.EFI: PE32+ executable for EFI (application), ARM64, 5 sections
+DEPLOYMENT_VERIFIED
