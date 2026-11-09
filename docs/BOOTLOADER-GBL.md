@@ -70,28 +70,42 @@ Protocol: EFI_SIMPLE_FILE_SYSTEM_PROTOCOL
 Report: write completed
 ```
 
+## Latest SD-only GBL device-selection test
+
+The later SD-only Android GBL build was deployed to the test microSD as `EFI/BOOT/BOOTAA64.EFI`. SHA-256: `4b066ad11e222529a0ad526fa11c20e63ffb1480a819c4a45dbcac71b208ef55`.
+
+The device executed this build. Diagnostics confirmed that the loaded-image device path resolved to the SD card, physical-parent discovery succeeded, other disks were excluded, and GBL returned exactly one selected physical disk (`GBL_DISKS_RETURNED: 1`). The deployment preserved the previous EFI as a rollback copy. Internal eMMC and openABL were not modified.
+
+The boot attempt entered a loop. This demonstrates execution of the modified GBL and SD-only physical-device selection, but not successful Android partition discovery, image loading, or kernel handoff. The cause of the loop is unknown; an absent or invalid Android installation on the SD card is one possibility, not a confirmed diagnosis.
+
+Evidence:
+- [SD-only GBL deployment](https://github.com/hawktocomet/DualOS/tree/reports/reports/20261109T021053Z-dualos-deploy-observable-sd-only-android-gbl-efi)
+- [First SD GBL boot-loop diagnostic](https://github.com/hawktocomet/DualOS/tree/reports/reports/20261109T021331Z-dualos-first-sd-gbl-boot-loop-diagnostic-retriev)
+
 ## Verified versus outstanding
 
 Demonstrated:
 - AArch64 GBL development build succeeds.
+- The current SD-only GBL build executes on the Duo Lite and selects the SD physical device while excluding other disks.
 - Duo Lite boots the custom GBL EFI application from microSD.
 - The application accesses the filesystem on its loaded-image device.
 - The application creates and writes a report that can be read back.
 
 Not yet demonstrated:
+- Discovering and loading the required Android partitions from microSD.
 - Booting a complete Android system from microSD through this custom GBL implementation.
 - Loading and handing off to a DualOS Android kernel.
 - OpenABL integration with this custom boot flow.
 - Automatic stock Android fallback when the card is absent.
 
-Important: this build uses a temporary diagnostic entry point that intentionally halts before OS boot. The normal GBL Android/Fuchsia loading flow is bypassed in this build. The diagnostic test is not proof of Android SD boot.
+Important: the earlier diagnostic build uses a temporary entry point that intentionally halts before OS boot. The normal GBL Android/Fuchsia loading flow is bypassed in this build. The diagnostic test is not proof of Android SD boot.
 
 ## Next steps
 
-1. Preserve the diagnostic source and build as a known-good checkpoint.
-2. Trace the existing GBL Android loading path and identify required boot configuration, image formats and device dependencies.
-3. Determine how to locate and load Android boot components from microSD.
-4. Implement and test a controlled Android boot handoff.
+1. Preserve the diagnostic source, SD-only selection changes, and current deployed EFI as rollback/reference artifacts.
+2. Establish the Android-on-SD partition and image layout required by the Duo Lite.
+3. Trace GBL Android partition discovery, boot configuration, image loading, and device dependencies against that layout.
+4. Implement and test a controlled Android boot handoff from SD only.
 5. Integrate OpenABL selection and verify stock fallback without modifying internal storage.
 
 ## Storage safety

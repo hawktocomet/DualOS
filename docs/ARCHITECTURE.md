@@ -15,7 +15,7 @@ The intended boot arrangement is:
 
 The internal eMMC installation is not a target for DualOS installation or modification.
 
-This is the target architecture. A complete Android boot from microSD through GBL has not yet been demonstrated.
+This is the target architecture. The current SD-only GBL build has executed on-device and selected the SD physical device while excluding other disks. A complete Android boot from microSD through GBL has not yet been demonstrated.
 
 ## Platform layers
 
@@ -112,11 +112,12 @@ Demonstrated:
 - ROCKNIX boot from microSD.
 - GBL EFI application boot from microSD.
 - GBL diagnostic access to the loaded-image device's filesystem.
+- Execution of the SD-only GBL build on the Duo Lite, with SD physical-device selection and other disks excluded (`GBL_DISKS_RETURNED: 1`).
 - Successful diagnostic report write to the microSD filesystem.
 
 Not yet demonstrated:
 
-- Complete Android system boot from microSD through GBL.
+- Successful Android partition discovery, image loading, and complete Android system boot from microSD through GBL. The latest SD-only GBL boot attempt entered a loop; the cause is not yet confirmed.
 - OpenABL selection and handoff for the finished DualOS installation.
 - Full hardware support under the proposed Android build.
 - The integrated DualOS home environment.

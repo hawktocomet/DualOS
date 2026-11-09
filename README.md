@@ -40,13 +40,14 @@ The Play experience will include the game library and integrated streaming. Addi
 Completed or demonstrated:
 
 - ROCKNIX has successfully booted from microSD on the Duo Lite.
-- A custom GBL EFI diagnostic application has booted from microSD.
+- A custom GBL EFI application has booted from microSD.
+- The current SD-only GBL build has executed on-device and selected the microSD physical device while excluding other disks (`GBL_DISKS_RETURNED: 1`).
 - The diagnostic application successfully identified its loaded-image device, accessed that device's filesystem, and wrote a report to the card.
 - The original stock Android installation remains on internal storage.
 
 Not yet demonstrated:
 
-- Booting a complete Android-based DualOS installation from microSD through GBL.
+- Booting a complete Android-based DualOS installation from microSD through GBL. The latest SD-only GBL test entered a boot loop; Android partition discovery and kernel handoff remain unresolved.
 - OpenABL operating-system selection for the completed DualOS installation.
 - The complete DualOS Android system and first-party interface.
 

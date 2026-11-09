@@ -9,9 +9,10 @@ Items are goals until verified on the device.
 - [x] Boot ROCKNIX from microSD on the Duo Lite.
 - [x] Build and boot a custom GBL EFI diagnostic application from microSD.
 - [x] Verify GBL can identify the loaded-image device and access its filesystem.
+- [x] Execute the SD-only GBL build on-device and verify selection of the SD physical device with other disks excluded.
 - [x] Write and read back a diagnostic report on the microSD card.
 - [ ] Establish the complete Android boot requirements for the Duo Lite.
-- [ ] Determine the required microSD Android storage and partition layout.
+- [ ] Determine and verify the required microSD Android storage and partition layout.
 - [ ] Boot a minimal Android-based system from microSD through GBL.
 - [ ] Validate the OpenABL selection and handoff flow.
 - [ ] Verify stock Android fallback with the microSD removed.
