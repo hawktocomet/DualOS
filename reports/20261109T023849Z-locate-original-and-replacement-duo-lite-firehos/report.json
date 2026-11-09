@@ -1,0 +1,19 @@
+{
+  "id": "20261109T023849Z-locate-original-and-replacement-duo-lite-firehos",
+  "title": "Locate original and replacement Duo Lite Firehose tools",
+  "created_utc": "2026-11-09T02:38:49.742830+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-lc",
+    "\necho \"========== KNOWN FIREHOSE LOADER ==========\"\nLOADER=\"/home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin\"\nif [ -f \"$LOADER\" ]; then\n  ls -lh \"$LOADER\"\n  sha256sum \"$LOADER\"\nelse\n  echo \"Known loader not found at recorded path\"\nfi\n\necho\necho \"========== EDL / FIREHOSE EXECUTABLES AND REPOSITORIES ==========\"\nfind /home/hawk /opt /usr/local/bin \\\n  -maxdepth 8 \\\n  \\( -iname \"edl.py\" -o -iname \"edl\" -o -iname \"qdl\" \\\n     -o -iname \"*firehose*\" -o -iname \"*qualcomm*flash*\" \\\n     -o -iname \"*qfil*\" \\) \\\n  -print 2>/dev/null | sort -u\n\necho\necho \"========== LIKELY TOOL SOURCE CHECKOUTS ==========\"\nfind /home/hawk \\\n  -maxdepth 7 -type d \\\n  \\( -iname \"*edl*\" -o -iname \"*qdl*\" -o -iname \"*firehose*\" \\) \\\n  -print 2>/dev/null | sort -u\n\necho\necho \"========== SHELL HISTORY REFERENCES ==========\"\nfor H in /home/hawk/.bash_history /home/hawk/.zsh_history /home/hawk/.local/share/fish/fish_history; do\n  if [ -f \"$H\" ]; then\n    echo \"--- $H ---\"\n    grep -niE \"edl|firehose|qdl|qfil|sahara|rawprogram|boot_a|vendor_boot|super\" \"$H\" 2>/dev/null | tail -n 100\n  fi\ndone\n\necho\necho \"========== PREVIOUS CAPTURE SCRIPTS ==========\"\nfor F in /home/hawk/duo_edl_report_2.sh; do\n  if [ -f \"$F\" ]; then\n    echo \"--- $F ---\"\n    grep -nEi -C 4 \"edl|firehose|read|dump|sector|partition|loader\" \"$F\"\n  fi\ndone\n\necho\necho \"SEARCH COMPLETE: no device commands executed\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 3.319,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}
