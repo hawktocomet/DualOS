@@ -1,0 +1,13 @@
+{
+  "id": "20261109T004424Z-gbl-source-device-affinity-and-android-partition",
+  "title": "GBL source-device affinity and Android partition resolution",
+  "created_utc": "2026-11-09T00:44:24.192199+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl",
+  "command": [
+    "bash",
+    "-c",
+    "\nROOT=bootable/libbootloader/gbl\n\necho \"===== REVISION AND WORKTREE =====\"\ngit -C bootable/libbootloader rev-parse HEAD\ngit -C bootable/libbootloader status --short\n\necho\necho \"===== GBL EFI OPS: CONSTRUCTION AND OS INPUT =====\"\nrg -n -C 12 \\\n  \"struct Ops|impl.*Ops|Ops::new|expected_os|self\\.os|os:\" \\\n  \"$ROOT/efi/src\"\n\necho\necho \"===== GBL EFI: BLOCK DEVICE DISCOVERY =====\"\nrg -n -C 12 \\\n  \"find_block_devices|GblDisk|BlockIoProtocol|DevicePathProtocol|LoadedImageProtocol\" \\\n  \"$ROOT/efi/src\"\n\necho\necho \"===== GBL EFI: LOADED IMAGE DEVICE PATH =====\"\nrg -n -C 12 \\\n  \"loaded_image|device_handle|device_path|file_path|LoadedImage\" \\\n  \"$ROOT/efi/src\"\n\necho\necho \"===== SHARED GBL: ANDROID BOOT ENTRY AND OS DETECTION =====\"\nrg -n -C 10 \\\n  \"android_main|expected_os|Os::Android|Android.*boot|boot_android\" \\\n  \"$ROOT/libgbl/src\"\n\necho\necho \"===== SHARED GBL: PARTITION LOOKUP AND DISK SELECTION =====\"\nrg -n -C 10 \\\n  \"find_partition|find.*partition|get_partition|partition.*name|disks\\(\\)|\\.disks|GblDisk|PartitionName\" \\\n  \"$ROOT/libgbl/src\" \"$ROOT/storage\"\n\necho\necho \"===== PARTITION BUFFER IMPLEMENTATION =====\"\nrg -n -C 12 \\\n  \"get_partition_buffer|gbl_get_partition_buffer|GetPartitionBuffer|PartitionBuffer\" \\\n  \"$ROOT\"\n\necho\necho \"===== ANDROID BOOT FLOW DOCUMENTATION =====\"\nsed -n \"1,240p\" \"$ROOT/docs/gbl_android_flow.md\"\n\necho\necho \"===== END OF REPORT =====\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 0.052
+}
