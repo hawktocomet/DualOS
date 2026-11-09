@@ -1,0 +1,22 @@
+Computing main repo mapping: 
+Loading: 
+Loading: 0 packages loaded
+Analyzing: target @@gbl+//efi:aarch64_dev (0 packages loaded, 0 targets configured)
+Analyzing: target @@gbl+//efi:aarch64_dev (0 packages loaded, 0 targets configured)
+
+INFO: From BazelWorkspaceStatusAction stable-status.txt:
+BUILD_BRANCH=gbl-mainline
+BUILD_NUMBER=eng.hawk.2026-11-08
+BUILD_REVISION=2392920e8324-dirty
+INFO: Analyzed target @@gbl+//efi:aarch64_dev (0 packages loaded, 0 targets configured).
+[13 / 20] Compiling Rust rlib libgbl_efi (9 files); 1s linux-sandbox
+[13 / 20] Compiling Rust rlib libgbl_efi (9 files); 11s linux-sandbox
+[14 / 20] [Prepa] Clippy @gbl//efi:app
+[15 / 20] Compiling Rust bin app (2 files); 1s linux-sandbox
+[15 / 20] Compiling Rust bin app (2 files); 11s linux-sandbox
+[16 / 20] [Prepa] Executing genrule @@gbl+//efi:gbl_efi
+INFO: From Executing genrule @@gbl+//efi:gbl_efi_testkey:
+INFO: Found 1 target...
+INFO: Elapsed time: 40.729s, Critical Path: 40.55s
+INFO: 9 processes: 1 action cache hit, 3 internal, 6 linux-sandbox.
+INFO: Build completed successfully, 9 total actions

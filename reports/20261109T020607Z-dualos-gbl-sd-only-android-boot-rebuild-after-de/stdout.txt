@@ -1,0 +1,10 @@
+
+=== SOURCE CHECK ===
+199:    let selected_disk_path = crate::utils::get_device_path(efi_entry, source_disk_handle)?;
+200-    efi_println!(efi_entry, "DUALOS SELECTED PHYSICAL DISK: {selected_disk_path}");
+201-    efi_println!(
+
+=== AARCH64 EFI BUILD ===
+avbtool command: avbtool add_hash_footer --key external/gbl+/signtool/testkeys/testkey_RSA4096.pem --algorithm SHA256_RSA4096 --prop testkey:true --image /tmp/tmp_6eextu7/gbl.efi --partition_name gbl --dynamic_partition_size --prop authenticode:e95b22fecee0f68f4a3a56b82eaafb5b7589265ea09012f16113dee0a1946cc5
+Authenticode digest (sha256): e95b22fecee0f68f4a3a56b82eaafb5b7589265ea09012f16113dee0a1946cc5
+Signed image written to bazel-out/k8-fastbuild-ST-1cb3a8a3a143/bin/external/gbl+/efi/testkey_signed/gbl.efi
