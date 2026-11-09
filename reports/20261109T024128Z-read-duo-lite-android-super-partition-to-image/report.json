@@ -1,0 +1,19 @@
+{
+  "id": "20261109T024128Z-read-duo-lite-android-super-partition-to-image",
+  "title": "Read Duo Lite Android super partition to image",
+  "created_utc": "2026-11-09T02:41:28.115541+00:00",
+  "cwd": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+  "command": [
+    "bash",
+    "-lc",
+    "\nEDL=\"/home/hawk/duo_edl/edl/.venv/bin/edl\"\nLOADER=\"/home/hawk/duo_forensics/qcs6125_loader_test/001750e100000000_d40eee56f3194665574109a39267724ae7944134cd53cb767e293d3c40497955bc8a4519ff992b031fadc6355015ac87.bin\"\nOUT=\"/home/hawk/duo_forensics/android_boot_chain_20261102_094334/super.img\"\nEXPECTED=12884901888\n\necho \"========== FINAL SAFETY CHECKS ==========\"\nif [ ! -x \"$EDL\" ]; then echo \"ERROR: EDL client unavailable\"; exit 20; fi\nif [ ! -f \"$LOADER\" ]; then echo \"ERROR: programmer loader unavailable\"; exit 21; fi\nif [ -e \"$OUT\" ]; then echo \"ERROR: output already exists; refusing to overwrite\"; exit 22; fi\n\nAVAILABLE=$(df -B1 --output=avail \"$(dirname \"$OUT\")\" | tail -n 1 | tr -d \" \")\necho \"Available bytes: $AVAILABLE\"\nif [ \"$AVAILABLE\" -lt \"$EXPECTED\" ]; then echo \"ERROR: insufficient free space\"; exit 23; fi\n\necho\necho \"========== READ-ONLY FIREHOSE EXTRACTION ==========\"\necho \"Operation: rs (read sectors)\"\necho \"Memory: eMMC\"\necho \"LUN: 0\"\necho \"Start sector: 3824640\"\necho \"Sector count: 25165824\"\necho \"Sector size: 512\"\necho \"Destination: $OUT\"\necho\n\n\"$EDL\" rs 3824640 25165824 \"$OUT\" \\\n  --lun=0 \\\n  --sectorsize=512 \\\n  --memory=eMMC \\\n  --loader=\"$LOADER\"\n\nRC=$?\necho\necho \"Firehose read exit code: $RC\"\nif [ \"$RC\" -ne 0 ]; then\n  echo \"ERROR: read failed; any partial output has been preserved\"\n  [ -f \"$OUT\" ] && ls -lh \"$OUT\"\n  exit \"$RC\"\nfi\n\necho\necho \"========== IMAGE VALIDATION ==========\"\nif [ ! -f \"$OUT\" ]; then echo \"ERROR: no output image created\"; exit 24; fi\nACTUAL=$(stat -c%s \"$OUT\")\necho \"Expected bytes: $EXPECTED\"\necho \"Actual bytes:   $ACTUAL\"\nls -lh \"$OUT\"\nif [ \"$ACTUAL\" -ne \"$EXPECTED\" ]; then\n  echo \"ERROR: image size mismatch; preserving output for inspection\"\n  exit 25\nfi\n\nsha256sum \"$OUT\"\necho \"SUPER_EXTRACTION_VERIFIED\"\n"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 373.265,
+  "git": {
+    "root": "/home/hawk/source/DualOS-tools/aosp-uefi-gbl/bootable/libbootloader",
+    "commit": "2392920e832470f38899b068f880971d3a679664",
+    "branch": "",
+    "status": "M gbl/efi/src/efi_blocks.rs\n M gbl/efi/src/lib.rs\n M gbl/libefi/src/lib.rs\n M gbl/libefi/src/protocol/device_path.rs\n M gbl/libefi/src/protocol/simple_text_output.rs\n?? edl_config.json\n?? gbl/efi/src/diagnostic_fs.rs"
+  }
+}
